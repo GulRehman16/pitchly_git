@@ -4,6 +4,7 @@ const Images = {
     appBg: require('../../assets/images/Bg.png'),
     profile: require('../../assets/images/profile.png'),
     help: require('../../assets/images/help.png'),
+    forgetBlur: require('../../assets/images/forgetBlur.png'),
   },
   Logos: {
     connect: require('../../assets/images/connect.png'),

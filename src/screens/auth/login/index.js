@@ -138,7 +138,7 @@ const Login = props => {
               <Text style={styles.footerText1}>Create an account</Text>
               <TouchableOpacity
                 activeOpacity={0.7}
-                onPress={() => props.navigation.navigate('login')}>
+                onPress={() => props.navigation.navigate('signUp')}>
                 <Text style={styles.footerText2}> Sign Up</Text>
               </TouchableOpacity>
             </View>

@@ -59,7 +59,7 @@ const SignUp = props => {
                 style={{width: '100%', height: '100%'}}
               />
             </View>
-            <TouchableOpacity activeOpacity={0.7} style={styles.uploadButton}>
+            <TouchableOpacity activeOpacity={0.6} style={styles.uploadButton}>
               <Icon name="plus" type="Feather" style={{fontSize: 18}} />
             </TouchableOpacity>
           </View>

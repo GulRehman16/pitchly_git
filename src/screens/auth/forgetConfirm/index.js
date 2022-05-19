@@ -16,18 +16,14 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 
 const ForgetConfirm = props => {
   return (
-    <SafeAreaView style={styles.imageContainer}>
+    <ImageBackground
+      style={styles.imageContainer}
+      source={Images.Pictures.forgetBlur}>
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{flexGrow: 1}}>
         <StatusBar backgroundColor={'transparent'} translucent={true} />
-        <View style={styles.screenHeader}>
-          <Header
-            onPress={() => {
-              props.navigation.goBack();
-            }}
-          />
-        </View>
+
         <View style={styles.screenBody}>
           <View style={styles.profileImageContainer}>
             <View style={styles.profileImage}>
@@ -78,7 +74,7 @@ const ForgetConfirm = props => {
           </View>
         </View>
       </ScrollView>
-    </SafeAreaView>
+    </ImageBackground>
   );
 };
 export default ForgetConfirm;
@@ -114,6 +110,8 @@ const styles = StyleSheet.create({
     width: '80%',
     height: '100%',
     alignSelf: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   profileImageContainer: {
     width: 135,
