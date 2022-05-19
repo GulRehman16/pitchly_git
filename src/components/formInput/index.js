@@ -28,6 +28,8 @@ const FormInput = ({
   multiLine,
   backgroundColor,
   PhoneInput,
+
+  height,
 }) => {
   return (
     <View
@@ -60,7 +62,12 @@ const FormInput = ({
         style={
           styleI || {
             width: iconL && iconR ? '80%' : iconL ? '90%' : '100%',
+            height: height || 50,
             paddingLeft: iconL ? 0 : 10,
+            multiLine: multiLine || false,
+
+            textAlignVertical: multiLine ? 'top' : 'center',
+
             color: 'black',
             // height: '100%',
           }

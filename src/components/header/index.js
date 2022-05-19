@@ -57,7 +57,7 @@ const Header = ({
               color: 'black',
               marginLeft: 10,
             }}>
-            {Text}
+            {text}
           </Text>
         )}
       </View>

@@ -10,18 +10,26 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {FormInput, AppButton, Header, NumInput} from '../../../components';
+import {
+  FormInput,
+  AppButton,
+  Header,
+  NumInput,
+  CheckBox,
+} from '../../../components';
 import {Images} from '../../../constants';
 
 const SignUp = props => {
   const [state, setState] = useState({
     firsttName: '',
     lastName: '',
+    userName: '',
     email: '',
     password: '',
     confirmPassword: '',
     phone: '',
     focus: '',
+    agree: false,
     secureText: true,
     secureText2: true,
   });
@@ -85,6 +93,22 @@ const SignUp = props => {
                 onChangeText={value => setState({...state, lastName: value})}
                 placeHolder="Enter Your Last Name"
                 onFocus={() => setState({...state, focus: 'lastName'})}
+                onBlur={() => setState({...state, focus: ''})}
+              />
+            </View>
+            <Text style={styles.inputLabelName}>UserName</Text>
+            <View
+              style={{
+                marginVertical: 8,
+                borderColor: state.focus === 'userName' ? '#707070' : null,
+                borderWidth: state.focus === 'userName' ? 1 : 0,
+                borderRadius: 5,
+              }}>
+              <FormInput
+                value={state.userName}
+                onChangeText={value => setState({...state, userName: value})}
+                placeHolder="Enter Your User Name"
+                onFocus={() => setState({...state, focus: 'userName'})}
                 onBlur={() => setState({...state, focus: ''})}
               />
             </View>
@@ -152,21 +176,70 @@ const SignUp = props => {
                 onBlur={() => setState({...state, focus: ''})}
               />
             </View>
-            <Text style={styles.inputLabelName}>Confirm Password</Text>
-            <View
-              style={{
-                width: '100%',
-                height: 51,
-                marginVertical: 8,
-                borderColor: state.focus === 'phone' ? '#707070' : null,
-                borderWidth: state.focus === 'phone' ? 1 : 0,
-                borderRadius: 5,
-              }}>
-              <NumInput />
+            <View style={{width: '100%', marginTop: -10}}>
+              <CheckBox
+                circle
+                alignItem={'flex-start'}
+                onPress={() => setState({checked: !state.checked})}
+                checked={state.checked}
+                text={'Phone'}
+                fontSize={16}
+              />
             </View>
-
+            {state.checked ? (
+              <View
+                style={{
+                  marginTop: -5,
+                  width: '100%',
+                  height: 51,
+                  marginVertical: 8,
+                  borderColor: state.focus === 'phone' ? '#707070' : null,
+                  borderWidth: state.focus === 'phone' ? 1 : 0,
+                  borderRadius: 5,
+                }}>
+                <NumInput />
+              </View>
+            ) : null}
+            <View style={styles.termView}>
+              <View>
+                <CheckBox
+                  square
+                  alignItem={'flex-start'}
+                  onPress={() => setState({...state, agree: !state.agree})}
+                  checked={state.agree}
+                />
+              </View>
+              <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                <Text style={{color: 'black'}}>I accept </Text>
+                <TouchableOpacity
+                  activeOpacity={0.7}
+                  onPress={() => {
+                    props.navigation.navigate('Homes', {
+                      screen: 'termsAndCondition',
+                    });
+                  }}>
+                  <Text style={styles.termsPrivacy}>Terms & Conditions</Text>
+                </TouchableOpacity>
+                <Text style={{color: 'black'}}> & </Text>
+                <TouchableOpacity
+                  activeOpacity={0.7}
+                  onPress={() => {
+                    props.navigation.navigate('Homes', {
+                      screen: 'privacyPolicy',
+                    });
+                  }}>
+                  <Text style={styles.termsPrivacy}> Privacy Policy</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
             <View style={{paddingVertical: 40, width: '100%'}}>
               <AppButton
+                LinearColor1={'#5DF7B8'}
+                LinearColor2={'#3109FB'}
+                color={'white'}
+                borderWidth={0.5}
+                borderColor={'#707070'}
+                backgroundColor={'#FFFFFF'}
                 label="Sign Up"
                 onPress={() => props.navigation.replace('login')}
               />
@@ -175,19 +248,45 @@ const SignUp = props => {
         </View>
         <View
           style={{
-            height: 40,
-            width: '90%',
+            width: '100%',
+            marginTop: -10,
             alignSelf: 'center',
             flexDirection: 'row',
             alignItems: 'center',
             justifyContent: 'center',
           }}>
-          <Text style={{color: 'black'}}>Already have an account? </Text>
+          <Text style={{color: 'black', fontSize: 16}}>
+            Already have an account?
+          </Text>
           <TouchableOpacity
             activeOpacity={0.7}
             onPress={() => props.navigation.navigate('login')}>
-            <Text style={{color: 'black'}}>Login</Text>
+            <Text
+              style={{
+                color: '#4059E4',
+                fontWeight: 'bold',
+                fontSize: 16,
+                paddingLeft: 5,
+              }}>
+              Sign In
+            </Text>
           </TouchableOpacity>
+        </View>
+
+        <View
+          style={{
+            marginTop: 40,
+            width: '100%',
+            paddingBottom: 30,
+          }}>
+          <View style={styles.footerBtn}>
+            <Text style={styles.footerText1}>Having trouble</Text>
+            <TouchableOpacity
+              activeOpacity={0.7}
+              onPress={() => props.navigation.navigate('contactUs')}>
+              <Text style={styles.footerText2}>Contact us</Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </ScrollView>
     </ImageBackground>
@@ -258,4 +357,26 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   inputLabelName: {alignSelf: 'flex-start', color: '#000000', fontSize: 14},
+  termsPrivacy: {color: '#4059E4', fontSize: 15, fontWeight: 'bold'},
+  termView: {
+    width: '100%',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: -10,
+  },
+  footerBtn: {
+    width: '90%',
+    alignSelf: 'center',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  footerText1: {color: 'black', fontSize: 16, fontWeight: '500'},
+  footerText2: {
+    fontSize: 16,
+    color: '#4059E4',
+    paddingLeft: 4,
+    fontWeight: '500',
+  },
 });

@@ -97,6 +97,7 @@ const Login = props => {
               }}>
               <View>
                 <CheckBox
+                  square
                   alignItem={'flex-start'}
                   onPress={() => setState({checked: !state.checked})}
                   checked={state.checked}
@@ -155,7 +156,7 @@ const Login = props => {
             <Text style={styles.footerText1}>Having trouble</Text>
             <TouchableOpacity
               activeOpacity={0.7}
-              onPress={() => props.navigation.navigate('login')}>
+              onPress={() => props.navigation.navigate('contactUs')}>
               <Text style={styles.footerText2}>Contact us</Text>
             </TouchableOpacity>
           </View>

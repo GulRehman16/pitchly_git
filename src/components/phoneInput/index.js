@@ -45,7 +45,7 @@ const NumInput = ({bgColor, borderC, backgroundColor, borderW}) => {
           }}
           codeTextStyle={{marginLeft: -40}}
           flagButtonStyle={{marginLeft: -10}}
-          autoFocus
+          autoFocus={false}
           placeholder="Phone Number"
         />
 

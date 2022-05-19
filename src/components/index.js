@@ -4,3 +4,4 @@ export * from './tabBar';
 export * from './header';
 export * from './checkbox';
 export * from './phoneInput';
+export * from './policies';

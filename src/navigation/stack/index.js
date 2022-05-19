@@ -7,6 +7,11 @@ import home from '../../screens/homes/home';
 import signup from '../../screens/auth/signup';
 import mainAuth from '../../screens/auth/mainAuth';
 import MyTabs from '../bottomTab';
+import TermsAndCondition from '../../screens/homes/terms&conditons';
+import PrivacyPolicy from '../../screens/homes/privacyPolicy';
+import ContactUs from '../../screens/auth/contactUs';
+import ForgetPassword from '../../screens/auth/forgetPassword';
+import ForgetConfirm from '../../screens/auth/forgetConfirm';
 
 const Stack = createNativeStackNavigator();
 
@@ -35,6 +40,21 @@ const Auth = () => {
         component={signup}
         options={{headerShown: false}}
       />
+      <Stack.Screen
+        name="forgetPassword"
+        component={ForgetPassword}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="forgetConfirm"
+        component={ForgetConfirm}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="contactUs"
+        component={ContactUs}
+        options={{headerShown: false}}
+      />
     </Stack.Navigator>
   );
 };
@@ -45,6 +65,16 @@ export const Homes = () => {
       <Stack.Screen
         name="home"
         component={home}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="termsAndCondition"
+        component={TermsAndCondition}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="privacyPolicy"
+        component={PrivacyPolicy}
         options={{headerShown: false}}
       />
     </Stack.Navigator>
