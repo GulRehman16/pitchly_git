@@ -3,13 +3,14 @@ import React, {useState} from 'react';
 import Tooltip from 'react-native-walkthrough-tooltip';
 
 const Tooltips = ({invisible, visible}) => {
+  const [state, setState] = useState(true);
   return (
     <Tooltip
       isVisible={visible}
       content={<Text>Check this out!</Text>}
       placement="bottom"
       onClose={() => {
-        invisible;
+        setState({toolTipVisible: invisible});
       }}></Tooltip>
   );
 };
