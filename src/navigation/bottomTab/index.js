@@ -10,7 +10,15 @@ const Tab = createBottomTabNavigator();
 
 const MyTabs = props => {
   return (
-    <Tab.Navigator tabBar={props => <TabBar {...props} />}>
+    <Tab.Navigator
+      screenOptions={{
+        tabBarStyle: {
+          backgroundColor: 'red',
+        },
+      }}
+      tabBarPosition="bottom"
+      barStyle={{backgroundColor: '#0000'}}
+      tabBar={props => <TabBar {...props} />}>
       <Tab.Screen name="home" component={home} options={{headerShown: false}} />
       <Tab.Screen
         name="profile"

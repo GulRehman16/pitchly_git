@@ -14,7 +14,7 @@ import {FormInput, AppButton, Header, Confirmation} from '../../../components';
 import {Icon} from 'native-base';
 import {SafeAreaView} from 'react-native-safe-area-context';
 
-const ForgetConfirm = props => {
+const HavingTouble = props => {
   return (
     <ImageBackground
       style={styles.imageContainer}
@@ -27,9 +27,9 @@ const ForgetConfirm = props => {
         <View style={styles.screenBody}>
           <View style={{marginTop: -50, width: '100%'}}>
             <Confirmation
-              text={'Password Reset Link Sent'}
+              text={'Thank You \n for contacting Us'}
               image={Images.Logos.done}
-              text2={' Kindly Check Your Email @******@gmail.com'}
+              text2={'You will receive a reply from us soon'}
             />
           </View>
 
@@ -50,7 +50,7 @@ const ForgetConfirm = props => {
     </ImageBackground>
   );
 };
-export default ForgetConfirm;
+export default HavingTouble;
 const styles = StyleSheet.create({
   imageContainer: {
     flex: 1,

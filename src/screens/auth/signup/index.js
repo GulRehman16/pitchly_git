@@ -96,7 +96,7 @@ const SignUp = props => {
                 onBlur={() => setState({...state, focus: ''})}
               />
             </View>
-            <Text style={styles.inputLabelName}>UserName</Text>
+            <Text style={styles.inputLabelName}>Username</Text>
             <View
               style={{
                 marginVertical: 8,
@@ -107,7 +107,7 @@ const SignUp = props => {
               <FormInput
                 value={state.userName}
                 onChangeText={value => setState({...state, userName: value})}
-                placeHolder="Enter Your User Name"
+                placeHolder="Enter Your Username"
                 onFocus={() => setState({...state, focus: 'userName'})}
                 onBlur={() => setState({...state, focus: ''})}
               />
@@ -362,7 +362,7 @@ const styles = StyleSheet.create({
     width: '100%',
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     marginTop: -10,
   },
   footerBtn: {

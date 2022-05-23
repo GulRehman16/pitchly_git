@@ -14,12 +14,23 @@ import {
 import {Images} from '../../../constants';
 import {AppButton} from '../../../components';
 const height = Dimensions.get('window').height / 2.5;
+const width = Dimensions.get('window').width;
 const Splash = ({navigation}) => {
   // useEffect(() => {
   //   setTimeout(() => {
   //     navigation.replace('mainAuth');
   //   }, 1500);
   // }, []);
+
+  const [isPortrait, setIsPortrait] = React.useState(true);
+
+  useEffect(() => {
+    Dimensions.addEventListener('change', () => {
+      setIsPortrait(
+        Dimensions.get('window').height > Dimensions.get('window').width,
+      );
+    });
+  }, []);
 
   return (
     <ImageBackground
@@ -39,12 +50,16 @@ const Splash = ({navigation}) => {
               Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
             </Text>
           </View>
-          <View style={styles.connect}>
+          <View style={[styles.connect]}>
             <ImageBackground
               resizeMode="contain"
               style={styles.connectImg}
               source={Images.Logos.connect}>
-              <Image source={Images.Logos.appLogo} style={{}} />
+              <Image
+                source={Images.Logos.appLogo}
+                resizeMode={'contain'}
+                style={{width: '50%'}}
+              />
             </ImageBackground>
           </View>
           <View style={styles.authButtonContainer}>
@@ -100,7 +115,13 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     paddingBottom: 20,
   },
-  connect: {width: '90%', height: height, alignSelf: 'center', marginTop: 30},
+  connect: {
+    width: 300,
+    aspectRatio: 1,
+
+    alignSelf: 'center',
+    marginTop: 30,
+  },
   connectImg: {
     width: '100%',
     height: '100%',

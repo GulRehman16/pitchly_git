@@ -61,12 +61,12 @@ const ForgetPassword = props => {
             <Text
               style={{
                 height: 41,
-                fontSize: 16,
+                fontSize: 15,
                 marginTop: 20,
                 color: '#000000',
               }}>
               Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-              nonumy
+              nonumy eirmod
             </Text>
           </View>
           <View style={styles.inputContainer}>

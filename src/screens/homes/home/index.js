@@ -1,33 +1,37 @@
-import React from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
-import {SafeAreaView} from 'react-native-safe-area-context';
+import React, {useState} from 'react';
+import {
+  ScrollView,
+  StatusBar,
+  StyleSheet,
+  Image,
+  Text,
+  TouchableOpacity,
+  ImageBackground,
+  View,
+} from 'react-native';
+import {Images} from '../../../constants';
+import {FormInput, AppButton, Header, Tooltips} from '../../../components';
+import {Icon} from 'native-base';
 
 const Home = props => {
   return (
-    <SafeAreaView
-      style={{
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}>
-      <View style={{width: '90%', alignSelf: 'center'}}>
-        <Text>Home Screen</Text>
-        <TouchableOpacity
-          activeOpacity={0.7}
-          onPress={() => props.navigation.replace('Auth', {screen: 'login'})}
-          style={{
-            backgroundColor: 'steelblue',
-            justifyContent: 'center',
-            alignItems: 'center',
-            height: 45,
-            borderRadius: 7,
-            marginVertical: 5,
-          }}>
-          <Text>Logout</Text>
-        </TouchableOpacity>
-      </View>
-    </SafeAreaView>
+    <ImageBackground
+      style={styles.imageContainer}
+      source={Images.Pictures.appBg}>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{flexGrow: 1}}>
+        <StatusBar backgroundColor={'transparent'} translucent={true} />
+      </ScrollView>
+    </ImageBackground>
   );
 };
 
 export default Home;
+
+const styles = StyleSheet.create({
+  imageContainer: {
+    flex: 1,
+    justifyContent: 'center',
+  },
+});

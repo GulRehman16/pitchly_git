@@ -101,7 +101,7 @@ const Login = props => {
                   alignItem={'flex-start'}
                   onPress={() => setState({checked: !state.checked})}
                   checked={state.checked}
-                  text={'Remember'}
+                  text={'Remember me'}
                 />
               </View>
               <TouchableOpacity
@@ -138,7 +138,7 @@ const Login = props => {
               <Text style={styles.footerText1}>Create an account</Text>
               <TouchableOpacity
                 activeOpacity={0.7}
-                onPress={() => props.navigation.navigate('signUp')}>
+                onPress={() => props.navigation.navigate('signup')}>
                 <Text style={styles.footerText2}> Sign Up</Text>
               </TouchableOpacity>
             </View>

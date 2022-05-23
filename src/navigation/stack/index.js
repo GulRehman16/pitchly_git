@@ -12,6 +12,7 @@ import PrivacyPolicy from '../../screens/homes/privacyPolicy';
 import ContactUs from '../../screens/auth/contactUs';
 import ForgetPassword from '../../screens/auth/forgetPassword';
 import ForgetConfirm from '../../screens/auth/forgetConfirm';
+import HavingTouble from '../../screens/auth/havingTouble';
 
 const Stack = createNativeStackNavigator();
 
@@ -53,6 +54,11 @@ const Auth = () => {
       <Stack.Screen
         name="contactUs"
         component={ContactUs}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="havingTouble"
+        component={HavingTouble}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

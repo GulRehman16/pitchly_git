@@ -5,3 +5,5 @@ export * from './header';
 export * from './checkbox';
 export * from './phoneInput';
 export * from './policies';
+export * from './confirmation';
+export * from './tooltip';

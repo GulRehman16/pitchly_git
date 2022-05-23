@@ -11,6 +11,11 @@ const Images = {
     done: require('../../assets/images/done.png'),
     appLogo: require('../../assets/images/appLogo.png'),
     forgetPassword: require('../../assets/images/forgetPassword.png'),
+    homeIcon: require('../../assets/images/homeIcon.png'),
+    addIcon: require('../../assets/images/addIcon.png'),
+    userIcon: require('../../assets/images/userIcon.png'),
+    msgIcon: require('../../assets/images/msgIcon.png'),
+    notificationIcon: require('../../assets/images/notificationIcon.png'),
   },
 };
 

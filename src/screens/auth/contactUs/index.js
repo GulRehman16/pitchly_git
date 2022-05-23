@@ -46,6 +46,18 @@ const ContactUs = props => {
               />
             </View>
           </View>
+          <View
+            style={{
+              width: '100%',
+              alignItems: 'center',
+              justifyContent: 'center',
+              marginTop: 20,
+            }}>
+            <Text style={styles.profileImageText}>Having Trouble?</Text>
+            <Text style={styles.profileImageText2}>
+              Share your problem with us
+            </Text>
+          </View>
           <View style={styles.inputContainer}>
             <Text style={styles.inputLabelName}>Name</Text>
             <View
@@ -124,7 +136,7 @@ const ContactUs = props => {
               borderColor={'#707070'}
               backgroundColor={'#FFFFFF'}
               label="Submit"
-              onPress={() => props.navigation.replace('login')}
+              onPress={() => props.navigation.replace('havingTouble')}
             />
           </View>
         </View>
@@ -180,11 +192,21 @@ const styles = StyleSheet.create({
     borderRadius: 100,
     overflow: 'hidden',
   },
+  profileImageText: {
+    color: 'black',
+    fontSize: 20,
+
+    fontWeight: 'bold',
+  },
+  profileImageText2: {
+    fontSize: 15,
+    color: 'black',
+  },
 
   inputContainer: {
     width: '100%',
     // height: 300,
-    paddingTop: 30,
+    marginTop: 30,
     justifyContent: 'center',
     alignItems: 'center',
   },
