@@ -6,11 +6,11 @@ const Tooltips = ({invisible, visible}) => {
   const [state, setState] = useState(true);
   return (
     <Tooltip
-      isVisible={visible}
+      isVisible={true}
       content={<Text>Check this out!</Text>}
       placement="bottom"
       onClose={() => {
-        setState({toolTipVisible: invisible});
+        setState(false);
       }}></Tooltip>
   );
 };

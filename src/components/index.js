@@ -7,3 +7,6 @@ export * from './phoneInput';
 export * from './policies';
 export * from './confirmation';
 export * from './tooltip';
+export * from './homeHeader';
+export * from './statusView';
+export * from './pitchlyFeatured';
