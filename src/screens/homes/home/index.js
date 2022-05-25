@@ -19,12 +19,69 @@ import {
   HomeHeader,
   StatusView,
   PitchlyFeatured,
+  PostBox,
 } from '../../../components';
 import {Icon} from 'native-base';
+import LinearGradient from 'react-native-linear-gradient';
 
 const Home = props => {
   const [data, setData] = useState({
     statusData: [
+      {
+        imgName: Images.Pictures.statusImg1,
+        imgWidth: 59,
+        imgHeight: 59,
+        borderRadius: 19,
+        borderColor: '#3729F2',
+        borderWidth: 2,
+        width: 61,
+        height: 61,
+        text: 'John',
+      },
+      {
+        imgName: Images.Pictures.statusImg2,
+        imgWidth: 59,
+        imgHeight: 59,
+        borderRadius: 19,
+        borderColor: '#3729F2',
+        borderWidth: 2,
+        width: 61,
+        height: 61,
+        text: 'Veni',
+      },
+      {
+        imgName: Images.Pictures.statusImg3,
+        imgWidth: 59,
+        imgHeight: 59,
+        borderRadius: 19,
+        borderColor: '#3729F2',
+        borderWidth: 2,
+        width: 61,
+        height: 61,
+        text: 'Bella',
+      },
+      {
+        imgName: Images.Pictures.statusImg4,
+        imgWidth: 59,
+        imgHeight: 59,
+        borderRadius: 19,
+        borderColor: '#3729F2',
+        borderWidth: 2,
+        width: 61,
+        height: 61,
+        text: 'Saher',
+      },
+      {
+        imgName: Images.Pictures.statusImg5,
+        imgWidth: 59,
+        imgHeight: 59,
+        borderRadius: 19,
+        borderColor: '#3729F2',
+        borderWidth: 2,
+        width: 61,
+        height: 61,
+        text: 'Bella',
+      },
       {
         imgName: Images.Pictures.statusImg1,
         imgWidth: 59,
@@ -129,6 +186,74 @@ const Home = props => {
           <View style={styles.pitchlyFeatured}>
             <PitchlyFeatured />
           </View>
+
+          <View
+            style={{
+              width: '100%',
+              height: 35,
+
+              marginTop: 20,
+              flexDirection: 'row',
+            }}>
+            <View
+              style={{
+                width: '40%',
+                height: '100%',
+                alignItems: 'center',
+                justifyContent: 'center',
+                borderRadius: 5,
+              }}>
+              <Text
+                style={{
+                  fontSize: 14,
+                  fontWeight: 'bold',
+                  color: 'black',
+                }}>
+                PRODUCTS FEED
+              </Text>
+            </View>
+            <LinearGradient
+              start={{x: 1.5, y: 1.0}}
+              end={{x: 1.5, y: 2.5}}
+              colors={['#28A9F61A', '#4C9BD2']}
+              style={{
+                width: '60%',
+                height: '100%',
+                borderRadius: 5,
+                alignItems: 'center',
+                justifyContent: 'space-evenly',
+                flexDirection: 'row',
+              }}>
+              <TouchableOpacity style={{}}>
+                <Text
+                  style={{fontSize: 11, fontWeight: 'bold', color: 'black'}}>
+                  All
+                </Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={{}}>
+                <Text
+                  style={{fontSize: 11, fontWeight: 'bold', color: 'black'}}>
+                  Talent
+                </Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={{}}>
+                <Text
+                  style={{fontSize: 11, fontWeight: 'bold', color: 'black'}}>
+                  Services
+                </Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={{}}>
+                <Text
+                  style={{fontSize: 11, fontWeight: 'bold', color: 'black'}}>
+                  Products
+                </Text>
+              </TouchableOpacity>
+            </LinearGradient>
+          </View>
+
+          {/* <View style={styles.productFeedView}>
+            <PostBox />
+          </View> */}
         </View>
       </ScrollView>
     </ImageBackground>
@@ -142,7 +267,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
   },
-  body: {width: '90%', height: '100%', alignSelf: 'center'},
+  body: {width: '90%', height: '100%', alignSelf: 'center', paddingBottom: 60},
   statusBoxView: {
     width: '110%',
     marginTop: 20,
@@ -168,6 +293,6 @@ const styles = StyleSheet.create({
   statusAddIcon: {width: 24.63, height: 24.63},
   pitchlyFeatured: {
     width: '100%',
-    marginTop: 10,
+    marginTop: 15,
   },
 });

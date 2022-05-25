@@ -41,6 +41,9 @@ const TabBar = props => {
           flexDirection: 'row',
           alignItems: 'center',
           justifyContent: 'space-between',
+          elevation: 5,
+          shadowColor: '#28A9F633',
+          opacity: 6,
 
           marginTop: -10,
         }}>
@@ -119,5 +122,8 @@ const styles = StyleSheet.create({
     height: 90,
     borderTopRightRadius: 20,
     backgroundColor: '#ffffff',
+    elevation: 5,
+    shadowColor: '#28A9F633',
+    opacity: 0.8,
   },
 });
