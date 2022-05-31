@@ -20,6 +20,7 @@ import {
   StatusView,
   PitchlyFeatured,
   PostBox,
+  SuggestFriends,
 } from '../../../components';
 import {Icon} from 'native-base';
 import LinearGradient from 'react-native-linear-gradient';
@@ -138,7 +139,121 @@ const Home = props => {
         text: 'Bella',
       },
     ],
+
+    statusData2: [
+      {
+        imgName: Images.Pictures.statusImg1,
+        imgWidth: 59,
+        imgHeight: 59,
+        borderRadius: 19,
+        borderColor: '#3729F2',
+        borderWidth: 2,
+        width: 61,
+        height: 61,
+        text: 'John',
+      },
+      {
+        imgName: Images.Pictures.statusImg2,
+        imgWidth: 59,
+        imgHeight: 59,
+        borderRadius: 19,
+        borderColor: '#3729F2',
+        borderWidth: 2,
+        width: 61,
+        height: 61,
+        text: 'Veni',
+      },
+      {
+        imgName: Images.Pictures.statusImg3,
+        imgWidth: 59,
+        imgHeight: 59,
+        borderRadius: 19,
+        borderColor: '#3729F2',
+        borderWidth: 2,
+        width: 61,
+        height: 61,
+        text: 'Bella',
+      },
+      {
+        imgName: Images.Pictures.statusImg4,
+        imgWidth: 59,
+        imgHeight: 59,
+        borderRadius: 19,
+        borderColor: '#3729F2',
+        borderWidth: 2,
+        width: 61,
+        height: 61,
+        text: 'Saher',
+      },
+      {
+        imgName: Images.Pictures.statusImg5,
+        imgWidth: 59,
+        imgHeight: 59,
+        borderRadius: 19,
+        borderColor: '#3729F2',
+        borderWidth: 2,
+        width: 61,
+        height: 61,
+        text: 'Bella',
+      },
+      {
+        imgName: Images.Pictures.statusImg1,
+        imgWidth: 59,
+        imgHeight: 59,
+        borderRadius: 19,
+        borderColor: '#3729F2',
+        borderWidth: 2,
+        width: 61,
+        height: 61,
+        text: 'John',
+      },
+      {
+        imgName: Images.Pictures.statusImg2,
+        imgWidth: 59,
+        imgHeight: 59,
+        borderRadius: 19,
+        borderColor: '#3729F2',
+        borderWidth: 2,
+        width: 61,
+        height: 61,
+        text: 'Veni',
+      },
+      {
+        imgName: Images.Pictures.statusImg3,
+        imgWidth: 59,
+        imgHeight: 59,
+        borderRadius: 19,
+        borderColor: '#3729F2',
+        borderWidth: 2,
+        width: 61,
+        height: 61,
+        text: 'Bella',
+      },
+      {
+        imgName: Images.Pictures.statusImg4,
+        imgWidth: 59,
+        imgHeight: 59,
+        borderRadius: 19,
+        borderColor: '#3729F2',
+        borderWidth: 2,
+        width: 61,
+        height: 61,
+        text: 'Saher',
+      },
+      {
+        imgName: Images.Pictures.statusImg5,
+        imgWidth: 59,
+        imgHeight: 59,
+        borderRadius: 19,
+        borderColor: '#3729F2',
+        borderWidth: 2,
+        width: 61,
+        height: 61,
+        text: 'Bella',
+      },
+    ],
   });
+
   return (
     <ImageBackground
       style={styles.imageContainer}
@@ -251,9 +366,48 @@ const Home = props => {
             </LinearGradient>
           </View>
 
-          {/* <View style={styles.productFeedView}>
+          <View style={{marginTop: 50}}>
             <PostBox />
-          </View> */}
+          </View>
+
+          <LinearGradient
+            start={{x: 1.0, y: 0.0}}
+            end={{x: 1.0, y: 1.5}}
+            colors={['#28A9F633', '#5BEDBB']}
+            style={{
+              width: '110%',
+              alignSelf: 'center',
+              height: 200,
+              justifyContent: 'center',
+            }}>
+            <View
+              style={{
+                width: '90%',
+                alignSelf: 'center',
+                justifyContent: 'center',
+                flexDirection: 'row',
+              }}>
+              <FlatList
+                horizontal={true}
+                showsHorizontalScrollIndicator={false}
+                data={data.statusData2}
+                renderItem={({item}) => {
+                  return (
+                    <View style={{marginLeft: 10}}>
+                      <SuggestFriends
+                        imgName={item.imgName}
+                        width={item.width}
+                        height={item.height}
+                        imgWidth={item.imgWidth}
+                        imgHeight={item.imgHeight}
+                        text={item.text}
+                      />
+                    </View>
+                  );
+                }}
+              />
+            </View>
+          </LinearGradient>
         </View>
       </ScrollView>
     </ImageBackground>

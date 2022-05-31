@@ -30,6 +30,10 @@ const Images = {
     msgIcon: require('../../assets/images/msgIcon.png'),
     notificationIcon: require('../../assets/images/notificationIcon.png'),
     globe: require('../../assets/images/globe.png'),
+    shareIcon: require('../../assets/images/shareIcon.png'),
+    favoriteIcon: require('../../assets/images/favoriteIcon.png'),
+    starIcon: require('../../assets/images/starIcon.png'),
+    msgColorIcon: require('../../assets/images/msgColorIcon.png'),
   },
 };
 
