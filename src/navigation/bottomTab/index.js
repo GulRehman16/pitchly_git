@@ -13,11 +13,11 @@ const MyTabs = props => {
     <Tab.Navigator
       screenOptions={{
         tabBarStyle: {
-          backgroundColor: 'red',
+          backgroundColor: 'transparent',
         },
       }}
       tabBarPosition="bottom"
-      barStyle={{backgroundColor: '#0000'}}
+      barStyle={{backgroundColor: 'transparent'}}
       tabBar={props => <TabBar {...props} />}>
       <Tab.Screen name="home" component={home} options={{headerShown: false}} />
       <Tab.Screen

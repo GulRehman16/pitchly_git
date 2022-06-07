@@ -2,6 +2,7 @@ const Images = {
   Pictures: {
     loginBG: require('../../assets/images/joker.jpg'),
     homeBg: require('../../assets/images/homeBg.png'),
+    homeMainBg: require('../../assets/images/homeMainBg.jpg'),
     appBg: require('../../assets/images/Bg.png'),
     profile: require('../../assets/images/profile.png'),
     help: require('../../assets/images/help.png'),

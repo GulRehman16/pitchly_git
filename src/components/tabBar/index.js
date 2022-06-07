@@ -36,13 +36,15 @@ const TabBar = props => {
       <View
         style={{
           width: '90%',
-          height: 62,
+          height: 45,
+
           alignSelf: 'center',
           flexDirection: 'row',
           alignItems: 'center',
           justifyContent: 'space-between',
           elevation: 5,
           shadowColor: '#28A9F633',
+          borderRadius: 20,
           opacity: 6,
 
           marginTop: -10,
@@ -119,11 +121,9 @@ const styles = StyleSheet.create({
   tabBarContainer: {
     borderTopLeftRadius: 20,
     width: '100%',
-    height: 90,
+    height: 80,
     borderTopRightRadius: 20,
     backgroundColor: '#ffffff',
     elevation: 5,
-    shadowColor: '#28A9F633',
-    opacity: 0.8,
   },
 });

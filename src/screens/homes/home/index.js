@@ -257,7 +257,7 @@ const Home = props => {
   return (
     <ImageBackground
       style={styles.imageContainer}
-      source={Images.Pictures.appBg}>
+      source={Images.Pictures.homeMainBg}>
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{flexGrow: 1}}>
@@ -370,10 +370,7 @@ const Home = props => {
             <PostBox />
           </View>
 
-          <LinearGradient
-            start={{x: 1.0, y: 0.0}}
-            end={{x: 1.0, y: 1.5}}
-            colors={['#28A9F633', '#5BEDBB']}
+          <View
             style={{
               width: '110%',
               alignSelf: 'center',
@@ -407,7 +404,7 @@ const Home = props => {
                 }}
               />
             </View>
-          </LinearGradient>
+          </View>
         </View>
       </ScrollView>
     </ImageBackground>
