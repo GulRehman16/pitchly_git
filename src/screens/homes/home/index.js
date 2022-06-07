@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   ScrollView,
   StatusBar,
@@ -10,7 +10,7 @@ import {
   View,
   FlatList,
 } from 'react-native';
-import {Images} from '../../../constants';
+import { Images } from '../../../constants';
 import {
   FormInput,
   AppButton,
@@ -21,7 +21,7 @@ import {
   PitchlyFeatured,
   PostBox,
 } from '../../../components';
-import {Icon} from 'native-base';
+import { Icon } from 'native-base';
 import LinearGradient from 'react-native-linear-gradient';
 
 const Home = props => {
@@ -145,7 +145,7 @@ const Home = props => {
       source={Images.Pictures.appBg}>
       <ScrollView
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={{flexGrow: 1}}>
+        contentContainerStyle={{ flexGrow: 1 }}>
         <StatusBar backgroundColor={'transparent'} translucent={true} />
         <View style={styles.body}>
           <View style={styles.headerView}>
@@ -166,9 +166,9 @@ const Home = props => {
               horizontal={true}
               showsHorizontalScrollIndicator={false}
               data={data.statusData}
-              renderItem={({item}) => {
+              renderItem={({ item }) => {
                 return (
-                  <View style={{paddingLeft: 10}}>
+                  <View style={{ paddingLeft: 10 }}>
                     <StatusView
                       imgName={item.imgName}
                       width={item.width}
@@ -191,7 +191,6 @@ const Home = props => {
             style={{
               width: '100%',
               height: 35,
-
               marginTop: 20,
               flexDirection: 'row',
             }}>
@@ -213,8 +212,8 @@ const Home = props => {
               </Text>
             </View>
             <LinearGradient
-              start={{x: 1.5, y: 1.0}}
-              end={{x: 1.5, y: 2.5}}
+              start={{ x: 1.5, y: 1.0 }}
+              end={{ x: 1.5, y: 2.5 }}
               colors={['#28A9F61A', '#4C9BD2']}
               style={{
                 width: '60%',
@@ -226,25 +225,25 @@ const Home = props => {
               }}>
               <TouchableOpacity style={{}}>
                 <Text
-                  style={{fontSize: 11, fontWeight: 'bold', color: 'black'}}>
+                  style={{ fontSize: 11, fontWeight: 'bold', color: 'black' }}>
                   All
                 </Text>
               </TouchableOpacity>
               <TouchableOpacity style={{}}>
                 <Text
-                  style={{fontSize: 11, fontWeight: 'bold', color: 'black'}}>
+                  style={{ fontSize: 11, fontWeight: 'bold', color: 'black' }}>
                   Talent
                 </Text>
               </TouchableOpacity>
               <TouchableOpacity style={{}}>
                 <Text
-                  style={{fontSize: 11, fontWeight: 'bold', color: 'black'}}>
+                  style={{ fontSize: 11, fontWeight: 'bold', color: 'black' }}>
                   Services
                 </Text>
               </TouchableOpacity>
               <TouchableOpacity style={{}}>
                 <Text
-                  style={{fontSize: 11, fontWeight: 'bold', color: 'black'}}>
+                  style={{ fontSize: 11, fontWeight: 'bold', color: 'black' }}>
                   Products
                 </Text>
               </TouchableOpacity>
@@ -267,7 +266,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
   },
-  body: {width: '90%', height: '100%', alignSelf: 'center', paddingBottom: 60},
+  body: { width: '90%', height: '100%', alignSelf: 'center', paddingBottom: 60 },
   statusBoxView: {
     width: '110%',
     marginTop: 20,
@@ -275,7 +274,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
 
-  headerView: {width: '100%', marginTop: 60},
+  headerView: { width: '100%', marginTop: 60 },
   statusAddView: {
     alignItems: 'center',
     justifyContent: 'center',
@@ -290,7 +289,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  statusAddIcon: {width: 24.63, height: 24.63},
+  statusAddIcon: { width: 24.63, height: 24.63 },
   pitchlyFeatured: {
     width: '100%',
     marginTop: 15,

@@ -1,6 +1,6 @@
-import {Icon} from 'native-base';
+import { Icon } from 'native-base';
 import React from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
 const AppButton = ({
@@ -18,20 +18,23 @@ const AppButton = ({
   borderWidth,
   LinearColor1,
   LinearColor2,
+  height,
+  Radius,
+  borderRadius
 }) => {
   const icon = iconL || iconR;
 
   return (
     <TouchableOpacity onPress={onPress} activeOpacity={0.7}>
       <LinearGradient
-        start={{x: 0.0, y: 0.25}}
-        end={{x: 1.1, y: 0.0}}
+        start={{ x: 0.0, y: 0.25 }}
+        end={{ x: 1.1, y: 0.0 }}
         colors={[LinearColor1 || '#ffffff', LinearColor2 || '#ffffff']}
         style={
           buttonStyle || {
             width: '100%',
-            height: 51,
-            borderRadius: 10,
+            height: height || 51,
+            borderRadius: borderRadius || 10,
             borderColor: borderColor || '#707070',
             borderWidth: borderWidth || 0,
             backgroundColor: backgroundColor || '#FFFFFF',
@@ -39,14 +42,14 @@ const AppButton = ({
             alignItems: 'center',
           }
         }>
-        <Text style={{color: color || 'white'}}> {label} </Text>
+        <Text style={{ color: color || 'white' }}> {label} </Text>
         {icon && (
           <View
             style={{
               width: 35,
               height: 35,
               backgroundColor: iconBG || 'pink',
-              borderRadius: 8,
+              borderRadius: Radius || 8,
               position: 'absolute',
               right: iconR ? 15 : null,
               left: iconL ? 15 : null,
@@ -56,7 +59,7 @@ const AppButton = ({
             <Icon
               name={iconN || 'right'}
               type={iconT || 'AntDesign'}
-              style={{fontSize: 20}}
+              style={{ fontSize: 20, color: '#fff' }}
             />
           </View>
         )}
@@ -65,4 +68,4 @@ const AppButton = ({
   );
 };
 
-export {AppButton};
+export { AppButton };
