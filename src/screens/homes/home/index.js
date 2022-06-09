@@ -452,42 +452,6 @@ const Home = props => {
           {check.value === 'TALENT FEED' && <Talent />}
           {check.value === 'SERVICES FEED' && <Services />}
           {check.value === 'PRODUCTS FEED' && <Product />}
-
-          {/* <View
-            style={{
-              width: '110%',
-              alignSelf: 'center',
-              height: 200,
-              justifyContent: 'center',
-            }}>
-            <View
-              style={{
-                width: '90%',
-                alignSelf: 'center',
-                justifyContent: 'center',
-                flexDirection: 'row',
-              }}>
-              <FlatList
-                horizontal={true}
-                showsHorizontalScrollIndicator={false}
-                data={data.statusData2}
-                renderItem={({item}) => {
-                  return (
-                    <View style={{marginLeft: 10}}>
-                      <SuggestFriends
-                        imgName={item.imgName}
-                        width={item.width}
-                        height={item.height}
-                        imgWidth={item.imgWidth}
-                        imgHeight={item.imgHeight}
-                        text={item.text}
-                      />
-                    </View>
-                  );
-                }}
-              />
-            </View>
-          </View> */}
         </View>
       </ScrollView>
     </ImageBackground>

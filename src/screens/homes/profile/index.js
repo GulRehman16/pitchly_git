@@ -1,12 +1,15 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {ImageBackground, StyleSheet, Text, View} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
+import {Images} from '../../../constants';
 
 const Profile = () => {
   return (
-    <SafeAreaView style={styles.screenContainer}>
-      <Text style={{color: 'black'}}>Profile Screen</Text>
-    </SafeAreaView>
+    <ImageBackground
+      style={styles.imageContainer}
+      source={Images.Pictures.homeMainBg}>
+      <View style={{flexDirection: 'row'}}></View>
+    </ImageBackground>
   );
 };
 
@@ -18,5 +21,9 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  imageContainer: {
+    flex: 1,
+    justifyContent: 'center',
   },
 });
