@@ -119,24 +119,11 @@ const PitchlyFeatured = ({}) => {
     ],
   });
   return (
-    <LinearGradient
-      activeOpacity={0.9}
-      start={{x: 0, y: 0.5}}
-      end={{x: 1, y: 0.0}}
-      colors={[
-        '#FAFAFA52',
-        '#FAFAFA52',
-        '#28A9F61A',
-        '#5DF7B888',
-        '#FAFAFA52',
-        '#FAFAFA52',
-        '#FAFAFA52',
-        '#FAFAFA52',
-      ]}
+    <View
       style={{
         width: '100%',
         height: 181,
-        backgroundColor: '#28A9F61A',
+
         borderRadius: 19,
       }}>
       <View style={{alignSelf: 'center', width: '90%', height: '100%'}}>
@@ -262,7 +249,7 @@ const PitchlyFeatured = ({}) => {
           style={{fontSize: 10, color: 'white', marginLeft: 10}}
         />
       </LinearGradient>
-    </LinearGradient>
+    </View>
   );
 };
 

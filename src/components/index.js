@@ -20,4 +20,5 @@ export * from './row';
 export * from './post';
 export * from './userbios';
 export * from './Followbtn'
-// export * from './postBox';
+export * from './postBox';
+export * from './suggestFriends';

@@ -2,6 +2,7 @@ const Images = {
   Pictures: {
     loginBG: require('../../assets/images/joker.jpg'),
     homeBg: require('../../assets/images/homeBg.png'),
+    homeMainBg: require('../../assets/images/homeMainBg.jpg'),
     appBg: require('../../assets/images/Bg.png'),
     profile: require('../../assets/images/profile.png'),
     help: require('../../assets/images/help.png'),
@@ -30,6 +31,10 @@ const Images = {
     msgIcon: require('../../assets/images/msgIcon.png'),
     notificationIcon: require('../../assets/images/notificationIcon.png'),
     globe: require('../../assets/images/globe.png'),
+    shareIcon: require('../../assets/images/shareIcon.png'),
+    favoriteIcon: require('../../assets/images/favoriteIcon.png'),
+    starIcon: require('../../assets/images/starIcon.png'),
+    msgColorIcon: require('../../assets/images/msgColorIcon.png'),
   },
   Icons: {
     Star: require('../../assets/images/StarIcon.png'),
