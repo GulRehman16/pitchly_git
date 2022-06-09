@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   StyleSheet,
   Text,
@@ -22,6 +22,7 @@ const SuggestFriends = ({
   imgName,
   text,
 }) => {
+  const [check, setcheck] = useState(true);
   return (
     <View
       style={{
@@ -54,11 +55,19 @@ const SuggestFriends = ({
           {text}
         </Text>
       </View>
-      <TouchableOpacity activeOpacity={0.7} style={{width: '100%'}}>
+      <TouchableOpacity
+        // onPress={() => //check ke condition lagani haaaa
+        //   }
+        activeOpacity={0.7}
+        style={{width: '100%'}}>
         <LinearGradient
           start={{x: 1.0, y: 0.0}}
           end={{x: 1.0, y: 1.5}}
-          colors={['#4059E4', '#4059E4', '#4059E4', '#5DF7B8']}
+          colors={
+            check == true
+              ? ['#4059E4', '#4059E4', '#4059E4', '#5DF7B8']
+              : ['white', 'white']
+          }
           style={{
             width: '80%',
             alignSelf: 'center',
@@ -68,7 +77,15 @@ const SuggestFriends = ({
             alignItems: 'center',
             justifyContent: 'center',
           }}>
-          <Text style={{color: 'white'}}>Follow</Text>
+          <Text
+            style={{
+              color: check == true ? 'white' : 'black',
+              borderWidth: check == true ? null : 1,
+              textAlign: 'center',
+              width: '100%',
+            }}>
+            {check == true ? 'Follow' : 'UnFollow'}
+          </Text>
         </LinearGradient>
       </TouchableOpacity>
     </View>

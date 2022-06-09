@@ -24,9 +24,44 @@ import {
 } from '../../../components';
 import {Icon} from 'native-base';
 import LinearGradient from 'react-native-linear-gradient';
+import Talent from '../../../components/Talent';
+import Services from '../../../components/Services';
+import Product from '../../../components/Product';
+import AllMixed from '../../../components/All';
 
 const Home = props => {
   const [data, setData] = useState({
+    postDataAll: [
+      {
+        profileImg: '',
+        profileTitle: 'Veni Paul',
+        postTime: '1 hour ago',
+        boxTitle: 'Talent Name',
+        boxDetail:
+          ' Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diamnonumy eirmod tempor...',
+        price: '120.00',
+        gridImg: Images.Pictures.statusImg1,
+        gridImg1: Images.Pictures.statusImg2,
+        gridImg2: Images.Pictures.statusImg3,
+        gridImg3: Images.Pictures.statusImg4,
+        gridImg4: Images.Pictures.statusImg5,
+      },
+      {
+        profileImg: '',
+        profileTitle: 'Alex',
+        postTime: '1 hour ago',
+        boxTitle: 'Talent Name',
+        boxDetail:
+          ' Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diamnonumy eirmod tempor...',
+        price: '120.00',
+        gridImg: Images.Pictures.statusImg1,
+        gridImg1: Images.Pictures.statusImg2,
+        gridImg2: Images.Pictures.statusImg3,
+        gridImg3: Images.Pictures.statusImg4,
+        gridImg4: Images.Pictures.statusImg5,
+      },
+    ],
+
     statusData: [
       {
         imgName: Images.Pictures.statusImg1,
@@ -253,7 +288,9 @@ const Home = props => {
       },
     ],
   });
-
+  const [check, setcheck] = useState({
+    value: 'PITCHLY FEED',
+  });
   return (
     <ImageBackground
       style={styles.imageContainer}
@@ -324,7 +361,8 @@ const Home = props => {
                   fontWeight: 'bold',
                   color: 'black',
                 }}>
-                PRODUCTS FEED
+                {/* PRODUCTS FEED */}
+                {check.value}
               </Text>
             </View>
             <LinearGradient
@@ -339,38 +377,83 @@ const Home = props => {
                 justifyContent: 'space-evenly',
                 flexDirection: 'row',
               }}>
-              <TouchableOpacity style={{}}>
+              <TouchableOpacity
+                onPress={() => setcheck({...check, value: 'PITCHLY FEED'})}
+                style={{
+                  // backgroundColor: 'red',
+                  paddingBottom: check.value == 'PITCHLY FEED' ? 2 : null,
+                  borderBottomWidth: check.value == 'PITCHLY FEED' ? 1 : null,
+                  borderColor: check.value == 'PITCHLY FEED' ? 'blue' : null,
+                }}>
                 <Text
-                  style={{fontSize: 11, fontWeight: 'bold', color: 'black'}}>
+                  style={{
+                    fontSize: 11,
+                    fontWeight: 'bold',
+                    color: check.value == 'PITCHLY FEED' ? 'blue' : 'black',
+                  }}>
                   All
                 </Text>
               </TouchableOpacity>
-              <TouchableOpacity style={{}}>
+              <TouchableOpacity
+                onPress={() => setcheck({...check, value: 'TALENT FEED'})}
+                style={{
+                  // backgroundColor: 'red',
+                  paddingBottom: check.value == 'TALENT FEED' ? 2 : null,
+                  borderBottomWidth: check.value == 'TALENT FEED' ? 1 : null,
+                  borderColor: check.value == 'TALENT FEED' ? 'blue' : null,
+                }}>
                 <Text
-                  style={{fontSize: 11, fontWeight: 'bold', color: 'black'}}>
+                  style={{
+                    fontSize: 11,
+                    fontWeight: 'bold',
+                    color: check.value == 'TALENT FEED' ? 'blue' : 'black',
+                  }}>
                   Talent
                 </Text>
               </TouchableOpacity>
-              <TouchableOpacity style={{}}>
+              <TouchableOpacity
+                onPress={() => setcheck({...check, value: 'SERVICES FEED'})}
+                style={{
+                  // backgroundColor: 'red',
+                  paddingBottom: check.value == 'SERVICES FEED' ? 2 : null,
+                  borderBottomWidth: check.value == 'SERVICES FEED' ? 1 : null,
+                  borderColor: check.value == 'SERVICES FEED' ? 'blue' : null,
+                }}>
                 <Text
-                  style={{fontSize: 11, fontWeight: 'bold', color: 'black'}}>
+                  style={{
+                    fontSize: 11,
+                    fontWeight: 'bold',
+                    color: check.value == 'SERVICES FEED' ? 'blue' : 'black',
+                  }}>
                   Services
                 </Text>
               </TouchableOpacity>
-              <TouchableOpacity style={{}}>
+              <TouchableOpacity
+                onPress={() => setcheck({...check, value: 'PRODUCTS FEED'})}
+                style={{
+                  // backgroundColor: 'red',
+                  paddingBottom: check.value == 'PRODUCTS FEED' ? 2 : null,
+                  borderBottomWidth: check.value == 'PRODUCTS FEED' ? 1 : null,
+                  borderColor: check.value == 'PRODUCTS FEED' ? 'blue' : null,
+                }}>
                 <Text
-                  style={{fontSize: 11, fontWeight: 'bold', color: 'black'}}>
+                  style={{
+                    fontSize: 11,
+                    fontWeight: 'bold',
+                    color: check.value == 'PRODUCTS FEED' ? 'blue' : 'black',
+                  }}>
                   Products
                 </Text>
               </TouchableOpacity>
             </LinearGradient>
           </View>
 
-          <View style={{marginTop: 50}}>
-            <PostBox />
-          </View>
+          {check.value === 'PITCHLY FEED' && <AllMixed />}
+          {check.value === 'TALENT FEED' && <Talent />}
+          {check.value === 'SERVICES FEED' && <Services />}
+          {check.value === 'PRODUCTS FEED' && <Product />}
 
-          <View
+          {/* <View
             style={{
               width: '110%',
               alignSelf: 'center',
@@ -404,7 +487,7 @@ const Home = props => {
                 }}
               />
             </View>
-          </View>
+          </View> */}
         </View>
       </ScrollView>
     </ImageBackground>

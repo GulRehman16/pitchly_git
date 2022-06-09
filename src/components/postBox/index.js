@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   StyleSheet,
   Text,
@@ -11,7 +11,25 @@ import {
 import {Images, Themes} from '../../constants';
 import LinearGradient from 'react-native-linear-gradient';
 
-const PostBox = ({}) => {
+const PostBox = ({
+  profileImg,
+  profileTitle,
+  postTime,
+  boxTitle,
+  boxDetail,
+  gridImg,
+  gridImg1,
+  gridImg2,
+  gridImg3,
+  gridImg4,
+  singleImg,
+  Video,
+  price,
+  checksingle,
+}) => {
+  const [Grid, setGrid] = useState(checksingle);
+  console.log('Grid', Grid);
+
   return (
     <View style={styles.container}>
       <View style={{width: '95%', alignSelf: 'center', height: '100%'}}>
@@ -32,9 +50,9 @@ const PostBox = ({}) => {
             </TouchableOpacity>
             <View style={{marginLeft: 5}}>
               <Text style={{color: '#4B4B4B', fontSize: 16, fontWeight: '400'}}>
-                Veni Paul
+                {profileTitle}
               </Text>
-              <Text style={{color: '#4B4B4B', fontSize: 10}}>3 Hour Ago</Text>
+              <Text style={{color: '#4B4B4B', fontSize: 10}}>{postTime}</Text>
             </View>
           </View>
 
@@ -48,7 +66,7 @@ const PostBox = ({}) => {
 
         <View style={{width: '100%', marginTop: 20}}>
           <Text style={{fontSize: 14, fontWeight: 'bold', color: 'black'}}>
-            Talent Name
+            {boxTitle}
           </Text>
           <View
             style={{
@@ -61,8 +79,9 @@ const PostBox = ({}) => {
                 fontSize: 13,
                 color: 'black',
               }}>
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-              nonumy eirmod tempor...
+              {boxDetail}
+              {/* Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+              nonumy eirmod tempor... */}
               <Text style={{color: '#4A91D5'}}> see more</Text>
             </Text>
           </View>
@@ -75,10 +94,111 @@ const PostBox = ({}) => {
             borderRadius: 20,
             marginTop: 10,
           }}>
-          <ImageBackground
-            source={Images.Pictures.postImg1}
-            style={{width: '100%', height: '100%'}}
-            resizeMode="stretch"></ImageBackground>
+          {Grid === false ? (
+            <View>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  justifyContent: 'space-evenly',
+                  width: '100%',
+                  height: '100%',
+                }}>
+                <View style={{width: '45%', height: '100%'}}>
+                  <Image
+                    source={gridImg}
+                    style={{width: '100%', height: '100%', borderRadius: 10}}
+                    // resizeMode="contain"
+                  />
+                </View>
+                <View
+                  style={{
+                    width: '50%',
+                    height: '100%',
+                  }}>
+                  {/* <Image
+                    source={Images.Pictures.postImg1}
+                    style={{width: '100%', height: '30%'}}
+                  />
+                  <Image
+                    source={Images.Pictures.postImg1}
+                    style={{width: '100%', height: '30%', marginTop: 15}}
+                  />
+                  <Image
+                    source={Images.Pictures.postImg1}
+                    style={{width: '100%', height: '30%', marginTop: 15}}
+                  /> */}
+
+                  <View
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      flexDirection: 'row',
+                      justifyContent: 'space-evenly',
+                      alignItems: 'center',
+                    }}>
+                    <View
+                      style={{
+                        width: '45%',
+                        height: '100%',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                      }}>
+                      <Image
+                        source={gridImg1}
+                        style={{width: '100%', height: '45%', borderRadius: 10}}
+                      />
+                      <Image
+                        source={gridImg4}
+                        style={{
+                          width: '100%',
+                          height: '45%',
+                          marginTop: 15,
+                          borderRadius: 10,
+                        }}
+                      />
+                    </View>
+                    <View
+                      style={{
+                        width: '45%',
+                        height: '100%',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                      }}>
+                      <Image
+                        source={gridImg2}
+                        style={{width: '100%', height: '45%', borderRadius: 10}}
+                      />
+                      <Image
+                        source={gridImg3}
+                        style={{
+                          width: '100%',
+                          height: '45%',
+                          marginTop: 15,
+                          borderRadius: 10,
+                        }}
+                      />
+                    </View>
+                  </View>
+                </View>
+              </View>
+            </View>
+          ) : (
+            <ImageBackground
+              source={singleImg}
+              style={{width: '100%', height: '100%'}}
+              resizeMode="stretch"></ImageBackground>
+          )}
+        </View>
+        <View style={{height: 50}}>
+          <Text
+            style={{
+              color: 'black',
+              marginTop: 3,
+              fontSize: 10,
+              marginLeft: 10,
+            }}>
+            {'$' + price}
+          </Text>
         </View>
 
         <LinearGradient

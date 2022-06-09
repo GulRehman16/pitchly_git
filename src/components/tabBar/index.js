@@ -37,12 +37,12 @@ const TabBar = props => {
         style={{
           width: '90%',
           height: 45,
-
+          // backgroundColor:'red'
           alignSelf: 'center',
           flexDirection: 'row',
           alignItems: 'center',
           justifyContent: 'space-between',
-          elevation: 5,
+          // elevation: 5,
           shadowColor: '#28A9F633',
           borderRadius: 20,
           opacity: 6,
