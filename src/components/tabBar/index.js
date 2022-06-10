@@ -9,7 +9,7 @@ const TabBar = props => {
   const {state} = props;
   const tabs = [
     {text: 'HOME', navTo: 'home', img: Images.Logos.homeIcon},
-    {text: 'CHAT', navTo: 'profile', img: Images.Logos.msgIcon},
+    {text: 'CHAT', navTo: 'chatScreen1', img: Images.Logos.msgIcon},
     {text: '', navTo: 'settings', img: Images.Logos.addIcon},
     {
       text: 'NOTIFICATION',
@@ -19,9 +19,9 @@ const TabBar = props => {
     },
     {
       text: 'ACCOUNT',
-      navTo: 'settings',
+      navTo: 'profile',
       img: Images.Logos.userIcon,
-      navTo: '',
+      navTo: 'profile',
     },
   ];
   const [visible, setVisible] = useState({

@@ -58,6 +58,7 @@ const SuggestFriends = ({
       <TouchableOpacity
         // onPress={() => //check ke condition lagani haaaa
         //   }
+        onPress={() => setcheck(false)}
         activeOpacity={0.7}
         style={{width: '100%'}}>
         <LinearGradient

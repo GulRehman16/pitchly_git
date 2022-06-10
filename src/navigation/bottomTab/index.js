@@ -4,6 +4,7 @@ import {Icon} from 'native-base';
 import home from '../../screens/homes/home';
 import profile from '../../screens/homes/profile';
 import settings from '../../screens/homes/settings';
+import ChatScreen1 from '../../screens/homes/chatscreen1';
 import {TabBar} from '../../components';
 
 const Tab = createBottomTabNavigator();
@@ -17,17 +18,29 @@ const MyTabs = props => {
         },
       }}
       tabBarPosition="bottom"
-      barStyle={{backgroundColor: 'transparent'}}
+      barStyle={{backgroundColor: '#0000'}}
       tabBar={props => <TabBar {...props} />}>
       <Tab.Screen name="home" component={home} options={{headerShown: false}} />
+
       <Tab.Screen
-        name="profile"
-        component={profile}
+        name="chatScreen1"
+        component={ChatScreen1}
         options={{headerShown: false}}
       />
+
       <Tab.Screen
         name="settings"
         component={settings}
+        options={{headerShown: false}}
+      />
+      <Tab.Screen
+        name="chatScreen3"
+        component={''}
+        options={{headerShown: false}}
+      />
+      <Tab.Screen
+        name="profile"
+        component={profile}
         options={{headerShown: false}}
       />
     </Tab.Navigator>

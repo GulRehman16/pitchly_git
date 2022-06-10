@@ -13,7 +13,9 @@ import ContactUs from '../../screens/auth/contactUs';
 import ForgetPassword from '../../screens/auth/forgetPassword';
 import ForgetConfirm from '../../screens/auth/forgetConfirm';
 import HavingTouble from '../../screens/auth/havingTouble';
-
+import MessageScreen from '../../screens/homes/MessageScreen';
+import ChatScreen1 from '../../screens/homes/chatscreen1';
+import ChatScreen from '../../screens/homes/ChatScreen';
 const Stack = createNativeStackNavigator();
 
 const Auth = () => {
@@ -71,6 +73,21 @@ export const Homes = () => {
       <Stack.Screen
         name="home"
         component={home}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="chatScreen"
+        component={ChatScreen}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="chatScreen1"
+        component={ChatScreen1}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="messageScreen"
+        component={MessageScreen}
         options={{headerShown: false}}
       />
       <Stack.Screen

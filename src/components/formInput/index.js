@@ -1,6 +1,6 @@
-import React, {useState, useRef} from 'react';
-import {TextInput, TouchableOpacity, View} from 'react-native';
-import {Icon} from 'native-base';
+import React, { useState, useRef } from 'react';
+import { TextInput, TouchableOpacity, View } from 'react-native';
+import { Icon, } from 'native-base';
 
 const FormInput = ({
   value,
@@ -28,6 +28,8 @@ const FormInput = ({
   multiLine,
   backgroundColor,
   PhoneInput,
+  Textarea,
+
 
   height,
 }) => {
@@ -54,7 +56,7 @@ const FormInput = ({
           <Icon
             name={iconLName}
             type={iconLType}
-            style={styleL || {fontSize: 17, color: iconColor || '#3109FB'}}
+            style={styleL || { fontSize: 17, color: iconColor || '#3109FB' }}
           />
         </View>
       )}
@@ -95,12 +97,34 @@ const FormInput = ({
           <Icon
             name={iconRName || 'eye-with-line'}
             type={iconRType || 'Entypo'}
-            style={styleR || {fontSize: 17, color: iconColor || '#666666'}}
+            style={styleR || { fontSize: 17, color: iconColor || '#666666' }}
           />
         </TouchableOpacity>
       )}
+
+      {Textarea && (
+
+        <View style={{}} >
+          <TextInput
+            style={
+              styleI || {
+                width: iconL && iconR ? '80%' : iconL ? '90%' : '100%',
+                // height: height || 50,
+                // paddingLeft: iconL ? 0 : 10,
+                multiLine: multiLine || true,
+
+                textAlignVertical: multiLine ? 'top' : 'center',
+
+                color: 'black',
+                // height: '100%',
+              }
+            } />
+        </View>
+
+      )}
+
     </View>
   );
 };
 
-export {FormInput};
+export { FormInput };

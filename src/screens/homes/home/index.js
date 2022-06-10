@@ -28,7 +28,7 @@ import Talent from '../../../components/Talent';
 import Services from '../../../components/Services';
 import Product from '../../../components/Product';
 import AllMixed from '../../../components/All';
-
+import ImagePicker from 'react-native-image-crop-picker';
 const Home = props => {
   const [data, setData] = useState({
     postDataAll: [
@@ -288,9 +288,20 @@ const Home = props => {
       },
     ],
   });
+  const [img, setImg] = useState(Images.Logos.plusIcon);
   const [check, setcheck] = useState({
     value: 'PITCHLY FEED',
   });
+  const picker = () => {
+    ImagePicker.openCamera({
+      width: 300,
+      height: 400,
+      cropping: true,
+    }).then(image => {
+      setImg(image.path);
+      console.log(image);
+    });
+  };
   return (
     <ImageBackground
       style={styles.imageContainer}
@@ -306,12 +317,11 @@ const Home = props => {
 
           <View style={styles.statusBoxView}>
             <View style={styles.statusAddView}>
-              <View style={styles.statusAddBox}>
-                <Image
-                  source={Images.Logos.plusIcon}
-                  style={styles.statusAddIcon}
-                />
-              </View>
+              <TouchableOpacity
+                onPress={() => picker()}
+                style={styles.statusAddBox}>
+                <Image source={img} style={styles.statusAddIcon} />
+              </TouchableOpacity>
               <Text>You</Text>
             </View>
             <FlatList
@@ -343,7 +353,6 @@ const Home = props => {
             style={{
               width: '100%',
               height: 35,
-
               marginTop: 20,
               flexDirection: 'row',
             }}>
