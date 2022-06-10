@@ -1,28 +1,19 @@
-import React, {useState} from 'react';
-import {StyleSheet, Text, TouchableOpacity, View, Image} from 'react-native';
-import {SafeAreaView} from 'react-native-safe-area-context';
-import {Images} from '../../constants';
+import React, { useState } from 'react';
+import { StyleSheet, Text, TouchableOpacity, View, Image } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { Images } from '../../constants';
 import LinearGradient from 'react-native-linear-gradient';
-import {Tooltips} from '../tooltip';
+import { Tooltips } from '../tooltip';
+
 
 const TabBar = props => {
-  const {state} = props;
+  const { state } = props;
   const tabs = [
-    {text: 'HOME', navTo: 'home', img: Images.Logos.homeIcon},
-    {text: 'CHAT', navTo: 'profile', img: Images.Logos.msgIcon},
-    {text: '', navTo: 'settings', img: Images.Logos.addIcon},
-    {
-      text: 'NOTIFICATION',
-      navTo: 'settings',
-      img: Images.Logos.notificationIcon,
-      navTo: '',
-    },
-    {
-      text: 'ACCOUNT',
-      navTo: 'settings',
-      img: Images.Logos.userIcon,
-      navTo: '',
-    },
+    { text: 'HOME', navTo: 'home', img: Images.Logos.homeIcon },
+    { text: 'CHAT', navTo: 'ChatScreen1', img: Images.Logos.msgIcon },
+    { text: '', navTo: 'TooltipScreen', img: Images.Logos.addIcon },
+    { text: 'NOTIFICATION', navTo: 'Notification', img: Images.Logos.notificationIcon, },
+    { text: 'ACCOUNT', navTo: 'profile', img: Images.Logos.userIcon, },
   ];
   const [visible, setVisible] = useState({
     visibles: false,
@@ -56,21 +47,21 @@ const TabBar = props => {
                 props.navigation.navigate(item.navTo),
                   i === 2
                     ? setVisible({
-                        ...visible,
-                        visibles: true,
-                        invisibles: false,
-                      })
+                      ...visible,
+                      visibles: true,
+                      invisibles: false,
+                    })
                     : setVisible({
-                        ...visible,
-                        visibles: false,
-                        invisibles: true,
-                      });
+                      ...visible,
+                      visibles: false,
+                      invisibles: true,
+                    });
               }}
-              style={{alignItems: 'center', justifyContent: 'center'}}
+              style={{ alignItems: 'center', justifyContent: 'center' }}
               key={i}>
               <LinearGradient
-                start={{x: 1, y: 0.0}}
-                end={{x: 1, y: 1.9}}
+                start={{ x: 1, y: 0.0 }}
+                end={{ x: 1, y: 1.9 }}
                 colors={
                   state.index === i
                     ? ['#3109FB', '#5DF7B8']
@@ -115,7 +106,7 @@ const TabBar = props => {
   );
 };
 
-export {TabBar};
+export { TabBar };
 
 const styles = StyleSheet.create({
   tabBarContainer: {

@@ -3,9 +3,12 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Icon } from 'native-base';
 import home from '../../screens/homes/home';
 import profile from '../../screens/homes/profile';
-import settings from '../../screens/homes/settings';
-import ChatScreen1 from '../../screens/homes/chatscreen1'
 import { TabBar } from '../../components';
+import ChatScreen1 from '../../screens/homes/chatscreen1';
+import Notification from '../../screens/homes/Notifications';
+import settings from '../../screens/homes/settings';
+import TooltipScreen from '../../screens/homes/ToolTipScreen';
+
 
 const Tab = createBottomTabNavigator();
 
@@ -18,29 +21,34 @@ const MyTabs = props => {
         },
       }}
       tabBarPosition="bottom"
-
       barStyle={{ backgroundColor: '#0000' }}
+      tabBar={props => <TabBar ar {...props} />}>
+      <Tab.Screen name="home" component={home}
+        options={{ headerShown: false }} />
+      <Tab.Screen
+        name='ChatScreen1'
+        component={ChatScreen1}
+        options={{ headerShown: false }}
+      />
+      <Tab.Screen
+        name="TooltipScreen"
+        component={TooltipScreen}
+        options={{ headerShown: false }}
+      />
 
-
-
-      tabBar={props => <TabBar {...props} />}>
-      <Tab.Screen name="home" component={home} options={{ headerShown: false }} />
+      <Tab.Screen
+        name='Notification'
+        component={Notification}
+        options={{ headerShown: false }}
+      />
       <Tab.Screen
         name="profile"
         component={profile}
         options={{ headerShown: false }}
       />
-      <Tab.Screen
-        name="settings"
-        component={settings}
-        options={{ headerShown: false }}
-      />
-      <Tab.Screen
-        name="chatScreen1"
-        component={ChatScreen1}
-        options={{ headerShown: false }}
-      />
+
     </Tab.Navigator>
+
   );
 };
 

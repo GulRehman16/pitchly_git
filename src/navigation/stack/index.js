@@ -15,6 +15,10 @@ import ForgetConfirm from '../../screens/auth/forgetConfirm';
 import HavingTouble from '../../screens/auth/havingTouble';
 import MessageScreen from '../../screens/homes/MessageScreen';
 import ChatScreen1 from '../../screens/homes/chatscreen1';
+import Notification from '../../screens/homes/Notifications';
+import AddServices from '../../screens/homes/AddServices';
+import AccountSetting from '../../screens/homes/AccountSetting';
+import Profile from '../../screens/homes/profile';
 
 const Stack = createNativeStackNavigator();
 
@@ -26,13 +30,11 @@ const Auth = () => {
         component={splash}
         options={{ headerShown: false }}
       />
-
       <Stack.Screen
         name="mainAuth"
         component={mainAuth}
         options={{ headerShown: false }}
       />
-
       <Stack.Screen
         name="login"
         component={login}
@@ -63,6 +65,17 @@ const Auth = () => {
         component={HavingTouble}
         options={{ headerShown: false }}
       />
+      <Stack.Screen
+        name='addServices'
+        component={AddServices}
+        options={{ headerShown: false }}
+      />
+
+      <Stack.Screen
+        name='AccountSetting'
+        component={AccountSetting}
+        options={{ headerShown: false }}
+      />
     </Stack.Navigator>
   );
 };
@@ -75,6 +88,12 @@ export const Homes = () => {
         component={home}
         options={{ headerShown: false }}
       />
+      <Stack.Screen
+        name="premium"
+        component={Premium}
+        options={{ headerShown: false }}
+      />
+
       <Stack.Screen name='chatScreen1'
         component={ChatScreen1}
         options={{ headerShown: false }}
@@ -93,7 +112,26 @@ export const Homes = () => {
         component={PrivacyPolicy}
         options={{ headerShown: false }}
       />
+      <Stack.Screen
+        name='Notification'
+        component={Notification}
+        options={{ headerShown: false }}
+      />
+
+      <Stack.Screen name='profile'
+        component={Profile}
+        options={{ headerShown: false }}
+      />
+
+      <Stack.Screen name='profile'
+        component={Profile}
+        options={{ headerShown: false }}
+      />
+
+
+
     </Stack.Navigator>
+
   );
 };
 

@@ -12,10 +12,9 @@ import {
 import React, { useState } from 'react'
 import { Images } from '../../../constants'
 import { AppButton, Box, Header, Row, Switch1 } from '../../../components'
-import { Item, Textarea } from 'native-base'
-import { Icon } from 'react-native-elements'
 
-const PremiumMember = ({ }) => {
+
+const PremiumMemberScreen = ({ }) => {
 
     const data = [
         { text: 'Account Deactivation' },
@@ -95,7 +94,7 @@ const PremiumMember = ({ }) => {
         </ImageBackground >
     )
 }
-export default PremiumMember
+export default PremiumMemberScreen
 
 const styles = StyleSheet.create({
     imageContainer: {

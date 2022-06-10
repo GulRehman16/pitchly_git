@@ -33,11 +33,11 @@ const Images = {
     globe: require('../../assets/images/globe.png'),
     shareIcon: require('../../assets/images/shareIcon.png'),
     favoriteIcon: require('../../assets/images/favoriteIcon.png'),
-    starIcon: require('../../assets/images/starIcon.png'),
+
     msgColorIcon: require('../../assets/images/msgColorIcon.png'),
   },
   Icons: {
-    Star: require('../../assets/images/StarIcon.png'),
+    Star: require('../../assets/images/starIcon.png'),
     Document: require('../../assets/images/document.png'),
     Logout: require('../../assets/images/logout.png'),
     Account: require('../../assets/images/account.png'),
@@ -56,7 +56,11 @@ const Images = {
     PhotoVideo: require('../../assets/images/photo-video.png'),
     yes: require('../../assets/images/yes.png'),
     question: require('../../assets/images/question.png'),
-    Key: require('../../assets/images/key.png')
+    Key: require('../../assets/images/key.png'),
+    lock1: require('../../assets/images/lock1.png'),
+    add1: require('../../assets/images/add1.png'),
+    setting1: require('../../assets/images/setting1.png'),
+    user1: require('../../assets/images/user1.png')
 
   }
 };

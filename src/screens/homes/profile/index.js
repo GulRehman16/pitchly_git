@@ -9,11 +9,10 @@ import {
   Image
 } from 'react-native';
 import { AppButton, Header } from '../../../components';
-import UserBios from '../../../components/userbios';
 import { UserData } from '../../../components/usersdata';
 import { Images } from '../../../constants';
 
-const Profile = () => {
+const Profile = (props) => {
   return (
     <ImageBackground
       style={styles.imageContainer}
@@ -25,11 +24,10 @@ const Profile = () => {
         <View style={{}}>
           <View style={styles.screenHeader}>
             <Header
-              hiddinText
+              onPress={() => props.navigation.navigate('settings')}
+
+              HeaderText
               text="Profile"
-              onPress={() => {
-                props.navigation.goBack();
-              }}
             />
           </View>
           <View style={styles.screenBody}>
@@ -45,7 +43,9 @@ const Profile = () => {
               Contact='+13246987'
               Email="Lorem ipsome"
               Location="lorem ipsome"
+              // press={() => props.navigation.navigate('')}
 
+              press={() => props.navigation.navigate('home')}
             />
             <View>
             </View>
