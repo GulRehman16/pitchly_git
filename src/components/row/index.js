@@ -24,7 +24,8 @@ const Row = ({
     imwidth,
     Row3,
     borderRadius,
-
+    onPress,
+    Press,
     Icon2 }) => {
 
     return (
@@ -52,8 +53,6 @@ const Row = ({
                         <TouchableOpacity>
                             <Image source={Image2} />
                         </TouchableOpacity>
-
-
                         <View>
 
                         </View>
@@ -63,12 +62,13 @@ const Row = ({
 
             )}
 
+
             {Row2 && (
                 <View style={{
-                    width: '90%', height: 61, alignSelf: 'center',
+                    width: '100%', height: 82, alignSelf: 'center',
                     marginVertical: 5,
                     backgroundColor: '#fff',
-                    elevation: 5,
+                    elevation: 1,
                     borderRadius: 20,
                 }}>
 
@@ -93,7 +93,7 @@ const Row = ({
                                 </Text>
                             </View>
                         </View>
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={Press}>
                             <Image source={Image2} />
                         </TouchableOpacity>
                     </View>

@@ -39,11 +39,15 @@ const Images = {
     globe: require('../../assets/images/globe.png'),
     shareIcon: require('../../assets/images/shareIcon.png'),
     favoriteIcon: require('../../assets/images/favoriteIcon.png'),
+<<<<<<< HEAD
     // starIcon: require('../../assets/images/starIcon.png'),
+=======
+
+>>>>>>> 56524ebf67339a577d68249d457cd92b6f10a2cb
     msgColorIcon: require('../../assets/images/msgColorIcon.png'),
   },
   Icons: {
-    Star: require('../../assets/images/StarIcon.png'),
+    Star: require('../../assets/images/starIcon.png'),
     Document: require('../../assets/images/document.png'),
     Logout: require('../../assets/images/logout.png'),
     Account: require('../../assets/images/account.png'),
@@ -63,7 +67,16 @@ const Images = {
     yes: require('../../assets/images/yes.png'),
     question: require('../../assets/images/question.png'),
     Key: require('../../assets/images/key.png'),
+<<<<<<< HEAD
   },
+=======
+    lock1: require('../../assets/images/lock1.png'),
+    add1: require('../../assets/images/add1.png'),
+    setting1: require('../../assets/images/setting1.png'),
+    user1: require('../../assets/images/user1.png')
+
+  }
+>>>>>>> 56524ebf67339a577d68249d457cd92b6f10a2cb
 };
 
 export {Images};

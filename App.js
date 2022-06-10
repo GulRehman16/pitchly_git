@@ -22,21 +22,27 @@ import Notification from './src/screens/homes/Notifications';
 import NotificationSetting from './src/screens/homes/notificationSetting';
 import Payment from './src/screens/homes/PAyment';
 import PictureSlider from './src/screens/homes/PictureSlider';
-import PremiumMember from './src/screens/homes/premiumMember';
+
+import PremiumMemberScreen from './src/screens/homes/PremiumMemberScreen';
 import Profile from './src/screens/homes/profile';
-import Setting from './src/screens/homes/setting';
+
 import ThankYouScreen from './src/screens/homes/thank you';
+import TooltipScreen from './src/screens/homes/ToolTipScreen';
 
 const App = props => {
+<<<<<<< HEAD
+=======
+  // return <PremiumMemberScreen />
+  //return <TooltipScreen />
+>>>>>>> 56524ebf67339a577d68249d457cd92b6f10a2cb
   // return <PictureSlider />
   //return <DeactivateAccount />
   //return <DeleteAccount />
   //return <ThankYouScreen />
   //return <AddServices />
-  //return <Profile />
+  // return <Profile />
   //return <EditProfile />
   // return <FeaturedPost />
-  // return <PremiumMember />
   // return <Payment />
   //return <ChangePassword />
   // return <AccountSetting />
@@ -46,15 +52,17 @@ const App = props => {
   // return <Blocked />
   // return <Followers />
   // return <Following />
-  // return <Setting />
+
   // return <Language />
-  // return <Notification />
+  //return <Notification />
   //return <NotificationSetting />
   //return <ChatDetails />
   // return <MessageScreen />`
   // // return <ChatScreen1 />
+<<<<<<< HEAD
   // return <MyStack {...props} />;
+=======
+>>>>>>> 56524ebf67339a577d68249d457cd92b6f10a2cb
   return <MyStack {...props} />;
 };
-
 export default App;

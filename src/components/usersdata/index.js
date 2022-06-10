@@ -16,6 +16,7 @@ import LinearGradient from 'react-native-linear-gradient';
 
 const UserData = (
     {
+        navigation,
         Image1,
         BoldText,
         LighterText,
@@ -29,8 +30,8 @@ const UserData = (
         Bios,
         Contact,
         Email,
-
-        Location
+        Location,
+        press
     }) => {
 
     const [state, setState] = useState('follow');
@@ -80,7 +81,7 @@ const UserData = (
                                 </View>
                             </View>
                             <View style={{ width: '10%' }}>
-                                <TouchableOpacity activeOpacity={0.8} >
+                                <TouchableOpacity activeOpacity={0.8} onPress={press}>
                                     <LinearGradient
                                         start={{ x: 1, y: 0.0 }}
                                         end={{ x: 1, y: 1.9 }}
@@ -92,11 +93,11 @@ const UserData = (
                                         }}
                                     >
                                         <Icon
-                                            type="Feather"
+                                            type="FontAwesome"
                                             name="edit"
                                             color='#fff'
-                                            size={26}
-                                            style={{}}
+                                            size={22}
+                                            style={{ margin: 4 }}
                                         />
                                     </LinearGradient>
                                 </TouchableOpacity>
