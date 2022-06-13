@@ -21,7 +21,7 @@ import { Images } from '../../../constants';
 
 
 
-const EditProfile = ({ onSwitch
+const EditProfile = ({ onSwitch, navigation
 
 }) => {
 
@@ -38,10 +38,11 @@ const EditProfile = ({ onSwitch
                 <View style={{}}>
                     <View style={styles.screenHeader}>
                         <Header
+                            BAckButton
                             hiddinText
                             text="Edit Profile"
                             onPress={() => {
-                                props.navigation.goBack();
+                                navigation.goBack();
                             }}
                         />
                     </View>
@@ -52,7 +53,7 @@ const EditProfile = ({ onSwitch
                             <View style={styles.Pictures}>
                                 <View style={styles.profile}>
                                     <Image
-                                        source={Images.Pictures.profile}
+                                        source={Images.Pictures.profile1}
                                         resizeMode="contain"
                                         style={{
                                             width: '100%', height: '100%',
@@ -125,9 +126,8 @@ const EditProfile = ({ onSwitch
                                     borderColor={'#707070'}
                                     backgroundColor={'#FFFFFF'}
                                     label="Pay Now"
-                                    onPress={() =>
-                                        props.navigation.replace('MyTabs', { screen: 'home' })
-                                    }
+
+
                                 />
                             </View>
                         </View>

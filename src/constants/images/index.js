@@ -5,6 +5,7 @@ const Images = {
     homeMainBg: require('../../assets/images/homeMainBg.jpg'),
     appBg: require('../../assets/images/Bg.png'),
     profile: require('../../assets/images/profile.png'),
+    profile1: require('../../assets/images/profile1.png'),
     help: require('../../assets/images/help.png'),
     // forgetBlur: require('../../assets/images/forgetBlur.png'),
     statusImg1: require('../../assets/images/statusImg1.png'),

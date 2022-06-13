@@ -1,13 +1,16 @@
 import {
-    StyleSheet, Text, View, SafeAreaView, ScrollView, TouchableOpacity, Image,
+    StyleSheet, Text, View, SafeAreaView,
+    StatusBar, ScrollView, TouchableOpacity, Image,
     FlatList, ImageBackground
 } from 'react-native'
 import React, { useState } from 'react'
-import { Box, Header, Row } from '../../../components'
+import { Box, Header, HomeHeader, Row } from '../../../components'
 import Icon from 'react-native-vector-icons/Entypo';
 import { Images } from '../../../constants';
 import Swipeable from 'react-native-swipeable';
 import { Item } from 'native-base';
+import { Tooltip, } from 'react-native-elements';
+
 
 
 
@@ -21,8 +24,6 @@ const Notification = ({ route, navigation }) => {
                 messagenumber: '2',
                 Nowtext: "just now",
                 // Image2: Images.Icons.card1
-
-
             },
             {
                 Imgbox: Images.Pictures.statusImg5,
@@ -30,7 +31,6 @@ const Notification = ({ route, navigation }) => {
                 textmessage: 'Ok let me see...',
                 messagenumber: '1',
                 Nowtext: "1 day ago"
-
             },
             {
                 Imgbox: Images.Pictures.statusImg5,
@@ -46,9 +46,6 @@ const Notification = ({ route, navigation }) => {
                 textmessage: 'Ok let me see...',
                 messagenumber: '1',
                 Nowtext: "1 day ago"
-
-
-
             },
             {
                 Imgbox: Images.Pictures.statusImg5,
@@ -56,7 +53,6 @@ const Notification = ({ route, navigation }) => {
                 textmessage: 'Ok let me see...',
                 messagenumber: '3',
                 Nowtext: "just now"
-
             },
             {
                 Imgbox: Images.Pictures.statusImg5,
@@ -64,7 +60,6 @@ const Notification = ({ route, navigation }) => {
                 textmessage: 'Ok let me see...',
                 messagenumber: '3',
                 Nowtext: "just now"
-
             },
             {
                 Imgbox: Images.Pictures.statusImg5,
@@ -72,7 +67,6 @@ const Notification = ({ route, navigation }) => {
                 textmessage: 'Ok let me see...',
                 messagenumber: '3',
                 Nowtext: "just now"
-
             },
             {
                 Imgbox: Images.Pictures.statusImg5,
@@ -80,11 +74,8 @@ const Notification = ({ route, navigation }) => {
                 textmessage: 'Ok let me see...',
                 messagenumber: '3',
                 Nowtext: "just now"
-
             },
-
         ]
-
     })
 
     return (
@@ -94,9 +85,22 @@ const Notification = ({ route, navigation }) => {
             <ScrollView keyboardShouldPersistTaps="handled"
                 showsVerticalScrollIndicator={false}
                 contentContainerStyle={{ flexGrow: 1 }}>
+                <StatusBar backgroundColor={'transparent'} translucent={true}
+                />
+
+                <View style={styles.screenHeader}>
+                    <Header
+
+                        hiddinText
+                        text="Edit Profile"
+                        onPress={() => {
+                            navigation.goBack();
+                        }}
+                    />
+                </View>
                 <View style={styles.Body}>
-                    <View style={{}}>
-                        <Text style={styles.message}>Notification</Text>
+                    <View style={{ marginVertical: 10 }}>
+                        <Text style={{ color: '#000', fontWeight: 'bold' }}>Today</Text>
                     </View>
                     <FlatList
                         data={data.DataBox}
@@ -110,7 +114,6 @@ const Notification = ({ route, navigation }) => {
                                         elevation: 1,
                                         borderRadius: 20,
                                     }}>
-
                                         <View style={{
                                             flexDirection: 'row',
                                             alignItems: 'center',
@@ -136,18 +139,48 @@ const Notification = ({ route, navigation }) => {
                                                         <Text style={{ marginLeft: 5, top: 3, color: '#000' }}>
                                                             {item.textmessage}
                                                         </Text>
+
                                                     </View>
                                                     <Text>
                                                         {item.Nowtext}
                                                     </Text>
                                                 </View>
-
                                             </View>
-                                            <TouchableOpacity style={styles.Icon} onPress={item.Press}>
-                                                <Icon name='dots-three-vertical' type="Entypo"
-                                                    style={{ fontSize: 26 }}
-                                                />
-                                            </TouchableOpacity>
+                                            <View style={{}}>
+                                                <Tooltip containerStyle={{
+
+                                                    width: 160,
+                                                    height: 100,
+                                                    shadowColor: "#000",
+                                                    shadowOffset: {
+                                                        width: 0,
+                                                        height: 3,
+                                                    },
+                                                    shadowOpacity: 0.27,
+                                                    shadowRadius: 4.65,
+                                                    elevation: 1,
+
+
+                                                }} backgroundColor='#f1f1f1'
+                                                    withPointer={true}
+                                                    pointerColor='#f1f1f1'
+                                                    popover={
+                                                        <View style={{}}>
+                                                            <View style={{ marginRight: 0, padding: 2 }}>
+                                                                <Text>
+                                                                    Remove Notification
+                                                                </Text>
+                                                                <Text>
+                                                                    Turn off notificationIcon about {'\n'}
+                                                                    Vani's updates
+                                                                </Text>
+                                                            </View>
+                                                        </View>}>
+                                                    <Icon name='dots-three-vertical' type="Entypo"
+                                                        style={{ fontSize: 26, }} />
+
+                                                </Tooltip>
+                                            </View>
                                         </View>
                                     </View>
                                 </View>
@@ -156,8 +189,8 @@ const Notification = ({ route, navigation }) => {
                         }
                     />
                 </View>
-            </ScrollView>
-        </ImageBackground>
+            </ScrollView >
+        </ImageBackground >
     )
 }
 export default Notification
@@ -165,6 +198,15 @@ export default Notification
 const styles = StyleSheet.create({
     Container: {
         flex: 1,
+    },
+
+    screenHeader: {
+        width: '90%',
+        height: 80,
+        marginTop: 50,
+        alignSelf: 'center',
+        justifyContent: 'center',
+        alignItems: 'center',
     },
     Body: {
         backgroundColorL: 'purple',

@@ -17,7 +17,7 @@ import { Followbtn, Header, } from '../../../components'
 
 import { UserData } from '../../../components/usersdata'
 
-const Blocked = ({ }) => {
+const Blocked = (props) => {
 
     // const [state, setState] = useState('follow');
 
@@ -71,8 +71,9 @@ const Blocked = ({ }) => {
                 <View style={{}}>
                     <View style={styles.screenHeader}>
                         <Header
+                            BAckButton
                             hiddinText
-                            text="Following"
+                            text="Blocked"
                             onPress={() => {
                                 props.navigation.goBack();
                             }}

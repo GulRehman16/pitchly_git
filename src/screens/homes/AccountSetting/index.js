@@ -15,14 +15,29 @@ import { Box, Header, Row, Switch1 } from '../../../components'
 import { Item, Textarea } from 'native-base'
 import { Icon } from 'react-native-elements'
 
-const AccountSetting = ({ }) => {
+const AccountSetting = (props) => {
 
     const data = [
-        { text: 'Account Deactivation' },
-        { text: 'Make Account Private' },
-        { text: 'Notification' },
-        { text: 'Change Password' },
-        { text: 'Blocked Accounts' },
+        {
+            text: 'Account Deactivation',
+            press: () => { props.navigation.navigate('Accountdeactivation') }
+        },
+        {
+            text: 'Make Account Private',
+            press: () => { props.navigation.navigate('') }
+        },
+        {
+            text: 'Notification',
+            press: () => { props.navigation.navigate('Notification') }
+        },
+        {
+            text: 'Change Password',
+            press: () => { props.navigation.navigate('changepassword') }
+        },
+        {
+            text: 'Blocked Accounts',
+            press: () => { props.navigation.navigate('blocked') }
+        },
 
     ]
     return (
@@ -36,6 +51,7 @@ const AccountSetting = ({ }) => {
                 <View style={{}}>
                     <View style={styles.screenHeader}>
                         <Header
+                            BAckButton
                             hiddinText
                             text="Account Settings"
                             onPress={() => {
@@ -53,6 +69,7 @@ const AccountSetting = ({ }) => {
                                         <>
                                             <Row Row1
                                                 text={item.text}
+                                                onPress={item.press}
 
                                             />
                                         </>

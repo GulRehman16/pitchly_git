@@ -20,46 +20,47 @@ const Settings = (props) => {
       Image1: Images.Icons.Star,
       text2: 'Become Premium Member',
       Image2: Images.Icons.arrowforward,
-      Press: () => props.navigation.navigate('profile')
+      Press: () => props.navigation.navigate('premium')
     },
     {
       Image1: Images.Icons.Document,
       text2: 'Your Featured Posts',
       Image2: Images.Icons.arrowforward,
-      onPress: () => props.navigation.navigate('profile')
+      Press: () => props.navigation.navigate('getfeaturePost')
     },
     {
       Image1: Images.Icons.Save,
       text2: 'Your Saved Posts',
       Image2: Images.Icons.arrowforward,
-      onPress: () => props.navigation.navigate('profile')
+      Press: () => props.navigation.navigate('')
 
     },
     {
       Image1: Images.Icons.Account,
       text2: 'Account Settings',
       Image2: Images.Icons.arrowforward,
-      onPress: () => props.navigation.navigate('profile')
+      Press: () => props.navigation.navigate('accountsettings')
 
     },
     {
       Image1: Images.Icons.document2,
       text2: 'Privacy Policy',
       Image2: Images.Icons.arrowforward,
-      onPress: () => props.navigation.navigate('profile')
+      Press: () => props.navigation.navigate('privacyPolicy')
 
     },
     {
       Image1: Images.Icons.privacy,
       text2: 'Terms & Conditions',
       Image2: Images.Icons.arrowforward,
-      onPress: () => props.navigation.navigate('termsAndCondition')
+      Press: () => props.navigation.navigate('termsAndCondition')
 
     },
     {
       Image1: Images.Icons.Logout,
       text2: 'Logout',
       // Image2: Images.Icons.arrowforward,
+      Press: () => props.navigation.navigate('language')
     },
   ]
   return (
@@ -87,11 +88,11 @@ const Settings = (props) => {
                 return (
                   <>
                     <Row Row2
+                      Press1={item.Press1}
                       Press={item.Press}
                       Image1={item.Image1}
                       text2={item.text2}
                       Image2={item.Image2}
-
                     />
                   </>
                 )
@@ -132,7 +133,7 @@ const styles = StyleSheet.create({
     marginTop: 40,
   },
   screenBody: {
-    width: '100%',
+    width: '90%',
     height: '100%',
     alignSelf: 'center',
 

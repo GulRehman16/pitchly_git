@@ -8,7 +8,7 @@ import { Images } from '../../../constants'
 import { Box, Header, AppButton, FormInput } from '../../../components'
 import { Textarea } from 'native-base'
 
-const Payment = ({ text, navigation, onSwitch }) => {
+const Payment = (props) => {
 
     return (
 
@@ -22,7 +22,7 @@ const Payment = ({ text, navigation, onSwitch }) => {
                 <View style={{}}>
                     <View style={styles.screenHeader}>
                         <Header
-
+                            BAckButton
                             hiddinText
                             text="Get Premium"
                             onPress={() => {
@@ -32,7 +32,7 @@ const Payment = ({ text, navigation, onSwitch }) => {
                     </View>
                     <View style={styles.screenBody}>
                         <View style={styles.cardbox}>
-                            <View style={styles.imageView}>
+                            <View style={styles.imageView1}>
                                 <Image source={Images.Icons.card2} style={styles.cardimg} />
                             </View>
                             <View style={styles.imageView}>
@@ -51,29 +51,32 @@ const Payment = ({ text, navigation, onSwitch }) => {
 
 
                         <View style={styles.InfotextView}>
-                            <Text style={styles.Infotext}>Credit Card Info</Text>
+                            <View style={{ width: '90%', alignSelf: 'center', marginVertical: 5 }}>
+                                <Text style={styles.Infotext}>Credit Card Info</Text>
+                            </View>
+
 
                             <View style={{ width: '90%', alignSelf: 'center' }}>
                                 <View>
                                     <Text style={styles.UserName}>CARD NUMBER</Text>
-                                    <FormInput placeHolder="0000 0000 0000 0000" />
+                                    <FormInput borderWidth={0.5} placeHolder="0000 0000 0000 0000" />
                                 </View>
                                 <View>
                                     <Text style={styles.UserName}>CARDHOLDER NAME</Text>
-                                    <FormInput placeHolder="John Doe" />
+                                    <FormInput borderWidth={0.5} placeHolder="John Doe" />
                                 </View>
                                 <View>
                                     <Text style={styles.UserName}>EXPIRE DATE</Text>
-                                    <FormInput placeHolder="05/21" />
+                                    <FormInput borderWidth={0.5} placeHolder="05/21" />
                                 </View>
                                 <View style={{ width: '50%' }}>
                                     <Text style={styles.UserName}>CVV</Text>
-                                    <FormInput placeHolder="123" />
+                                    <FormInput borderWidth={0.5} placeHolder="123" />
                                 </View>
                             </View>
 
                         </View>
-                        <View style={{ width: '80%', alignSelf: 'center' }}>
+                        <View style={{ width: '70%', alignSelf: 'center', marginVertical: 10 }}>
                             <AppButton
                                 LinearColor1={'#5DF7B8'}
                                 LinearColor2={'#3109FB'}
@@ -83,8 +86,7 @@ const Payment = ({ text, navigation, onSwitch }) => {
                                 backgroundColor={'#FFFFFF'}
                                 label="Pay Now"
                                 onPress={() =>
-                                    props.navigation.replace('MyTabs', { screen: 'home' })
-                                }
+                                    props.navigation.navigate('thankyouscreen')}
                             />
                         </View>
 
@@ -129,18 +131,23 @@ const styles = StyleSheet.create({
         width: '100%',
         // height: '20%',
         alignSelf: 'center',
+        marginTop: 20
 
     },
     cardbox: {
-        width: '90%',
+        width: '80%',
         alignSelf: 'center',
         flexDirection: 'row',
-        justifyContent: "space-between"
-
+        // justifyContent: "space-between"
+        justifyContent: 'space-around'
     },
     imageView: {
         width: 50, height: 30,
-
+    },
+    imageView1: {
+        width: 50, height: 30,
+        borderWidth: 1,
+        borderColor: 'blue'
     },
 
     cardimg: {
@@ -156,11 +163,13 @@ const styles = StyleSheet.create({
     Infotext: {
         fontSize: 18,
         color: '#000',
-        fontWeight: '700'
+        fontWeight: '700',
+        marginVertical: 10
     },
     UserName: {
         fontSize: 16, color: '#000',
-        fontWeight: '400', marginVertical: 10
+        fontWeight: '400', marginVertical: 5,
+        marginTop: 10
 
     },
 

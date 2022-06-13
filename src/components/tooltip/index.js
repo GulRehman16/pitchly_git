@@ -5,66 +5,45 @@ import { Icon } from 'react-native-elements';
 import { Images } from '../../constants';
 
 
-const Tooltips = (props) => {
+const Tooltips = ({ Tooltip1, Tooltip2, onPress, navigation }) => {
 
-  const { Tooltip1, Tooltip2, onPress } = props
   const [state, setState] = useState(true);
   return (
-    <Tooltip
-      isVisible={true}
-      contentStyle={{}}
-      content={
-        <>
-          <TouchableOpacity onPress={onPress} >
-            {Tooltip2 && (
-              <View>
-                <Text>
-                  Remove Notification
-                </Text>
-                <Text>
-                  Turn off notificationIcon about {'\n'}
-                  Vani's updates
-                </Text>
-              </View>
-            )}
-
-          </TouchableOpacity>
-          <View>
-            {Tooltip1 && (
+    <>
+      {Tooltip2 && (
+        <Tooltip
+          isVisible={true}
+          contentStyle={{ marginTop: 100 }}
+          content={
+            <View>
               <View style={styles.TooltipContainer}>
                 <View style={styles.textbox}>
                   <Text style={styles.text}>Upload</Text>
                 </View>
-
                 <View style={styles.container}>
                   <TouchableOpacity
-                    onPress={() => { props.navigation.navigate('AddPost') }}
+                    onPress={() => { navigation.navigate('profile') }}
                     style={styles.box}>
-
                     <Image source={Images.Icons.add1} resizeMode="contain"
                       style={{ width: 40, height: 40, }} />
                     <Text>General</Text>
-
                   </TouchableOpacity>
                   <TouchableOpacity
-                    onPress={() => { props.navigation.navigate('AddPost') }}
+                    onPress={() => { navigation.navigate('profile') }}
                     style={styles.box}>
-
                     <Image source={Images.Icons.user1} resizeMode="contain"
                       style={{ width: 40, height: 40 }} />
                     <Text>Talent</Text>
-
                   </TouchableOpacity>
                   <TouchableOpacity
-                    onPress={() => { props.navigation.navigate('AddPost') }}
+                    onPress={() => { navigation.navigate('AddPost') }}
                     style={styles.box}>
-
                     <Image source={Images.Icons.setting1} resizeMode="contain"
                       style={{ width: 40, height: 40 }} />
                     <Text>Services</Text>
                   </TouchableOpacity>
                   <TouchableOpacity
-                    onPress={() => { props.navigation.navigate('AddPost') }}
+                    onPress={() => { navigation.navigate('AddPost') }}
                     style={styles.box}>
                     <Image source={Images.Icons.lock1} resizeMode="contain"
                       style={{ width: 40, height: 40 }} />
@@ -72,15 +51,52 @@ const Tooltips = (props) => {
                   </TouchableOpacity>
                 </View>
               </View >
-            )}
-          </View>
-        </>
-      }
-      placement="top"
-      onClose={() => {
-        setState(false);
-      }}>
-    </Tooltip >
+
+            </View>
+
+          }
+          placement="center"
+          onClose={() => {
+            setState(false);
+          }}>
+        </Tooltip >
+      )}
+
+      {Tooltip1 && (
+
+
+
+        <Tooltip
+          isVisible={true}
+          contentStyle={{ marginTop: 100 }}
+          content={
+            <>
+
+              <TouchableOpacity onPress={onPress} >
+                {Tooltip2 && (
+                  <View>
+                    <Text>
+                      Remove Notification
+                    </Text>
+                    <Text>
+                      Turn off notificationIcon about {'\n'}
+                      Vani's updates
+                    </Text>
+                  </View>
+                )}
+              </TouchableOpacity>
+
+
+            </>
+
+          }
+          placement="center"
+          onClose={() => {
+            setState(false);
+          }}>
+        </Tooltip >
+      )}
+    </>
   );
 };
 
@@ -125,3 +141,19 @@ const styles = StyleSheet.create({
   }
 
 });
+
+
+// import React from 'react';
+//import { Text } from 'react-native'
+//import { Tooltip, } from 'react-native-elements';
+
+//const Tooltip1 = () => {
+ // return (
+    ///<Tooltip popover={<Text>Info here</Text>}>
+     // <Text>Press me</Text>
+  //  </Tooltip>
+//  )
+//}
+//export { Tooltip1 }
+
+

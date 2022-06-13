@@ -31,7 +31,7 @@ const UserData = (
         Contact,
         Email,
         Location,
-        press
+        pressme
     }) => {
 
     const [state, setState] = useState('follow');
@@ -45,7 +45,6 @@ const UserData = (
 
     return (
         <View>
-
             {Bio && (
                 <View>
                     <View style={styles.bioBox}>
@@ -81,17 +80,18 @@ const UserData = (
                                 </View>
                             </View>
                             <View style={{ width: '10%' }}>
-                                <TouchableOpacity activeOpacity={0.8} onPress={press}>
-                                    <LinearGradient
-                                        start={{ x: 1, y: 0.0 }}
-                                        end={{ x: 1, y: 1.9 }}
-                                        colors={['#5DF7B8', '#3109FB']}
-                                        style={{
-                                            width: 35,
-                                            height: 35,
-                                            borderRadius: 10
-                                        }}
-                                    >
+
+                                <LinearGradient
+                                    start={{ x: 1, y: 0.0 }}
+                                    end={{ x: 1, y: 1.9 }}
+                                    colors={['#5DF7B8', '#3109FB']}
+                                    style={{
+                                        width: 35,
+                                        height: 35,
+                                        borderRadius: 10
+                                    }}
+                                >
+                                    <TouchableOpacity activeOpacity={0.8} onPress={pressme} >
                                         <Icon
                                             type="FontAwesome"
                                             name="edit"
@@ -99,8 +99,9 @@ const UserData = (
                                             size={22}
                                             style={{ margin: 4 }}
                                         />
-                                    </LinearGradient>
-                                </TouchableOpacity>
+                                    </TouchableOpacity>
+                                </LinearGradient>
+
                             </View>
                         </View>
                         <View style={{ width: '90%', alignSelf: 'center' }}>

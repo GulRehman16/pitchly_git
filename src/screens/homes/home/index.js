@@ -255,142 +255,37 @@ const Home = props => {
   });
 
   return (
-    <ImageBackground
-      style={styles.imageContainer}
-      source={Images.Pictures.homeMainBg}>
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={{ flexGrow: 1 }}>
-        <StatusBar backgroundColor={'transparent'} translucent={true} />
-        <View style={styles.body}>
-          <View style={styles.headerView}>
-            <HomeHeader />
-          </View>
+    <>
+      <ImageBackground
+        style={styles.imageContainer}
+        source={Images.Pictures.homeMainBg}>
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={{ flexGrow: 1 }}>
+          <StatusBar backgroundColor={'transparent'} translucent={true} />
+          <View style={styles.body}>
+            <View style={styles.headerView}>
+              <HomeHeader />
+            </View>
 
-          <View style={styles.statusBoxView}>
-            <View style={styles.statusAddView}>
-              <View style={styles.statusAddBox}>
-                <Image
-                  source={Images.Logos.plusIcon}
-                  style={styles.statusAddIcon}
-                />
+            <View style={styles.statusBoxView}>
+              <View style={styles.statusAddView}>
+                <View style={styles.statusAddBox}>
+                  <Image
+                    source={Images.Logos.plusIcon}
+                    style={styles.statusAddIcon}
+                  />
+                </View>
+                <Text>You</Text>
               </View>
-              <Text>You</Text>
-            </View>
-            <FlatList
-              horizontal={true}
-              showsHorizontalScrollIndicator={false}
-              data={data.statusData}
-              renderItem={({ item }) => {
-                return (
-                  <View style={{ paddingLeft: 10 }}>
-                    <StatusView
-                      imgName={item.imgName}
-                      width={item.width}
-                      height={item.height}
-                      imgWidth={item.imgWidth}
-                      imgHeight={item.imgHeight}
-                      text={item.text}
-                    />
-                  </View>
-                );
-              }}
-            />
-          </View>
-
-          <View style={styles.pitchlyFeatured}>
-            <PitchlyFeatured />
-          </View>
-
-          <View
-            style={{
-              width: '100%',
-              height: 35,
-              marginTop: 20,
-              flexDirection: 'row',
-            }}>
-            <View
-              style={{
-                width: '40%',
-                height: '100%',
-                alignItems: 'center',
-                justifyContent: 'center',
-                borderRadius: 5,
-              }}>
-              <Text
-                style={{
-                  fontSize: 14,
-                  fontWeight: 'bold',
-                  color: 'black',
-                }}>
-                PRODUCTS FEED
-              </Text>
-            </View>
-            <LinearGradient
-              start={{ x: 1.5, y: 1.0 }}
-              end={{ x: 1.5, y: 2.5 }}
-              colors={['#28A9F61A', '#4C9BD2']}
-              style={{
-                width: '60%',
-                height: '100%',
-                borderRadius: 5,
-                alignItems: 'center',
-                justifyContent: 'space-evenly',
-                flexDirection: 'row',
-              }}>
-              <TouchableOpacity style={{}}>
-                <Text
-                  style={{ fontSize: 11, fontWeight: 'bold', color: 'black' }}>
-                  All
-                </Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={{}}>
-                <Text
-                  style={{ fontSize: 11, fontWeight: 'bold', color: 'black' }}>
-                  Talent
-                </Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={{}}>
-                <Text
-                  style={{ fontSize: 11, fontWeight: 'bold', color: 'black' }}>
-                  Services
-                </Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={{}}>
-                <Text
-                  style={{ fontSize: 11, fontWeight: 'bold', color: 'black' }}>
-                  Products
-                </Text>
-              </TouchableOpacity>
-            </LinearGradient>
-          </View>
-
-          <View style={{marginTop: 50}}>
-            <PostBox />
-          </View>
-
-          <View
-            style={{
-              width: '110%',
-              alignSelf: 'center',
-              height: 200,
-              justifyContent: 'center',
-            }}>
-            <View
-              style={{
-                width: '90%',
-                alignSelf: 'center',
-                justifyContent: 'center',
-                flexDirection: 'row',
-              }}>
               <FlatList
                 horizontal={true}
                 showsHorizontalScrollIndicator={false}
-                data={data.statusData2}
-                renderItem={({item}) => {
+                data={data.statusData}
+                renderItem={({ item }) => {
                   return (
-                    <View style={{marginLeft: 10}}>
-                      <SuggestFriends
+                    <View style={{ paddingLeft: 10 }}>
+                      <StatusView
                         imgName={item.imgName}
                         width={item.width}
                         height={item.height}
@@ -403,10 +298,118 @@ const Home = props => {
                 }}
               />
             </View>
+
+            <View style={styles.pitchlyFeatured}>
+              <PitchlyFeatured />
+            </View>
+
+            <View
+              style={{
+                width: '100%',
+                height: 35,
+                marginTop: 20,
+                flexDirection: 'row',
+              }}>
+              <View
+                style={{
+                  width: '40%',
+                  height: '100%',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  borderRadius: 5,
+                }}>
+                <Text
+                  style={{
+                    fontSize: 14,
+                    fontWeight: 'bold',
+                    color: 'black',
+                  }}>
+                  PRODUCTS FEED
+                </Text>
+              </View>
+              <LinearGradient
+                start={{ x: 1.5, y: 1.0 }}
+                end={{ x: 1.5, y: 2.5 }}
+                colors={['#28A9F61A', '#4C9BD2']}
+                style={{
+                  width: '60%',
+                  height: '100%',
+                  borderRadius: 5,
+                  alignItems: 'center',
+                  justifyContent: 'space-evenly',
+                  flexDirection: 'row',
+                }}>
+                <TouchableOpacity style={{}}>
+                  <Text
+                    style={{ fontSize: 11, fontWeight: 'bold', color: 'black' }}>
+                    All
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={{}}>
+                  <Text
+                    style={{ fontSize: 11, fontWeight: 'bold', color: 'black' }}>
+                    Talent
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={{}}>
+                  <Text
+                    style={{ fontSize: 11, fontWeight: 'bold', color: 'black' }}>
+                    Services
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={{}}>
+                  <Text
+                    style={{ fontSize: 11, fontWeight: 'bold', color: 'black' }}>
+                    Products
+                  </Text>
+                </TouchableOpacity>
+              </LinearGradient>
+            </View>
+
+            <View style={{ marginTop: 50 }}>
+              <PostBox />
+            </View>
+
+            <View
+              style={{
+                width: '110%',
+                alignSelf: 'center',
+                height: 200,
+                justifyContent: 'center',
+              }}>
+              <View
+                style={{
+                  width: '90%',
+                  alignSelf: 'center',
+                  justifyContent: 'center',
+                  flexDirection: 'row',
+                }}>
+                <FlatList
+                  horizontal={true}
+                  showsHorizontalScrollIndicator={false}
+                  data={data.statusData2}
+                  renderItem={({ item }) => {
+                    return (
+                      <View style={{ marginLeft: 10 }}>
+                        <SuggestFriends
+                          imgName={item.imgName}
+                          width={item.width}
+                          height={item.height}
+                          imgWidth={item.imgWidth}
+                          imgHeight={item.imgHeight}
+                          text={item.text}
+                        />
+                      </View>
+                    );
+                  }}
+                />
+              </View>
+            </View>
           </View>
-        </View>
-      </ScrollView>
-    </ImageBackground>
+        </ScrollView>
+      </ImageBackground>
+
+    </>
   );
 };
 

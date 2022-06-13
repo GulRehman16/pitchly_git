@@ -24,15 +24,14 @@ const Profile = (props) => {
         <View style={{}}>
           <View style={styles.screenHeader}>
             <Header
-              onPress={() => props.navigation.navigate('settings')}
-
+              onPress={() => props.navigation.navigate('Homes', { screen: 'settings' })}
               HeaderText
               text="Profile"
             />
           </View>
           <View style={styles.screenBody}>
             <UserData Bio
-              Image1={Images.Pictures.profile}
+              Image1={Images.Pictures.profile1}
               UserName="Tarrance"
               UserEmail="@Tarrance_official"
               Post={111}
@@ -43,9 +42,7 @@ const Profile = (props) => {
               Contact='+13246987'
               Email="Lorem ipsome"
               Location="lorem ipsome"
-              // press={() => props.navigation.navigate('')}
-
-              press={() => props.navigation.navigate('home')}
+              pressme={() => props.navigation.navigate('Homes', { screen: 'editprofile' })}
             />
             <View>
             </View>
@@ -58,7 +55,6 @@ const Profile = (props) => {
 };
 
 export default Profile;
-
 
 const styles = StyleSheet.create({
   imageContainer: {
