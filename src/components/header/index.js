@@ -28,6 +28,11 @@ const Header = ({
   onPress,
   HeaderText,
   BAckButton,
+  hiddinText1,
+  text1,
+  press,
+  barICon
+
 }) => {
   return (
     <View style={{ width: '100%', justifyContent: 'center' }}>
@@ -39,37 +44,45 @@ const Header = ({
             alignItems: 'center'
           }}>
             <View>
-              <Text
-                style={{
-                  fontSize: 18,
-                  fontWeight: 'bold',
-                  color: 'black',
-                  marginLeft: 10,
-                }}>
-                {text}
-              </Text>
+              {hiddinText1 && (
+                <TouchableOpacity onPress={press} >
+                  <Text
+                    style={{
+                      fontSize: 18,
+                      fontWeight: 'bold',
+                      color: 'black',
+                      marginLeft: 10,
+                      color: '#000'
+                    }}>
+                    {text1}
+                  </Text>
+                </TouchableOpacity>
+              )}
             </View>
+            {barICon && (
+              <TouchableOpacity activeOpacity={0.8} onPress={onPress}>
+                <LinearGradient
+                  start={{ x: 1, y: 0.0 }}
+                  end={{ x: 1, y: 1.9 }}
+                  colors={['#5DF7B8', '#3109FB']}
+                  style={{
+                    width: 35,
+                    height: 35,
+                    borderRadius: borderRadius || 5,
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}>
+                  <Icon
+                    type="Ionicons"
+                    name="reorder-three"
+                    style={{ color: 'white', fontSize: 24 }}
+                  />
+                </LinearGradient>
+              </TouchableOpacity>
+
+            )}
 
 
-            <TouchableOpacity activeOpacity={0.8} onPress={onPress}>
-              <LinearGradient
-                start={{ x: 1, y: 0.0 }}
-                end={{ x: 1, y: 1.9 }}
-                colors={['#5DF7B8', '#3109FB']}
-                style={{
-                  width: 35,
-                  height: 35,
-                  borderRadius: borderRadius || 5,
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}>
-                <Icon
-                  type="Ionicons"
-                  name="reorder-three"
-                  style={{ color: 'white', fontSize: 24 }}
-                />
-              </LinearGradient>
-            </TouchableOpacity>
           </View>
         )}
 
@@ -95,6 +108,11 @@ const Header = ({
           </TouchableOpacity>
 
         )}
+
+
+
+
+
 
         {hiddinText && (
           <Text

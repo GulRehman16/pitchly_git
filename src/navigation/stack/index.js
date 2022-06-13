@@ -19,7 +19,25 @@ import Notification from '../../screens/homes/Notifications';
 import AddServices from '../../screens/homes/AddServices';
 import AccountSetting from '../../screens/homes/AccountSetting';
 import Profile from '../../screens/homes/profile';
+<<<<<<< Updated upstream
 import ChatScreen from '../../screens/homes/ChatScreen';
+=======
+import EditProfile from '../../screens/homes/editprofile';
+import PremiumMemberScreen from '../../screens/homes/PremiumMemberScreen';
+import Settings from '../../screens/homes/settings';
+import GetFeaturedPost from '../../screens/homes/Get_It_Featured';
+import AccountDeactivation from '../../screens/homes/AccountDeactivation';
+import ChangePassword from '../../screens/homes/ChangePassword';
+import Blocked from '../../screens/homes/Blocked';
+import Language from '../../screens/homes/Language';
+import Payment from '../../screens/homes/PAyment';
+import ThankYouScreen from '../../screens/homes/thank you';
+import GetFeatured from '../../screens/homes/GetItFeaturedPost';
+import DeactivateAccount from '../../screens/homes/DeactivateAccount';
+import DeleteAccount from '../../screens/homes/DeleteAccount';
+import FeaturedPost from '../../screens/homes/FeaturedPost';
+import NotificationSetting from '../../screens/homes/notificationSetting';
+>>>>>>> Stashed changes
 
 const Stack = createNativeStackNavigator();
 
@@ -82,8 +100,17 @@ export const Homes = () => {
         component={home}
         options={{headerShown: false}}
       />
+<<<<<<< Updated upstream
       <Stack.Screen
         name="profile"
+=======
+      <Stack.Screen name='featuredpst'
+        component={FeaturedPost}
+        options={{ headerShown: false }}
+      />
+
+      <Stack.Screen name='profile'
+>>>>>>> Stashed changes
         component={Profile}
         options={{headerShown: false}}
       />
@@ -163,8 +190,19 @@ export const Homes = () => {
         component={Notification}
         options={{headerShown: false}}
       />
+<<<<<<< Updated upstream
       {/* <Stack.Screen
         name="changepassword"
+=======
+      <Stack.Screen
+        name='notificationsettings'
+        component={NotificationSetting}
+        options={{ headerShown: false }}
+      />
+
+      <Stack.Screen
+        name='changepassword'
+>>>>>>> Stashed changes
         component={ChangePassword}
         options={{headerShown: false}}
       /> */}
@@ -183,8 +221,13 @@ export const Homes = () => {
       {/* <Stack.Screen
         name="deleteaccount"
         component={DeleteAccount}
+<<<<<<< Updated upstream
         options={{headerShown: false}}
       /> */}
+=======
+        options={{ headerShown: false }}
+      />
+>>>>>>> Stashed changes
     </Stack.Navigator>
   );
 };

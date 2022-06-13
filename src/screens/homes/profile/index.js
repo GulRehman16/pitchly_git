@@ -162,7 +162,10 @@ const Profile = () => {
             <Header
               onPress={() => props.navigation.navigate('settings')}
               HeaderText
-              text="Profile"
+              hiddinText1
+              barICon
+              text1="Profile"
+              press={() => props.navigation.goBack()}
             />
           </View>
           <View style={styles.screenBody}>

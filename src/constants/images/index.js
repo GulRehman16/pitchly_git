@@ -67,7 +67,13 @@ const Images = {
     add1: require('../../assets/images/add1.png'),
     setting1: require('../../assets/images/setting1.png'),
     user1: require('../../assets/images/user1.png'),
+<<<<<<< Updated upstream
   },
+=======
+    play: require('../../assets/images/play.png'),
+
+  }
+>>>>>>> Stashed changes
 };
 
 export {Images};

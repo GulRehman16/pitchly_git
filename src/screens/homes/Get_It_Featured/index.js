@@ -83,40 +83,47 @@ const GetFeaturedPost = ({ navigation }) => {
                                     return (
                                         <View style={styles.rowstyle}>
                                             <View style={{ flexDirection: 'row', width: '76%' }}>
+
                                                 <View style={styles.imgView}>
                                                     <Image source={item.image1}
                                                         resizeMode="contain"
                                                         style={{ width: '100%', height: '100%' }} />
-                                                </View>
-                                                <View style={styles.texts}>
-                                                    <Text style={styles.txt1}>{item.txt1}</Text>
-                                                    <View style={{ flexDirection: 'row' }}>
 
-                                                        <Text style={{ fontSize: 16, marginTop: -4, color: '#000' }}>{item.txt2}</Text>
-                                                        <Text style={{ fontSize: 10, marginTop: 1, }}>{item.text3}</Text>
+                                                </View>
+                                                <View style={{}}>
+                                                    <View style={styles.texts}>
+                                                        <Text style={styles.txt1}>{item.txt1}</Text>
+                                                        <View style={{ flexDirection: 'row' }}>
+
+                                                            <Text style={{ fontSize: 16, marginTop: -4, color: '#000' }}>{item.txt2}</Text>
+                                                            <Text style={{ fontSize: 10, marginTop: 1, }}>{item.text3}</Text>
+                                                        </View>
                                                     </View>
                                                 </View>
                                             </View>
-                                            <View style={styles.btns}>
-                                                <View style={{
-                                                    // paddingVertical: 2,
-                                                    width: '80%',
-                                                }}>
-                                                    <AppButton
-                                                        LinearColor1={'#5DF7B8'}
-                                                        LinearColor2={'#3109FB'}
-                                                        color={'white'}
-                                                        borderWidth={0.5}
-                                                        width={91}
-                                                        height={31}
-                                                        borderRadius={3}
-                                                        borderColor={'#707070'}
-                                                        backgroundColor={'#FFFFFF'}
-                                                        label="Renew"
-                                                        onPress={() =>
-                                                            navigation.navigate('')
-                                                        }
-                                                    />
+                                            <View style={{}}>
+
+                                                <View style={styles.btns}>
+                                                    <View style={{
+                                                        // paddingVertical: 2,
+                                                        width: '80%',
+                                                    }}>
+                                                        <AppButton
+                                                            LinearColor1={'#5DF7B8'}
+                                                            LinearColor2={'#3109FB'}
+                                                            color={'white'}
+                                                            borderWidth={0.5}
+                                                            width={91}
+                                                            height={31}
+                                                            borderRadius={3}
+                                                            borderColor={'#707070'}
+                                                            backgroundColor={'#FFFFFF'}
+                                                            label="Renew"
+                                                            onPress={() =>
+                                                                navigation.navigate('featuredpst')
+                                                            }
+                                                        />
+                                                    </View>
                                                 </View>
                                             </View>
                                         </View>
@@ -174,11 +181,11 @@ const styles = StyleSheet.create({
         elevation: 2,
     },
     textbox: {
-        width: '90%', alignSelf: 'center'
+        width: '90%', alignSelf: 'center', marginVertical: 10
     },
     txt1: {
         marginVertical: 5,
-        fontWeight: 'bold',
+        fontWeight: '500',
         color: '#000',
         fontSize: 16,
         marginTop: 5,
@@ -207,7 +214,8 @@ const styles = StyleSheet.create({
         marginVertical: 15
     },
     imgView: {
-        width: 90, height: 51,
+        width: 91,
+        height: 51,
         borderRadius: 10,
     }
 

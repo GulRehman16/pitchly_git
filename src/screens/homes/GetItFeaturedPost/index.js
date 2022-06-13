@@ -25,15 +25,15 @@ const GetFeatured = (props) => {
             txt2: '$50',
         },
         {
-            txt1: '2 Week',
+            txt1: '2 Weeks',
             txt2: '$50',
         },
         {
-            txt1: '3 Week',
+            txt1: '3 Weeks',
             txt2: '$50',
         },
         {
-            txt1: '4 Week',
+            txt1: '4 Weeks',
             txt2: '$50',
         },
 
@@ -98,7 +98,7 @@ const GetFeatured = (props) => {
                                                         backgroundColor={'#FFFFFF'}
                                                         label="Get Now"
                                                         onPress={() =>
-                                                            props.navigation.replace('MyTabs', { screen: 'home' })
+                                                            props.navigation.navigate('payment')
                                                         }
                                                     />
                                                 </View>
@@ -167,10 +167,10 @@ const styles = StyleSheet.create({
         // marginVertical: 10,
         fontWeight: 'bold',
         color: '#000',
-        fontSize: 18
+        fontSize: 16
     },
     txt2: {
-        marginVertical: 5,
+        // marginVertical: 5,
 
         color: '#000',
         fontSize: 14
@@ -186,7 +186,7 @@ const styles = StyleSheet.create({
     btns: {
         width: 91, height: 30,
         // borderRadius: 10,
-        marginVertical: 15
+        marginVertical: 5
     }
 
 })  

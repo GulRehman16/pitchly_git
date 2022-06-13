@@ -9,9 +9,7 @@ import { Box, Header, AppButton } from '../../../components'
 import { color } from 'react-native-elements/dist/helpers'
 
 
-const ChangePassword = ({ text, navigation, onSwitch }) => {
-
-
+const ChangePassword = (props) => {
     return (
 
         <ImageBackground
@@ -24,7 +22,7 @@ const ChangePassword = ({ text, navigation, onSwitch }) => {
                 <View style={{}}>
                     <View style={styles.screenHeader}>
                         <Header
-
+                            BAckButton
                             hiddinText
                             text="Change Password"
                             onPress={() => {
@@ -47,7 +45,7 @@ const ChangePassword = ({ text, navigation, onSwitch }) => {
 
                         </View>
 
-                        <View style={{ width: '80%', alignSelf: 'center' }}>
+                        <View style={{ width: '70%', alignSelf: 'center' }}>
                             <AppButton
                                 LinearColor1={'#5DF7B8'}
                                 LinearColor2={'#3109FB'}
@@ -55,9 +53,9 @@ const ChangePassword = ({ text, navigation, onSwitch }) => {
                                 borderWidth={0.5}
                                 borderColor={'#707070'}
                                 backgroundColor={'#FFFFFF'}
-                                label="Pay Now"
+                                label="Done"
                                 onPress={() =>
-                                    props.navigation.replace('MyTabs', { screen: 'home' })
+                                    props.navigation.replace('Homes', { screen: 'accountsettings' })
                                 }
                             />
                         </View>
@@ -123,8 +121,12 @@ const styles = StyleSheet.create({
     },
 
     inputView:
-        { width: '90%', alignSelf: 'center', marginVertical: 35 },
-    input: { backgroundColor: '#E9EBEF', paddingLeft: 6, borderRadius: 5, marginVertical: 10 }
+        { width: '80%', alignSelf: 'center', marginVertical: 35 },
+    input: {
+        backgroundColor: '#E9EBEF', paddingLeft: 6,
+        borderRadius: 5, borderWidth: 0.25,
+        borderColor: "#aaa", marginVertical: 10
+    }
 
 
 })  
