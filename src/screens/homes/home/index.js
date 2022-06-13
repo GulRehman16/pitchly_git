@@ -345,28 +345,29 @@ const Home = props => {
             />
           </View>
 
-            <View style={styles.pitchlyFeatured}>
-              <PitchlyFeatured />
-            </View>
+          <View style={styles.pitchlyFeatured}>
+            <PitchlyFeatured />
+          </View>
 
+          <View
+            style={{
+              width: '100%',
+              height: 35,
+              marginTop: 20,
+              flexDirection: 'row',
+            }}>
             <View
               style={{
-                width: '100%',
-                height: 35,
-                marginTop: 20,
-                flexDirection: 'row',
+                width: '40%',
+                height: '100%',
+                alignItems: 'center',
+                justifyContent: 'center',
+                borderRadius: 5,
               }}>
-              <View
-                style={{
-                  width: '40%',
-                  height: '100%',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  borderRadius: 5,
-                }}>
-                {/* PRODUCTS FEED */}
+              {/* PRODUCTS FEED */}
+              <Text style={{color: 'black', fontWeight: 'bold'}}>
                 {check.value}
-              
+              </Text>
             </View>
             <LinearGradient
               start={{x: 1.5, y: 1.0}}

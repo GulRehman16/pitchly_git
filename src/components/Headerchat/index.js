@@ -10,7 +10,14 @@ import LinearGradient from 'react-native-linear-gradient';
 import {Icon} from 'native-base';
 import {Avatar} from 'react-native-elements';
 
-export default function Headerchat({borderRadius, image, name, time, Press}) {
+export default function Headerchat({
+  borderRadius,
+  image,
+  name,
+  time,
+  Press,
+  icon,
+}) {
   const Width = Dimensions.get('window').width;
 
   return (
@@ -67,21 +74,23 @@ export default function Headerchat({borderRadius, image, name, time, Press}) {
         </Text>
       </View>
 
-      <TouchableOpacity
-        style={{
-          alignSelf: 'flex-end',
-          flex: 1,
-          //   alignItems: 'center',
-          justifyContent: 'center',
-          // marginLeft: 70,
-          marginBottom: 15,
-        }}>
-        <Icon
-          type="AntDesign"
-          name="exclamationcircleo"
-          style={{color: 'black', fontSize: 30}}
-        />
-      </TouchableOpacity>
+      {icon == true ? (
+        <TouchableOpacity
+          style={{
+            alignSelf: 'flex-end',
+            flex: 1,
+            //   alignItems: 'center',
+            justifyContent: 'center',
+            // marginLeft: 70,
+            marginBottom: 15,
+          }}>
+          <Icon
+            type="AntDesign"
+            name="exclamationcircleo"
+            style={{color: 'black', fontSize: 30}}
+          />
+        </TouchableOpacity>
+      ) : null}
     </View>
   );
 }

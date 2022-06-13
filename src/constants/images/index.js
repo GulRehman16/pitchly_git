@@ -43,7 +43,7 @@ const Images = {
     msgColorIcon: require('../../assets/images/msgColorIcon.png'),
   },
   Icons: {
-    Star: require('../../assets/images/starIcon.png'),
+    // Star: require('../../assets/images/starIcon.png'),
     Document: require('../../assets/images/document.png'),
     Logout: require('../../assets/images/logout.png'),
     Account: require('../../assets/images/account.png'),
@@ -66,9 +66,8 @@ const Images = {
     lock1: require('../../assets/images/lock1.png'),
     add1: require('../../assets/images/add1.png'),
     setting1: require('../../assets/images/setting1.png'),
-    user1: require('../../assets/images/user1.png')
-
-  }
+    user1: require('../../assets/images/user1.png'),
+  },
 };
 
 export {Images};

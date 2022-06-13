@@ -144,6 +144,7 @@ const ChatScreen = props => {
                   name={'Veni'}
                   time={'offline 45 min ago'}
                   Press={() => props.navigation.goBack()}
+                  icon={true}
                 />
                 {/* <Header text="Live Chat" navigation={props.navigation} /> */}
               </View>

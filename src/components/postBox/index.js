@@ -1,7 +1,4 @@
-
-import React, {useEffect, useState} from 'react';
-
-import React, { useEffect } from 'react';
+import React, {useState} from 'react';
 
 import {
   StyleSheet,
@@ -12,10 +9,9 @@ import {
   Image,
   Dimensions,
 } from 'react-native';
-import { Images, Themes } from '../../constants';
+import {Images, Themes} from '../../constants';
 import LinearGradient from 'react-native-linear-gradient';
-import { Tooltip, } from 'react-native-elements';
-
+import {Tooltip} from 'react-native-elements';
 
 const PostBox = ({
   profileImg,
@@ -36,12 +32,9 @@ const PostBox = ({
   const [Grid, setGrid] = useState(checksingle);
   console.log('Grid', Grid);
 
-
-
-
   return (
     <View style={styles.container}>
-      <View style={{ width: '95%', alignSelf: 'center', height: '100%' }}>
+      <View style={{width: '95%', alignSelf: 'center', height: '100%'}}>
         <View
           style={{
             alignItems: 'center',
@@ -50,11 +43,11 @@ const PostBox = ({
             marginTop: 15,
             justifyContent: 'space-between',
           }}>
-          <View style={{ flexDirection: 'row' }}>
-            <TouchableOpacity style={{ width: 40, height: 40 }}>
+          <View style={{flexDirection: 'row'}}>
+            <TouchableOpacity style={{width: 40, height: 40}}>
               <Image
                 source={Images.Pictures.profile}
-                style={{ width: '100%', height: '100%' }}
+                style={{width: '100%', height: '100%'}}
               />
             </TouchableOpacity>
             <View style={{marginLeft: 5}}>
@@ -65,43 +58,37 @@ const PostBox = ({
             </View>
           </View>
 
-          <Tooltip containerStyle={{
-            width: 120,
-            height: 80,
-            shadowColor: "#000",
-            shadowOffset: {
-              width: 0,
-              height: 3,
-            },
-            shadowOpacity: 0.27,
-            shadowRadius: 4.65,
+          <Tooltip
+            containerStyle={{
+              width: 120,
+              height: 80,
+              shadowColor: '#000',
+              shadowOffset: {
+                width: 0,
+                height: 3,
+              },
+              shadowOpacity: 0.27,
+              shadowRadius: 4.65,
 
-            elevation: 6,
-            flexDirection: 'row'
-          }} backgroundColor='#fff'
+              elevation: 6,
+              flexDirection: 'row',
+            }}
+            backgroundColor="#fff"
             withPointer={true}
             popover={
               <View>
-                <Text style={{ marginVertical: 5 }}>
-                  Report Post
-
-                </Text>
-                <Text style={{ marginVertical: 5 }}>
-
-                  Block person
-                </Text>
-
-              </View>}>
-            <View style={{ width: 20, height: 20 }}>
+                <Text style={{marginVertical: 5}}>Report Post</Text>
+                <Text style={{marginVertical: 5}}>Block person</Text>
+              </View>
+            }>
+            <View style={{width: 20, height: 20}}>
               <Image
                 source={Images.Logos.globe}
-                style={{ width: '100%', height: '100%' }}
+                style={{width: '100%', height: '100%'}}
               />
             </View>
           </Tooltip>
-
         </View>
-        
 
         <View style={{width: '100%', marginTop: 20}}>
           <Text style={{fontSize: 14, fontWeight: 'bold', color: 'black'}}>
@@ -241,8 +228,8 @@ const PostBox = ({
         </View>
 
         <LinearGradient
-          start={{ x: 1.5, y: 1.0 }}
-          end={{ x: 1.5, y: 2.5 }}
+          start={{x: 1.5, y: 1.0}}
+          end={{x: 1.5, y: 2.5}}
           colors={['#28A9F61A', '#4C9BD2']}
           style={{
             width: '105%',
@@ -279,9 +266,9 @@ const PostBox = ({
                   }}>
                   <Image
                     source={Images.Logos.msgColorIcon}
-                    style={{ width: 19.07, height: 18.74 }}
+                    style={{width: 19.07, height: 18.74}}
                   />
-                  <Text style={{ color: 'black', paddingLeft: 5 }}>120</Text>
+                  <Text style={{color: 'black', paddingLeft: 5}}>120</Text>
                 </View>
 
                 <View
@@ -293,9 +280,9 @@ const PostBox = ({
                   }}>
                   <Image
                     source={Images.Logos.shareIcon}
-                    style={{ width: 19.07, height: 18.74 }}
+                    style={{width: 19.07, height: 18.74}}
                   />
-                  <Text style={{ color: 'black', paddingLeft: 5 }}>2.4K</Text>
+                  <Text style={{color: 'black', paddingLeft: 5}}>2.4K</Text>
                 </View>
 
                 <View
@@ -307,9 +294,9 @@ const PostBox = ({
                   }}>
                   <Image
                     source={Images.Logos.starIcon}
-                    style={{ width: 19.07, height: 18.74 }}
+                    style={{width: 19.07, height: 18.74}}
                   />
-                  <Text style={{ color: 'black', paddingLeft: 5 }}>4.2K</Text>
+                  <Text style={{color: 'black', paddingLeft: 5}}>4.2K</Text>
                 </View>
               </View>
               <View
@@ -319,7 +306,7 @@ const PostBox = ({
                 }}>
                 <Image
                   source={Images.Logos.favoriteIcon}
-                  style={{ width: 14, height: 17 }}
+                  style={{width: 14, height: 17}}
                 />
               </View>
             </View>
@@ -330,7 +317,7 @@ const PostBox = ({
   );
 };
 
-export { PostBox };
+export {PostBox};
 
 const styles = StyleSheet.create({
   postToolDrop: {
@@ -405,7 +392,7 @@ const styles = StyleSheet.create({
     elevation: 5,
     shadowOffset: 40,
   },
-  postHeader: { width: '90%', height: '100%', alignSelf: 'center' },
+  postHeader: {width: '90%', height: '100%', alignSelf: 'center'},
   postHeaderContentLeft: {
     width: '100%',
     flexDirection: 'row',

@@ -10,11 +10,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
-<<<<<<< HEAD
     "-": "^0.0.1",
-=======
-    "@material-ui/core": "^4.12.4",
->>>>>>> f68db72e3f6103b79a80e7816fbe5500675b9416
     "@react-navigation/bottom-tabs": "^6.3.1",
     "@react-navigation/native": "^6.0.10",
     "@react-navigation/native-stack": "^6.6.2",

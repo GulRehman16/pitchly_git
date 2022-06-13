@@ -20,6 +20,7 @@ import AddServices from '../../screens/homes/AddServices';
 import AccountSetting from '../../screens/homes/AccountSetting';
 import Profile from '../../screens/homes/profile';
 import ChatScreen from '../../screens/homes/ChatScreen';
+
 const Stack = createNativeStackNavigator();
 
 const Auth = () => {
@@ -70,66 +71,66 @@ const Auth = () => {
         component={AddServices}
         options={{headerShown: false}}
       />
-
     </Stack.Navigator>
   );
 };
 export const Homes = () => {
   return (
     <Stack.Navigator>
-
       <Stack.Screen
         name="home"
         component={home}
         options={{headerShown: false}}
       />
-      <Stack.Screen name='profile'
+      <Stack.Screen
+        name="profile"
         component={Profile}
-        options={{ headerShown: false }}
+        options={{headerShown: false}}
       />
-      <Stack.Screen name='featuredpost'
+      {/* <Stack.Screen name='featuredpost'
         component={GetFeatured}
         options={{ headerShown: false }}
-      />
-      <Stack.Screen
+      /> */}
+      {/* <Stack.Screen
         name="settings"
         component={Settings}
-        options={{ headerShown: false }}
-      />
-      <Stack.Screen
+        options={{headerShown: false}}
+      /> */}
+      {/* <Stack.Screen
         name="thankyouscreen"
         component={ThankYouScreen}
-        options={{ headerShown: false }}
-      />
-      <Stack.Screen
+        options={{headerShown: false}}
+      /> */}
+      {/* <Stack.Screen
         name="payment"
         component={Payment}
-        options={{ headerShown: false }}
-      />
-      <Stack.Screen
+        options={{headerShown: false}}
+      /> */}
+      {/* <Stack.Screen
         name="language"
         component={Language}
-        options={{ headerShown: false }}
-      />
-      <Stack.Screen
+        options={{headerShown: false}}
+      /> */}
+      {/* <Stack.Screen
         name="Accountdeactivation"
         component={AccountDeactivation}
-        options={{ headerShown: false }}
-      />
+        options={{headerShown: false}}
+      /> */}
 
-      <Stack.Screen
+      {/* <Stack.Screen
         name="getfeaturePost"
         component={GetFeaturedPost}
-        options={{ headerShown: false }}
-      />
-      <Stack.Screen name='editprofile'
+        options={{headerShown: false}}
+      /> */}
+      {/* <Stack.Screen
+        name="editprofile"
         component={EditProfile}
-        options={{ headerShown: false }}
-      />
+        options={{headerShown: false}}
+      /> */}
       <Stack.Screen
         name="accountsettings"
         component={AccountSetting}
-        options={{ headerShown: false }}
+        options={{headerShown: false}}
       />
       <Stack.Screen
         name="ChatScreen"
@@ -162,31 +163,28 @@ export const Homes = () => {
         component={Notification}
         options={{headerShown: false}}
       />
-      <Stack.Screen
-        name='changepassword'
+      {/* <Stack.Screen
+        name="changepassword"
         component={ChangePassword}
-        options={{ headerShown: false }}
-      />
+        options={{headerShown: false}}
+      /> */}
 
-      <Stack.Screen
-        name='blocked'
+      {/* <Stack.Screen
+        name="blocked"
         component={Blocked}
-        options={{ headerShown: false }}
-      />
+        options={{headerShown: false}}
+      /> */}
 
-      <Stack.Screen
-        name='deactivateaccount'
+      {/* <Stack.Screen
+        name="deactivateaccount"
         component={DeactivateAccount}
-        options={{ headerShown: false }}
-      />
-      <Stack.Screen
-        name='deleteaccount'
+        options={{headerShown: false}}
+      /> */}
+      {/* <Stack.Screen
+        name="deleteaccount"
         component={DeleteAccount}
-        options={{ headerShown: false }}
-      />
-
-
-
+        options={{headerShown: false}}
+      /> */}
     </Stack.Navigator>
   );
 };
