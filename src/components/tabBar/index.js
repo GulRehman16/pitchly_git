@@ -9,29 +9,11 @@ import { Tooltips } from '../tooltip';
 const TabBar = props => {
   const { state } = props;
   const tabs = [
-<<<<<<< HEAD
-    {text: 'HOME', navTo: 'home', img: Images.Logos.homeIcon},
-    {text: 'CHAT', navTo: 'chatScreen1', img: Images.Logos.msgIcon},
-    {text: '', navTo: 'settings', img: Images.Logos.addIcon},
-    {
-      text: 'NOTIFICATION',
-      navTo: 'settings',
-      img: Images.Logos.notificationIcon,
-      navTo: '',
-    },
-    {
-      text: 'ACCOUNT',
-      navTo: 'profile',
-      img: Images.Logos.userIcon,
-      navTo: 'profile',
-    },
-=======
     { text: 'HOME', navTo: 'home', img: Images.Logos.homeIcon },
     { text: 'CHAT', navTo: 'ChatScreen1', img: Images.Logos.msgIcon },
     { text: '', navTo: 'TooltipScreen', img: Images.Logos.addIcon },
     { text: 'NOTIFICATION', navTo: 'Notification', img: Images.Logos.notificationIcon, },
     { text: 'ACCOUNT', navTo: 'profile', img: Images.Logos.userIcon, },
->>>>>>> 56524ebf67339a577d68249d457cd92b6f10a2cb
   ];
   const [visible, setVisible] = useState({
     visibles: false,

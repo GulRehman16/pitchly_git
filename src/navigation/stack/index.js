@@ -15,15 +15,11 @@ import ForgetConfirm from '../../screens/auth/forgetConfirm';
 import HavingTouble from '../../screens/auth/havingTouble';
 import MessageScreen from '../../screens/homes/MessageScreen';
 import ChatScreen1 from '../../screens/homes/chatscreen1';
-<<<<<<< HEAD
-import ChatScreen from '../../screens/homes/ChatScreen';
-=======
 import Notification from '../../screens/homes/Notifications';
 import AddServices from '../../screens/homes/AddServices';
 import AccountSetting from '../../screens/homes/AccountSetting';
 import Profile from '../../screens/homes/profile';
-
->>>>>>> 56524ebf67339a577d68249d457cd92b6f10a2cb
+import ChatScreen from '../../screens/homes/ChatScreen';
 const Stack = createNativeStackNavigator();
 
 const Auth = () => {
@@ -70,15 +66,15 @@ const Auth = () => {
         options={{headerShown: false}}
       />
       <Stack.Screen
-        name='addServices'
+        name="addServices"
         component={AddServices}
-        options={{ headerShown: false }}
+        options={{headerShown: false}}
       />
 
       <Stack.Screen
-        name='AccountSetting'
+        name="AccountSetting"
         component={AccountSetting}
-        options={{ headerShown: false }}
+        options={{headerShown: false}}
       />
     </Stack.Navigator>
   );
@@ -93,21 +89,13 @@ export const Homes = () => {
         options={{headerShown: false}}
       />
       <Stack.Screen
-<<<<<<< HEAD
-        name="chatScreen"
+        name="ChatScreen"
         component={ChatScreen}
         options={{headerShown: false}}
       />
+
       <Stack.Screen
         name="chatScreen1"
-=======
-        name="premium"
-        component={Premium}
-        options={{ headerShown: false }}
-      />
-
-      <Stack.Screen name='chatScreen1'
->>>>>>> 56524ebf67339a577d68249d457cd92b6f10a2cb
         component={ChatScreen1}
         options={{headerShown: false}}
       />
@@ -127,25 +115,23 @@ export const Homes = () => {
         options={{headerShown: false}}
       />
       <Stack.Screen
-        name='Notification'
+        name="Notification"
         component={Notification}
-        options={{ headerShown: false }}
+        options={{headerShown: false}}
       />
 
-      <Stack.Screen name='profile'
+      <Stack.Screen
+        name="profile"
         component={Profile}
-        options={{ headerShown: false }}
+        options={{headerShown: false}}
       />
 
-      <Stack.Screen name='profile'
+      {/* <Stack.Screen
+        name="profile"
         component={Profile}
-        options={{ headerShown: false }}
-      />
-
-
-
+        options={{headerShown: false}}
+      /> */}
     </Stack.Navigator>
-
   );
 };
 

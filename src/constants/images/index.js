@@ -39,11 +39,6 @@ const Images = {
     globe: require('../../assets/images/globe.png'),
     shareIcon: require('../../assets/images/shareIcon.png'),
     favoriteIcon: require('../../assets/images/favoriteIcon.png'),
-<<<<<<< HEAD
-    // starIcon: require('../../assets/images/starIcon.png'),
-=======
-
->>>>>>> 56524ebf67339a577d68249d457cd92b6f10a2cb
     msgColorIcon: require('../../assets/images/msgColorIcon.png'),
   },
   Icons: {
@@ -67,16 +62,12 @@ const Images = {
     yes: require('../../assets/images/yes.png'),
     question: require('../../assets/images/question.png'),
     Key: require('../../assets/images/key.png'),
-<<<<<<< HEAD
-  },
-=======
     lock1: require('../../assets/images/lock1.png'),
     add1: require('../../assets/images/add1.png'),
     setting1: require('../../assets/images/setting1.png'),
     user1: require('../../assets/images/user1.png')
 
   }
->>>>>>> 56524ebf67339a577d68249d457cd92b6f10a2cb
 };
 
 export {Images};

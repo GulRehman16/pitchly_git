@@ -22,7 +22,7 @@ import Notification from './src/screens/homes/Notifications';
 import NotificationSetting from './src/screens/homes/notificationSetting';
 import Payment from './src/screens/homes/PAyment';
 import PictureSlider from './src/screens/homes/PictureSlider';
-
+import ChatScreen from './src/screens/homes/ChatScreen';
 import PremiumMemberScreen from './src/screens/homes/PremiumMemberScreen';
 import Profile from './src/screens/homes/profile';
 
@@ -30,11 +30,6 @@ import ThankYouScreen from './src/screens/homes/thank you';
 import TooltipScreen from './src/screens/homes/ToolTipScreen';
 
 const App = props => {
-<<<<<<< HEAD
-=======
-  // return <PremiumMemberScreen />
-  //return <TooltipScreen />
->>>>>>> 56524ebf67339a577d68249d457cd92b6f10a2cb
   // return <PictureSlider />
   //return <DeactivateAccount />
   //return <DeleteAccount />
@@ -59,10 +54,8 @@ const App = props => {
   //return <ChatDetails />
   // return <MessageScreen />`
   // // return <ChatScreen1 />
-<<<<<<< HEAD
   // return <MyStack {...props} />;
-=======
->>>>>>> 56524ebf67339a577d68249d457cd92b6f10a2cb
   return <MyStack {...props} />;
+  // return <ChatScreen />;
 };
 export default App;

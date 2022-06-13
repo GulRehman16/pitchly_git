@@ -11,7 +11,6 @@ import {
   FlatList,
   TouchableOpacity,
 } from 'react-native';
-<<<<<<< HEAD
 import {AppButton, Header, StatusView} from '../../../components';
 import UserBios from '../../../components/userbios';
 import {UserData} from '../../../components/usersdata';
@@ -150,13 +149,6 @@ const Profile = () => {
       console.log(image);
     });
   };
-=======
-import { AppButton, Header } from '../../../components';
-import { UserData } from '../../../components/usersdata';
-import { Images } from '../../../constants';
-
-const Profile = (props) => {
->>>>>>> 56524ebf67339a577d68249d457cd92b6f10a2cb
   return (
     <ImageBackground
       style={styles.imageContainer}
@@ -169,7 +161,6 @@ const Profile = (props) => {
           <View style={styles.screenHeader}>
             <Header
               onPress={() => props.navigation.navigate('settings')}
-
               HeaderText
               text="Profile"
             />
@@ -188,12 +179,6 @@ const Profile = (props) => {
               Contact="+13246987"
               Email="Lorem ipsome"
               Location="lorem ipsome"
-<<<<<<< HEAD
-=======
-              // press={() => props.navigation.navigate('')}
-
-              press={() => props.navigation.navigate('home')}
->>>>>>> 56524ebf67339a577d68249d457cd92b6f10a2cb
             />
 
             <View style={styles.statusBoxView}>
