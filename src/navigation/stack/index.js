@@ -71,22 +71,65 @@ const Auth = () => {
         options={{headerShown: false}}
       />
 
-      <Stack.Screen
-        name="AccountSetting"
-        component={AccountSetting}
-        options={{headerShown: false}}
-      />
     </Stack.Navigator>
   );
 };
-
 export const Homes = () => {
   return (
     <Stack.Navigator>
+
       <Stack.Screen
         name="home"
         component={home}
         options={{headerShown: false}}
+      />
+      <Stack.Screen name='profile'
+        component={Profile}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen name='featuredpost'
+        component={GetFeatured}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="settings"
+        component={Settings}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="thankyouscreen"
+        component={ThankYouScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="payment"
+        component={Payment}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="language"
+        component={Language}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Accountdeactivation"
+        component={AccountDeactivation}
+        options={{ headerShown: false }}
+      />
+
+      <Stack.Screen
+        name="getfeaturePost"
+        component={GetFeaturedPost}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen name='editprofile'
+        component={EditProfile}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="accountsettings"
+        component={AccountSetting}
+        options={{ headerShown: false }}
       />
       <Stack.Screen
         name="ChatScreen"
@@ -119,18 +162,31 @@ export const Homes = () => {
         component={Notification}
         options={{headerShown: false}}
       />
-
       <Stack.Screen
-        name="profile"
-        component={Profile}
-        options={{headerShown: false}}
+        name='changepassword'
+        component={ChangePassword}
+        options={{ headerShown: false }}
       />
 
-      {/* <Stack.Screen
-        name="profile"
-        component={Profile}
-        options={{headerShown: false}}
-      /> */}
+      <Stack.Screen
+        name='blocked'
+        component={Blocked}
+        options={{ headerShown: false }}
+      />
+
+      <Stack.Screen
+        name='deactivateaccount'
+        component={DeactivateAccount}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name='deleteaccount'
+        component={DeleteAccount}
+        options={{ headerShown: false }}
+      />
+
+
+
     </Stack.Navigator>
   );
 };

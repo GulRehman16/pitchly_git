@@ -9,7 +9,7 @@ import { Images } from '../../../constants'
 import { Box, Header, Row, Switch1 } from '../../../components'
 import { Textarea } from 'native-base'
 
-const Language = ({ }) => {
+const Language = (props) => {
     const data = [
 
 
@@ -32,6 +32,10 @@ const Language = ({ }) => {
                 <View style={{}}>
                     <View style={styles.screenHeader}>
                         <Header
+
+                            BAckButton
+                            hiddinText
+                            text="Language"
                             onPress={() => {
                                 props.navigation.goBack();
                             }}

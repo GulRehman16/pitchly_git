@@ -19,25 +19,25 @@ import { AppButton, Box, Header, Row, Switch1 } from '../../../components'
 import { Item, Textarea } from 'native-base'
 import { Icon } from 'react-native-elements'
 
-const GetFeaturedPost = ({ }) => {
+const GetFeaturedPost = ({ navigation }) => {
 
     const data = [
         {
             txt1: 'Talent Name',
             txt2: 'Expiry : ',
-            text3: '2/2/22',
+            text3: '2/2/2022',
             image1: Images.Icons.post
         },
         {
             txt1: 'Product Name',
             txt2: 'Expiry : ',
-            text3: '2/2/22',
+            text3: '2/2/2022',
             image1: Images.Icons.post
         },
         {
             txt1: 'Talent Name',
             txt2: 'Expiry : ',
-            text3: '2/2/22',
+            text3: '2/2/2022',
             image1: Images.Icons.post
         },
 
@@ -54,10 +54,11 @@ const GetFeaturedPost = ({ }) => {
                 <View style={{}}>
                     <View style={styles.screenHeader}>
                         <Header
+                            BAckButton
                             hiddinText
-                            text="Get it Featured"
+                            text="Your Featured Posts"
                             onPress={() => {
-                                props.navigation.goBack();
+                                navigation.goBack();
                             }}
                         />
                     </View>
@@ -91,28 +92,29 @@ const GetFeaturedPost = ({ }) => {
                                                     <Text style={styles.txt1}>{item.txt1}</Text>
                                                     <View style={{ flexDirection: 'row' }}>
 
-                                                        <Text style={{ fontSize: 14, marginTop: -4, color: '#000' }}>{item.txt2}</Text>
-                                                        <Text style={{ fontSize: 12, marginTop: -4, }}>{item.text3}</Text>
+                                                        <Text style={{ fontSize: 16, marginTop: -4, color: '#000' }}>{item.txt2}</Text>
+                                                        <Text style={{ fontSize: 10, marginTop: 1, }}>{item.text3}</Text>
                                                     </View>
                                                 </View>
                                             </View>
                                             <View style={styles.btns}>
                                                 <View style={{
                                                     // paddingVertical: 2,
-                                                    width: '100%',
+                                                    width: '80%',
                                                 }}>
                                                     <AppButton
                                                         LinearColor1={'#5DF7B8'}
                                                         LinearColor2={'#3109FB'}
                                                         color={'white'}
                                                         borderWidth={0.5}
-                                                        height={30}
+                                                        width={91}
+                                                        height={31}
                                                         borderRadius={3}
                                                         borderColor={'#707070'}
                                                         backgroundColor={'#FFFFFF'}
-                                                        label="Get Now"
+                                                        label="Renew"
                                                         onPress={() =>
-                                                            props.navigation.replace('MyTabs', { screen: 'home' })
+                                                            navigation.navigate('')
                                                         }
                                                     />
                                                 </View>
@@ -122,8 +124,6 @@ const GetFeaturedPost = ({ }) => {
                                 }}
                             />
                             <View style={{ marginVertical: 30 }}>
-
-
                             </View>
                         </View>
                     </View>
@@ -180,7 +180,7 @@ const styles = StyleSheet.create({
         marginVertical: 5,
         fontWeight: 'bold',
         color: '#000',
-        fontSize: 18,
+        fontSize: 16,
         marginTop: 5,
     },
     txt2: {

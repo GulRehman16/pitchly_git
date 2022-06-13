@@ -14,7 +14,7 @@ import { Images } from '../../../constants'
 import { AppButton, Box, Header, Row, Switch1 } from '../../../components'
 
 
-const PremiumMemberScreen = ({ }) => {
+const PremiumMemberScreen = ({ props, navigation }) => {
 
     const data = [
         { text: 'Account Deactivation' },
@@ -35,10 +35,11 @@ const PremiumMemberScreen = ({ }) => {
                 <View style={{}}>
                     <View style={styles.screenHeader}>
                         <Header
+                            BAckButton
                             hiddinText
                             text="Become Premium Member"
                             onPress={() => {
-                                props.navigation.goBack();
+                                navigation.goBack();
                             }}
                         />
                     </View>
@@ -82,7 +83,7 @@ const PremiumMemberScreen = ({ }) => {
                                             borderColor={'#707070'}
                                             backgroundColor={'#FFFFFF'}
                                             label="Next"
-                                            onPress={() => { setState(!state) }}
+                                            onPress={() => navigation.navigate('payment')}
                                         />
                                     </View>
                                 </View>

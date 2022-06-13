@@ -59,7 +59,7 @@ const DeleteAccount = ({ navigation }) => {
                             borderColor={'#707070'}
                             borderWidth={0.5}
                             label="No"
-                            onPress={() => navigation.navigate('login')}
+                            onPress={() => navigation.navigate('Accountdeactivation')}
                         />
                     </View>
                     <View style={styles.authButton}>
@@ -71,7 +71,7 @@ const DeleteAccount = ({ navigation }) => {
                             borderColor={'#707070'}
                             backgroundColor={'#FFFFFF'}
                             label="Yes"
-                            onPress={() => navigation.navigate('signup')}
+                            onPress={() => navigation.navigate('deactivateaccount')}
                         />
                     </View>
                 </View>

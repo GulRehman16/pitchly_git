@@ -11,7 +11,6 @@ import TooltipScreen from '../../screens/homes/ToolTipScreen';
 
 
 const Tab = createBottomTabNavigator();
-
 const MyTabs = props => {
   return (
     <Tab.Navigator
@@ -35,7 +34,6 @@ const MyTabs = props => {
         component={TooltipScreen}
         options={{ headerShown: false }}
       />
-
       <Tab.Screen
         name='Notification'
         component={Notification}

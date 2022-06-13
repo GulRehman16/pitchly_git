@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   ScrollView,
   StatusBar,
@@ -8,7 +8,7 @@ import {
   ImageBackground,
   View,
 } from 'react-native';
-import {Images} from '../../../constants';
+import { Images } from '../../../constants';
 import {
   FormInput,
   AppButton,
@@ -24,10 +24,11 @@ const TermsAndCondition = props => {
       source={Images.Pictures.appBg}>
       <ScrollView
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={{flexGrow: 1}}>
+        contentContainerStyle={{ flexGrow: 1 }}>
         <StatusBar backgroundColor={'transparent'} translucent={true} />
         <View style={styles.screenHeader}>
           <Header
+            BAckButton
             hiddinText
             text="Terms & Conditions"
             onPress={() => {
@@ -36,7 +37,7 @@ const TermsAndCondition = props => {
           />
         </View>
         <View style={styles.screenBody}>
-          <View style={{width: '90%', alignSelf: 'center'}}>
+          <View style={{ width: '90%', alignSelf: 'center' }}>
             <Policies
               termAndCondition
               fontSize={16}

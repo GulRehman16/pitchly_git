@@ -36,6 +36,7 @@ const AddServices = ({ onSwitch
                 <View style={{}}>
                     <View style={styles.screenHeader}>
                         <Header
+                            BAckButton
                             hiddinText
                             text="Add Service"
                             onPress={() => {

@@ -29,6 +29,7 @@ const FormInput = ({
   backgroundColor,
   PhoneInput,
   Textarea,
+  borderWidth,
 
 
   height,
@@ -45,6 +46,7 @@ const FormInput = ({
         borderWidth: borderW,
         borderColor: borderC || null,
         backgroundColor: backgroundColor || '#E9EBEF',
+        borderWidth: borderWidth || 0
       }}>
       {iconL && (
         <View

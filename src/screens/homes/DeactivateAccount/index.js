@@ -13,7 +13,7 @@ import {
     TextInput
 } from 'react-native';
 import { Images } from '../../../constants';
-import { AppButton } from '../../../components';
+import { AppButton, Header } from '../../../components';
 const height = Dimensions.get('window').height / 2.5;
 const width = Dimensions.get('window').width;
 const DeactivateAccount = ({ navigation }) => {
@@ -31,44 +31,58 @@ const DeactivateAccount = ({ navigation }) => {
                 showsVerticalScrollIndicator={false}
                 contentContainerStyle={{ flexGrow: 1 }}>
                 <StatusBar backgroundColor={'transparent'} translucent={true} />
+                <View style={styles.screenHeader}>
+                    <Header BAckButton
+                        hiddinText
 
+                        onPress={() => {
+                            navigation.goBack();
+                        }}
+                    />
+                </View>
                 <View style={styles.ScreenBody}>
+                    <View style={{ marginTop: 50, }}>
 
-                    <View style={[styles.connect]}>
-                        <Image
-                            source={Images.Icons.Key}
-                            resizeMode={'contain'}
-                            style={{ width: '100%', height: '100%' }}
-                        />
-                    </View>
-                    <View style={styles.texts}>
 
-                        <Text style={styles.headerText1}>
-                            Deactivate Account
-                        </Text>
-                        <Text style={styles.headerText2}>
-                            Enter your password
-                        </Text>
-                    </View>
-
-                    <View style={styles.authButtonContainer}>
-                        <Text style={styles.Text}>Password</Text>
-                        <View style={styles.inputView}>
-                            <View style={styles.input}>
-                                <TextInput placeholder='***********' secureTextEntry={true} />
-                            </View>
-                        </View>
-                        <View style={styles.authButton}>
-                            <AppButton
-                                LinearColor1={'#5DF7B8'}
-                                LinearColor2={'#3109FB'}
-                                color={'white'}
-                                borderWidth={0.5}
-                                borderColor={'#707070'}
-                                backgroundColor={'#FFFFFF'}
-                                label="Confirm"
-                                onPress={() => navigation.navigate('signup')}
+                        <View style={{ width: 144, height: 144, alignSelf: 'center' }}>
+                            <Image
+                                source={Images.Icons.Key}
+                                resizeMode={'contain'}
+                                style={{ width: '100%', height: '100%' }}
                             />
+                        </View>
+                        <View style={styles.texts}>
+
+                            <Text style={styles.headerText1}>
+                                Deactivate Account
+                            </Text>
+                            <Text style={styles.headerText2}>
+                                Enter your password
+                            </Text>
+                        </View>
+
+                        <View style={styles.authButtonContainer}>
+                            <View style={{ width: '100%' }}>
+                                <Text style={styles.Text}>Password</Text>
+                            </View>
+
+                            <View style={styles.inputView}>
+                                <View style={styles.input}>
+                                    <TextInput placeholder='***********' secureTextEntry={true} />
+                                </View>
+                            </View>
+                            <View style={styles.authButton}>
+                                <AppButton
+                                    LinearColor1={'#5DF7B8'}
+                                    LinearColor2={'#3109FB'}
+                                    color={'white'}
+                                    borderWidth={0.5}
+                                    borderColor={'#707070'}
+                                    backgroundColor={'#FFFFFF'}
+                                    label="Confirm"
+                                    onPress={() => navigation.navigate('deactivateaccount')}
+                                />
+                            </View>
                         </View>
                     </View>
                 </View>
@@ -81,76 +95,75 @@ const styles = StyleSheet.create({
     imageContainer: {
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center',
-
-    },
-    ScreenBody: {
-        width: '100%',
-        height: '100%',
-        alignSelf: 'center',
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
-    connect: {
-        width: 142,
-        height: 141,
-        // aspectRatio: 1,
-        alignItems: 'center',
-        alignSelf: 'center',
-        marginVertical: 15
-    },
-    connectImg: {
-        width: '100%',
-        height: '100%',
-        // alignItems: 'center',
-        // justifyContent: 'center',
-    },
-    texts: {
-        marginVertical: 10,
-        width: '90%'
     },
 
+    screenHeader: {
+        width: '90%',
+        height: 50,
+        marginTop: 30,
+        alignSelf: 'center',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+
+    headingText: {
+        fontSize: 24,
+        color: 'black',
+        fontWeight: 'bold',
+        letterSpacing: 0.5,
+    },
+    headingTextView: {
+        width: '100%',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: 40,
+    },
+    screenBody: {
+
+        width: '90%',
+        height: '100%',
+        alignSelf: 'center',
+    },
     headerText1: {
-        fontSize: 22,
-        fontWeight: 'bold', color: '#000000',
-        textAlign: 'center',
-        marginVertical: 5,
-        letterSpacing: 2
+        fontSize: 26,
+        color: 'black',
+        fontWeight: 'bold',
+        marginVertical: 10
     },
     headerText2: {
-        marginTop: 5,
-        fontSize: 15,
-        fontWeight: '500',
-        color: '#000000',
-        textAlign: 'center',
-        marginVertical: 10,
-        letterSpacing: 1.5,
-        letterSpacing: 2
+        fontSize: 22,
+        color: 'black',
+        fontWeight: '600',
+        marginVertical: 10
     },
-    authButtonContainer: {
-        width: '100%',
-        // alignSelf: 'center',
-        // marginTop: 30,
+
+    texts: {
+        fontWeight: '600',
+        width: '80%',
+        alignSelf: 'center',
+        alignItems: 'center', marginVertical: 10
+
     },
-    authButton: {
-        marginVertical: 30,
-        width: '100%',
-        // alignSelf: 'center'
-    },
+
+
     Text: {
-        marginTop: 5,
-        fontSize: 15,
-        fontWeight: '500',
-        color: '#000000',
-        // textAlign: 'center',
-        letterSpacing: 1
+        textAlign: 'left', fontWeight: 'bold'
     },
+
     inputView: {
+        width: '100%',
         marginVertical: 10,
         borderRadius: 5,
         borderWidth: 0.75,
         borderColor: '#707070',
         backgroundColor: '#E9EBEF'
+    },
+    authButtonContainer: {
+        width: '80%', alignSelf: 'center',
+        alignItems: 'center', marginVertical: 10
+    },
+    authButton: {
+        width: '90%', marginVertical: 10
     }
 
 

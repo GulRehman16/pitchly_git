@@ -8,7 +8,8 @@ import {
     ScrollView,
     StatusBar,
     Switch,
-    FlatList
+    FlatList,
+    TouchableOpacity
 } from 'react-native'
 import React, { useState } from 'react'
 import { Images } from '../../../constants'
@@ -16,7 +17,8 @@ import { Box, Header, Switch1 } from '../../../components'
 import { Textarea } from 'native-base'
 
 
-const AccountDeactivation = ({ }) => {
+
+const AccountDeactivation = (props) => {
 
 
 
@@ -49,6 +51,7 @@ const AccountDeactivation = ({ }) => {
                 <View style={{}}>
                     <View style={styles.screenHeader}>
                         <Header
+                            BAckButton
                             hiddinText
                             text="Account Deactivation"
                             onPress={() => {
@@ -68,19 +71,18 @@ const AccountDeactivation = ({ }) => {
                                             fontWeight: '600', color: '#000',
                                             fontSize: 18
                                         }}>Temporary Deactivation</Text>
-
-                                        <Text style={{
-                                            fontWeight: '500', color: 'red', marginVertical: 5,
-                                            fontSize: 18
-                                        }}>Deactivation</Text>
+                                        <TouchableOpacity onPress={() => { props.navigation.navigate('deleteaccount') }}>
+                                            <Text style={{
+                                                fontWeight: '500', color: 'red', marginVertical: 5,
+                                                fontSize: 18
+                                            }}>Deactivation</Text>
+                                        </TouchableOpacity>
 
                                         <Text style={{
                                             fontWeight: '400', color: '#000', marginVertical: 5,
                                             fontSize: 16
                                         }}>
-
                                             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod.
-
                                         </Text>
                                     </View>
                                     <View style={{ marginVertical: 5, marginTop: 20 }}>
@@ -88,11 +90,13 @@ const AccountDeactivation = ({ }) => {
                                             fontWeight: '600', color: '#000',
                                             fontSize: 18
                                         }}>Permanent Delete Account</Text>
+                                        <TouchableOpacity onPress={() => { props.navigation.navigate('deleteaccount') }}>
+                                            <Text style={{
+                                                fontWeight: '500', color: 'red', marginVertical: 5,
+                                                fontSize: 18
+                                            }}>Delete Account</Text>
+                                        </TouchableOpacity>
 
-                                        <Text style={{
-                                            fontWeight: '500', color: 'red', marginVertical: 5,
-                                            fontSize: 18
-                                        }}>Delete Account</Text>
 
                                         <Text style={{
                                             fontWeight: '400', color: '#000', marginVertical: 5,

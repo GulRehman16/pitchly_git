@@ -13,6 +13,7 @@ import {
 } from 'react-native';
 import { Images } from '../../../constants';
 import { AppButton } from '../../../components';
+import MyTabs from '../../../navigation/bottomTab';
 const height = Dimensions.get('window').height / 2.5;
 const width = Dimensions.get('window').width;
 const ThankYouScreen = ({ navigation }) => {
@@ -50,8 +51,6 @@ const ThankYouScreen = ({ navigation }) => {
                         Your Premium Membership is under review now, you will be intimated once it is approved
                     </Text>
                 </View>
-
-
                 <View style={styles.authButtonContainer}>
                     <View style={styles.authButton}>
                         <AppButton
@@ -62,7 +61,7 @@ const ThankYouScreen = ({ navigation }) => {
                             borderColor={'#707070'}
                             backgroundColor={'#FFFFFF'}
                             label=" Continue "
-                            onPress={() => navigation.navigate('signup')}
+                            onPress={() => navigation.navigate('MyTabs', { screen: 'profile' })}
                         />
                     </View>
                 </View>
@@ -127,9 +126,9 @@ const styles = StyleSheet.create({
         width: '90%',
         alignSelf: 'center',
         marginTop: 30,
-
     },
-
-
+    authButton: {
+        width: '80%', alignSelf: 'center'
+    }
 });
 

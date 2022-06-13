@@ -160,15 +160,24 @@ const Profile = () => {
         <View style={{}}>
           <View style={styles.screenHeader}>
             <Header
+<<<<<<< HEAD
               onPress={() => props.navigation.navigate('settings')}
+=======
+              onPress={() => props.navigation.navigate('Homes', { screen: 'settings' })}
+>>>>>>> f68db72e3f6103b79a80e7816fbe5500675b9416
               HeaderText
               text="Profile"
             />
           </View>
           <View style={styles.screenBody}>
+<<<<<<< HEAD
             <UserData
               Bio
               Image1={Images.Pictures.profile}
+=======
+            <UserData Bio
+              Image1={Images.Pictures.profile1}
+>>>>>>> f68db72e3f6103b79a80e7816fbe5500675b9416
               UserName="Tarrance"
               UserEmail="@Tarrance_official "
               Post={111}
@@ -179,6 +188,10 @@ const Profile = () => {
               Contact="+13246987"
               Email="Lorem ipsome"
               Location="lorem ipsome"
+<<<<<<< HEAD
+=======
+              pressme={() => props.navigation.navigate('Homes', { screen: 'editprofile' })}
+>>>>>>> f68db72e3f6103b79a80e7816fbe5500675b9416
             />
 
             <View style={styles.statusBoxView}>
