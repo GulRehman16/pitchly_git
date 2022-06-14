@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, TouchableOpacity, View, Image } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View, Image, Tips } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Images } from '../../constants';
 import LinearGradient from 'react-native-linear-gradient';
 import { Tooltip, } from 'react-native-elements';
-
 
 
 const TabBar = props => {
@@ -12,7 +11,7 @@ const TabBar = props => {
   const tabs = [
     { text: 'HOME', navTo: 'home', img: Images.Logos.homeIcon },
     { text: 'CHAT', navTo: 'ChatScreen1', img: Images.Logos.msgIcon },
-    { text: 'tooltip', navTo: 'TooltipScreen', img: Images.Logos.addIcon },
+    { text: 'Upload', navTo: 'TooltipScreen', img: Images.Logos.addIcon },
     { text: 'NOTIFICATION', navTo: 'Notification', img: Images.Logos.notificationIcon, },
     { text: 'ACCOUNT', navTo: 'profile', img: Images.Logos.userIcon, },
   ];
@@ -100,13 +99,68 @@ const TabBar = props => {
                       {item.text}
                     </Text>
                   ) : null}
-
-
-
-
                 </View>
               </TouchableOpacity>
 
+              {Tips && (
+
+                <View style={{}}>
+                  <Tooltip
+                    contentStyle={{
+
+                      marginTop: 340
+
+                    }}
+                    childrenWrapperStyle={{ width: 200, height: 100, backgroundColor: 'green', marginVertical: 40 }}
+
+                    isVisible={showTip}
+                    showChildInTooltip={true}
+
+                    content={
+                      <View sty={{ marginTop: 50 }}>
+                        <View style={styles.TooltipContainer}>
+
+
+                          <TouchableOpacity
+                            onPress={() => { navigation.navigate('profile') }}
+                            style={styles.box}>
+                            <Image source={Images.Icons.add1} resizeMode="contain"
+                              style={{ width: 40, height: 40, }} />
+                            <Text>General</Text>
+                          </TouchableOpacity>
+                          <TouchableOpacity
+                            onPress={() => { navigation.navigate('profile') }}
+                            style={styles.box}>
+                            <Image source={Images.Icons.user1} resizeMode="contain"
+                              style={{ width: 40, height: 40 }} />
+                            <Text>Talent</Text>
+                          </TouchableOpacity>
+                          <TouchableOpacity
+                            onPress={() => { navigation.navigate('AddPost') }}
+                            style={styles.box}>
+                            <Image source={Images.Icons.setting1} resizeMode="contain"
+                              style={{ width: 40, height: 40 }} />
+                            <Text>Services</Text>
+                          </TouchableOpacity>
+                          <TouchableOpacity
+                            onPress={() => { navigation.navigate('AddPost') }}
+                            style={styles.box}>
+                            <Image source={Images.Icons.lock1} resizeMode="contain"
+                              style={{ width: 40, height: 40 }} />
+                            <Text>Products</Text>
+                          </TouchableOpacity>
+                        </View>
+
+                      </View>}
+                    onClose={() => { setShowTip(true) }}
+                    placement="top" >
+                    <TouchableOpacity onPress={onPress} >
+
+                      <Text>heljhskajdjdfjd</Text>
+                    </TouchableOpacity>
+                  </Tooltip>
+                </View>
+              )}
 
 
             </>

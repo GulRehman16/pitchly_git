@@ -1,16 +1,21 @@
 import React from 'react';
 import MyStack from './src/navigation/stack';
-import FeaturedPost from './src/screens/homes/FeaturedPost';
 import Productdetails from './src/screens/homes/ProductDetails';
 import Comment from './src/components/comment';
+import PictureSlider from './src/screens/homes/PictureSlider';
+import Home from './src/screens/homes/home';
+import GetFeaturedPost from './src/screens/homes/Get_It_Featured';
+import ToolTipScreen from './src/screens/homes/ToolTipScreen';
+import FeaturedPost from './src/screens/homes/FeaturedPost';
+import ChatScreen1 from './src/screens/homes/chatscreen1';
+
 const App = props => {
-<<<<<<< Updated upstream
-  // return <MyStack {...props} />;
-  return <Productdetails {...props} />;
-=======
-  // return <PremiumMemberScreen />
-  // return <TooltipScreen />
   // return <PictureSlider />
+  // return <MyStack {...props} />;
+  // return <Productdetails {...props} />
+  // return <PremiumMemberScreen />
+  //return <ToolTipScreen />
+  //return <Home />
   //return <DeactivateAccount />
   //return <DeleteAccount />
   // return <ThankYouScreen />
@@ -22,7 +27,7 @@ const App = props => {
   //return <ChangePassword />
   // return <AccountSetting />
   //return <AccountDeactivation />
-  //return <GetFeaturedPost />
+  // return <GetFeaturedPost />
   // return <Blocked />
   // return <Followers />
   // return <Following />
@@ -31,9 +36,11 @@ const App = props => {
   //return <NotificationSetting />
   //return <ChatDetails />
   // return <MessageScreen />`
-  //return <ChatScreen1 />
+  // return <ChatScreen1 />
+  // return <FeaturedPost />
+  // return <Productdetails />
   return <MyStack {...props} />;
->>>>>>> Stashed changes
+
 };
 
 export default App;

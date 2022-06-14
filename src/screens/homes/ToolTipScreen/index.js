@@ -3,21 +3,13 @@ import {
     FlatList, ImageBackground
 } from 'react-native'
 import React, { useState } from 'react'
-import { Box, Header, Row } from '../../../components'
+import Tooltip from 'react-native-walkthrough-tooltip';
 import Icon from 'react-native-vector-icons/Entypo';
 import { Images } from '../../../constants';
-import Swipeable from 'react-native-swipeable';
-import { Item } from 'native-base';
-import { Tooltip, Overlay } from 'react-native-elements';
-import ChatScreen1 from '../chatscreen1';
-import { StylesContext } from '@material-ui/styles';
 
+const ToolTipScreen = ({ onPress }) => {
 
-
-
-const ToolTipScreen = ({ Open }) => {
-
-
+    const [showTip, setShowTip] = useState(true)
 
     return (
         <ImageBackground
@@ -28,27 +20,56 @@ const ToolTipScreen = ({ Open }) => {
                 contentContainerStyle={{ flexGrow: 1 }}>
                 <View style={styles.Body}>
 
-                    <Tooltip containerStyle={{
-                        width: 180,
-                        height: 300,
-                        shadowColor: "#000",
+                    <View style={{}}>
+                        <Tooltip
+                            contentStyle={{
 
-                        shadowOffset: {
-                            width: 0,
-                            height: 3,
-                        },
-                        shadowOpacity: 0.27,
-                        shadowRadius: 4.65,
-                        elevation: 6,
-                        flexDirection: 'row'
-                    }} backgroundColor='#fff'
-                        withPointer={true}
-                        toggleOnPress={true}
-                        onOpen={Open}
-                        popover={
-                            <Text>hjdshjdfjhdfhjdfhjfd</Text>}>
+                                marginTop: 340
 
-                    </Tooltip>
+                            }}
+                            childrenWrapperStyle={{ width: 200, height: 100, backgroundColor: 'green', marginVertical: 40 }}
+
+                            isVisible={showTip}
+                            showChildInTooltip={true}
+                            content={
+                                <View sty={{ marginTop: 50 }}>
+                                    <View style={styles.TooltipContainer}>
+                                        <TouchableOpacity
+                                            onPress={() => { navigation.navigate('profile') }}
+                                            style={styles.box}>
+                                            <Image source={Images.Icons.add1} resizeMode="contain"
+                                                style={{ width: 40, height: 40, }} />
+                                            <Text>General</Text>
+                                        </TouchableOpacity>
+                                        <TouchableOpacity
+                                            onPress={() => { navigation.navigate('profile') }}
+                                            style={styles.box}>
+                                            <Image source={Images.Icons.user1} resizeMode="contain"
+                                                style={{ width: 40, height: 40 }} />
+                                            <Text>Talent</Text>
+                                        </TouchableOpacity>
+                                        <TouchableOpacity
+                                            onPress={() => { navigation.navigate('AddPost') }}
+                                            style={styles.box}>
+                                            <Image source={Images.Icons.setting1} resizeMode="contain"
+                                                style={{ width: 40, height: 40 }} />
+                                            <Text>Services</Text>
+                                        </TouchableOpacity>
+                                        <TouchableOpacity
+                                            onPress={() => { navigation.navigate('AddPost') }}
+                                            style={styles.box}>
+                                            <Image source={Images.Icons.lock1} resizeMode="contain"
+                                                style={{ width: 40, height: 40 }} />
+                                            <Text>Products</Text>
+                                        </TouchableOpacity>
+                                    </View>
+
+                                </View>}
+                            onClose={() => { setShowTip(true) }}
+                            placement="top" >
+
+                        </Tooltip>
+                    </View>
                 </View>
             </ScrollView>
         </ImageBackground>
@@ -66,23 +87,23 @@ const styles = StyleSheet.create({
         // height: '100%',
         alignSelf: 'center'
     },
-    message: {
-        fontWeight: '700',
-        fontSize: 18,
-        color: '#000',
-        marginVertical: 10
-    },
-    horizental: {
-        marginVertical: 10,
+    TooltipContainer:
+    {
+        width: '100%',
+        marginVertical: 30,
         flexDirection: 'row',
+        justifyContent: 'space-evenly',
+        alignSelf: 'flex-end'
     },
     box: {
-        margin: 5,
+        margin: 2,
         width: 64,
         height: 70,
         borderRadius: 20,
         borderColor: 'blue',
         borderWidth: 1.25,
+        justifyContent: 'center',
+        alignItems: 'center'
         // backgroundColor: 'pink'
     },
     cardbox: {
@@ -127,4 +148,9 @@ const styles = StyleSheet.create({
 
 
 })
+
+  // <TouchableOpacity onPress={onPress} >
+
+                            //     <Text>heljhskajdjdfjd</Text>
+                            // </TouchableOpacity>
 

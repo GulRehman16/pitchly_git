@@ -120,7 +120,7 @@ const GetFeaturedPost = ({ navigation }) => {
                                                             backgroundColor={'#FFFFFF'}
                                                             label="Renew"
                                                             onPress={() =>
-                                                                navigation.navigate('featuredpst')
+                                                                navigation.navigate("Homes", { screen: 'fututerdpost' })
                                                             }
                                                         />
                                                     </View>

@@ -11,11 +11,11 @@ import {
   TextInput,
   TouchableOpacity,
 } from 'react-native';
-import {Icon} from 'native-base';
-import {Images} from '../../../constants';
-import React, {useState, useEffect} from 'react';
-import {Avatar} from 'react-native-elements';
-const Comment = ({image, name, time}) => {
+import { Icon } from 'native-base';
+import { Images } from '../../../constants';
+import React, { useState, useEffect } from 'react';
+import { Avatar } from 'react-native-elements';
+const Comment = ({ image, name, time }) => {
   const [messages, setMessages] = useState([]);
   const [message, setMessage] = useState('');
   const [orientation, setOrientation] = useState(true);
@@ -97,7 +97,7 @@ const Comment = ({image, name, time}) => {
         width: '100%',
         height: '100%',
       }}>
-      <View style={{width: '90%'}}>
+      <View style={{ width: '90%' }}>
         {messages.map((message, i) => {
           return (
             <>
@@ -131,17 +131,17 @@ const Comment = ({image, name, time}) => {
                     }}>
                     {name}
                   </Text>
-                  <Text style={{color: '#000', marginLeft: 10}}>
+                  <Text style={{ color: '#000', marginLeft: 10 }}>
                     {' '}
                     {message?.text}{' '}
                   </Text>
-                  <View style={{marginLeft: 10, flexDirection: 'row'}}>
+                  <View style={{ marginLeft: 10, flexDirection: 'row' }}>
                     <Text>{time}</Text>
                     <TouchableOpacity>
-                      <Text style={{marginLeft: 15}}>Like</Text>
+                      <Text style={{ marginLeft: 15 }}>Like</Text>
                     </TouchableOpacity>
                     <TouchableOpacity>
-                      <Text style={{marginLeft: 15}}>Reply</Text>
+                      <Text style={{ marginLeft: 15 }}>Reply</Text>
                     </TouchableOpacity>
                   </View>
                 </View>
@@ -207,7 +207,7 @@ const Comment = ({image, name, time}) => {
             <Icon
               name="send"
               type="MaterialIcons"
-              style={{color: message.length <= 0 ? 'grey' : '#F36C29'}}
+              style={{ color: message.length <= 0 ? 'grey' : '#F36C29' }}
             />
           </TouchableOpacity>
         </View>
@@ -215,7 +215,7 @@ const Comment = ({image, name, time}) => {
     </ScrollView>
   );
 };
-export default Comment;
+export { Comment };
 const styles = StyleSheet.create({
   imageContainer: {
     flex: 1,

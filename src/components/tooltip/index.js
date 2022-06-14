@@ -158,22 +158,22 @@
 
 
 
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native'
 import React, { useState } from 'react'
 import Tooltip from 'react-native-walkthrough-tooltip';
 import Icon from 'react-native-vector-icons/Entypo';
 
-const Tip = () => {
+const Tip = ({ threedots }) => {
   const [showTip, setShowTip] = useState(false)
-
-
   return (
     <View>
       <Tooltip
         style={{ backgroundColor: 'pink' }}
         isVisible={showTip}
+        accessible={false}
+        showChildInTooltip={false}
         content={
-          <Text>
+          <View sty={{}}>
             <Text>
               Remove Notification {'\n'}
               Turn off notificationIcon about {'\n'}
@@ -181,24 +181,19 @@ const Tip = () => {
             </Text>
 
 
-          </Text>}
+          </View>}
         onClose={() => { setShowTip(false) }}
-        placement="left"
-      // topAdjustment={Platform.OS === 'android' ? -StatusBar.currentHeight : 0}
-      >
+        placement="left" >
         <TouchableOpacity onPress={() => setShowTip(!showTip)} >
-          {showTip === false ?
-            <Icon name='dots-three-vertical' type="Entypo"
-              style={{ fontSize: 26, }} />
-            : null
-          }
 
+          <Icon name="dots-three-vertical" type="Entypo"
+            size={22}
+          />
         </TouchableOpacity>
       </Tooltip>
     </View>
   )
 }
-
 export { Tip }
 
 const styles = StyleSheet.create({})

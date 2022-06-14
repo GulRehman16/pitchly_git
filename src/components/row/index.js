@@ -98,7 +98,7 @@ const Row = ({
                         <TouchableOpacity style={{
                             alignItems: 'center',
                             marginTop: 12, marginRight: 5, marginVertical: 8
-                        }} onPress={Press}>
+                        }} >
                             <Image source={Image2} />
                         </TouchableOpacity>
                     </View>

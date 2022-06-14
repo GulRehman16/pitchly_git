@@ -1,6 +1,6 @@
 import React from 'react';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {Icon} from 'native-base';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { Icon } from 'native-base';
 import home from '../../screens/homes/home';
 import profile from '../../screens/homes/profile';
 import { TabBar } from '../../components';

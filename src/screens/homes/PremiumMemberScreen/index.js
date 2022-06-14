@@ -74,7 +74,7 @@ const PremiumMemberScreen = ({ props, navigation }) => {
                                             onPress={() => { setState(!state) }}
                                         />
                                     </View>
-                                    <View style={{ marginVertical: 25 }}>
+                                    <View style={{ width: '80%', alignSelf: 'center', marginVertical: 25 }}>
                                         <AppButton
                                             LinearColor1={'#5DF7B8'}
                                             LinearColor2={'#3109FB'}

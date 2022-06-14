@@ -22,4 +22,5 @@ export * from './userbios';
 export * from './Followbtn'
 export * from './postBox';
 export * from './suggestFriends';
-export * from './overlay'
+export * from './overlay';
+export * from './comment'

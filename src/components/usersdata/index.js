@@ -79,7 +79,7 @@ const UserData = (
                                     </View>
                                 </View>
                             </View>
-                            <View style={{ width: '10%' }}>
+                            <TouchableOpacity activeOpacity={0.8} onPress={pressme} style={{ width: '10%' }}>
 
                                 <LinearGradient
                                     start={{ x: 1, y: 0.0 }}
@@ -91,18 +91,18 @@ const UserData = (
                                         borderRadius: 10
                                     }}
                                 >
-                                    <TouchableOpacity activeOpacity={0.8} onPress={pressme} >
-                                        <Icon
-                                            type="FontAwesome"
-                                            name="edit"
-                                            color='#fff'
-                                            size={22}
-                                            style={{ margin: 4 }}
-                                        />
-                                    </TouchableOpacity>
+
+                                    <Icon
+                                        type="FontAwesome"
+                                        name="edit"
+                                        color='#fff'
+                                        size={22}
+                                        style={{ margin: 4 }}
+                                    />
+
                                 </LinearGradient>
 
-                            </View>
+                            </TouchableOpacity>
                         </View>
                         <View style={{ width: '90%', alignSelf: 'center' }}>
                             <View>

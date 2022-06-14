@@ -32,8 +32,7 @@ const Settings = (props) => {
       Image1: Images.Icons.Save,
       text2: 'Your Saved Posts',
       Image2: Images.Icons.arrowforward,
-      Press: () => props.navigation.navigate('')
-
+      Press: () => props.navigation.navigate('home')
     },
     {
       Image1: Images.Icons.Account,
@@ -48,6 +47,7 @@ const Settings = (props) => {
       Image2: Images.Icons.arrowforward,
       Press: () => props.navigation.navigate('privacyPolicy')
 
+
     },
     {
       Image1: Images.Icons.privacy,
@@ -60,7 +60,8 @@ const Settings = (props) => {
       Image1: Images.Icons.Logout,
       text2: 'Logout',
       // Image2: Images.Icons.arrowforward,
-      Press: () => props.navigation.navigate('language')
+
+      Press: () => props.navigation.navigate('premium')
     },
   ]
   return (
@@ -88,11 +89,10 @@ const Settings = (props) => {
                 return (
                   <>
                     <Row Row2
-                      Press1={item.Press1}
-                      Press={item.Press}
                       Image1={item.Image1}
                       text2={item.text2}
                       Image2={item.Image2}
+                      Press={item.Press}
                     />
                   </>
                 )
