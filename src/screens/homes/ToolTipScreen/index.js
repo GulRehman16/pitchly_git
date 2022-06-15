@@ -8,9 +8,7 @@ import Icon from 'react-native-vector-icons/Entypo';
 import { Images } from '../../../constants';
 
 const ToolTipScreen = ({ onPress }) => {
-
     const [showTip, setShowTip] = useState(true)
-
     return (
         <ImageBackground
             style={styles.imageContainer}
@@ -23,7 +21,6 @@ const ToolTipScreen = ({ onPress }) => {
                     <View style={{}}>
                         <Tooltip
                             contentStyle={{
-
                                 marginTop: 340
 
                             }}
@@ -149,8 +146,8 @@ const styles = StyleSheet.create({
 
 })
 
-  // <TouchableOpacity onPress={onPress} >
+    // < TouchableOpacity onPress = { onPress } >
 
-                            //     <Text>heljhskajdjdfjd</Text>
-                            // </TouchableOpacity>
+    //     <Text>heljhskajdjdfjd</Text>
+    //                         </TouchableOpacity >
 

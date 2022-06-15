@@ -21,7 +21,7 @@ import AccountSetting from '../../screens/homes/AccountSetting';
 import Profile from '../../screens/homes/profile';
 import EditProfile from '../../screens/homes/editprofile';
 import PremiumMemberScreen from '../../screens/homes/PremiumMemberScreen';
-
+import ChatScreen from '../../screens/homes/ChatScreen';
 import GetFeaturedPost from '../../screens/homes/Get_It_Featured';
 import AccountDeactivation from '../../screens/homes/AccountDeactivation';
 import ChangePassword from '../../screens/homes/ChangePassword';
@@ -35,6 +35,9 @@ import DeleteAccount from '../../screens/homes/DeleteAccount';
 import Settings from '../../screens/homes/settings';
 import FeaturedPost from '../../screens/homes/FeaturedPost';
 import Productdetails from '../../screens/homes/ProductDetails';
+import ChatDetails from '../../screens/homes/chatDetails';
+import PictureSlider from '../../screens/homes/PictureSlider';
+import HomeScreensix from '../../screens/homes/home6';
 
 
 const Stack = createNativeStackNavigator();
@@ -94,12 +97,19 @@ const Auth = () => {
 export const Homes = () => {
   return (
     <Stack.Navigator>
+      <Stack.Screen
+        name="homescreensix"
+        component={HomeScreensix}
+        options={{ headerShown: false }}
+      />
+
 
       <Stack.Screen
         name="home"
         component={home}
         options={{ headerShown: false }}
       />
+
       <Stack.Screen
         name="productdetails"
         component={Productdetails}
@@ -146,7 +156,11 @@ export const Homes = () => {
         component={AccountDeactivation}
         options={{ headerShown: false }}
       />
-
+      <Stack.Screen
+        name="chatdetails"
+        component={ChatDetails}
+        options={{ headerShown: false }}
+      />
       <Stack.Screen
         name="getfeaturePost"
         component={GetFeaturedPost}
@@ -167,7 +181,11 @@ export const Homes = () => {
         component={PremiumMemberScreen}
         options={{ headerShown: false }}
       />
-
+      <Stack.Screen
+        name='chatscreen'
+        component={ChatScreen}
+        options={{ headerShown: false }}
+      />
       <Stack.Screen
         name="chatScreen1"
         component={ChatScreen1}
@@ -181,6 +199,11 @@ export const Homes = () => {
       <Stack.Screen
         name="termsAndCondition"
         component={TermsAndCondition}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="pictureslider"
+        component={PictureSlider}
         options={{ headerShown: false }}
       />
       <Stack.Screen

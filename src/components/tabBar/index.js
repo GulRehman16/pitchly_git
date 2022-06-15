@@ -21,7 +21,6 @@ const TabBar = props => {
   });
   return (
     <>
-
       <SafeAreaView style={styles.tabBarContainer}>
         {/* <View style={{position: 'absolute', bottom: 0, alignSelf: 'center'}}>
         <Tooltips invisible={visible.invisibles} visible={visible.visibles} />

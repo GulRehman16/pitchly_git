@@ -4,7 +4,8 @@ import Post from '../../../components/post';
 import Headerchat from '../../../components/Headerchat';
 import { Images } from '../../../constants';
 import { ScrollView } from 'react-native-gesture-handler';
-const Productdetails = () => {
+import { Homes } from '../../../navigation/stack';
+const Productdetails = (props) => {
   return (
     <View>
       <ScrollView>
@@ -18,19 +19,22 @@ const Productdetails = () => {
             icon={false}
           />
         </View>
-        <Post
-          Image1={Images.Icons.post}
-          TalentName="Lorem ipsum dolor sit amet, consetetur sadipscing elitraliquyam erat,
-                            Lorem ipsum dolor sit amet, consetetur sadipscing elitraliquyam erat,
+        <View style={{ width: '100%' }}>
+          <Post
+            Image1={Images.Icons.post}
+            TalentName="Lorem ipsum dolor sit amet, consetetur sadipscing elitraliquyam erat,
+                          Lorem ipsum dolor sit amet, consetetur sadipscing elitraliquyam erat,
+                          Lorem ipsum dolor sit amet, consetetur sadipscing elitraliquyam erat,
+                          Lorem ipsum dolor sit amet, consetetur sadipscing elitraliquyam erat,
+                           "
+            City="Lorem ipsum dolor sit amet,"
+            state="Lorem ipsum dolor sit amet,"
+            Date="02/20/2021"
+            Duration={true}
+            Press1={() => { props.navigation.naviagte('Homes', { screen: 'pictureslider' }) }}
+          />
+        </View>
 
-                            Lorem ipsum dolor sit amet, consetetur sadipscing elitraliquyam erat,
-                            Lorem ipsum dolor sit amet, consetetur sadipscing elitraliquyam erat,
-                             "
-          City="Lorem ipsum dolor sit amet,"
-          state="Lorem ipsum dolor sit amet,"
-          Date="02/20/2021"
-          Duration={true}
-        />
       </ScrollView>
     </View>
   );
@@ -52,3 +56,11 @@ const styles = StyleSheet.create({
   },
 });
 export default Productdetails;
+
+
+
+// <ImageBackground
+// source={singleImg}
+// style={{ width: '100%', height: '100%' }}
+// resizeMode="stretch"></ImageBackground>
+// )}

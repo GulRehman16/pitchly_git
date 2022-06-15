@@ -8,6 +8,11 @@ import GetFeaturedPost from './src/screens/homes/Get_It_Featured';
 import ToolTipScreen from './src/screens/homes/ToolTipScreen';
 import FeaturedPost from './src/screens/homes/FeaturedPost';
 import ChatScreen1 from './src/screens/homes/chatscreen1';
+import ChatScreen from './src/screens/homes/ChatScreen';
+import AddPost from './src/screens/homes/Addpost';
+import Addproduct from './src/screens/homes/Addproduct';
+import Post from './src/components/post';
+import HomeScreensix from './src/screens/homes/home6';
 
 const App = props => {
   // return <PictureSlider />
@@ -38,7 +43,12 @@ const App = props => {
   // return <MessageScreen />`
   // return <ChatScreen1 />
   // return <FeaturedPost />
-  // return <Productdetails />
+  //return <Productdetails />
+  // return <Addproduct />
+  //return <ChatScreen />
+  //return <AddPost />
+  // return <Post />
+  //return <HomeScreensix />
   return <MyStack {...props} />;
 
 };

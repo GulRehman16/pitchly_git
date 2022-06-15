@@ -273,7 +273,7 @@ const ChatScreen1 = ({ navigation }) => {
                       messagenumber={item.messagenumber}
                       textmessage={item.textmessage}
                       Press={() => {
-                        navigation.navigate('Homes', { screen: 'ChatScreen' });
+                        navigation.navigate('Homes', { screen: 'chatscreen' });
                       }}
                     />
                   </View>

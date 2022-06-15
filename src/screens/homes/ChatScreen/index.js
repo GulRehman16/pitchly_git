@@ -12,9 +12,9 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import React from 'react';
-import {Icon} from 'native-base';
-import {Images} from '../../../constants';
-import {useState, useEffect} from 'react';
+import { Icon } from 'native-base';
+import { Images } from '../../../constants';
+import { useState, useEffect } from 'react';
 import Headerchat from '../../../components/Headerchat';
 const ChatScreen = props => {
   const [messages, setMessages] = useState([]);
@@ -94,7 +94,7 @@ const ChatScreen = props => {
 
     setMessage('');
 
-    scrollViewRef.scrollToEnd({animated: true});
+    scrollViewRef.scrollToEnd({ animated: true });
   };
 
   function formatAMPM(date) {
@@ -133,10 +133,10 @@ const ChatScreen = props => {
             }}>
             <ScrollView
               showsVerticalScrollIndicator={false}
-              contentContainerStyle={{flexGrow: 1}}
+              contentContainerStyle={{ flexGrow: 1 }}
               ref={ref => setRef(ref)}
               onContentSizeChange={() =>
-                scrollViewRef.scrollToEnd({animated: true})
+                scrollViewRef.scrollToEnd({ animated: true })
               }>
               <View>
                 <Headerchat
@@ -145,11 +145,12 @@ const ChatScreen = props => {
                   time={'offline 45 min ago'}
                   Press={() => props.navigation.goBack()}
                   icon={true}
+                  onPress={() => { props.navigation.navigate('chatdetails') }}
                 />
                 {/* <Header text="Live Chat" navigation={props.navigation} /> */}
               </View>
               <View
-                style={{width: '90%', alignSelf: 'center', paddingBottom: 20}}>
+                style={{ width: '90%', alignSelf: 'center', paddingBottom: 20 }}>
                 {messages.map((message, i) => {
                   return (
                     <>
@@ -180,7 +181,7 @@ const ChatScreen = props => {
                             minWidth: 80,
                             // backgroundColor: 'pink'
                           }}>
-                          <Text style={{color: '#000'}}> {message?.text} </Text>
+                          <Text style={{ color: '#000' }}> {message?.text} </Text>
                         </View>
                         <View
                           style={{
@@ -256,7 +257,7 @@ const ChatScreen = props => {
                 <Icon
                   name="send"
                   type="MaterialIcons"
-                  style={{color: message.length <= 0 ? 'grey' : '#F36C29'}}
+                  style={{ color: message.length <= 0 ? 'grey' : '#F36C29' }}
                 />
               </TouchableOpacity>
             </View>

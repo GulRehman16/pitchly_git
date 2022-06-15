@@ -1,5 +1,5 @@
-import {Icon} from 'native-base';
-import React, {useState} from 'react';
+import { Icon } from 'native-base';
+import React, { useState } from 'react';
 import {
   Image,
   ScrollView,
@@ -17,7 +17,7 @@ import {
   NumInput,
   CheckBox,
 } from '../../../components';
-import {Images} from '../../../constants';
+import { Images } from '../../../constants';
 
 const SignUp = props => {
   const [state, setState] = useState({
@@ -40,10 +40,11 @@ const SignUp = props => {
       source={Images.Pictures.appBg}>
       <ScrollView
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={{flexGrow: 1}}>
+        contentContainerStyle={{ flexGrow: 1 }}>
         <StatusBar backgroundColor={'transparent'} translucent={true} />
         <View style={styles.screenHeader}>
           <Header
+            BAckButton
             visibleText
             text="Sign Up"
             onPress={() => {
@@ -56,11 +57,11 @@ const SignUp = props => {
             <View style={styles.profileImage}>
               <Image
                 source={Images.Pictures.profile}
-                style={{width: '100%', height: '100%'}}
+                style={{ width: '100%', height: '100%' }}
               />
             </View>
             <TouchableOpacity activeOpacity={0.6} style={styles.uploadButton}>
-              <Icon name="plus" type="Feather" style={{fontSize: 18}} />
+              <Icon name="plus" type="Feather" style={{ fontSize: 18 }} />
             </TouchableOpacity>
           </View>
           <View style={styles.inputContainer}>
@@ -74,10 +75,10 @@ const SignUp = props => {
               }}>
               <FormInput
                 value={state.firsttName}
-                onChangeText={value => setState({...state, firsttName: value})}
+                onChangeText={value => setState({ ...state, firsttName: value })}
                 placeHolder="Enter Your First Name"
-                onFocus={() => setState({...state, focus: 'firstName'})}
-                onBlur={() => setState({...state, focus: ''})}
+                onFocus={() => setState({ ...state, focus: 'firstName' })}
+                onBlur={() => setState({ ...state, focus: '' })}
               />
             </View>
             <Text style={styles.inputLabelName}>Last Name</Text>
@@ -90,10 +91,10 @@ const SignUp = props => {
               }}>
               <FormInput
                 value={state.lastName}
-                onChangeText={value => setState({...state, lastName: value})}
+                onChangeText={value => setState({ ...state, lastName: value })}
                 placeHolder="Enter Your Last Name"
-                onFocus={() => setState({...state, focus: 'lastName'})}
-                onBlur={() => setState({...state, focus: ''})}
+                onFocus={() => setState({ ...state, focus: 'lastName' })}
+                onBlur={() => setState({ ...state, focus: '' })}
               />
             </View>
             <Text style={styles.inputLabelName}>Username</Text>
@@ -106,10 +107,10 @@ const SignUp = props => {
               }}>
               <FormInput
                 value={state.userName}
-                onChangeText={value => setState({...state, userName: value})}
+                onChangeText={value => setState({ ...state, userName: value })}
                 placeHolder="Enter Your Username"
-                onFocus={() => setState({...state, focus: 'userName'})}
-                onBlur={() => setState({...state, focus: ''})}
+                onFocus={() => setState({ ...state, focus: 'userName' })}
+                onBlur={() => setState({ ...state, focus: '' })}
               />
             </View>
 
@@ -123,10 +124,10 @@ const SignUp = props => {
               }}>
               <FormInput
                 value={state.email}
-                onChangeText={value => setState({...state, email: value})}
+                onChangeText={value => setState({ ...state, email: value })}
                 placeHolder="Enter Your Email"
-                onFocus={() => setState({...state, focus: 'email'})}
-                onBlur={() => setState({...state, focus: ''})}
+                onFocus={() => setState({ ...state, focus: 'email' })}
+                onBlur={() => setState({ ...state, focus: '' })}
               />
             </View>
             <Text style={styles.inputLabelName}>Password</Text>
@@ -139,17 +140,17 @@ const SignUp = props => {
               }}>
               <FormInput
                 value={state.password}
-                onChangeText={value => setState({...state, password: value})}
+                onChangeText={value => setState({ ...state, password: value })}
                 icon
                 secureText={state.secureText}
                 iconRName={state.secureText ? 'eye-with-line' : 'eye'}
                 iconRType="Entypo"
                 onPressR={() =>
-                  setState({...state, secureText: !state.secureText})
+                  setState({ ...state, secureText: !state.secureText })
                 }
                 placeHolder="Enter Your Password"
-                onFocus={() => setState({...state, focus: 'password'})}
-                onBlur={() => setState({...state, focus: ''})}
+                onFocus={() => setState({ ...state, focus: 'password' })}
+                onBlur={() => setState({ ...state, focus: '' })}
               />
             </View>
 
@@ -165,22 +166,22 @@ const SignUp = props => {
               <FormInput
                 value={state.confirmPassword}
                 onChangeText={value =>
-                  setState({...state, confirmPassword: value})
+                  setState({ ...state, confirmPassword: value })
                 }
                 secureText={state.secureText}
                 onPressR={() =>
-                  setState({...state, secureText: !state.secureText})
+                  setState({ ...state, secureText: !state.secureText })
                 }
                 placeHolder="Re-Enter Your Password"
-                onFocus={() => setState({...state, focus: 'confirmPassword'})}
-                onBlur={() => setState({...state, focus: ''})}
+                onFocus={() => setState({ ...state, focus: 'confirmPassword' })}
+                onBlur={() => setState({ ...state, focus: '' })}
               />
             </View>
-            <View style={{width: '100%', marginTop: -10}}>
+            <View style={{ width: '100%', marginTop: -10 }}>
               <CheckBox
                 circle
                 alignItem={'flex-start'}
-                onPress={() => setState({checked: !state.checked})}
+                onPress={() => setState({ checked: !state.checked })}
                 checked={state.checked}
                 text={'Phone'}
                 fontSize={16}
@@ -205,12 +206,12 @@ const SignUp = props => {
                 <CheckBox
                   square
                   alignItem={'flex-start'}
-                  onPress={() => setState({...state, agree: !state.agree})}
+                  onPress={() => setState({ ...state, agree: !state.agree })}
                   checked={state.agree}
                 />
               </View>
-              <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                <Text style={{color: 'black'}}>I accept </Text>
+              <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                <Text style={{ color: 'black' }}>I accept </Text>
                 <TouchableOpacity
                   activeOpacity={0.7}
                   onPress={() => {
@@ -220,7 +221,7 @@ const SignUp = props => {
                   }}>
                   <Text style={styles.termsPrivacy}>Terms & Conditions</Text>
                 </TouchableOpacity>
-                <Text style={{color: 'black'}}> & </Text>
+                <Text style={{ color: 'black' }}> & </Text>
                 <TouchableOpacity
                   activeOpacity={0.7}
                   onPress={() => {
@@ -232,7 +233,7 @@ const SignUp = props => {
                 </TouchableOpacity>
               </View>
             </View>
-            <View style={{paddingVertical: 40, width: '100%'}}>
+            <View style={{ paddingVertical: 40, width: '100%' }}>
               <AppButton
                 LinearColor1={'#5DF7B8'}
                 LinearColor2={'#3109FB'}
@@ -255,7 +256,7 @@ const SignUp = props => {
             alignItems: 'center',
             justifyContent: 'center',
           }}>
-          <Text style={{color: 'black', fontSize: 16}}>
+          <Text style={{ color: 'black', fontSize: 16 }}>
             Already have an account?
           </Text>
           <TouchableOpacity
@@ -356,8 +357,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  inputLabelName: {alignSelf: 'flex-start', color: '#000000', fontSize: 14},
-  termsPrivacy: {color: '#4059E4', fontSize: 15, fontWeight: 'bold'},
+  inputLabelName: { alignSelf: 'flex-start', color: '#000000', fontSize: 14 },
+  termsPrivacy: { color: '#4059E4', fontSize: 15, fontWeight: 'bold' },
   termView: {
     width: '100%',
     flexDirection: 'row',
@@ -372,7 +373,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  footerText1: {color: 'black', fontSize: 16, fontWeight: '500'},
+  footerText1: { color: 'black', fontSize: 16, fontWeight: '500' },
   footerText2: {
     fontSize: 16,
     color: '#4059E4',

@@ -346,11 +346,6 @@ const Home = props => {
                 }}
               />
             </View>
-
-            <View style={styles.pitchlyFeatured}>
-              <PitchlyFeatured />
-            </View>
-
             <View
               style={{
                 width: '100%',
@@ -453,7 +448,6 @@ const Home = props => {
                 </TouchableOpacity>
               </LinearGradient>
             </View>
-
             {check.value === 'PITCHLY FEED' && <AllMixed />}
             {check.value === 'TALENT FEED' && <Talent />}
             {check.value === 'SERVICES FEED' && <Services />}
