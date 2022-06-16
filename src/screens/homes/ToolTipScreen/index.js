@@ -2,22 +2,18 @@ import {
     StyleSheet, Text, View, SafeAreaView, ScrollView, TouchableOpacity, Image,
     FlatList, ImageBackground
 } from 'react-native'
-import React, { useState } from 'react'
-import { Box, Header, Row } from '../../../components'
-import Icon from 'react-native-vector-icons/Entypo';
+import React, { useState, useEffect } from 'react'
 import { Images } from '../../../constants';
-import Swipeable from 'react-native-swipeable';
-import { Item } from 'native-base';
-import { Tooltip, Overlay } from 'react-native-elements';
-import ChatScreen1 from '../chatscreen1';
-import { StylesContext } from '@material-ui/styles';
+import { Tip } from '../../../components';
 
+const ToolTipScreen = ({ onPress, }) => {
 
+    useEffect(() => {
+        setShowtool(true);
 
+    }, [showTool]);
 
-const ToolTipScreen = ({ Open }) => {
-
-
+    const [showTool, setShowtool] = useState(false);
 
     return (
         <ImageBackground
@@ -27,28 +23,12 @@ const ToolTipScreen = ({ Open }) => {
                 showsVerticalScrollIndicator={false}
                 contentContainerStyle={{ flexGrow: 1 }}>
                 <View style={styles.Body}>
+                    <View style={{}}>
+                        <Tip tooltip2 onPress={showTool} text="kjdjhfkdjdsjf" />
+                    </View>
 
-                    <Tooltip containerStyle={{
-                        width: 180,
-                        height: 300,
-                        shadowColor: "#000",
 
-                        shadowOffset: {
-                            width: 0,
-                            height: 3,
-                        },
-                        shadowOpacity: 0.27,
-                        shadowRadius: 4.65,
-                        elevation: 6,
-                        flexDirection: 'row'
-                    }} backgroundColor='#fff'
-                        withPointer={true}
-                        toggleOnPress={true}
-                        onOpen={Open}
-                        popover={
-                            <Text>hjdshjdfjhdfhjdfhjfd</Text>}>
 
-                    </Tooltip>
                 </View>
             </ScrollView>
         </ImageBackground>
@@ -57,8 +37,10 @@ const ToolTipScreen = ({ Open }) => {
 export default ToolTipScreen
 
 const styles = StyleSheet.create({
-    Container: {
+
+    imageContainer: {
         flex: 1,
+        justifyContent: 'center',
     },
     Body: {
         backgroundColorL: 'purple',
@@ -66,23 +48,23 @@ const styles = StyleSheet.create({
         // height: '100%',
         alignSelf: 'center'
     },
-    message: {
-        fontWeight: '700',
-        fontSize: 18,
-        color: '#000',
-        marginVertical: 10
-    },
-    horizental: {
-        marginVertical: 10,
+    TooltipContainer:
+    {
+        width: '100%',
+        marginVertical: 30,
         flexDirection: 'row',
+        justifyContent: 'space-evenly',
+        alignSelf: 'flex-end'
     },
     box: {
-        margin: 5,
+        margin: 2,
         width: 64,
         height: 70,
         borderRadius: 20,
         borderColor: 'blue',
         borderWidth: 1.25,
+        justifyContent: 'center',
+        alignItems: 'center'
         // backgroundColor: 'pink'
     },
     cardbox: {
@@ -127,4 +109,9 @@ const styles = StyleSheet.create({
 
 
 })
+
+    // < TouchableOpacity onPress = { onPress } >
+
+    //     <Text>heljhskajdjdfjd</Text>
+    //                         </TouchableOpacity >
 

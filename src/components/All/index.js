@@ -1,10 +1,10 @@
-import React, {useEffect} from 'react';
-import {StyleSheet, Text, View, FlatList, Dimensions} from 'react-native';
-import {Images, Themes} from '../../constants';
+import React, { useEffect } from 'react';
+import { StyleSheet, Text, View, FlatList, Dimensions } from 'react-native';
+import { Images, Themes } from '../../constants';
 import LinearGradient from 'react-native-linear-gradient';
-import {PostBox} from '../postBox';
-import {SuggestFriends} from '../suggestFriends';
-const AllMixed = () => {
+import { PostBox } from '../postBox';
+import { SuggestFriends } from '../suggestFriends';
+const AllMixed = (props) => {
   const statusData2 = [
     {
       imgName: Images.Pictures.statusImg1,
@@ -67,6 +67,7 @@ const AllMixed = () => {
       gridImg4: Images.Pictures.productcackImg5,
       checksingle: false,
       checkfollow: false,
+
     },
     {
       profileImg: Images.Pictures.statusImg1,
@@ -106,6 +107,7 @@ const AllMixed = () => {
       singleImg: Images.Pictures.postImg1,
       checksingle: true,
       checkfollow: false,
+
     },
   ];
 
@@ -113,9 +115,9 @@ const AllMixed = () => {
     <View>
       <FlatList
         data={All}
-        renderItem={({item}) => {
+        renderItem={({ item }) => {
           return (
-            <View style={{marginTop: 10}}>
+            <View style={{ marginTop: 10 }}>
               <PostBox
                 profileTitle={item.profileTitle}
                 postTime={item.postTime}
@@ -129,6 +131,7 @@ const AllMixed = () => {
                 singleImg={item.singleImg}
                 checksingle={item.checksingle}
                 price={item.price}
+                ImgPress={item.ImgPress}
               />
               {item.checkfollow == true ? (
                 <View>
@@ -141,7 +144,6 @@ const AllMixed = () => {
                     }}>
                     Sugguest For you
                   </Text>
-
                   <View
                     style={{
                       width: '100%',
@@ -154,9 +156,9 @@ const AllMixed = () => {
                       horizontal={true}
                       showsHorizontalScrollIndicator={false}
                       data={statusData2}
-                      renderItem={({item}) => {
+                      renderItem={({ item }) => {
                         return (
-                          <View style={{marginLeft: 10}}>
+                          <View style={{ marginLeft: 10 }}>
                             <SuggestFriends
                               imgName={item.imgName}
                               width={item.width}

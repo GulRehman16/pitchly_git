@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   ScrollView,
   StatusBar,
@@ -10,7 +10,7 @@ import {
   View,
   FlatList,
 } from 'react-native';
-import {Images} from '../../../constants';
+import { Images } from '../../../constants';
 import {
   FormInput,
   AppButton,
@@ -21,8 +21,9 @@ import {
   PitchlyFeatured,
   PostBox,
   SuggestFriends,
+  OverlayScreen,
 } from '../../../components';
-import {Icon} from 'native-base';
+import { Icon } from 'native-base';
 import LinearGradient from 'react-native-linear-gradient';
 import Talent from '../../../components/Talent';
 import Services from '../../../components/Services';
@@ -303,162 +304,159 @@ const Home = props => {
     });
   };
   return (
-    <ImageBackground
-      style={styles.imageContainer}
-      source={Images.Pictures.homeMainBg}>
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={{flexGrow: 1}}>
-        <StatusBar backgroundColor={'transparent'} translucent={true} />
-        <View style={styles.body}>
-          <View style={styles.headerView}>
-            <HomeHeader />
-          </View>
-
-          <View style={styles.statusBoxView}>
-            <View style={styles.statusAddView}>
-              <TouchableOpacity
-                onPress={() => picker()}
-                style={styles.statusAddBox}>
-                <Image source={img} style={styles.statusAddIcon} />
-              </TouchableOpacity>
-              <Text>You</Text>
+    <>
+      <ImageBackground
+        style={styles.imageContainer}
+        source={Images.Pictures.homeMainBg}>
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={{ flexGrow: 1 }}>
+          <StatusBar backgroundColor={'transparent'} translucent={true} />
+          <View style={styles.body}>
+            <View style={styles.headerView}>
+              <HomeHeader />
             </View>
-            <FlatList
-              horizontal={true}
-              showsHorizontalScrollIndicator={false}
-              data={data.statusData}
-              renderItem={({item}) => {
-                return (
-                  <View style={{paddingLeft: 10}}>
-                    <StatusView
-                      imgName={item.imgName}
-                      width={item.width}
-                      height={item.height}
-                      imgWidth={item.imgWidth}
-                      imgHeight={item.imgHeight}
-                      text={item.text}
-                    />
-                  </View>
-                );
-              }}
-            />
-          </View>
 
-          <View style={styles.pitchlyFeatured}>
-            <PitchlyFeatured />
-          </View>
-
-          <View
-            style={{
-              width: '100%',
-              height: 35,
-              marginTop: 20,
-              flexDirection: 'row',
-            }}>
+            <View style={styles.statusBoxView}>
+              <View style={styles.statusAddView}>
+                <TouchableOpacity
+                  onPress={() => picker()}
+                  style={styles.statusAddBox}>
+                  <Image source={img} style={styles.statusAddIcon} />
+                </TouchableOpacity>
+                <Text>You</Text>
+              </View>
+              <FlatList
+                horizontal={true}
+                showsHorizontalScrollIndicator={false}
+                data={data.statusData}
+                renderItem={({ item }) => {
+                  return (
+                    <View style={{ paddingLeft: 10 }}>
+                      <StatusView
+                        imgName={item.imgName}
+                        width={item.width}
+                        height={item.height}
+                        imgWidth={item.imgWidth}
+                        imgHeight={item.imgHeight}
+                        text={item.text}
+                      />
+                    </View>
+                  );
+                }}
+              />
+            </View>
             <View
               style={{
-                width: '40%',
-                height: '100%',
-                alignItems: 'center',
-                justifyContent: 'center',
-                borderRadius: 5,
-              }}>
-              {/* PRODUCTS FEED */}
-              <Text style={{color: 'black', fontWeight: 'bold'}}>
-                {check.value}
-              </Text>
-            </View>
-            <LinearGradient
-              start={{x: 1.5, y: 1.0}}
-              end={{x: 1.5, y: 2.5}}
-              colors={['#28A9F61A', '#4C9BD2']}
-              style={{
-                width: '60%',
-                height: '100%',
-                borderRadius: 5,
-                alignItems: 'center',
-                justifyContent: 'space-evenly',
+                width: '100%',
+                height: 35,
+                marginTop: 20,
                 flexDirection: 'row',
               }}>
-              <TouchableOpacity
-                onPress={() => setcheck({...check, value: 'PITCHLY FEED'})}
+              <View
                 style={{
-                  // backgroundColor: 'red',
-                  paddingBottom: check.value == 'PITCHLY FEED' ? 2 : null,
-                  borderBottomWidth: check.value == 'PITCHLY FEED' ? 1 : null,
-                  borderColor: check.value == 'PITCHLY FEED' ? 'blue' : null,
+                  width: '40%',
+                  height: '100%',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  borderRadius: 5,
                 }}>
-                <Text
-                  style={{
-                    fontSize: 11,
-                    fontWeight: 'bold',
-                    color: check.value == 'PITCHLY FEED' ? 'blue' : 'black',
-                  }}>
-                  All
+                {/* PRODUCTS FEED */}
+                <Text style={{ color: 'black', fontWeight: 'bold' }}>
+                  {check.value}
                 </Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                onPress={() => setcheck({...check, value: 'TALENT FEED'})}
+              </View>
+              <LinearGradient
+                start={{ x: 1.5, y: 1.0 }}
+                end={{ x: 1.5, y: 2.5 }}
+                colors={['#28A9F61A', '#4C9BD2']}
                 style={{
-                  // backgroundColor: 'red',
-                  paddingBottom: check.value == 'TALENT FEED' ? 2 : null,
-                  borderBottomWidth: check.value == 'TALENT FEED' ? 1 : null,
-                  borderColor: check.value == 'TALENT FEED' ? 'blue' : null,
+                  width: '60%',
+                  height: '100%',
+                  borderRadius: 5,
+                  alignItems: 'center',
+                  justifyContent: 'space-evenly',
+                  flexDirection: 'row',
                 }}>
-                <Text
+                <TouchableOpacity
+                  onPress={() => setcheck({ ...check, value: 'PITCHLY FEED' })}
                   style={{
-                    fontSize: 11,
-                    fontWeight: 'bold',
-                    color: check.value == 'TALENT FEED' ? 'blue' : 'black',
+                    // backgroundColor: 'red',
+                    paddingBottom: check.value == 'PITCHLY FEED' ? 2 : null,
+                    borderBottomWidth: check.value == 'PITCHLY FEED' ? 1 : null,
+                    borderColor: check.value == 'PITCHLY FEED' ? 'blue' : null,
                   }}>
-                  Talent
-                </Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                onPress={() => setcheck({...check, value: 'SERVICES FEED'})}
-                style={{
-                  // backgroundColor: 'red',
-                  paddingBottom: check.value == 'SERVICES FEED' ? 2 : null,
-                  borderBottomWidth: check.value == 'SERVICES FEED' ? 1 : null,
-                  borderColor: check.value == 'SERVICES FEED' ? 'blue' : null,
-                }}>
-                <Text
+                  <Text
+                    style={{
+                      fontSize: 11,
+                      fontWeight: 'bold',
+                      color: check.value == 'PITCHLY FEED' ? 'blue' : 'black',
+                    }}>
+                    All
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() => setcheck({ ...check, value: 'TALENT FEED' })}
                   style={{
-                    fontSize: 11,
-                    fontWeight: 'bold',
-                    color: check.value == 'SERVICES FEED' ? 'blue' : 'black',
+                    // backgroundColor: 'red',
+                    paddingBottom: check.value == 'TALENT FEED' ? 2 : null,
+                    borderBottomWidth: check.value == 'TALENT FEED' ? 1 : null,
+                    borderColor: check.value == 'TALENT FEED' ? 'blue' : null,
                   }}>
-                  Services
-                </Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                onPress={() => setcheck({...check, value: 'PRODUCTS FEED'})}
-                style={{
-                  // backgroundColor: 'red',
-                  paddingBottom: check.value == 'PRODUCTS FEED' ? 2 : null,
-                  borderBottomWidth: check.value == 'PRODUCTS FEED' ? 1 : null,
-                  borderColor: check.value == 'PRODUCTS FEED' ? 'blue' : null,
-                }}>
-                <Text
+                  <Text
+                    style={{
+                      fontSize: 11,
+                      fontWeight: 'bold',
+                      color: check.value == 'TALENT FEED' ? 'blue' : 'black',
+                    }}>
+                    Talent
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() => setcheck({ ...check, value: 'SERVICES FEED' })}
                   style={{
-                    fontSize: 11,
-                    fontWeight: 'bold',
-                    color: check.value == 'PRODUCTS FEED' ? 'blue' : 'black',
+                    // backgroundColor: 'red',
+                    paddingBottom: check.value == 'SERVICES FEED' ? 2 : null,
+                    borderBottomWidth: check.value == 'SERVICES FEED' ? 1 : null,
+                    borderColor: check.value == 'SERVICES FEED' ? 'blue' : null,
                   }}>
-                  Products
-                </Text>
-              </TouchableOpacity>
-            </LinearGradient>
+                  <Text
+                    style={{
+                      fontSize: 11,
+                      fontWeight: 'bold',
+                      color: check.value == 'SERVICES FEED' ? 'blue' : 'black',
+                    }}>
+                    Services
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() => setcheck({ ...check, value: 'PRODUCTS FEED' })}
+                  style={{
+                    // backgroundColor: 'red',
+                    paddingBottom: check.value == 'PRODUCTS FEED' ? 2 : null,
+                    borderBottomWidth: check.value == 'PRODUCTS FEED' ? 1 : null,
+                    borderColor: check.value == 'PRODUCTS FEED' ? 'blue' : null,
+                  }}>
+                  <Text
+                    style={{
+                      fontSize: 11,
+                      fontWeight: 'bold',
+                      color: check.value == 'PRODUCTS FEED' ? 'blue' : 'black',
+                    }}>
+                    Products
+                  </Text>
+                </TouchableOpacity>
+              </LinearGradient>
+            </View>
+            {check.value === 'PITCHLY FEED' && <AllMixed />}
+            {check.value === 'TALENT FEED' && <Talent />}
+            {check.value === 'SERVICES FEED' && <Services />}
+            {check.value === 'PRODUCTS FEED' && <Product />}
           </View>
+        </ScrollView>
+      </ImageBackground>
 
-          {check.value === 'PITCHLY FEED' && <AllMixed />}
-          {check.value === 'TALENT FEED' && <Talent />}
-          {check.value === 'SERVICES FEED' && <Services />}
-          {check.value === 'PRODUCTS FEED' && <Product />}
-        </View>
-      </ScrollView>
-    </ImageBackground>
+    </>
   );
 };
 
@@ -469,7 +467,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
   },
-  body: {width: '90%', height: '100%', alignSelf: 'center', paddingBottom: 60},
+  body: { width: '90%', height: '100%', alignSelf: 'center', paddingBottom: 60 },
   statusBoxView: {
     width: '110%',
     marginTop: 20,
@@ -477,7 +475,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
 
-  headerView: {width: '100%', marginTop: 60},
+  headerView: { width: '100%', marginTop: 60 },
   statusAddView: {
     alignItems: 'center',
     justifyContent: 'center',
@@ -492,7 +490,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  statusAddIcon: {width: 24.63, height: 24.63},
+  statusAddIcon: { width: 24.63, height: 24.63 },
   pitchlyFeatured: {
     width: '100%',
     marginTop: 15,

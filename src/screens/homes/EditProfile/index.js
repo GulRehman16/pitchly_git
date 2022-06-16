@@ -13,8 +13,6 @@ import {
 } from 'react-native';
 
 import { AppButton, FormInput, Header, } from '../../../components';
-import UserBios from '../../../components/userbios';
-import { UserData } from '../../../components/usersdata';
 import { Images } from '../../../constants';
 
 

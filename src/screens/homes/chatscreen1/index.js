@@ -10,15 +10,15 @@ import {
   ImageBackground,
   TouchableOpacity,
 } from 'react-native';
-import React, {useState} from 'react';
-import {Box, Header, StatusView} from '../../../components';
+import React, { useState } from 'react';
+import { Box, Header, StatusView } from '../../../components';
 import Icon from 'react-native-vector-icons/AntDesign';
-import {Images} from '../../../constants';
+import { Images } from '../../../constants';
 import Swipeable from 'react-native-swipeable';
-import {Item} from 'native-base';
+import { Item } from 'native-base';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-import {TextInput} from 'react-native-gesture-handler';
-const ChatScreen1 = ({navigation}) => {
+import { TextInput } from 'react-native-gesture-handler';
+const ChatScreen1 = ({ navigation }) => {
   const [data, setData] = useState({
     DataBox: [
       {
@@ -196,13 +196,13 @@ const ChatScreen1 = ({navigation}) => {
 
   // const rightButtons = [
 
-  //     <TouchableHighlight style={{
-  //         width: 100, height: 50,
-  //         backgroundColor: 'yellow'
-  //     }}><Text style={styles.btn}>
-  //             Delete</Text></TouchableHighlight>,
+  //   <TouchableHighlight style={{
+  //     width: 100, height: 50,
+  //     backgroundColor: 'yellow'
+  //   }}><Text style={styles.btn}>
+  //       Delete</Text></TouchableHighlight>,
 
-  // ];
+  //];
 
   return (
     <SafeAreaView style={styles.Container}>
@@ -212,7 +212,7 @@ const ChatScreen1 = ({navigation}) => {
         <ScrollView
           keyboardShouldPersistTaps="handled"
           showsVerticalScrollIndicator={false}
-          contentContainerStyle={{flexGrow: 1}}>
+          contentContainerStyle={{ flexGrow: 1 }}>
           <View style={styles.Body}>
             <Text style={styles.chat}>Chat</Text>
             <View
@@ -228,22 +228,21 @@ const ChatScreen1 = ({navigation}) => {
               }}>
               <AntDesign color="grey" size={18} name="search1" />
               <TextInput
-                style={{width: '85%', height: '100%'}}
+                style={{ width: '85%', height: '100%' }}
                 placeholder="Search chat here"
               />
             </View>
             <View style={{}}>
               <Text style={styles.message}>Quick Message</Text>
             </View>
-
             <View style={styles.statusBoxView}>
               <FlatList
                 horizontal={true}
                 showsHorizontalScrollIndicator={false}
                 data={statusData}
-                renderItem={({item}) => {
+                renderItem={({ item }) => {
                   return (
-                    <View style={{paddingLeft: 10}}>
+                    <View style={{ paddingLeft: 10 }}>
                       <StatusView
                         imgName={item.imgName}
                         width={item.width}
@@ -263,7 +262,7 @@ const ChatScreen1 = ({navigation}) => {
             </View>
             <FlatList
               data={data.DataBox}
-              renderItem={({item}) => {
+              renderItem={({ item }) => {
                 return (
                   <View>
                     <Box
@@ -274,7 +273,7 @@ const ChatScreen1 = ({navigation}) => {
                       messagenumber={item.messagenumber}
                       textmessage={item.textmessage}
                       Press={() => {
-                        navigation.navigate('Homes', {screen: 'ChatScreen'});
+                        navigation.navigate('Homes', { screen: 'chatscreen' });
                       }}
                     />
                   </View>
@@ -287,7 +286,6 @@ const ChatScreen1 = ({navigation}) => {
     </SafeAreaView>
   );
 };
-
 export default ChatScreen1;
 
 const styles = StyleSheet.create({

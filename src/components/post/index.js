@@ -1,17 +1,23 @@
-import {StyleSheet, Text, Image, TouchableOpacity, View} from 'react-native';
+import { StyleSheet, Text, Image, TouchableOpacity, View } from 'react-native';
 import React from 'react';
-import {AppButton} from '../../components';
-import {Images} from '../../constants';
-import Comment from '../comment';
-const Post = ({Image1, TalentName, City, state, Duration, Date}) => {
+import { AppButton, Comment } from '../../components';
+import { Images } from '../../constants';
+
+const Post = ({ Image1, TalentName, City, state, Duration, Date, Press1 }) => {
   return (
     <View>
       <View style={styles.whitebox}>
         <View style={styles.textView}>
           <View style={styles.PostImage}>
             <Image source={Image1} />
+            <View style={styles.box1}></View>
+
+            <TouchableOpacity onPress={Press1} style={styles.play}>
+              <Image source={Images.Icons.play} />
+
+            </TouchableOpacity>
           </View>
-          <View style={{marginVertical: 10}}>
+          <View style={{ marginVertical: 10 }}>
             <Text style={styles.boldtext}>Talent Name</Text>
             <Text style={styles.texts}>{TalentName}</Text>
             <Text style={styles.boldtext}>City</Text>
@@ -35,7 +41,7 @@ const Post = ({Image1, TalentName, City, state, Duration, Date}) => {
             </View>
           ) : (
             <View>
-              <Text style={{color: 'black', fontWeight: 'bold', fontSize: 15}}>
+              <Text style={{ color: 'black', fontWeight: 'bold', fontSize: 15 }}>
                 Comment
               </Text>
               <Comment
@@ -51,7 +57,7 @@ const Post = ({Image1, TalentName, City, state, Duration, Date}) => {
   );
 };
 
-export default Post;
+export { Post };
 
 const styles = StyleSheet.create({
   whitebox: {
@@ -100,5 +106,14 @@ const styles = StyleSheet.create({
   Row: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+  },
+  box1:
+  {
+    width: 100, height: 100, backgroundColor: "#fff", position: 'absolute',
+    left: 120, top: 50, borderRadius: 20, opacity: 0.35
+  },
+  play: {
+    width: 20, height: 20, position: 'absolute',
+    left: 160, top: 80, borderRadius: 20,
   },
 });

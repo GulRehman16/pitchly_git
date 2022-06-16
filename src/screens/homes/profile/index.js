@@ -11,18 +11,18 @@ import {
   FlatList,
   TouchableOpacity,
 } from 'react-native';
-import {AppButton, Header, StatusView} from '../../../components';
+import { AppButton, Header, StatusView } from '../../../components';
 import UserBios from '../../../components/userbios';
-import {UserData} from '../../../components/usersdata';
-import {Images} from '../../../constants';
-import {useState} from 'react';
+import { UserData } from '../../../components/usersdata';
+import { Images } from '../../../constants';
+import { useState } from 'react';
 import LinearGradient from 'react-native-linear-gradient';
 import Talent from '../../../components/Talent';
 import Services from '../../../components/Services';
 import Product from '../../../components/Product';
 import AllMixed from '../../../components/All';
 import ImagePicker from 'react-native-image-crop-picker';
-const Profile = () => {
+const Profile = (props) => {
   const statusData = [
     {
       imgName: Images.Pictures.statusImg1,
@@ -155,23 +155,29 @@ const Profile = () => {
       source={Images.Pictures.appBg}>
       <ScrollView
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={{flexGrow: 1}}>
+        contentContainerStyle={{ flexGrow: 1 }}>
         <StatusBar backgroundColor={'transparent'} translucent={true} />
         <View style={{}}>
           <View style={styles.screenHeader}>
             <Header
-              onPress={() => props.navigation.navigate('settings')}
+              onPress={() => props.navigation.navigate('Homes', { screen: 'settings' })}
               HeaderText
-              text="Profile"
+              hiddinText1
+              informationtext
+              barICon
+              text1="Profile"
+              press={() => props.navigation.goBack()}
             />
           </View>
           <View style={styles.screenBody}>
             <UserData
               Bio
-              Image1={Images.Pictures.profile}
+              editicon
+              Image1={Images.Pictures.profile1}
               UserName="Tarrance"
               UserEmail="@Tarrance_official "
               Post={111}
+              informationtext
               Followers={70}
               Following={52}
               Bios="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, 
@@ -179,16 +185,16 @@ const Profile = () => {
               Contact="+13246987"
               Email="Lorem ipsome"
               Location="lorem ipsome"
+              pressme={() => { props.navigation.navigate("Homes", { screen: 'editprofile' }) }}
             />
-
             <View style={styles.statusBoxView}>
               <FlatList
                 horizontal={true}
                 showsHorizontalScrollIndicator={false}
                 data={statusData}
-                renderItem={({item}) => {
+                renderItem={({ item }) => {
                   return (
-                    <View style={{paddingLeft: 10}}>
+                    <View style={{ paddingLeft: 10 }}>
                       <StatusView
                         imgName={item.imgName}
                         width={item.width}
@@ -223,8 +229,8 @@ const Profile = () => {
                 alignSelf: 'center',
               }}>
               <LinearGradient
-                start={{x: 1.5, y: 1.0}}
-                end={{x: 1.5, y: 2.5}}
+                start={{ x: 1.5, y: 1.0 }}
+                end={{ x: 1.5, y: 2.5 }}
                 colors={['#28A9F61A', '#4C9BD2']}
                 style={{
                   width: '100%',
@@ -236,7 +242,7 @@ const Profile = () => {
                   alignSelf: 'center',
                 }}>
                 <TouchableOpacity
-                  onPress={() => setcheck({...check, value: 'PITCHLY FEED'})}
+                  onPress={() => setcheck({ ...check, value: 'PITCHLY FEED' })}
                   style={{
                     // backgroundColor: 'red',
                     paddingBottom: check.value == 'PITCHLY FEED' ? 2 : null,
@@ -253,7 +259,7 @@ const Profile = () => {
                   </Text>
                 </TouchableOpacity>
                 <TouchableOpacity
-                  onPress={() => setcheck({...check, value: 'TALENT FEED'})}
+                  onPress={() => setcheck({ ...check, value: 'TALENT FEED' })}
                   style={{
                     // backgroundColor: 'red',
                     paddingBottom: check.value == 'TALENT FEED' ? 2 : null,
@@ -270,7 +276,7 @@ const Profile = () => {
                   </Text>
                 </TouchableOpacity>
                 <TouchableOpacity
-                  onPress={() => setcheck({...check, value: 'SERVICES FEED'})}
+                  onPress={() => setcheck({ ...check, value: 'SERVICES FEED' })}
                   style={{
                     // backgroundColor: 'red',
                     paddingBottom: check.value == 'SERVICES FEED' ? 2 : null,
@@ -288,7 +294,7 @@ const Profile = () => {
                   </Text>
                 </TouchableOpacity>
                 <TouchableOpacity
-                  onPress={() => setcheck({...check, value: 'PRODUCTS FEED'})}
+                  onPress={() => setcheck({ ...check, value: 'PRODUCTS FEED' })}
                   style={{
                     // backgroundColor: 'red',
                     paddingBottom: check.value == 'PRODUCTS FEED' ? 2 : null,
@@ -307,7 +313,7 @@ const Profile = () => {
                 </TouchableOpacity>
               </LinearGradient>
             </View>
-            <View style={{width: '90%', alignSelf: 'center'}}>
+            <View style={{ width: '90%', alignSelf: 'center' }}>
               {check.value === 'PITCHLY FEED' && <AllMixed />}
               {check.value === 'TALENT FEED' && <Talent />}
               {check.value === 'SERVICES FEED' && <Services />}
@@ -359,7 +365,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  statusAddIcon: {width: 24.63, height: 24.63},
+  statusAddIcon: { width: 24.63, height: 24.63 },
 
   headingText: {
     fontSize: 24,

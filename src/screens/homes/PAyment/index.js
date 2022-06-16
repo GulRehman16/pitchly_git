@@ -58,15 +58,15 @@ const Payment = (props) => {
 
                             <View style={{ width: '90%', alignSelf: 'center' }}>
                                 <View>
-                                    <Text style={styles.UserName}>CARD NUMBER</Text>
-                                    <FormInput borderWidth={0.5} placeHolder="0000 0000 0000 0000" />
+                                    <Text style={styles.UserName}>CARD  NUMBER</Text>
+                                    <FormInput borderWidth={0.5} placeHolder="0000  0000  0000  0000" />
                                 </View>
                                 <View>
-                                    <Text style={styles.UserName}>CARDHOLDER NAME</Text>
+                                    <Text style={styles.UserName}>CARDHOLDER  NAME</Text>
                                     <FormInput borderWidth={0.5} placeHolder="John Doe" />
                                 </View>
                                 <View>
-                                    <Text style={styles.UserName}>EXPIRE DATE</Text>
+                                    <Text style={styles.UserName}>EXPIRE  DATE</Text>
                                     <FormInput borderWidth={0.5} placeHolder="05/21" />
                                 </View>
                                 <View style={{ width: '50%' }}>
@@ -143,11 +143,20 @@ const styles = StyleSheet.create({
     },
     imageView: {
         width: 50, height: 30,
+        elevation: 4
     },
     imageView1: {
         width: 50, height: 30,
         borderWidth: 1,
-        borderColor: 'blue'
+        borderColor: 'blue',
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 3,
+        },
+
+
+        elevation: 4,
     },
 
     cardimg: {

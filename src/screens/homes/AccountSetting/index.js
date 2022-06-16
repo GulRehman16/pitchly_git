@@ -28,7 +28,7 @@ const AccountSetting = (props) => {
         },
         {
             text: 'Notification',
-            press: () => { props.navigation.navigate('Notification') }
+            press: () => { props.navigation.navigate('notificationsettings') }
         },
         {
             text: 'Change Password',
@@ -70,7 +70,6 @@ const AccountSetting = (props) => {
                                             <Row Row1
                                                 text={item.text}
                                                 onPress={item.press}
-
                                             />
                                         </>
                                     )

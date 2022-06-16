@@ -6,14 +6,10 @@ import {
 import React, { useState } from 'react'
 import { Images } from '../../../constants'
 import { Box, Header } from '../../../components'
-import { Textarea } from 'native-base'
-
-const ChatDetails = ({ text, navigation, onSwitch }) => {
-
+const ChatDetails = ({ onSwitch, navigation }) => {
     const [isEnabled, setIsEnabled] = useState(false);
     const toggleSwitch = () => setIsEnabled(previousState => !previousState);
     return (
-
         <ImageBackground
             style={styles.imageContainer}
             source={Images.Pictures.appBg}>
@@ -24,8 +20,12 @@ const ChatDetails = ({ text, navigation, onSwitch }) => {
                 <View style={{}}>
                     <View style={styles.screenHeader}>
                         <Header
+                            threedost
+                            BAckButton
+                            hiddinText
+                            text="Profile"
                             onPress={() => {
-                                props.navigation.goBack();
+                                navigation.goBack();
                             }}
                         />
                     </View>
@@ -143,11 +143,8 @@ const ChatDetails = ({ text, navigation, onSwitch }) => {
                                     </Text>
                                 </View>
                             </View>
-
                         </View>
-
                     </View>
-
                 </View>
             </ScrollView>
         </ImageBackground >
@@ -164,13 +161,12 @@ const styles = StyleSheet.create({
 
     screenHeader: {
         width: '90%',
-        height: 80,
+        height: 50,
         marginTop: 50,
         alignSelf: 'center',
         justifyContent: 'center',
         alignItems: 'center',
     },
-
     headingText: {
         fontSize: 24,
         color: 'black',

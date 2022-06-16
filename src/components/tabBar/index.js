@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, TouchableOpacity, View, Image } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View, Image, } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Images } from '../../constants';
 import LinearGradient from 'react-native-linear-gradient';
-import { Tooltip, } from 'react-native-elements';
 
 
 
@@ -12,7 +11,7 @@ const TabBar = props => {
   const tabs = [
     { text: 'HOME', navTo: 'home', img: Images.Logos.homeIcon },
     { text: 'CHAT', navTo: 'ChatScreen1', img: Images.Logos.msgIcon },
-    { text: 'tooltip', navTo: 'TooltipScreen', img: Images.Logos.addIcon },
+    { text: 'Upload', navTo: 'TooltipScreen', img: Images.Logos.addIcon },
     { text: 'NOTIFICATION', navTo: 'Notification', img: Images.Logos.notificationIcon, },
     { text: 'ACCOUNT', navTo: 'profile', img: Images.Logos.userIcon, },
   ];
@@ -22,7 +21,6 @@ const TabBar = props => {
   });
   return (
     <>
-
       <SafeAreaView style={styles.tabBarContainer}>
         {/* <View style={{position: 'absolute', bottom: 0, alignSelf: 'center'}}>
         <Tooltips invisible={visible.invisibles} visible={visible.visibles} />
@@ -31,7 +29,6 @@ const TabBar = props => {
           style={{
             width: '90%',
             height: 45,
-
             alignSelf: 'center',
             flexDirection: 'row',
             alignItems: 'center',
@@ -40,7 +37,6 @@ const TabBar = props => {
             shadowColor: '#28A9F633',
             borderRadius: 20,
             opacity: 6,
-
             marginTop: -10,
           }}>
           {tabs.map((item, i) => (
@@ -100,21 +96,14 @@ const TabBar = props => {
                       {item.text}
                     </Text>
                   ) : null}
-
-
-
-
                 </View>
               </TouchableOpacity>
-
-
-
             </>
           ))}
         </View>
-
-
       </SafeAreaView>
+
+
 
     </>
   );

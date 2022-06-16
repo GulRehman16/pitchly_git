@@ -16,7 +16,7 @@ import { Box, Header, Switch1 } from '../../../components'
 import { Textarea } from 'native-base'
 
 
-const NotificationSetting = ({ }) => {
+const NotificationSetting = (props) => {
 
 
 
@@ -49,7 +49,7 @@ const NotificationSetting = ({ }) => {
                 <View style={{}}>
                     <View style={styles.screenHeader}>
                         <Header
-
+                            BAckButton
                             hiddinText
                             text="Notifications Setting"
                             onPress={() => {
@@ -142,14 +142,14 @@ const styles = StyleSheet.create({
     },
     screenBody: {
         width: '100%',
-        height: '100%',
+        height: '100%'
         // alignSelf: 'center',
 
 
     },
     whitebox: {
         width: '90%',
-        height: '80%',
+        height: '100%',
         borderRadius: 10,
         backgroundColor: '#fff',
         alignSelf: 'center',
