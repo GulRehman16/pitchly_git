@@ -3,7 +3,7 @@ import React from 'react';
 
 import {Images} from '../../constants';
 
-const StatusView = ({
+const Highlight = ({
   borderRadius,
   height,
   width,
@@ -36,6 +36,6 @@ const StatusView = ({
   );
 };
 
-export {StatusView};
+export {Highlight};
 
 const styles = StyleSheet.create({});

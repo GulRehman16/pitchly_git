@@ -12,14 +12,25 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import React from 'react';
-import { Icon } from 'native-base';
-import { Images } from '../../../constants';
-import { useState, useEffect } from 'react';
+import {Icon} from 'native-base';
+import {Images} from '../../../constants';
+import {useState, useEffect} from 'react';
 import Headerchat from '../../../components/Headerchat';
+import ImagePicker from 'react-native-image-crop-picker';
 const ChatScreen = props => {
   const [messages, setMessages] = useState([]);
   const [message, setMessage] = useState('');
   const [orientation, setOrientation] = useState(true);
+
+  const picker = () => {
+    ImagePicker.openPicker({
+      width: 300,
+      height: 400,
+      cropping: true,
+    }).then(image => {
+      console.log(image);
+    });
+  };
 
   const isPortrait = () => {
     const dim = Dimensions.get('screen');
@@ -94,7 +105,7 @@ const ChatScreen = props => {
 
     setMessage('');
 
-    scrollViewRef.scrollToEnd({ animated: true });
+    scrollViewRef.scrollToEnd({animated: true});
   };
 
   function formatAMPM(date) {
@@ -133,24 +144,31 @@ const ChatScreen = props => {
             }}>
             <ScrollView
               showsVerticalScrollIndicator={false}
-              contentContainerStyle={{ flexGrow: 1 }}
+              contentContainerStyle={{flexGrow: 1}}
               ref={ref => setRef(ref)}
               onContentSizeChange={() =>
-                scrollViewRef.scrollToEnd({ animated: true })
+                scrollViewRef.scrollToEnd({animated: true})
               }>
               <View>
-                <Headerchat
-                  image={Images.Pictures.statusImg2}
-                  name={'Veni'}
-                  time={'offline 45 min ago'}
-                  Press={() => props.navigation.goBack()}
-                  icon={true}
-                  onPress={() => { props.navigation.navigate('chatdetails') }}
-                />
+                <View style={{marginTop: 10}}>
+                  <Headerchat
+                    image={Images.Pictures.statusImg2}
+                    name={'Veni'}
+                    time={'offline 45 min ago'}
+                    Press={() => {
+                      props.navigate.goback();
+                    }}
+                    icon={true}
+                    // onPress={() => {
+                    //   props.navigate.goback();
+                    // }}
+                  />
+                </View>
+
                 {/* <Header text="Live Chat" navigation={props.navigation} /> */}
               </View>
               <View
-                style={{ width: '90%', alignSelf: 'center', paddingBottom: 20 }}>
+                style={{width: '90%', alignSelf: 'center', paddingBottom: 20}}>
                 {messages.map((message, i) => {
                   return (
                     <>
@@ -181,7 +199,14 @@ const ChatScreen = props => {
                             minWidth: 80,
                             // backgroundColor: 'pink'
                           }}>
-                          <Text style={{ color: '#000' }}> {message?.text} </Text>
+                          <Text
+                            style={{
+                              color:
+                                message?.user?._id == 1 ? 'black' : 'white',
+                            }}>
+                            {' '}
+                            {message?.text}{' '}
+                          </Text>
                         </View>
                         <View
                           style={{
@@ -220,13 +245,24 @@ const ChatScreen = props => {
             }}>
             <View
               style={{
-                width: '80%',
+                width: '70%',
                 justifyContent: 'flex-start',
                 alignItems: 'center',
                 flexDirection: 'row',
                 height: 60,
                 marginLeft: 15,
               }}>
+              <TouchableOpacity
+                // disabled={message.length <= 0}
+                // activeOpacity={0.7}
+                // onPress={onSend}
+                onPress={() => picker()}>
+                <Icon
+                  name="pluscircle"
+                  type="AntDesign"
+                  style={{color: '#4059E4', marginRight: 10}}
+                />
+              </TouchableOpacity>
               <TextInput
                 placeholderTextColor={(colorScheme = 'dark' ? 'grey' : 'grey')}
                 multiline={true}
@@ -236,7 +272,7 @@ const ChatScreen = props => {
                   setMessage(text.trimStart());
                 }}
                 style={{
-                  width: '75%',
+                  width: '65%',
                   color: '#000',
                 }}
               />
@@ -251,13 +287,25 @@ const ChatScreen = props => {
                 paddingRight: 10,
               }}>
               <TouchableOpacity
+              // disabled={message.length <= 0}
+              // activeOpacity={0.7}
+              // onPress={onSend}
+              >
+                <Icon
+                  name="keyboard-voice"
+                  type="MaterialIcons"
+                  style={{color: '#4059E4', marginRight: 10}}
+                />
+              </TouchableOpacity>
+
+              <TouchableOpacity
                 disabled={message.length <= 0}
                 activeOpacity={0.7}
                 onPress={onSend}>
                 <Icon
                   name="send"
-                  type="MaterialIcons"
-                  style={{ color: message.length <= 0 ? 'grey' : '#F36C29' }}
+                  type="Feather"
+                  style={{color: '#4059E4', marginRight: 10}}
                 />
               </TouchableOpacity>
             </View>

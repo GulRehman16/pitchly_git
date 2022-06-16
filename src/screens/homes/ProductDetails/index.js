@@ -1,15 +1,15 @@
-import { StyleSheet, Text, View } from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import Post from '../../../components/post';
 import Headerchat from '../../../components/Headerchat';
-import { Images } from '../../../constants';
-import { ScrollView } from 'react-native-gesture-handler';
-import { Homes } from '../../../navigation/stack';
-const Productdetails = (props) => {
+import {Images} from '../../../constants';
+import {ScrollView} from 'react-native-gesture-handler';
+import {Homes} from '../../../navigation/stack';
+const Productdetails = props => {
   return (
     <View>
       <ScrollView>
-        <View style={{ marginLeft: 10, marginTop: 10 }}>
+        <View style={{marginLeft: 10, marginTop: 10}}>
           <Headerchat
             image={Images.Pictures.statusImg2}
             name={'Veni'}
@@ -19,7 +19,7 @@ const Productdetails = (props) => {
             icon={false}
           />
         </View>
-        <View style={{ width: '100%' }}>
+        <View style={{width: '100%'}}>
           <Post
             Image1={Images.Icons.post}
             TalentName="Lorem ipsum dolor sit amet, consetetur sadipscing elitraliquyam erat,
@@ -30,11 +30,12 @@ const Productdetails = (props) => {
             City="Lorem ipsum dolor sit amet,"
             state="Lorem ipsum dolor sit amet,"
             Date="02/20/2021"
-            Duration={true}
-            Press1={() => { props.navigation.naviagte('Homes', { screen: 'pictureslider' }) }}
+            Duration={false}
+            Press1={() => {
+              props.navigation.naviagte('Homes', {screen: 'pictureslider'});
+            }}
           />
         </View>
-
       </ScrollView>
     </View>
   );
@@ -56,8 +57,6 @@ const styles = StyleSheet.create({
   },
 });
 export default Productdetails;
-
-
 
 // <ImageBackground
 // source={singleImg}

@@ -3,7 +3,7 @@ import {StyleSheet, Text, View, FlatList, Dimensions} from 'react-native';
 import {Images, Themes} from '../../constants';
 import LinearGradient from 'react-native-linear-gradient';
 import {PostBox} from '../postBox';
-const Talent = () => {
+const Talent = ({feture}) => {
   const Talent = [
     {
       profileImg: Images.Pictures.statusImg1,
@@ -15,6 +15,7 @@ const Talent = () => {
 
       singleImg: Images.Pictures.talent,
       checksingle: 'false',
+      feture: feture ? false : true,
     },
     {
       profileImg: Images.Pictures.statusImg3,
@@ -26,6 +27,7 @@ const Talent = () => {
 
       singleImg: Images.Pictures.talent,
       checksingle: 'false',
+      feture: feture ? false : true,
     },
   ];
 
@@ -48,6 +50,8 @@ const Talent = () => {
                 gridImg4={item.gridImg4}
                 singleImg={item.singleImg}
                 checksingle={item.checksingle}
+                feture={item.feture}
+                price={''}
               />
             </View>
           );

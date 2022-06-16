@@ -1,6 +1,5 @@
 import React from 'react';
 import MyStack from './src/navigation/stack';
-import Productdetails from './src/screens/homes/ProductDetails';
 import Comment from './src/components/comment';
 import PictureSlider from './src/screens/homes/PictureSlider';
 import Home from './src/screens/homes/home';
@@ -14,10 +13,12 @@ import Addproduct from './src/screens/homes/Addproduct';
 import Post from './src/components/post';
 import HomeScreensix from './src/screens/homes/home6';
 
+import Productdetails from './src/screens/homes/ProductDetails';
+
 const App = props => {
   // return <PictureSlider />
   // return <MyStack {...props} />;
-  // return <Productdetails {...props} />
+  // return <Productdetails {...props} />;
   // return <PremiumMemberScreen />
   //return <ToolTipScreen />
   //return <Home />
@@ -45,12 +46,11 @@ const App = props => {
   // return <FeaturedPost />
   //return <Productdetails />
   // return <Addproduct />
-  //return <ChatScreen />
+  // return <ChatScreen />;
   //return <AddPost />
   // return <Post />
   //return <HomeScreensix />
   return <MyStack {...props} />;
-
 };
 
 export default App;

@@ -31,7 +31,6 @@ const FormInput = ({
   Textarea,
   borderWidth,
 
-
   height,
 }) => {
   return (
@@ -69,7 +68,7 @@ const FormInput = ({
             height: height || 50,
             paddingLeft: iconL ? 0 : 10,
             multiLine: multiLine || false,
-
+            
             textAlignVertical: multiLine ? 'top' : 'center',
 
             color: 'black',

@@ -25,6 +25,8 @@ const Images = {
     item5: require('../../assets/images/item5.png'),
     postImg1: require('../../assets/images/post1.png'),
     talent: require('../../assets/images/Talent.png'),
+    highlight: require('../../assets/images/highlight.png'),
+    Friendship: require('../../assets/images/Friendship.png'),
   },
   Logos: {
     plusIcon: require('../../assets/images/plusIcon.png'),
@@ -68,8 +70,8 @@ const Images = {
     setting1: require('../../assets/images/setting1.png'),
     user1: require('../../assets/images/user1.png'),
     play: require('../../assets/images/play.png'),
-  }
-
+    starIcon: require('../../assets/images/shareIcon.png'),
+  },
 };
 
-export { Images };
+export {Images};

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 
 import {
   StyleSheet,
@@ -9,10 +9,10 @@ import {
   Image,
   Dimensions,
 } from 'react-native';
-import { Images, Themes } from '../../constants';
+import {Images, Themes} from '../../constants';
 import LinearGradient from 'react-native-linear-gradient';
-import { Tooltip } from 'react-native-elements';
-
+import {Tooltip} from 'react-native-elements';
+import {AppButton} from '../appButton';
 const PostBox = ({
   profileImg,
   profileTitle,
@@ -28,14 +28,16 @@ const PostBox = ({
   Video,
   price,
   checksingle,
-  ImgPress
+  ImgPress,
+  feture,
+  navigation,
 }) => {
   const [Grid, setGrid] = useState(checksingle);
   console.log('Grid', Grid);
 
   return (
     <View style={styles.container}>
-      <View style={{ width: '95%', alignSelf: 'center', height: '100%' }}>
+      <View style={{width: '95%', alignSelf: 'center', height: '100%'}}>
         <View
           style={{
             alignItems: 'center',
@@ -44,18 +46,18 @@ const PostBox = ({
             marginTop: 15,
             justifyContent: 'space-between',
           }}>
-          <View style={{ flexDirection: 'row' }}>
-            <TouchableOpacity style={{ width: 40, height: 40 }}>
+          <View style={{flexDirection: 'row'}}>
+            <TouchableOpacity style={{width: 40, height: 40}}>
               <Image
                 source={Images.Pictures.profile}
-                style={{ width: '100%', height: '100%' }}
+                style={{width: '100%', height: '100%'}}
               />
             </TouchableOpacity>
-            <View style={{ marginLeft: 5 }}>
-              <Text style={{ color: '#4B4B4B', fontSize: 16, fontWeight: '400' }}>
+            <View style={{marginLeft: 5}}>
+              <Text style={{color: '#4B4B4B', fontSize: 16, fontWeight: '400'}}>
                 {profileTitle}
               </Text>
-              <Text style={{ color: '#4B4B4B', fontSize: 10 }}>{postTime}</Text>
+              <Text style={{color: '#4B4B4B', fontSize: 10}}>{postTime}</Text>
             </View>
           </View>
 
@@ -78,21 +80,21 @@ const PostBox = ({
             withPointer={true}
             popover={
               <View>
-                <Text style={{ marginVertical: 5 }}>Report Post</Text>
-                <Text style={{ marginVertical: 5 }}>Block person</Text>
+                <Text style={{marginVertical: 5}}>Report Post</Text>
+                <Text style={{marginVertical: 5}}>Block person</Text>
               </View>
             }>
-            <View style={{ width: 20, height: 20 }}>
+            <View style={{width: 20, height: 20}}>
               <Image
                 source={Images.Logos.globe}
-                style={{ width: '100%', height: '100%' }}
+                style={{width: '100%', height: '100%'}}
               />
             </View>
           </Tooltip>
         </View>
 
-        <View style={{ width: '100%', marginTop: 20 }}>
-          <Text style={{ fontSize: 14, fontWeight: 'bold', color: 'black' }}>
+        <View style={{width: '100%', marginTop: 20}}>
+          <Text style={{fontSize: 14, fontWeight: 'bold', color: 'black'}}>
             {boxTitle}
           </Text>
           <View
@@ -109,7 +111,7 @@ const PostBox = ({
               {boxDetail}
               {/* Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
               nonumy eirmod tempor... */}
-              <Text style={{ color: '#4A91D5' }}> see more</Text>
+              <Text style={{color: '#4A91D5'}}> see more</Text>
             </Text>
           </View>
         </View>
@@ -117,7 +119,7 @@ const PostBox = ({
         <View
           style={{
             width: '100%',
-            height: 202,
+            height: 170,
             borderRadius: 20,
             marginTop: 10,
           }}>
@@ -130,11 +132,13 @@ const PostBox = ({
                   width: '100%',
                   height: '100%',
                 }}>
-                <TouchableOpacity onPress={ImgPress} style={{ width: '45%', height: '100%' }}>
+                <TouchableOpacity
+                  onPress={() => ImgPress}
+                  style={{width: '45%', height: '100%'}}>
                   <Image
                     source={gridImg}
-                    style={{ width: '100%', height: '100%', borderRadius: 10 }}
-                  // resizeMode="contain"
+                    style={{width: '100%', height: '100%', borderRadius: 10}}
+                    // resizeMode="contain"
                   />
                 </TouchableOpacity>
                 <View
@@ -163,8 +167,8 @@ const PostBox = ({
                       justifyContent: 'space-evenly',
                       alignItems: 'center',
                     }}>
-
-                    <TouchableOpacity onPress={ImgPress}
+                    <TouchableOpacity
+                      onPress={() => ImgPress}
                       style={{
                         width: '45%',
                         height: '100%',
@@ -173,7 +177,7 @@ const PostBox = ({
                       }}>
                       <Image
                         source={gridImg1}
-                        style={{ width: '100%', height: '45%', borderRadius: 10 }}
+                        style={{width: '100%', height: '45%', borderRadius: 10}}
                       />
                       <Image
                         source={gridImg4}
@@ -194,7 +198,7 @@ const PostBox = ({
                       }}>
                       <Image
                         source={gridImg2}
-                        style={{ width: '100%', height: '45%', borderRadius: 10 }}
+                        style={{width: '100%', height: '45%', borderRadius: 10}}
                       />
                       <Image
                         source={gridImg3}
@@ -214,29 +218,70 @@ const PostBox = ({
             <TouchableOpacity onPress={() => ImgPress}>
               <ImageBackground
                 source={singleImg}
-                style={{ width: '100%', height: '100%' }}
+                style={{width: '100%', height: '100%'}}
                 resizeMode="stretch"></ImageBackground>
-
             </TouchableOpacity>
-
           )}
-
         </View>
-        <View style={{ height: 50 }}>
+        <View
+          style={{
+            height: 25,
+            width: '90%',
+            flexDirection: 'row',
+            alignItems: 'center',
+          }}>
           <Text
             style={{
               color: 'black',
               marginTop: 3,
               fontSize: 10,
               marginLeft: 10,
+              marginTop: 10,
+              fontSize: 13,
             }}>
-            {'$' + price}
+            {price}
           </Text>
+          <View
+            style={{
+              width: '0%',
+              height: '70%',
+              marginTop: 0,
+              alignSelf: 'flex-end',
+              flex: 1,
+              marginTop: 10,
+              borderradius: 20,
+            }}>
+            {feture === true ? null : (
+              <TouchableOpacity
+                onPress={() => ImgPress}
+                style={{
+                  width: '50%',
+                  height: '100%',
+                  alignSelf: 'flex-end',
+                  borderRadius: 5,
+                  marginBottom: 15,
+                }}>
+                <AppButton
+                  LinearColor1={'#5DF7B8'}
+                  LinearColor2={'#3109FB'}
+                  color={'white'}
+                  height={'130%'}
+                  borderWidth={0.5}
+                  borderColor={'#707070'}
+                  backgroundColor={'#FFFFFF'}
+                  label="Get it Featured"
+                  // onPress={() =>
+                  //   navigation.replace('MyTabs', {screen: 'home'})
+                  // }
+                />
+              </TouchableOpacity>
+            )}
+          </View>
         </View>
 
         <LinearGradient
-          start={{ x: 1.5, y: 1.0 }}
-          end={{ x: 1.5, y: 2.5 }}
+          start={{x: 1.5, y: 1.0}}
+          end={{x: 1.5, y: 2.5}}
           colors={['#28A9F61A', '#4C9BD2']}
           style={{
             width: '105%',
@@ -273,9 +318,9 @@ const PostBox = ({
                   }}>
                   <Image
                     source={Images.Logos.msgColorIcon}
-                    style={{ width: 19.07, height: 18.74 }}
+                    style={{width: 19.07, height: 18.74}}
                   />
-                  <Text style={{ color: 'black', paddingLeft: 5 }}>120</Text>
+                  <Text style={{color: 'black', paddingLeft: 5}}>120</Text>
                 </View>
 
                 <View
@@ -287,9 +332,9 @@ const PostBox = ({
                   }}>
                   <Image
                     source={Images.Logos.shareIcon}
-                    style={{ width: 19.07, height: 18.74 }}
+                    style={{width: 19.07, height: 18.74}}
                   />
-                  <Text style={{ color: 'black', paddingLeft: 5 }}>2.4K</Text>
+                  <Text style={{color: 'black', paddingLeft: 5}}>2.4K</Text>
                 </View>
 
                 <View
@@ -300,10 +345,10 @@ const PostBox = ({
                     justifyContent: 'center',
                   }}>
                   <Image
-                    source={Images.Logos.starIcon}
-                    style={{ width: 19.07, height: 18.74 }}
+                    source={Images.Icons.starIcon}
+                    style={{width: 19.07, height: 18.74}}
                   />
-                  <Text style={{ color: 'black', paddingLeft: 5 }}>4.2K</Text>
+                  <Text style={{color: 'black', paddingLeft: 5}}>4.2K</Text>
                 </View>
               </View>
               <View
@@ -313,7 +358,7 @@ const PostBox = ({
                 }}>
                 <Image
                   source={Images.Logos.favoriteIcon}
-                  style={{ width: 14, height: 17 }}
+                  style={{width: 14, height: 17}}
                 />
               </View>
             </View>
@@ -324,7 +369,7 @@ const PostBox = ({
   );
 };
 
-export { PostBox };
+export {PostBox};
 
 const styles = StyleSheet.create({
   postToolDrop: {
@@ -399,7 +444,7 @@ const styles = StyleSheet.create({
     elevation: 5,
     shadowOffset: 40,
   },
-  postHeader: { width: '90%', height: '100%', alignSelf: 'center' },
+  postHeader: {width: '90%', height: '100%', alignSelf: 'center'},
   postHeaderContentLeft: {
     width: '100%',
     flexDirection: 'row',

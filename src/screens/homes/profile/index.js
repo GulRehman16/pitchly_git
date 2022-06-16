@@ -11,21 +11,22 @@ import {
   FlatList,
   TouchableOpacity,
 } from 'react-native';
-import { AppButton, Header, StatusView } from '../../../components';
+import {AppButton, Header, StatusView} from '../../../components';
 import UserBios from '../../../components/userbios';
-import { UserData } from '../../../components/usersdata';
-import { Images } from '../../../constants';
-import { useState } from 'react';
+import {UserData} from '../../../components/usersdata';
+import {Images} from '../../../constants';
+import {useState} from 'react';
 import LinearGradient from 'react-native-linear-gradient';
 import Talent from '../../../components/Talent';
 import Services from '../../../components/Services';
 import Product from '../../../components/Product';
 import AllMixed from '../../../components/All';
 import ImagePicker from 'react-native-image-crop-picker';
-const Profile = (props) => {
+import {Highlight} from '../../../components/Highlight';
+const Profile = props => {
   const statusData = [
     {
-      imgName: Images.Pictures.statusImg1,
+      imgName: Images.Pictures.highlight,
       imgWidth: 59,
       imgHeight: 59,
       borderRadius: 19,
@@ -33,10 +34,10 @@ const Profile = (props) => {
       borderWidth: 2,
       width: 61,
       height: 61,
-      text: 'John',
+      text: 'Highlight',
     },
     {
-      imgName: Images.Pictures.statusImg2,
+      imgName: Images.Pictures.Friendship,
       imgWidth: 59,
       imgHeight: 59,
       borderRadius: 19,
@@ -44,62 +45,7 @@ const Profile = (props) => {
       borderWidth: 2,
       width: 61,
       height: 61,
-      text: 'Veni',
-    },
-    {
-      imgName: Images.Pictures.statusImg3,
-      imgWidth: 59,
-      imgHeight: 59,
-      borderRadius: 19,
-      borderColor: '#3729F2',
-      borderWidth: 2,
-      width: 61,
-      height: 61,
-      text: 'Bella',
-    },
-    {
-      imgName: Images.Pictures.statusImg4,
-      imgWidth: 59,
-      imgHeight: 59,
-      borderRadius: 19,
-      borderColor: '#3729F2',
-      borderWidth: 2,
-      width: 61,
-      height: 61,
-      text: 'Saher',
-    },
-    {
-      imgName: Images.Pictures.statusImg5,
-      imgWidth: 59,
-      imgHeight: 59,
-      borderRadius: 19,
-      borderColor: '#3729F2',
-      borderWidth: 2,
-      width: 61,
-      height: 61,
-      text: 'Bella',
-    },
-    {
-      imgName: Images.Pictures.statusImg1,
-      imgWidth: 59,
-      imgHeight: 59,
-      borderRadius: 19,
-      borderColor: '#3729F2',
-      borderWidth: 2,
-      width: 61,
-      height: 61,
-      text: 'John',
-    },
-    {
-      imgName: Images.Pictures.statusImg2,
-      imgWidth: 59,
-      imgHeight: 59,
-      borderRadius: 19,
-      borderColor: '#3729F2',
-      borderWidth: 2,
-      width: 61,
-      height: 61,
-      text: 'Veni',
+      text: ' Friendship',
     },
     {
       imgName: Images.Pictures.statusImg3,
@@ -110,29 +56,7 @@ const Profile = (props) => {
       borderWidth: 2,
       width: 61,
       height: 61,
-      text: 'Bella',
-    },
-    {
-      imgName: Images.Pictures.statusImg4,
-      imgWidth: 59,
-      imgHeight: 59,
-      borderRadius: 19,
-      borderColor: '#3729F2',
-      borderWidth: 2,
-      width: 61,
-      height: 61,
-      text: 'Saher',
-    },
-    {
-      imgName: Images.Pictures.statusImg5,
-      imgWidth: 59,
-      imgHeight: 59,
-      borderRadius: 19,
-      borderColor: '#3729F2',
-      borderWidth: 2,
-      width: 61,
-      height: 61,
-      text: 'Bella',
+      text: 'Food',
     },
   ];
   const [img, setImg] = useState(Images.Logos.plusIcon);
@@ -155,12 +79,14 @@ const Profile = (props) => {
       source={Images.Pictures.appBg}>
       <ScrollView
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={{ flexGrow: 1 }}>
+        contentContainerStyle={{flexGrow: 1}}>
         <StatusBar backgroundColor={'transparent'} translucent={true} />
         <View style={{}}>
           <View style={styles.screenHeader}>
             <Header
-              onPress={() => props.navigation.navigate('Homes', { screen: 'settings' })}
+              onPress={() =>
+                props.navigation.navigate('Homes', {screen: 'settings'})
+              }
               HeaderText
               hiddinText1
               barICon
@@ -182,17 +108,20 @@ const Profile = (props) => {
               Contact="+13246987"
               Email="Lorem ipsome"
               Location="lorem ipsome"
-              pressme={() => { props.navigation.navigate("Homes", { screen: 'editprofile' }) }}
+              pressme={() => {
+                props.navigation.navigate('Homes', {screen: 'editprofile'});
+              }}
             />
+
             <View style={styles.statusBoxView}>
               <FlatList
                 horizontal={true}
                 showsHorizontalScrollIndicator={false}
                 data={statusData}
-                renderItem={({ item }) => {
+                renderItem={({item}) => {
                   return (
-                    <View style={{ paddingLeft: 10 }}>
-                      <StatusView
+                    <View style={{paddingLeft: 10}}>
+                      <Highlight
                         imgName={item.imgName}
                         width={item.width}
                         height={item.height}
@@ -208,10 +137,7 @@ const Profile = (props) => {
                 <TouchableOpacity
                   onPress={() => picker()}
                   style={styles.statusAddBox}>
-                  <Image
-                    source={Images.Logos.plusIcon}
-                    style={styles.statusAddIcon}
-                  />
+                  <Image source={img} style={styles.statusAddIcon} />
                 </TouchableOpacity>
                 <Text>You</Text>
               </View>
@@ -226,8 +152,8 @@ const Profile = (props) => {
                 alignSelf: 'center',
               }}>
               <LinearGradient
-                start={{ x: 1.5, y: 1.0 }}
-                end={{ x: 1.5, y: 2.5 }}
+                start={{x: 1.5, y: 1.0}}
+                end={{x: 1.5, y: 2.5}}
                 colors={['#28A9F61A', '#4C9BD2']}
                 style={{
                   width: '100%',
@@ -239,7 +165,7 @@ const Profile = (props) => {
                   alignSelf: 'center',
                 }}>
                 <TouchableOpacity
-                  onPress={() => setcheck({ ...check, value: 'PITCHLY FEED' })}
+                  onPress={() => setcheck({...check, value: 'PITCHLY FEED'})}
                   style={{
                     // backgroundColor: 'red',
                     paddingBottom: check.value == 'PITCHLY FEED' ? 2 : null,
@@ -256,7 +182,7 @@ const Profile = (props) => {
                   </Text>
                 </TouchableOpacity>
                 <TouchableOpacity
-                  onPress={() => setcheck({ ...check, value: 'TALENT FEED' })}
+                  onPress={() => setcheck({...check, value: 'TALENT FEED'})}
                   style={{
                     // backgroundColor: 'red',
                     paddingBottom: check.value == 'TALENT FEED' ? 2 : null,
@@ -273,7 +199,7 @@ const Profile = (props) => {
                   </Text>
                 </TouchableOpacity>
                 <TouchableOpacity
-                  onPress={() => setcheck({ ...check, value: 'SERVICES FEED' })}
+                  onPress={() => setcheck({...check, value: 'SERVICES FEED'})}
                   style={{
                     // backgroundColor: 'red',
                     paddingBottom: check.value == 'SERVICES FEED' ? 2 : null,
@@ -291,7 +217,7 @@ const Profile = (props) => {
                   </Text>
                 </TouchableOpacity>
                 <TouchableOpacity
-                  onPress={() => setcheck({ ...check, value: 'PRODUCTS FEED' })}
+                  onPress={() => setcheck({...check, value: 'PRODUCTS FEED'})}
                   style={{
                     // backgroundColor: 'red',
                     paddingBottom: check.value == 'PRODUCTS FEED' ? 2 : null,
@@ -310,11 +236,11 @@ const Profile = (props) => {
                 </TouchableOpacity>
               </LinearGradient>
             </View>
-            <View style={{ width: '90%', alignSelf: 'center' }}>
-              {check.value === 'PITCHLY FEED' && <AllMixed />}
-              {check.value === 'TALENT FEED' && <Talent />}
-              {check.value === 'SERVICES FEED' && <Services />}
-              {check.value === 'PRODUCTS FEED' && <Product />}
+            <View style={{width: '90%', alignSelf: 'center'}}>
+              {check.value === 'PITCHLY FEED' && <AllMixed feture={true} />}
+              {check.value === 'TALENT FEED' && <Talent feture={true} />}
+              {check.value === 'SERVICES FEED' && <Services feture={true} />}
+              {check.value === 'PRODUCTS FEED' && <Product feture={true} />}
             </View>
 
             <View></View>
@@ -342,7 +268,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   statusBoxView: {
-    width: '90%',
+    width: '86%',
     marginTop: 20,
     marginLeft: -10,
     flexDirection: 'row',
@@ -351,7 +277,7 @@ const styles = StyleSheet.create({
   statusAddView: {
     alignItems: 'center',
     justifyContent: 'center',
-    marginLeft: 5,
+    marginRight: 10,
   },
   statusAddBox: {
     width: 65,
@@ -362,7 +288,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  statusAddIcon: { width: 24.63, height: 24.63 },
+  statusAddIcon: {width: 24.63, height: 24.63},
 
   headingText: {
     fontSize: 24,

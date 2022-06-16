@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
-import { StyleSheet, Text, View, FlatList, Dimensions } from 'react-native';
-import { Images, Themes } from '../../constants';
+import React, {useEffect} from 'react';
+import {StyleSheet, Text, View, FlatList, Dimensions} from 'react-native';
+import {Images, Themes} from '../../constants';
 import LinearGradient from 'react-native-linear-gradient';
-import { PostBox } from '../postBox';
-import { SuggestFriends } from '../suggestFriends';
-const AllMixed = (props) => {
+import {PostBox} from '../postBox';
+import {SuggestFriends} from '../suggestFriends';
+const AllMixed = ({feture, navigation}) => {
   const statusData2 = [
     {
       imgName: Images.Pictures.statusImg1,
@@ -59,7 +59,7 @@ const AllMixed = (props) => {
       boxTitle: 'Talent Name',
       boxDetail:
         ' Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diamnonumy eirmod tempor...',
-      price: '120.00',
+      price: '$ 120.00',
       gridImg: Images.Pictures.productcackImg1,
       gridImg1: Images.Pictures.productcackImg2,
       gridImg2: Images.Pictures.productcackImg3,
@@ -67,7 +67,8 @@ const AllMixed = (props) => {
       gridImg4: Images.Pictures.productcackImg5,
       checksingle: false,
       checkfollow: false,
-
+      feture: feture ? false : true,
+      // ImgPress: navigation.navigate('Homes', {screen: 'productdetails'}),
     },
     {
       profileImg: Images.Pictures.statusImg1,
@@ -79,6 +80,8 @@ const AllMixed = (props) => {
       singleImg: Images.Pictures.talent,
       checksingle: true,
       checkfollow: true,
+      feture: feture ? false : true,
+      // ImgPress: navigation.navigate('Homes', {screen: 'productdetails'}),
     },
     {
       profileImg: Images.Pictures.statusImg1,
@@ -87,7 +90,7 @@ const AllMixed = (props) => {
       boxTitle: 'Talent Name',
       boxDetail:
         ' Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diamnonumy eirmod tempor...',
-      price: '120.00',
+      price: '$ 120.00',
       gridImg: Images.Pictures.productcackImg1,
       gridImg1: Images.Pictures.productcackImg2,
       gridImg2: Images.Pictures.productcackImg3,
@@ -95,6 +98,8 @@ const AllMixed = (props) => {
       gridImg4: Images.Pictures.productcackImg5,
       checksingle: false,
       checkfollow: false,
+      feture: feture ? false : true,
+      // ImgPress: navigation.navigate('Homes', {screen: 'productdetails'}),
     },
     {
       profileImg: Images.Pictures.talent,
@@ -103,11 +108,12 @@ const AllMixed = (props) => {
       boxTitle: 'Talent Name',
       boxDetail:
         ' Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diamnonumy eirmod tempor...',
-      price: '10.00',
+      price: '$ 10.00',
       singleImg: Images.Pictures.postImg1,
       checksingle: true,
       checkfollow: false,
-
+      feture: feture ? false : true,
+      //   ImgPress: navigation.navigate('Homes', {screen: 'productdetails'}),
     },
   ];
 
@@ -115,9 +121,9 @@ const AllMixed = (props) => {
     <View>
       <FlatList
         data={All}
-        renderItem={({ item }) => {
+        renderItem={({item}) => {
           return (
-            <View style={{ marginTop: 10 }}>
+            <View style={{marginTop: 10}}>
               <PostBox
                 profileTitle={item.profileTitle}
                 postTime={item.postTime}
@@ -132,6 +138,7 @@ const AllMixed = (props) => {
                 checksingle={item.checksingle}
                 price={item.price}
                 ImgPress={item.ImgPress}
+                feture={item.feture}
               />
               {item.checkfollow == true ? (
                 <View>
@@ -156,9 +163,9 @@ const AllMixed = (props) => {
                       horizontal={true}
                       showsHorizontalScrollIndicator={false}
                       data={statusData2}
-                      renderItem={({ item }) => {
+                      renderItem={({item}) => {
                         return (
-                          <View style={{ marginLeft: 10 }}>
+                          <View style={{marginLeft: 10}}>
                             <SuggestFriends
                               imgName={item.imgName}
                               width={item.width}

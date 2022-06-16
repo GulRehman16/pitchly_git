@@ -64,7 +64,10 @@ const Box = ({
                 <Text style={styles.vani}>{name}</Text>
                 <Text style={styles.othertxt}>{textmessage}</Text>
               </View>
-              <View style={{width: '30%'}}>
+              <View
+                style={{
+                  width: '30%',
+                }}>
                 {SwipeableText && (
                   <Swipeable
                     rightButtonWidth={250}
@@ -83,6 +86,7 @@ const Box = ({
                         borderRadius: 20,
                         backgroundColor: 'blue',
                         marginVertical: 4,
+                        marginLeft: 10,
                       }}>
                       <Text style={{color: '#ffff', textAlign: 'center'}}>
                         {messagenumber}
@@ -135,7 +139,7 @@ const styles = StyleSheet.create({
   },
   just_now_text: {
     color: 'blue',
-    fontSize: 16,
+    fontSize: 13,
   },
   btn: {
     //  width: 60,

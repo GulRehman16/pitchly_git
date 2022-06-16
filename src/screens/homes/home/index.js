@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import {
   ScrollView,
   StatusBar,
@@ -10,7 +10,7 @@ import {
   View,
   FlatList,
 } from 'react-native';
-import { Images } from '../../../constants';
+import {Images} from '../../../constants';
 import {
   FormInput,
   AppButton,
@@ -23,14 +23,14 @@ import {
   SuggestFriends,
   OverlayScreen,
 } from '../../../components';
-import { Icon } from 'native-base';
+import {Icon} from 'native-base';
 import LinearGradient from 'react-native-linear-gradient';
 import Talent from '../../../components/Talent';
 import Services from '../../../components/Services';
 import Product from '../../../components/Product';
 import AllMixed from '../../../components/All';
 import ImagePicker from 'react-native-image-crop-picker';
-const Home = props => {
+const Home = ({navigation}) => {
   const [data, setData] = useState({
     postDataAll: [
       {
@@ -310,7 +310,7 @@ const Home = props => {
         source={Images.Pictures.homeMainBg}>
         <ScrollView
           showsVerticalScrollIndicator={false}
-          contentContainerStyle={{ flexGrow: 1 }}>
+          contentContainerStyle={{flexGrow: 1}}>
           <StatusBar backgroundColor={'transparent'} translucent={true} />
           <View style={styles.body}>
             <View style={styles.headerView}>
@@ -330,9 +330,9 @@ const Home = props => {
                 horizontal={true}
                 showsHorizontalScrollIndicator={false}
                 data={data.statusData}
-                renderItem={({ item }) => {
+                renderItem={({item}) => {
                   return (
-                    <View style={{ paddingLeft: 10 }}>
+                    <View style={{paddingLeft: 10}}>
                       <StatusView
                         imgName={item.imgName}
                         width={item.width}
@@ -346,6 +346,10 @@ const Home = props => {
                 }}
               />
             </View>
+            <View style={styles.pitchlyFeatured}>
+              <PitchlyFeatured />
+            </View>
+
             <View
               style={{
                 width: '100%',
@@ -362,13 +366,13 @@ const Home = props => {
                   borderRadius: 5,
                 }}>
                 {/* PRODUCTS FEED */}
-                <Text style={{ color: 'black', fontWeight: 'bold' }}>
+                <Text style={{color: 'black', fontWeight: 'bold'}}>
                   {check.value}
                 </Text>
               </View>
               <LinearGradient
-                start={{ x: 1.5, y: 1.0 }}
-                end={{ x: 1.5, y: 2.5 }}
+                start={{x: 1.5, y: 1.0}}
+                end={{x: 1.5, y: 2.5}}
                 colors={['#28A9F61A', '#4C9BD2']}
                 style={{
                   width: '60%',
@@ -379,7 +383,7 @@ const Home = props => {
                   flexDirection: 'row',
                 }}>
                 <TouchableOpacity
-                  onPress={() => setcheck({ ...check, value: 'PITCHLY FEED' })}
+                  onPress={() => setcheck({...check, value: 'PITCHLY FEED'})}
                   style={{
                     // backgroundColor: 'red',
                     paddingBottom: check.value == 'PITCHLY FEED' ? 2 : null,
@@ -396,7 +400,7 @@ const Home = props => {
                   </Text>
                 </TouchableOpacity>
                 <TouchableOpacity
-                  onPress={() => setcheck({ ...check, value: 'TALENT FEED' })}
+                  onPress={() => setcheck({...check, value: 'TALENT FEED'})}
                   style={{
                     // backgroundColor: 'red',
                     paddingBottom: check.value == 'TALENT FEED' ? 2 : null,
@@ -413,11 +417,12 @@ const Home = props => {
                   </Text>
                 </TouchableOpacity>
                 <TouchableOpacity
-                  onPress={() => setcheck({ ...check, value: 'SERVICES FEED' })}
+                  onPress={() => setcheck({...check, value: 'SERVICES FEED'})}
                   style={{
                     // backgroundColor: 'red',
                     paddingBottom: check.value == 'SERVICES FEED' ? 2 : null,
-                    borderBottomWidth: check.value == 'SERVICES FEED' ? 1 : null,
+                    borderBottomWidth:
+                      check.value == 'SERVICES FEED' ? 1 : null,
                     borderColor: check.value == 'SERVICES FEED' ? 'blue' : null,
                   }}>
                   <Text
@@ -430,11 +435,12 @@ const Home = props => {
                   </Text>
                 </TouchableOpacity>
                 <TouchableOpacity
-                  onPress={() => setcheck({ ...check, value: 'PRODUCTS FEED' })}
+                  onPress={() => setcheck({...check, value: 'PRODUCTS FEED'})}
                   style={{
                     // backgroundColor: 'red',
                     paddingBottom: check.value == 'PRODUCTS FEED' ? 2 : null,
-                    borderBottomWidth: check.value == 'PRODUCTS FEED' ? 1 : null,
+                    borderBottomWidth:
+                      check.value == 'PRODUCTS FEED' ? 1 : null,
                     borderColor: check.value == 'PRODUCTS FEED' ? 'blue' : null,
                   }}>
                   <Text
@@ -448,14 +454,13 @@ const Home = props => {
                 </TouchableOpacity>
               </LinearGradient>
             </View>
-            {check.value === 'PITCHLY FEED' && <AllMixed />}
-            {check.value === 'TALENT FEED' && <Talent />}
-            {check.value === 'SERVICES FEED' && <Services />}
-            {check.value === 'PRODUCTS FEED' && <Product />}
+            {check.value === 'PITCHLY FEED' && <AllMixed feture={false} />}
+            {check.value === 'TALENT FEED' && <Talent feture={false} />}
+            {check.value === 'SERVICES FEED' && <Services feture={false} />}
+            {check.value === 'PRODUCTS FEED' && <Product feture={false} />}
           </View>
         </ScrollView>
       </ImageBackground>
-
     </>
   );
 };
@@ -467,7 +472,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
   },
-  body: { width: '90%', height: '100%', alignSelf: 'center', paddingBottom: 60 },
+  body: {width: '90%', height: '100%', alignSelf: 'center', paddingBottom: 60},
   statusBoxView: {
     width: '110%',
     marginTop: 20,
@@ -475,7 +480,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
 
-  headerView: { width: '100%', marginTop: 60 },
+  headerView: {width: '100%', marginTop: 60},
   statusAddView: {
     alignItems: 'center',
     justifyContent: 'center',
@@ -490,7 +495,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  statusAddIcon: { width: 24.63, height: 24.63 },
+  statusAddIcon: {width: 24.63, height: 24.63},
   pitchlyFeatured: {
     width: '100%',
     marginTop: 15,
