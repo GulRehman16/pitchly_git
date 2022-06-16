@@ -163,6 +163,7 @@ const Profile = (props) => {
               onPress={() => props.navigation.navigate('Homes', { screen: 'settings' })}
               HeaderText
               hiddinText1
+              informationtext
               barICon
               text1="Profile"
               press={() => props.navigation.goBack()}
@@ -171,10 +172,12 @@ const Profile = (props) => {
           <View style={styles.screenBody}>
             <UserData
               Bio
-              Image1={Images.Pictures.profile}
+              editicon
+              Image1={Images.Pictures.profile1}
               UserName="Tarrance"
               UserEmail="@Tarrance_official "
               Post={111}
+              informationtext
               Followers={70}
               Following={52}
               Bios="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, 

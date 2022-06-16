@@ -13,8 +13,8 @@ import React, { useState } from 'react';
 import { Box, Header, Row, Tip } from '../../../components'
 import Icon from 'react-native-vector-icons/Entypo';
 import { Images } from '../../../constants';
-import Tooltip from 'react-native-walkthrough-tooltip';
-import { Item } from 'native-base';
+
+
 
 const Notifications = ({ route, navigation }) => {
   const [showTip, setShowTip] = useState()
@@ -160,7 +160,7 @@ const Notifications = ({ route, navigation }) => {
                             <Text>{item.Nowtext}</Text>
                           </View>
                         </View>
-                        <Tip DoteIcon={
+                        <Tip tooltip1 onPress={true} DoteIcon={
                           <Text>
                             {item.Icon1}
                           </Text>} />

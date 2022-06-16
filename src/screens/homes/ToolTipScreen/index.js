@@ -2,13 +2,19 @@ import {
     StyleSheet, Text, View, SafeAreaView, ScrollView, TouchableOpacity, Image,
     FlatList, ImageBackground
 } from 'react-native'
-import React, { useState } from 'react'
-import Tooltip from 'react-native-walkthrough-tooltip';
-import Icon from 'react-native-vector-icons/Entypo';
+import React, { useState, useEffect } from 'react'
 import { Images } from '../../../constants';
+import { Tip } from '../../../components';
 
-const ToolTipScreen = ({ onPress }) => {
-    const [showTip, setShowTip] = useState(true)
+const ToolTipScreen = ({ onPress, }) => {
+
+    useEffect(() => {
+        setShowtool(true);
+
+    }, [showTool]);
+
+    const [showTool, setShowtool] = useState(false);
+
     return (
         <ImageBackground
             style={styles.imageContainer}
@@ -17,56 +23,12 @@ const ToolTipScreen = ({ onPress }) => {
                 showsVerticalScrollIndicator={false}
                 contentContainerStyle={{ flexGrow: 1 }}>
                 <View style={styles.Body}>
-
                     <View style={{}}>
-                        <Tooltip
-                            contentStyle={{
-                                marginTop: 340
-
-                            }}
-                            childrenWrapperStyle={{ width: 200, height: 100, backgroundColor: 'green', marginVertical: 40 }}
-
-                            isVisible={showTip}
-                            showChildInTooltip={true}
-                            content={
-                                <View sty={{ marginTop: 50 }}>
-                                    <View style={styles.TooltipContainer}>
-                                        <TouchableOpacity
-                                            onPress={() => { navigation.navigate('profile') }}
-                                            style={styles.box}>
-                                            <Image source={Images.Icons.add1} resizeMode="contain"
-                                                style={{ width: 40, height: 40, }} />
-                                            <Text>General</Text>
-                                        </TouchableOpacity>
-                                        <TouchableOpacity
-                                            onPress={() => { navigation.navigate('profile') }}
-                                            style={styles.box}>
-                                            <Image source={Images.Icons.user1} resizeMode="contain"
-                                                style={{ width: 40, height: 40 }} />
-                                            <Text>Talent</Text>
-                                        </TouchableOpacity>
-                                        <TouchableOpacity
-                                            onPress={() => { navigation.navigate('AddPost') }}
-                                            style={styles.box}>
-                                            <Image source={Images.Icons.setting1} resizeMode="contain"
-                                                style={{ width: 40, height: 40 }} />
-                                            <Text>Services</Text>
-                                        </TouchableOpacity>
-                                        <TouchableOpacity
-                                            onPress={() => { navigation.navigate('AddPost') }}
-                                            style={styles.box}>
-                                            <Image source={Images.Icons.lock1} resizeMode="contain"
-                                                style={{ width: 40, height: 40 }} />
-                                            <Text>Products</Text>
-                                        </TouchableOpacity>
-                                    </View>
-
-                                </View>}
-                            onClose={() => { setShowTip(true) }}
-                            placement="top" >
-
-                        </Tooltip>
+                        <Tip tooltip2 onPress={showTool} text="kjdjhfkdjdsjf" />
                     </View>
+
+
+
                 </View>
             </ScrollView>
         </ImageBackground>
@@ -75,8 +37,10 @@ const ToolTipScreen = ({ onPress }) => {
 export default ToolTipScreen
 
 const styles = StyleSheet.create({
-    Container: {
+
+    imageContainer: {
         flex: 1,
+        justifyContent: 'center',
     },
     Body: {
         backgroundColorL: 'purple',

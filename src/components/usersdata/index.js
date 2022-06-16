@@ -12,10 +12,21 @@ import React, { useState } from 'react'
 
 import { Icon } from 'react-native-elements';
 import LinearGradient from 'react-native-linear-gradient';
+import { Images } from '../../constants';
+import { Followbtn } from '../Followbtn';
+
+
 
 
 const UserData = (
-    {
+
+
+
+    { premiumicon,
+        followbuttons,
+        editicon,
+        informationtext,
+        followbtn1,
         navigation,
         Image1,
         BoldText,
@@ -31,96 +42,161 @@ const UserData = (
         Contact,
         Email,
         Location,
-        pressme
+        pressme,
+        height
     }) => {
-
     const [state, setState] = useState('follow');
     const [colorState, setColorsate] = useState(true);
-
     const Click = () => {
         setState("Unfollow");
         setColorsate("#000")
-
     }
-
     return (
         <View>
             {Bio && (
                 <View>
-                    <View style={styles.bioBox}>
-
+                    <View style={{
+                        width: '90%',
+                        height: height || 390,
+                        backgroundColor: '#fff',
+                        alignSelf: 'center',
+                        borderRadius: 10
+                    }}>
                         <View style={styles.profilerow}>
-
-                            <View style={{ flexDirection: 'row', width: '90%' }}>
+                            <View style={{ flexDirection: 'row', width: '90%', }}>
                                 <View style={styles.Profilepic}>
                                     <Image
                                         source={Image1}
                                         resizeMode="contain"
-                                        style={{ width: '100%', height: '100%', borderRadius: 100, }}
+                                        style={styles.Image1}
                                     />
                                 </View>
                                 <View style={styles.userInfo}>
-                                    <Text style={styles.UserName}>{UserName}</Text>
-                                    <Text style={styles.UserEmail}>{UserEmail}</Text>
+                                    <View style={{ flexDirection: 'row' }}>
+                                        <View>
+                                            <Text style={styles.UserName}>{UserName}</Text>
+                                            <Text style={styles.UserEmail}>{UserEmail}</Text>
+                                        </View>
+                                        {premiumicon && (
+                                            <TouchableOpacity activeOpacity={0.8} onPress={pressme}
+                                                style={styles.premiumicon}>
+                                                <Image source={Images.Icons.premium}
+                                                    resizeMode="contain" style={{ width: '100%', height: '100%' }} />
+                                            </TouchableOpacity>
+                                        )}
+                                    </View>
                                     <View style={styles.followerText}>
-                                        <View style={{ margin: 10 }}>
+                                        <View style={{ margin: 6 }}>
                                             <Text style={styles.UserPostNumber}>{Post}</Text>
                                             <Text style={styles.UserPost}>Post</Text>
                                         </View>
-                                        <View style={{ margin: 10 }}>
+                                        <View style={{ margin: 6 }}>
                                             <Text style={styles.UserPostNumber}>{Followers}</Text>
                                             <Text style={styles.UserPost}>Followers</Text>
 
                                         </View>
-                                        <View style={{ margin: 10 }}>
+                                        <View style={{ margin: 6 }}>
                                             <Text style={styles.UserPostNumber}>{Following}</Text>
                                             <Text style={styles.UserPost}>Following</Text>
                                         </View>
                                     </View>
                                 </View>
                             </View>
+
+
+
                             <TouchableOpacity activeOpacity={0.8} onPress={pressme} style={{ width: '10%' }}>
+                                {editicon && (
+                                    <LinearGradient
+                                        start={{ x: 1, y: 0.0 }}
+                                        end={{ x: 1, y: 1.9 }}
+                                        colors={['#5DF7B8', '#3109FB']}
+                                        style={{
+                                            width: 35,
+                                            height: 35,
+                                            borderRadius: 10
+                                        }}
+                                    >
+                                        <Icon
+                                            type="FontAwesome"
+                                            name="edit"
+                                            color='#fff'
+                                            size={22}
+                                            style={{ margin: 4 }}
+                                        />
 
-                                <LinearGradient
-                                    start={{ x: 1, y: 0.0 }}
-                                    end={{ x: 1, y: 1.9 }}
-                                    colors={['#5DF7B8', '#3109FB']}
-                                    style={{
-                                        width: 35,
-                                        height: 35,
-                                        borderRadius: 10
-                                    }}
-                                >
-
-                                    <Icon
-                                        type="FontAwesome"
-                                        name="edit"
-                                        color='#fff'
-                                        size={22}
-                                        style={{ margin: 4 }}
-                                    />
-
-                                </LinearGradient>
+                                    </LinearGradient>
+                                )}
 
                             </TouchableOpacity>
+
+
+
                         </View>
                         <View style={{ width: '90%', alignSelf: 'center' }}>
                             <View>
                                 <Text style={styles.Bios}>Bios</Text>
                                 <Text style={styles.Descriprion}>{Bios}</Text>
                             </View>
-                            <View>
-                                <Text style={styles.Bios}>Contact</Text>
-                                <Text style={styles.Descriprion}>{Contact}</Text>
-                            </View>
-                            <View>
-                                <Text style={styles.Bios}>Email</Text>
-                                <Text style={styles.Descriprion}>{Email}</Text>
-                            </View>
-                            <View>
-                                <Text style={styles.Bios}>Location</Text>
-                                <Text style={styles.Descriprion}>{Location}</Text>
-                            </View>
+
+                            {informationtext && (
+                                <View>
+                                    <View>
+                                        <Text style={styles.Bios}>Contact</Text>
+                                        <Text style={styles.Descriprion}>{Contact}</Text>
+                                    </View>
+                                    <View>
+                                        <Text style={styles.Bios}>Email</Text>
+                                        <Text style={styles.Descriprion}>{Email}</Text>
+                                    </View>
+                                    <View>
+                                        <Text style={styles.Bios}>Location</Text>
+                                        <Text style={styles.Descriprion}>{Location}</Text>
+                                    </View>
+                                </View>
+
+                            )}
+                            {followbtn1 && (
+                                <View style={{ flexDirection: 'row', marginTop: 6, width: '100%', justifyContent: 'space-around' }}>
+                                    <Followbtn followbutton
+
+                                        borderWidth={0.75}
+                                        width={100}
+                                        height={40}
+                                        color1="#3109FB"
+                                        color2="#eee"
+                                        color3="#fff"
+                                        color4="#000"
+                                        User
+                                        follow="Follow"
+                                        unfollow="unfollow"
+                                        Image1={Image1}
+                                        BoldText={BoldText}
+                                        LighterText={LighterText}
+
+                                    />
+                                    <TouchableOpacity style={{
+                                        width: 100, height: 40, borderRadius: 5, borderWidth: 1,
+                                        marginTop: 15,
+                                        alignItems: 'center', justifyContent: 'center'
+                                    }}
+                                        activeOpacity={0.7}
+                                        onPress={() => props.navigation.navigate('signup')}>
+                                        <Text style={styles.btnw}> Message</Text>
+                                    </TouchableOpacity>
+                                    <TouchableOpacity style={{
+                                        width: 100, height: 40, borderRadius: 5, borderWidth: 1,
+                                        marginTop: 15,
+                                        alignItems: 'center', justifyContent: 'center'
+                                    }}
+                                        activeOpacity={0.7}
+                                        onPress={() => props.navigation.navigate('signup')}>
+                                        <Text style={styles.btnw}> Contact</Text>
+                                    </TouchableOpacity>
+                                </View>
+
+                            )}
+
                         </View>
                     </View>
                 </View>
@@ -165,15 +241,14 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
 
     },
-    whitebox: {
-        width: '90%',
-        height: '80%',
-        borderRadius: 10,
-        backgroundColor: '#fff',
-        alignSelf: 'center',
-        elevation: 2,
+    premiumicon: {
+        width: 110, height: 65, marginLeft: -20
     },
-
+    Image1: {
+        width: '100%', height: '100%',
+        borderRadius: 100,
+    }
+    ,
     textbox: {
         width: '100%', alignSelf: 'center', marginVertical: 10,
     },
@@ -216,11 +291,7 @@ const styles = StyleSheet.create({
         marginTop: -7
     },
     bioBox: {
-        width: '90%',
-        height: 347,
-        backgroundColor: '#fff',
-        alignSelf: 'center',
-        borderRadius: 10
+
     },
 
     profilerow: {
@@ -264,11 +335,13 @@ const styles = StyleSheet.create({
 
     },
     Bios: {
-        fontSize: 15, color: '#000', fontWeight: '600'
+        fontSize: 18, color: '#000', fontWeight: '600'
     },
     Descriprion: {
-        fontSize: 12, color: '#000', marginVertical: 2, letterSpacing: 1
-    }
+        fontSize: 14, color: '#000', marginVertical: 2, letterSpacing: 1, fontWeight: 'bold'
+    },
+    btnw:
+        { fontWeight: 'bold', color: 'black' }
 
 })
 

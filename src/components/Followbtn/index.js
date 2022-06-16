@@ -4,10 +4,12 @@ import {
     View,
     FlatList,
     Image,
+
     Appearance,
     TouchableOpacity,
 } from 'react-native'
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import LinearGradient from 'react-native-linear-gradient';
 const Followbtn = ({
     Image1,
     BoldText,
@@ -22,7 +24,10 @@ const Followbtn = ({
     color1,
     color2,
     color3,
-    color4
+    color4,
+    width,
+    height,
+    userprofile
 }) => {
 
     const [state, setState] = useState(follow);
@@ -37,38 +42,59 @@ const Followbtn = ({
         <View>
             {User && (
                 <View style={styles.rowstyle}>
-                    <View style={styles.texts}>
-                        <View style={styles.Pictures}>
-                            <Image
-                                source={Image1}
-                                resizeMode="contain"
-                                style={{
-                                    width: '100%', height: '100%',
-                                    borderRadius: 100,
-                                }}
-                            />
+                    {userprofile && (
+                        <View style={styles.texts}>
+                            <View style={styles.Pictures}>
+                                <Image
+                                    source={Image1}
+                                    resizeMode="contain"
+                                    style={{
+                                        width: '100%', height: '100%',
+                                        borderRadius: 100,
+                                    }}
+                                />
+                            </View>
+                            <View style={styles.textes}>
+                                <Text style={styles.txt1}>{BoldText}</Text>
+                                <Text style={{ fontSize: 12, marginTop: -4, }}>{LighterText}</Text>
+                            </View>
                         </View>
-                        <View style={styles.textes}>
-                            <Text style={styles.txt1}>{BoldText}</Text>
-                            <Text style={{ fontSize: 12, marginTop: -4, }}>{LighterText}</Text>
-                        </View>
-                    </View>
 
 
+
+                    )}
                     <TouchableOpacity onPress={() => { Click(!state) }}
-
                         style={{
                             borderWidth: borderWidth,
-                            width: '26%', height: 30, alignSelf: 'center',
+                            width: width || '26%', height: height || 30, alignSelf: 'center',
                             backgroundColor: colorState === true ? color1 : color2,
                             borderRadius: 3, justifyContent: 'center'
                         }}>
-                        <Text style={{ color: colorState === true ? color3 : color4, textAlign: 'center', }} >{state}</Text>
-                    </TouchableOpacity>
-                </View>
-            )}
+                        <LinearGradient
+                            start={{ x: 1, y: 0.0 }}
+                            end={{ x: 1, y: 1.9 }}
+                            colors={['#5DF7B8', '#3109FB']}
+                            style={{
+                                width: '100%',
+                                height: '100%',
+                                alignItems: 'center',
+                                justifyContent: 'center'
+                                // borderRadius: 10
+                            }}
+                        >
+                            <Text style={{
+                                color: colorState === true ? color3 : color4,
+                                textAlign: 'center',
+                            }} >{state}</Text>
 
-        </View>
+                        </LinearGradient>
+                    </TouchableOpacity>
+
+                </View>
+            )
+            }
+
+        </View >
     )
 }
 export { Followbtn }

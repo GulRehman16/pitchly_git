@@ -13,6 +13,10 @@ import AddPost from './src/screens/homes/Addpost';
 import Addproduct from './src/screens/homes/Addproduct';
 import Post from './src/components/post';
 import HomeScreensix from './src/screens/homes/home6';
+import Account from './src/screens/homes/account';
+import Profile from './src/screens/homes/profile';
+import Following from './src/screens/homes/following';
+
 
 const App = props => {
   // return <PictureSlider />
@@ -25,7 +29,7 @@ const App = props => {
   //return <DeleteAccount />
   // return <ThankYouScreen />
   // return <AddServices />
-  // return <Profile />
+  // return <Following />
   // return <EditProfile />
   //return <FeaturedPost />
   // return <Payment />
@@ -34,7 +38,7 @@ const App = props => {
   //return <AccountDeactivation />
   // return <GetFeaturedPost />
   // return <Blocked />
-  // return <Followers />
+  //return <Followers />
   // return <Following />
   // return <Language />
   // return <Notification />
@@ -47,8 +51,10 @@ const App = props => {
   // return <Addproduct />
   //return <ChatScreen />
   //return <AddPost />
-  // return <Post />
+  //return <Profile />
+  //  return <Post />
   //return <HomeScreensix />
+  //return <Account />
   return <MyStack {...props} />;
 
 };
