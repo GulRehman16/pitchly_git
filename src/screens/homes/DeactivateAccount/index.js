@@ -67,8 +67,9 @@ const DeactivateAccount = ({ navigation }) => {
                             </View>
 
                             <View style={styles.inputView}>
-                                <View style={styles.input}>
-                                    <TextInput placeholder='***********' secureTextEntry={true} />
+                                <View style={{}}>
+                                    <TextInput placeholder='***********' secureTextEntry={true}
+                                        style={{ paddingLeft: 20 }} />
                                 </View>
                             </View>
                             <View style={styles.authButton}>
@@ -80,7 +81,7 @@ const DeactivateAccount = ({ navigation }) => {
                                     borderColor={'#707070'}
                                     backgroundColor={'#FFFFFF'}
                                     label="Confirm"
-                                    onPress={() => navigation.navigate('deactivateaccount')}
+                                    onPress={() => navigation.navigate('Auth', { screen: "login" })}
                                 />
                             </View>
                         </View>
@@ -118,7 +119,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         marginTop: 40,
     },
-    screenBody: {
+    ScreenBody: {
 
         width: '90%',
         height: '100%',

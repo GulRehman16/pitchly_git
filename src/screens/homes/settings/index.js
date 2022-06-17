@@ -61,7 +61,7 @@ const Settings = (props) => {
       text2: 'Logout',
       // Image2: Images.Icons.arrowforward,
 
-      Press: () => props.navigation.navigate('premium')
+      Press: () => props.navigation.navigate('Auth', { screen: 'login' })
     },
   ]
   return (
@@ -147,6 +147,7 @@ const styles = StyleSheet.create({
   //     // justifyContent: 'space-around'
 
   // },
+
 
 
 

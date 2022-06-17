@@ -88,7 +88,7 @@ const Blocked = (props) => {
                                         return (
                                             <>
                                                 <View style={{}}>
-                                                    <Followbtn
+                                                    <Followbtn userprofile
                                                         borderWidth={0.75}
                                                         color1="#eee"
                                                         color2="#eee"

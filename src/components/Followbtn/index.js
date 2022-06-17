@@ -71,8 +71,8 @@ const Followbtn = ({
                             borderRadius: 3, justifyContent: 'center'
                         }}>
                         <LinearGradient
-                            start={{ x: 1, y: 0.0 }}
-                            end={{ x: 1, y: 1.9 }}
+                            color1={{ x: 1, y: 0.0 }}
+                            color2={{ x: 1, y: 1.9 }}
                             colors={['#5DF7B8', '#3109FB']}
                             style={{
                                 width: '100%',
