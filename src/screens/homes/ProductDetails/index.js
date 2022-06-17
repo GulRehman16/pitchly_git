@@ -1,22 +1,23 @@
 import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
-import Post from '../../../components/post';
+import { AppButton, Box, Header, Row, Post } from '../../../components'
 import Headerchat from '../../../components/Headerchat';
 import { Images } from '../../../constants';
 import { ScrollView } from 'react-native-gesture-handler';
 import { Homes } from '../../../navigation/stack';
+
+
 const Productdetails = (props) => {
   return (
     <View>
       <ScrollView>
-        <View style={{ marginLeft: 10, marginTop: 10 }}>
-          <Headerchat
-            image={Images.Pictures.statusImg2}
-            name={'Veni'}
-            Press={() => {
+        <View style={styles.screenHeader}>
+          <Header BAckButton
+            hiddinText
+            text="Featured Post"
+            onPress={() => {
               props.navigation.goBack();
             }}
-            icon={false}
           />
         </View>
         <View style={{ width: '100%' }}>
@@ -31,14 +32,36 @@ const Productdetails = (props) => {
             state="Lorem ipsum dolor sit amet,"
             Date="02/20/2021"
             Duration={true}
-            Press1={() => { props.navigation.naviagte('Homes', { screen: 'pictureslider' }) }}
+            Press1={() => {
+              props.navigation.naviagte('Homes',
+                { screen: 'pictureslider' })
+            }}
           />
-        </View>
+          <View style={{ width: '60%', alignSelf: 'center' }}>
 
+            <View style={{ marginVertical: 5 }}>
+              <AppButton
+                LinearColor1={'#5DF7B8'}
+                LinearColor2={'#3109FB'}
+                color={'white'}
+                borderWidth={0.5}
+                borderColor={'#707070'}
+                backgroundColor={'#FFFFFF'}
+                label="Renew"
+                onPress={() => { props.navigation.navigate('') }}
+              />
+            </View>
+
+
+
+          </View>
+
+        </View>
       </ScrollView>
     </View>
   );
 };
+export default Productdetails;
 
 const styles = StyleSheet.create({
   screenBody: {
@@ -48,16 +71,13 @@ const styles = StyleSheet.create({
   },
   screenHeader: {
     width: '90%',
-    height: 80,
+    height: 50,
     marginTop: 50,
     alignSelf: 'center',
     justifyContent: 'center',
     alignItems: 'center',
   },
 });
-export default Productdetails;
-
-
 
 // <ImageBackground
 // source={singleImg}

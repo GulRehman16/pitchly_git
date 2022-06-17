@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   ScrollView,
   StatusBar,
@@ -9,23 +9,31 @@ import {
   ImageBackground,
   View,
 } from 'react-native';
-import {Images} from '../../../constants';
-import {FormInput, AppButton, Header, Confirmation} from '../../../components';
-import {Icon} from 'native-base';
-import {SafeAreaView} from 'react-native-safe-area-context';
+import { Images } from '../../../constants';
+import { FormInput, AppButton, Header, Confirmation } from '../../../components';
+import { Icon } from 'native-base';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const HavingTouble = props => {
   return (
     <ImageBackground
       style={styles.imageContainer}
-      source={Images.Pictures.forgetBlur}>
+      source={Images.Pictures.appBg}>
       <ScrollView
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={{flexGrow: 1}}>
+        contentContainerStyle={{ flexGrow: 1 }}>
         <StatusBar backgroundColor={'transparent'} translucent={true} />
+        <View style={styles.screenHeader}>
+          <Header BAckButton
+            hiddinText
 
-        <View style={styles.screenBody}>
-          <View style={{marginTop: -50, width: '100%'}}>
+            onPress={() => {
+              navigation.goBack();
+            }}
+          />
+        </View>
+        <View style={styles.ScreenBody}>
+          <View style={{ marginTop: -50, width: '100%' }}>
             <Confirmation
               text={'Thank You \n for contacting Us'}
               image={Images.Logos.done}
@@ -33,7 +41,7 @@ const HavingTouble = props => {
             />
           </View>
 
-          <View style={{paddingVertical: 20, width: '100%'}}>
+          <View style={{ paddingVertical: 20, width: '100%' }}>
             <AppButton
               LinearColor1={'#5DF7B8'}
               LinearColor2={'#3109FB'}
@@ -59,8 +67,8 @@ const styles = StyleSheet.create({
 
   screenHeader: {
     width: '90%',
-    height: 80,
-    marginTop: 50,
+    height: 50,
+    marginTop: 30,
     alignSelf: 'center',
     justifyContent: 'center',
     alignItems: 'center',
@@ -78,6 +86,25 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginTop: 40,
   },
+  ScreenBody: {
+    marginTop: 100,
+    width: '80%',
+    height: '100%',
+    alignSelf: 'center',
+  },
+  headerText1: {
+    fontSize: 26,
+    color: 'black',
+    fontWeight: 'bold',
+    marginVertical: 10
+  },
+  headerText2: {
+    fontSize: 22,
+    color: 'black',
+    fontWeight: '600',
+    marginVertical: 10
+  },
+
 
   screenBody: {
     width: '80%',

@@ -35,7 +35,8 @@ const Header = ({
   text1,
   press,
   barICon,
-  onPress1
+  onPress1,
+  onPress2
 
 }) => {
   return (
@@ -110,7 +111,8 @@ const Header = ({
 
 
                 </LinearGradient>
-              </TouchableOpacity>)}
+              </TouchableOpacity>
+            )}
             {hiddinText && (
               <Text
                 style={{
@@ -140,7 +142,7 @@ const Header = ({
           {header2 && (
             <View style={{ width: '90%', alignSelf: 'center', flexDirection: 'row', justifyContent: 'space-between' }}>
 
-              <TouchableOpacity activeOpacity={0.8} onPress={onPress}>
+              <TouchableOpacity activeOpacity={0.8} onPress={onPress1}>
                 <LinearGradient
                   start={{ x: 1, y: 0.0 }}
                   end={{ x: 1, y: 1.9 }}
@@ -159,7 +161,7 @@ const Header = ({
                   />
                 </LinearGradient>
               </TouchableOpacity>
-              <TouchableOpacity activeOpacity={0.8} onPress={onPress1}
+              <TouchableOpacity activeOpacity={0.8} onPress={onPress2}
                 style={{ alignSelf: 'flex-end', }}>
                 <Icon1
                   type="dots-three-vertical"

@@ -14,7 +14,6 @@ import {
     onPress,
     borderRadius,
     hiddinText,
-
 } from 'react-native';
 import { AppButton, FormInput, Header, } from '../../../components';
 import { Images } from '../../../constants';
@@ -22,7 +21,6 @@ import LinearGradient from 'react-native-linear-gradient';
 import { TextInput } from 'react-native-gesture-handler';
 
 const AddPost = props => {
-
     const [isEnabled, setIsEnabled] = useState(false);
     const toggleSwitch = () => setIsEnabled(previousState => !previousState);
     return (
@@ -51,8 +49,6 @@ const AddPost = props => {
                                 <View style={styles.Input}>
                                     <FormInput multiLine height={160}
                                         placeHolder="Telent Headline" />
-                                    <TextInput selectionColor='red' />
-
                                 </View>
                                 <View style={{ flexDirection: 'row', width: '90%', alignItems: 'center', alignSelf: 'center', marginTop: 10 }}>
                                     <TouchableOpacity activeOpacity={0.8} onPress={onPress}>
@@ -70,7 +66,6 @@ const AddPost = props => {
                                             <Image source={Images.Icons.PhotoVideo} />
                                         </LinearGradient>
                                     </TouchableOpacity>
-
                                     <Text
                                         style={{
                                             fontSize: 14,
@@ -80,7 +75,6 @@ const AddPost = props => {
                                         }}>
                                         Upload Photo & Video
                                     </Text>
-
                                 </View>
                             </View>
                         </View>
@@ -98,8 +92,6 @@ const AddPost = props => {
                                 }
                             />
                         </View>
-
-
                     </View>
                 </View>
             </ScrollView>
@@ -109,10 +101,6 @@ const AddPost = props => {
 }
 
 export default AddPost
-
-
-
-
 const styles = StyleSheet.create({
     imageContainer: {
         flex: 1,
@@ -162,6 +150,8 @@ const styles = StyleSheet.create({
     },
 
     Input: {
-        width: '90%', alignSelf: 'center', marginTop: 30, borderWidth: 0.4, borderRadius: 10
+        width: '90%', alignSelf: 'center',
+        marginTop: 30, borderWidth: 0.4,
+        borderRadius: 10, borderColor: "#aaa"
     }
 })

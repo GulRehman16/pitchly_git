@@ -79,7 +79,7 @@ const Row = ({
                         justifyContent: 'center',
                         marginVertical: 6
                     }}>
-                        <TouchableOpacity style={{ flexDirection: 'row', width: '85%', marginTop: 12, }}>
+                        <View style={{ flexDirection: 'row', width: '85%', marginTop: 12, }}>
                             <View style={{ marginRight: 5, width: 22, height: 22 }}>
                                 <Image source={Image1}
                                     style={{ width: '100%', height: '100%' }}
@@ -94,7 +94,7 @@ const Row = ({
                                 }}>{text2}
                                 </Text>
                             </View>
-                        </TouchableOpacity>
+                        </View>
                         <TouchableOpacity style={{
                             alignItems: 'center',
                             marginTop: 12, marginRight: 5, marginVertical: 8

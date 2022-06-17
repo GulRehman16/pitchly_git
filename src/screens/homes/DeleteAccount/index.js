@@ -12,7 +12,7 @@ import {
     TouchableOpacity,
 } from 'react-native';
 import { Images } from '../../../constants';
-import { AppButton } from '../../../components';
+import { AppButton, Header } from '../../../components';
 const height = Dimensions.get('window').height / 2.5;
 const width = Dimensions.get('window').width;
 const DeleteAccount = ({ navigation }) => {
@@ -28,7 +28,15 @@ const DeleteAccount = ({ navigation }) => {
             showsVerticalScrollIndicator={false}
             contentContainerStyle={{ flexGrow: 1 }}>
             <StatusBar backgroundColor={'transparent'} translucent={true} />
+            <View style={styles.screenHeader}>
+                <Header BAckButton
+                    hiddinText
 
+                    onPress={() => {
+                        navigation.goBack();
+                    }}
+                />
+            </View>
             <View style={styles.ScreenBody}>
 
                 <View style={[styles.connect]}>
@@ -92,10 +100,18 @@ const styles = StyleSheet.create({
 
     ScreenBody: {
         width: '100%',
-        height: '100%',
+        // height: '100%',
         alignSelf: 'center',
         alignItems: 'center',
         justifyContent: 'center'
+    },
+    screenHeader: {
+        width: '90%',
+        height: 50,
+        marginTop: 30,
+        alignSelf: 'center',
+        justifyContent: 'center',
+        alignItems: 'center',
     },
     connect: {
         width: 142,

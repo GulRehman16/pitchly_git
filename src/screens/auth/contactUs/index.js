@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   ScrollView,
   StatusBar,
@@ -9,9 +9,9 @@ import {
   ImageBackground,
   View,
 } from 'react-native';
-import {Images} from '../../../constants';
-import {FormInput, AppButton, Header} from '../../../components';
-import {Icon} from 'native-base';
+import { Images } from '../../../constants';
+import { FormInput, AppButton, Header } from '../../../components';
+import { Icon } from 'native-base';
 
 const ContactUs = props => {
   const [state, setState] = useState({
@@ -28,21 +28,21 @@ const ContactUs = props => {
       source={Images.Pictures.appBg}>
       <ScrollView
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={{flexGrow: 1}}>
+        contentContainerStyle={{ flexGrow: 1 }}>
         <StatusBar backgroundColor={'transparent'} translucent={true} />
         <View style={styles.screenHeader}>
           <Header
-            onPress={() => {
-              props.navigation.goBack();
-            }}
+            BAckButton
+            onPress={() => props.navigation.navigate('Homes', { screen: 'settings' })}
+            press={() => props.navigation.goBack()}
           />
         </View>
         <View style={styles.screenBody}>
           <View style={styles.profileImageContainer}>
             <View style={styles.profileImage}>
               <Image
-                source={Images.Pictures.help}
-                style={{width: '100%', height: '100%'}}
+                source={Images.Pictures.profile}
+                style={{ width: '100%', height: '100%' }}
               />
             </View>
           </View>
@@ -69,10 +69,10 @@ const ContactUs = props => {
               }}>
               <FormInput
                 value={state.Name}
-                onChangeText={value => setState({...state, Name: value})}
+                onChangeText={value => setState({ ...state, Name: value })}
                 placeHolder="Enter Your Name"
-                onFocus={() => setState({...state, focus: 'Name'})}
-                onBlur={() => setState({...state, focus: ''})}
+                onFocus={() => setState({ ...state, focus: 'Name' })}
+                onBlur={() => setState({ ...state, focus: '' })}
               />
             </View>
             <Text style={styles.inputLabelName}>Email</Text>
@@ -85,10 +85,10 @@ const ContactUs = props => {
               }}>
               <FormInput
                 value={state.email}
-                onChangeText={value => setState({...state, email: value})}
+                onChangeText={value => setState({ ...state, email: value })}
                 placeHolder="Enter Your Email"
-                onFocus={() => setState({...state, focus: 'email'})}
-                onBlur={() => setState({...state, focus: ''})}
+                onFocus={() => setState({ ...state, focus: 'email' })}
+                onBlur={() => setState({ ...state, focus: '' })}
               />
             </View>
             <Text style={styles.inputLabelName}>Subject</Text>
@@ -101,10 +101,10 @@ const ContactUs = props => {
               }}>
               <FormInput
                 value={state.subject}
-                onChangeText={value => setState({...state, subject: value})}
+                onChangeText={value => setState({ ...state, subject: value })}
                 placeHolder="Your Subject"
-                onFocus={() => setState({...state, focus: 'subject'})}
-                onBlur={() => setState({...state, focus: ''})}
+                onFocus={() => setState({ ...state, focus: 'subject' })}
+                onBlur={() => setState({ ...state, focus: '' })}
               />
             </View>
 
@@ -120,14 +120,14 @@ const ContactUs = props => {
                 multiLine={true}
                 height={150}
                 value={state.yourMessage}
-                onChangeText={value => setState({...state, yourMessage: value})}
+                onChangeText={value => setState({ ...state, yourMessage: value })}
                 placeHolder="Explain Your Issue/Problem"
-                onFocus={() => setState({...state, focus: 'yourMessage'})}
-                onBlur={() => setState({...state, focus: ''})}
+                onFocus={() => setState({ ...state, focus: 'yourMessage' })}
+                onBlur={() => setState({ ...state, focus: '' })}
               />
             </View>
           </View>
-          <View style={{paddingVertical: 20, width: '100%'}}>
+          <View style={{ paddingVertical: 20, width: '100%' }}>
             <AppButton
               LinearColor1={'#5DF7B8'}
               LinearColor2={'#3109FB'}
@@ -210,5 +210,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  inputLabelName: {alignSelf: 'flex-start', color: '#000000', fontSize: 14},
+  inputLabelName: { alignSelf: 'flex-start', color: '#000000', fontSize: 14 },
 });

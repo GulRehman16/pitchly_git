@@ -5,17 +5,18 @@ import {
     ImageBackground,
     Image,
     ScrollView,
+    TouchableOpacity,
     StatusBar,
     Switch,
     FlatList
 } from 'react-native'
 import React, { useState } from 'react'
 import { Images } from '../../../constants'
-import { Box, Header, Row, Switch1 } from '../../../components'
-import { Item, Textarea } from 'native-base'
+import { Box, Header, Row, Switch1, AppButton, FormInput } from '../../../components'
+import LinearGradient from 'react-native-linear-gradient';
 import { Icon } from 'react-native-elements'
 import Post from '../../../components/post'
-const AddTelent = ({ }) => {
+const AddTelent = ({ onPress, borderRadius, navigation }) => {
 
     return (
         <ImageBackground
@@ -28,13 +29,62 @@ const AddTelent = ({ }) => {
                 <View style={{}}>
                     <View style={styles.screenHeader}>
                         <Header
+                            BAckButton
                             hiddinText
-                            text="Featured Post"
-                            onPress={() => { props.navigation.goBack(); }} />
+                            text="Add Talent"
+                            onPress={() => { navigation.goBack(); }} />
                     </View>
-                    <View style={styles.screenBody}>
+                    <View style={{ marginTop: 10 }}>
+                        <View style={styles.whitebox}>
+                            <View style={styles.Input}>
+                                <FormInput multiLine height={45}
+                                    placeHolder="lorem ipsome" />
+                            </View>
+                            <View style={styles.screenBody}>
+                                <View style={styles.Input}>
+                                    <FormInput multiLine height={160}
+                                        placeHolder="Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+                                 sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, 
+                                sed diam voluptua. At vero eos et accusam et justo." />
+                                </View>
 
-                        <View style={{ width: '60%', alignSelf: 'center' }}>
+                                <View style={styles.Input}>
+                                    <FormInput multiLine height={45}
+                                        placeHolder="State" />
+                                </View>
+                                <View style={styles.Input}>
+                                    <FormInput multiLine height={45}
+                                        placeHolder="City" />
+                                </View>
+                                <View style={{ flexDirection: 'row', width: '90%', alignItems: 'center', alignSelf: 'center', marginTop: 10 }}>
+                                    <TouchableOpacity activeOpacity={0.8} onPress={onPress}>
+                                        <LinearGradient
+                                            start={{ x: 1, y: 0.0 }}
+                                            end={{ x: 1, y: 1.9 }}
+                                            colors={['#5DF7B8', '#3109FB']}
+                                            style={{
+                                                width: 35,
+                                                height: 35,
+                                                borderRadius: borderRadius || 5,
+                                                alignItems: 'center',
+                                                justifyContent: 'center',
+                                            }}>
+                                            <Image source={Images.Icons.PhotoVideo} />
+                                        </LinearGradient>
+                                    </TouchableOpacity>
+                                    <Text
+                                        style={{
+                                            fontSize: 14,
+                                            // fontWeight: 'bold',
+                                            color: 'black',
+                                            marginLeft: 10,
+                                        }}>
+                                        Upload Photo & Video
+                                    </Text>
+                                </View>
+                            </View>
+                        </View>
+                        <View style={{ width: '60%', alignSelf: 'center', }}>
                             <View style={{ marginVertical: 25 }}>
                                 <AppButton
                                     LinearColor1={'#5DF7B8'}
@@ -88,5 +138,19 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
 
     },
+    whitebox: {
+        width: '90%',
+        height: 386,
+        paddingTop: 5,
+        paddingBottom: 20,
+        borderRadius: 10,
+        backgroundColor: '#fff',
+        alignSelf: 'center',
+        elevation: 2,
+    },
+    Input: {
+        width: '90%', alignSelf: 'center', marginTop: 8,
+        borderWidth: 0.4, borderRadius: 10, borderColor: "#aaa"
+    }
 
 })  
