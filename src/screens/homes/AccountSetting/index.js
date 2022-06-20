@@ -61,7 +61,6 @@ const AccountSetting = (props) => {
                     </View>
                     <View style={styles.screenBody}>
                         <View style={styles.whitebox}>
-
                             <FlatList
                                 data={data}
                                 renderItem={({ item }) => {

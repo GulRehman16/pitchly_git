@@ -11,6 +11,8 @@ import React, {useState} from 'react';
 
 import {Icon} from 'react-native-elements';
 import LinearGradient from 'react-native-linear-gradient';
+import {Images} from '../../constants';
+import {Followbtn} from '../Followbtn';
 
 const UserData = ({
   navigation,
@@ -160,6 +162,16 @@ const styles = StyleSheet.create({
     elevation: 2,
   },
 
+  premiumicon: {
+    width: 110,
+    height: 65,
+    marginLeft: -20,
+  },
+  Image1: {
+    width: '100%',
+    height: '100%',
+    borderRadius: 100,
+  },
   textbox: {
     width: '100%',
     alignSelf: 'center',
@@ -204,13 +216,64 @@ const styles = StyleSheet.create({
     marginLeft: 7,
     marginTop: -7,
   },
-  bioBox: {
+  bioBox: {},
+
+  profilerow: {
+    marginVertical: 15,
     width: '90%',
-    height: 347,
-    backgroundColor: '#fff',
     alignSelf: 'center',
-    borderRadius: 10,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
+  Profilepic: {
+    width: 100,
+    height: 100,
+    borderRadius: 100,
+  },
+
+  userInfo: {
+    marginLeft: 20,
+  },
+  UserName: {
+    fontSize: 18,
+    color: '#000',
+    fontWeight: 'bold',
+    letterSpacing: 1,
+  },
+  UserEmail: {
+    marginVertical: 2,
+  },
+  followerText: {
+    flexDirection: 'row',
+  },
+  UserPostNumber: {
+    fontSize: 18,
+    color: '#000',
+    fontWeight: 'bold',
+    letterSpacing: 1,
+    textAlign: 'center',
+    fontSize: 14,
+  },
+  UserPost: {
+    alignSelf: 'center',
+    fontSize: 10,
+    letterSpacing: 0.7,
+    color: '#000',
+    // marginLeft: 20
+  },
+  Bios: {
+    fontSize: 18,
+    color: '#000',
+    fontWeight: '600',
+  },
+  Descriprion: {
+    fontSize: 14,
+    color: '#000',
+    marginVertical: 2,
+    letterSpacing: 1,
+    fontWeight: 'bold',
+  },
+  btnw: {fontWeight: 'bold', color: 'black'},
 
   profilerow: {
     marginVertical: 15,

@@ -18,7 +18,6 @@ const Login = props => {
     focus: '',
     secureText: true,
   });
-
   return (
     <ImageBackground
       style={styles.imageContainer}
@@ -30,6 +29,7 @@ const Login = props => {
         <View style={styles.screenHeader}>
           <Header
             visibleText
+            BAckButton
             text="Sign In"
             onPress={() => {
               props.navigation.goBack();

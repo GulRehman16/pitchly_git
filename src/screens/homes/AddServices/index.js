@@ -19,9 +19,9 @@ import { AppButton, FormInput, Header, } from '../../../components';
 import { Images } from '../../../constants';
 import LinearGradient from 'react-native-linear-gradient';
 
-const AddServices = ({ onSwitch
+const AddServices = (props
 
-}) => {
+) => {
 
     const [isEnabled, setIsEnabled] = useState(false);
     const toggleSwitch = () => setIsEnabled(previousState => !previousState);
@@ -48,29 +48,33 @@ const AddServices = ({ onSwitch
                         <View style={styles.whitebox}>
                             <View style={styles.Pictures}>
                                 <View style={{ width: '90%', alignSelf: 'center', marginVertical: 20 }}>
-                                    <View style={{ marginVertical: 5 }}>
+                                    <View style={styles.Input}>
                                         <FormInput placeHolder="Service Name" />
                                     </View>
-                                    <View style={{ marginVertical: 5 }}>
+                                    <View style={styles.Input}>
                                         <FormInput multiLine height={124}
                                             placeHolder="Service Descripton" />
                                     </View>
 
-                                    <View style={{ marginVertical: 5 }}>
+                                    <View style={styles.Input}>
                                         <FormInput placeHolder="Service Price" />
                                     </View>
-                                    <View style={{ marginVertical: 5 }}>
+                                    <View style={styles.Input}>
                                         <FormInput multiLine height={124}
                                             placeHolder="Pricing Note Like Per Hour Or Any Specific Info (Optional)" />
                                     </View>
-                                    <View style={{ marginVertical: 5 }}>
+                                    <View style={styles.Input}>
                                         <FormInput placeHolderColor="#000" placeHolder="State" />
                                     </View>
-                                    <View style={{ marginVertical: 5 }}>
+                                    <View style={styles.Input}>
                                         <FormInput placeHolderColor="#000" placeHolder="City" />
                                     </View>
                                 </View>
-                                <View style={{ flexDirection: 'row', width: '90%', alignItems: 'center', alignSelf: 'center', marginTop: 10 }}>
+                                <View style={{
+                                    marginTop: -12, marginVertical: 10,
+                                    flexDirection: 'row', width: '90%',
+                                    alignItems: 'center', alignSelf: 'center',
+                                }}>
                                     <TouchableOpacity activeOpacity={0.8} onPress={onPress}>
                                         <LinearGradient
                                             start={{ x: 1, y: 0.0 }}
@@ -86,7 +90,6 @@ const AddServices = ({ onSwitch
                                             <Image source={Images.Icons.PhotoVideo} />
                                         </LinearGradient>
                                     </TouchableOpacity>
-
                                     <Text
                                         style={{
                                             fontSize: 14,
@@ -96,10 +99,9 @@ const AddServices = ({ onSwitch
                                         }}>
                                         Upload Photo & Video<Text styl={{ color: 'red' }}>*</Text>
                                     </Text>
-
                                 </View>
                             </View>
-                            <View style={{ width: '80%', alignSelf: 'center', marginVertical: 25 }}>
+                            <View style={{ width: '80%', alignSelf: 'center', marginVertical: 10 }}>
                                 <AppButton
                                     LinearColor1={'#5DF7B8'}
                                     LinearColor2={'#3109FB'}
@@ -152,7 +154,6 @@ const styles = StyleSheet.create({
         width: '100%',
         height: '100%',
         // alignSelf: 'center'
-
     },
     whitebox: {
         width: '90%',
@@ -162,7 +163,10 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         elevation: 2,
     },
-
+    Input: {
+        width: '100%', alignSelf: 'center', marginTop: 8,
+        borderWidth: 0.4, borderRadius: 10, borderColor: "#aaa"
+    },
     profilerow: {
         flexDirection: 'row'
     }

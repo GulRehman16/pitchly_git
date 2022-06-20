@@ -30,16 +30,24 @@ import Blocked from '../../screens/homes/Blocked';
 import Language from '../../screens/homes/Language';
 import Payment from '../../screens/homes/PAyment';
 import ThankYouScreen from '../../screens/homes/thank you';
-import GetFeatured from '../../screens/homes/GetItFeaturedPost';
 import DeactivateAccount from '../../screens/homes/DeactivateAccount';
 import DeleteAccount from '../../screens/homes/DeleteAccount';
 import Settings from '../../screens/homes/settings';
-import FeaturedPost from '../../screens/homes/FeaturedPost';
 import Productdetails from '../../screens/homes/ProductDetails';
 import ChatDetails from '../../screens/homes/chatDetails';
 import PictureSlider from '../../screens/homes/PictureSlider';
 import HomeScreensix from '../../screens/homes/home6';
-import EditProfile from '../../screens/homes/EditProfile';
+import AddPost from '../../screens/homes/Addpost';
+import NotificationSetting from '../../screens/homes/notificationSetting';
+import AddTelent from '../../screens/homes/AddTelent';
+import Addproduct from '../../screens/homes/Addproduct';
+import SearchScreen from '../../screens/homes/SearchbyScreen';
+import FeaturedPost from '../../screens/homes/FeaturedPost';
+import Weekpackage from '../../screens/homes/weekpackage';
+
+// import AddTelent from '../../screens/homes/AddTelent'
+
+
 const Stack = createNativeStackNavigator();
 
 const Auth = () => {
@@ -102,12 +110,30 @@ export const Homes = () => {
         options={{headerShown: false}}
       />
 
+
+
+      <Stack.Screen
+        name="notificationsettings"
+        component={NotificationSetting}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="weekpackage"
+        component={Weekpackage}
+        options={{ headerShown: false }}
+      />
+
+      <Stack.Screen
+        name="featuredpost"
+        component={FeaturedPost}
+        options={{ headerShown: false }}
+      />
+
       <Stack.Screen
         name="home"
         component={home}
         options={{headerShown: false}}
       />
-
       <Stack.Screen
         name="productdetails"
         component={Productdetails}
@@ -236,6 +262,32 @@ export const Homes = () => {
         component={DeleteAccount}
         options={{headerShown: false}}
       />
+      <Stack.Screen
+        name="addpost"
+        component={AddPost}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="addservices"
+        component={AddServices}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="addtelent"
+        component={AddTelent}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="addproduct"
+        component={Addproduct}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="searchscreen"
+        component={SearchScreen}
+        options={{ headerShown: false }}
+      />
+
     </Stack.Navigator>
   );
 };
@@ -259,6 +311,7 @@ const MyStack = () => {
           component={MyTabs}
           options={{headerShown: false}}
         />
+
       </Stack.Navigator>
     </NavigationContainer>
   );

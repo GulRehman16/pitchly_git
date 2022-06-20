@@ -89,7 +89,6 @@ const Following = ({ }) => {
                                                 <View style={{}}>
                                                     <Followbtn followbutton
                                                         borderWidth={0.75}
-
                                                         color1="#3109FB"
                                                         color2="#eee"
                                                         color3="#fff"

@@ -61,11 +61,13 @@ export default Post;
 const styles = StyleSheet.create({
   whitebox: {
     width: '90%',
-    height: '100%',
+    // height: '100%',
+    // height: '100%',
     borderRadius: 10,
     backgroundColor: '#fff',
     alignSelf: 'center',
     elevation: 2,
+    marginVertical: 20
     // marginBottom: 20,
   },
   textView: {

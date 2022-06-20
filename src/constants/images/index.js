@@ -71,6 +71,7 @@ const Images = {
     user1: require('../../assets/images/user1.png'),
     play: require('../../assets/images/play.png'),
     starIcon: require('../../assets/images/shareIcon.png'),
+    search: require('../../assets/images/search.png'),
   },
 };
 
