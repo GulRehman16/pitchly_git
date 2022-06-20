@@ -314,9 +314,12 @@ const Home = ({navigation}) => {
           <StatusBar backgroundColor={'transparent'} translucent={true} />
           <View style={styles.body}>
             <View style={styles.headerView}>
-              <HomeHeader homeHeader1 onPress={() =>
-                props.navigation.navigate('Homes', { screen: 'searchscreen' })
-              } />
+              <HomeHeader
+                homeHeader1
+                onPress={() =>
+                  props.navigation.navigate('Homes', {screen: 'searchscreen'})
+                }
+              />
             </View>
             <View style={styles.statusBoxView}>
               <View style={styles.statusAddView}>

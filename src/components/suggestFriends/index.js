@@ -58,7 +58,7 @@ const SuggestFriends = ({
       <TouchableOpacity
         // onPress={() => //check ke condition lagani haaaa
         //   }
-        onPress={() => setcheck(false)}
+        onPress={() => setcheck(!check)}
         activeOpacity={0.7}
         style={{width: '100%'}}>
         <LinearGradient
@@ -84,6 +84,8 @@ const SuggestFriends = ({
               borderWidth: check == true ? null : 1,
               textAlign: 'center',
               width: '100%',
+              borderRadius: check == false ? 5 : 0,
+              fontSize: check == true ? 14 : 13,
             }}>
             {check == true ? 'Follow' : 'UnFollow'}
           </Text>

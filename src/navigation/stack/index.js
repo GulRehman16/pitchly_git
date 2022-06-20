@@ -24,6 +24,7 @@ import Profile from '../../screens/homes/profile';
 import PremiumMemberScreen from '../../screens/homes/PremiumMemberScreen';
 import ChatScreen from '../../screens/homes/ChatScreen';
 import GetFeaturedPost from '../../screens/homes/Get_It_Featured';
+import GetFeatured from '../../screens/homes/GetFeatured';
 import AccountDeactivation from '../../screens/homes/AccountDeactivation';
 import ChangePassword from '../../screens/homes/ChangePassword';
 import Blocked from '../../screens/homes/Blocked';
@@ -44,9 +45,9 @@ import Addproduct from '../../screens/homes/Addproduct';
 import SearchScreen from '../../screens/homes/SearchbyScreen';
 import FeaturedPost from '../../screens/homes/FeaturedPost';
 import Weekpackage from '../../screens/homes/weekpackage';
+import EditProfile from '../../screens/homes/EditProfile';
 
 // import AddTelent from '../../screens/homes/AddTelent'
-
 
 const Stack = createNativeStackNavigator();
 
@@ -110,23 +111,21 @@ export const Homes = () => {
         options={{headerShown: false}}
       />
 
-
-
       <Stack.Screen
         name="notificationsettings"
         component={NotificationSetting}
-        options={{ headerShown: false }}
+        options={{headerShown: false}}
       />
       <Stack.Screen
         name="weekpackage"
         component={Weekpackage}
-        options={{ headerShown: false }}
+        options={{headerShown: false}}
       />
 
       <Stack.Screen
         name="featuredpost"
         component={FeaturedPost}
-        options={{ headerShown: false }}
+        options={{headerShown: false}}
       />
 
       <Stack.Screen
@@ -265,29 +264,28 @@ export const Homes = () => {
       <Stack.Screen
         name="addpost"
         component={AddPost}
-        options={{ headerShown: false }}
+        options={{headerShown: false}}
       />
       <Stack.Screen
         name="addservices"
         component={AddServices}
-        options={{ headerShown: false }}
+        options={{headerShown: false}}
       />
       <Stack.Screen
         name="addtelent"
         component={AddTelent}
-        options={{ headerShown: false }}
+        options={{headerShown: false}}
       />
       <Stack.Screen
         name="addproduct"
         component={Addproduct}
-        options={{ headerShown: false }}
+        options={{headerShown: false}}
       />
       <Stack.Screen
         name="searchscreen"
         component={SearchScreen}
-        options={{ headerShown: false }}
+        options={{headerShown: false}}
       />
-
     </Stack.Navigator>
   );
 };
@@ -311,7 +309,6 @@ const MyStack = () => {
           component={MyTabs}
           options={{headerShown: false}}
         />
-
       </Stack.Navigator>
     </NavigationContainer>
   );

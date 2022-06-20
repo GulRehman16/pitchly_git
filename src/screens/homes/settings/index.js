@@ -1,80 +1,77 @@
-
 import {
   StyleSheet,
-  Text, View,
+  Text,
+  View,
   ImageBackground,
   Image,
   ScrollView,
   StatusBar,
   Switch,
-  FlatList
-} from 'react-native'
-import React, { useState } from 'react'
-import { Images } from '../../../constants'
-import { Box, Header, Row, Switch1 } from '../../../components'
+  FlatList,
+} from 'react-native';
+import React, {useState} from 'react';
+import {Images} from '../../../constants';
+import {Box, Header, Row, Switch1} from '../../../components';
+import FeaturedPost from '../FeaturedPost';
 
-const Settings = (props) => {
-
+const Settings = props => {
   const data = [
     {
       Image1: Images.Icons.Star,
       text2: 'Become Premium Member',
       Image2: Images.Icons.arrowforward,
-      Press: () => props.navigation.navigate('premium')
+      Press: () => props.navigation.navigate('premium'),
     },
     {
       Image1: Images.Icons.Document,
       text2: 'Your Featured Posts',
       Image2: Images.Icons.arrowforward,
-      Press: () => props.navigation.navigate('getfeaturePost')
+      Press: () => props.navigation.navigate('getfeaturePost'),
     },
     {
       Image1: Images.Icons.Save,
       text2: 'Your Saved Posts',
       Image2: Images.Icons.arrowforward,
-      Press: () => props.navigation.navigate('home')
+      Press: () => props.navigation.navigate('home'),
     },
     {
       Image1: Images.Icons.Account,
       text2: 'Account Settings',
       Image2: Images.Icons.arrowforward,
-      Press: () => props.navigation.navigate('accountsettings')
-
+      Press: () => props.navigation.navigate('accountsettings'),
     },
     {
       Image1: Images.Icons.document2,
       text2: 'Privacy Policy',
       Image2: Images.Icons.arrowforward,
-      Press: () => props.navigation.navigate('privacyPolicy')
-
-
+      Press: () => props.navigation.navigate('privacyPolicy'),
     },
     {
       Image1: Images.Icons.privacy,
       text2: 'Terms & Conditions',
       Image2: Images.Icons.arrowforward,
-      Press: () => props.navigation.navigate('termsAndCondition')
-
+      Press: () => props.navigation.navigate('termsAndCondition'),
     },
     {
       Image1: Images.Icons.Logout,
       text2: 'Logout',
       // Image2: Images.Icons.arrowforward,
 
-      Press: () => props.navigation.navigate('Auth', { screen: 'login' })
+      Press: () => props.navigation.navigate('Auth', {screen: 'login'}),
     },
-  ]
+  ];
   return (
     <ImageBackground
       style={styles.imageContainer}
       source={Images.Pictures.appBg}>
       <ScrollView
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={{ flexGrow: 1 }}>
+        contentContainerStyle={{flexGrow: 1}}>
         <StatusBar backgroundColor={'transparent'} translucent={true} />
         <View style={{}}>
           <View style={styles.screenHeader}>
-            <Header BAckButton
+            <Header
+              BAckButton
               hiddinText
               text="Settings"
               onPress={() => {
@@ -85,25 +82,27 @@ const Settings = (props) => {
           <View style={styles.screenBody}>
             <FlatList
               data={data}
-              renderItem={({ item }) => {
+              renderItem={({item}) => {
                 return (
                   <>
-                    <Row Row2
+                    <Row
+                      Row2
                       Image1={item.Image1}
                       text2={item.text2}
                       Image2={item.Image2}
                       Press={item.Press}
                     />
                   </>
-                )
+                );
               }}
-            /></View>
+            />
+          </View>
         </View>
       </ScrollView>
-    </ImageBackground >
-  )
-}
-export default Settings
+    </ImageBackground>
+  );
+};
+export default Settings;
 
 const styles = StyleSheet.create({
   imageContainer: {
@@ -136,7 +135,6 @@ const styles = StyleSheet.create({
     width: '90%',
     height: '100%',
     alignSelf: 'center',
-
   },
   // whitebox: {
   //     width: '90%',
@@ -147,8 +145,4 @@ const styles = StyleSheet.create({
   //     // justifyContent: 'space-around'
 
   // },
-
-
-
-
-})  
+});

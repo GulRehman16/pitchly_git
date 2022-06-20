@@ -56,7 +56,7 @@ const AllMixed = ({feture, navigation}) => {
       profileImg: Images.Pictures.statusImg1,
       profileTitle: 'Veni Paul',
       postTime: '1 hour ago',
-      boxTitle: 'Talent Name',
+      boxTitle: 'Product Name',
       boxDetail:
         ' Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diamnonumy eirmod tempor...',
       price: '$ 120.00',
@@ -87,7 +87,7 @@ const AllMixed = ({feture, navigation}) => {
       profileImg: Images.Pictures.statusImg1,
       profileTitle: 'Veni Paul',
       postTime: '1 hour ago',
-      boxTitle: 'Talent Name',
+      boxTitle: 'Product Name',
       boxDetail:
         ' Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diamnonumy eirmod tempor...',
       price: '$ 120.00',
@@ -105,7 +105,7 @@ const AllMixed = ({feture, navigation}) => {
       profileImg: Images.Pictures.talent,
       profileTitle: 'Veni Paul',
       postTime: '1 hour ago',
-      boxTitle: 'Talent Name',
+      boxTitle: 'Service Name',
       boxDetail:
         ' Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diamnonumy eirmod tempor...',
       price: '$ 10.00',

@@ -207,8 +207,20 @@ const PostBox = ({
                           height: '45%',
                           marginTop: 15,
                           borderRadius: 10,
+                          backgroundColor: 'black',
+                          opacity: 0.5,
                         }}
                       />
+                      <Text
+                        style={{
+                          color: 'white',
+                          position: 'absolute',
+                          bottom: 20,
+                          textAlign: 'center',
+                          fontSize: 15,
+                        }}>
+                        {'30\n More'}
+                      </Text>
                     </TouchableOpacity>
                   </View>
                 </View>

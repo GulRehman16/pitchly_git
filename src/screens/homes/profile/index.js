@@ -23,6 +23,7 @@ import Product from '../../../components/Product';
 import AllMixed from '../../../components/All';
 import ImagePicker from 'react-native-image-crop-picker';
 import {Highlight} from '../../../components/Highlight';
+import FeaturedPost from '../FeaturedPost';
 const Profile = props => {
   const statusData = [
     {
