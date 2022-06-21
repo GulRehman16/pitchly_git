@@ -1,6 +1,7 @@
 import {
   View,
   Text,
+  Image,
   ImageBackground,
   StyleSheet,
   Appearance,
@@ -11,27 +12,91 @@ import {
   TextInput,
   TouchableOpacity,
 } from 'react-native';
+
+import {
+  GifSearch,
+  poweredByTenorLogoWhite,
+  poweredByTenorLogoGrey,
+  poweredByTenorLogoBlue,
+  viaTenorLogoWhite,
+  viaTenorLogoGrey,
+  viaTenorLogoBlue,
+  poweredByGiphyLogoGrey,
+  poweredByGiphyLogoWhite,
+} from 'react-native-gif-search';
+
 import React from 'react';
 import {Icon} from 'native-base';
 import {Images} from '../../../constants';
 import {useState, useEffect} from 'react';
 import Headerchat from '../../../components/Headerchat';
 import ImagePicker from 'react-native-image-crop-picker';
+import LinearGradient from 'react-native-linear-gradient';
+
 const ChatScreen = props => {
   const [messages, setMessages] = useState([]);
   const [message, setMessage] = useState('');
   const [orientation, setOrientation] = useState(true);
-
-  const picker = () => {
+  const [Visible, setVisible] = useState(true);
+  const pickerGallery = () => {
     ImagePicker.openPicker({
       width: 300,
       height: 400,
       cropping: true,
     }).then(image => {
+      // setimg(image.path);
       console.log(image);
+      setVisible(true);
+    });
+  };
+  const pickerCamera = () => {
+    ImagePicker.openCamera({
+      width: 300,
+      height: 400,
+      cropping: true,
+    }).then(image => {
+      // setimg(image.path);
+      console.log(image);
+      setVisible(true);
     });
   };
 
+  const Gif = () => {
+    // <GifSearch
+    //   // tenorApiKey={YOUR_TENOR_API_KEY}
+    //   gifsToLoad={10}
+    //   maxGifsToLoad={25}
+    //   style={{backgroundColor: 'white', borderWidth: 3, borderRadius: 10}}
+    //   textInputStyle={{fontWeight: 'bold', color: 'black'}}
+    //   gifListStyle={{height: 320}}
+    //   gifStyle={{height: 160}}
+    //   loadingSpinnerColor={'black'}
+    //   placeholderTextColor={'grey'}
+    //   placeholderText={'Search'}
+    //   onGifSelected={(gif_url, gif_object) => {
+    //     console.log(gif_url);
+    //     console.log(gif_object);
+    //   }}
+    //   onGifLongPress={(gif_url, gif_object) => {
+    //     console.log(gif_url);
+    //     console.log(gif_object);
+    //   }}
+    //   visible={this.state.visible}
+    //   onBackPressed={() => {
+    //     this.setState({visible: false});
+    //   }}
+    //   horizontal={false}
+    //   showScrollBar={false}
+    //   noGifsFoundText={'No Gifs found :('}
+    //   noGifsFoundTextStyle={{fontWeight: 'bold'}}
+    //   provider={'tenor'}
+    //   providerLogo={poweredByTenorLogoGrey}
+    //   textInputProps={{autoFocus: true}}
+    //   onError={error => {
+    //     console.log(error);
+    //   }}
+    // />;
+  };
   const isPortrait = () => {
     const dim = Dimensions.get('screen');
     return dim.height >= dim.width;
@@ -252,17 +317,79 @@ const ChatScreen = props => {
                 height: 60,
                 marginLeft: 15,
               }}>
-              <TouchableOpacity
-                // disabled={message.length <= 0}
-                // activeOpacity={0.7}
-                // onPress={onSend}
-                onPress={() => picker()}>
-                <Icon
-                  name="pluscircle"
-                  type="AntDesign"
-                  style={{color: '#4059E4', marginRight: 10}}
-                />
-              </TouchableOpacity>
+              {Visible === true ? (
+                <TouchableOpacity
+                  // disabled={message.length <= 0}
+                  // activeOpacity={0.7}
+                  // onPress={onSend}
+                  onPress={() => setVisible(false)}>
+                  <Icon
+                    name="pluscircle"
+                    type="AntDesign"
+                    style={{
+                      color: '#4059E4',
+                      marginRight: 10,
+                      marginLeft: 10,
+                    }}
+                  />
+                </TouchableOpacity>
+              ) : (
+                <View style={{flexDirection: 'row'}}>
+                  <LinearGradient
+                    start={{x: 1, y: 0.0}}
+                    end={{x: 1, y: 1.9}}
+                    colors={['#5DF7B8', '#3109FB']}
+                    style={{
+                      // width: '100%',
+                      height: 35,
+                      borderRadius: 15,
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      flexDirection: 'row',
+                    }}>
+                    <TouchableOpacity
+                      // disabled={message.length <= 0}
+                      // activeOpacity={0.7}
+                      // onPress={onSend}
+                      onPress={() => pickerCamera()}>
+                      <Icon
+                        name="camerao"
+                        type="AntDesign"
+                        style={{color: '#4059E4', marginLeft: 10}}
+                      />
+                    </TouchableOpacity>
+
+                    <TouchableOpacity
+                      // disabled={message.length <= 0}
+                      // activeOpacity={0.7}
+                      // onPress={onSend}
+                      onPress={() => pickerGallery()}>
+                      <Icon
+                        name="picture-o"
+                        type="FontAwesome"
+                        style={{color: '#4059E4', marginLeft: 10}}
+                      />
+                    </TouchableOpacity>
+
+                    <TouchableOpacity
+                      // disabled={message.length <= 0}
+                      // activeOpacity={0.7}
+                      // onPress={onSend}
+                      onPress={() => Gif()}>
+                      <Icon
+                        name="gif"
+                        type="MaterialIcons"
+                        style={{
+                          color: '#4059E4',
+                          marginLeft: 5,
+                          marginRight: 10,
+                        }}
+                      />
+                    </TouchableOpacity>
+                  </LinearGradient>
+                </View>
+              )}
+
               <TextInput
                 placeholderTextColor={(colorScheme = 'dark' ? 'grey' : 'grey')}
                 multiline={true}

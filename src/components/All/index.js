@@ -68,6 +68,7 @@ const AllMixed = ({feture, navigation}) => {
       checksingle: false,
       checkfollow: false,
       feture: feture ? false : true,
+      Getfeture: true,
       // ImgPress: navigation.navigate('Homes', {screen: 'productdetails'}),
     },
     {
@@ -81,6 +82,7 @@ const AllMixed = ({feture, navigation}) => {
       checksingle: true,
       checkfollow: true,
       feture: feture ? false : true,
+      Getfeture: false,
       // ImgPress: navigation.navigate('Homes', {screen: 'productdetails'}),
     },
     {
@@ -99,6 +101,7 @@ const AllMixed = ({feture, navigation}) => {
       checksingle: false,
       checkfollow: false,
       feture: feture ? false : true,
+      Getfeture: true,
       // ImgPress: navigation.navigate('Homes', {screen: 'productdetails'}),
     },
     {
@@ -113,6 +116,7 @@ const AllMixed = ({feture, navigation}) => {
       checksingle: true,
       checkfollow: false,
       feture: feture ? false : true,
+      Getfeture: false,
       //   ImgPress: navigation.navigate('Homes', {screen: 'productdetails'}),
     },
   ];
@@ -139,6 +143,7 @@ const AllMixed = ({feture, navigation}) => {
                 price={item.price}
                 ImgPress={item.ImgPress}
                 feture={item.feture}
+                GetFeture={item.Getfeture}
               />
               {item.checkfollow == true ? (
                 <View>
