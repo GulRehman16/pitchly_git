@@ -177,7 +177,7 @@ const styles = StyleSheet.create({
   screenHeader: {
     width: '90%',
     height: 150,
-    marginTop: 30,
+    marginTop: 20,
     alignSelf: 'center',
     justifyContent: 'center',
     alignItems: 'center',

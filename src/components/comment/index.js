@@ -10,12 +10,13 @@ import {
   ScrollView,
   TextInput,
   TouchableOpacity,
+
 } from 'react-native';
 import { Icon } from 'native-base';
 import { Images } from '../../../constants';
 import React, { useState, useEffect } from 'react';
 import { Avatar } from 'react-native-elements';
-const Comment = ({ image, name, time }) => {
+const Comment = ({ image, name, time, Radius, height, typesomething }) => {
   const [messages, setMessages] = useState([]);
   const [message, setMessage] = useState('');
   const [orientation, setOrientation] = useState(true);
@@ -119,6 +120,7 @@ const Comment = ({ image, name, time }) => {
                   flexDirection: 'row',
                   alignItems: 'center',
                   marginTop: 10,
+                  width: '95%', alignSelf: 'center'
                 }}>
                 <Avatar rounded size={50} source={image} />
                 <View>
@@ -153,20 +155,21 @@ const Comment = ({ image, name, time }) => {
       <View
         style={{
           width: '100%',
-          height: 48,
+          height: height || 48,
           flexDirection: 'row',
           alignItems: 'center',
           justifyContent: 'space-between',
           elevation: 2,
-          borderRadius: 50,
+          borderRadius: Radius || 50,
           paddingLeft: 5,
           borderWidth: 1,
-          borderColor: '#F36C29',
+          borderColor: '#eee',
           backgroundColor: '#fff',
           //   position: 'absolute',
-          bottom: 0,
-          marginTop: 15,
+          // bottom: 0,
+          // marginTop: 15,
           alignSelf: 'center',
+          marginTop: 20
         }}>
         <View
           style={{
@@ -176,16 +179,18 @@ const Comment = ({ image, name, time }) => {
             flexDirection: 'row',
             height: 60,
             marginLeft: 15,
+
           }}>
           <TextInput
             placeholderTextColor={(colorScheme = 'dark' ? 'grey' : 'grey')}
             multiline={true}
-            placeholder="Type Message"
+            placeholder={typesomething}
             value={message}
             onChangeText={text => {
               setMessage(text.trimStart());
             }}
             style={{
+              marginVertical: 5,
               width: '75%',
               color: '#000',
             }}
@@ -200,6 +205,8 @@ const Comment = ({ image, name, time }) => {
             justifyContent: 'flex-end',
             paddingRight: 10,
           }}>
+
+
           <TouchableOpacity
             disabled={message.length <= 0}
             activeOpacity={0.7}
@@ -207,7 +214,7 @@ const Comment = ({ image, name, time }) => {
             <Icon
               name="send"
               type="MaterialIcons"
-              style={{ color: message.length <= 0 ? 'grey' : '#F36C29' }}
+              style={{ color: message.length <= 0 ? 'grey' : '#4059E4' }}
             />
           </TouchableOpacity>
         </View>

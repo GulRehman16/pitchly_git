@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   ScrollView,
   StatusBar,
@@ -10,27 +10,19 @@ import {
   View,
   FlatList,
 } from 'react-native';
-import {Images} from '../../../constants';
+import { Images } from '../../../constants';
 import {
-  FormInput,
-  AppButton,
-  Header,
-  Tooltips,
-  HomeHeader,
   StatusView,
   PitchlyFeatured,
-  PostBox,
+
   SuggestFriends,
   OverlayScreen,
+  AllMixed, HomeHeader, Product, Services, Talent,
 } from '../../../components';
-import {Icon} from 'native-base';
+import { Icon } from 'native-base';
 import LinearGradient from 'react-native-linear-gradient';
-import Talent from '../../../components/Talent';
-import Services from '../../../components/Services';
-import Product from '../../../components/Product';
-import AllMixed from '../../../components/All';
 import ImagePicker from 'react-native-image-crop-picker';
-const Home = ({navigation}) => {
+const Home = ({ feture, navigation }) => {
   const [data, setData] = useState({
     postDataAll: [
       {
@@ -310,13 +302,14 @@ const Home = ({navigation}) => {
         source={Images.Pictures.homeMainBg}>
         <ScrollView
           showsVerticalScrollIndicator={false}
-          contentContainerStyle={{flexGrow: 1}}>
+          contentContainerStyle={{ flexGrow: 1 }}>
           <StatusBar backgroundColor={'transparent'} translucent={true} />
           <View style={styles.body}>
             <View style={styles.headerView}>
-              <HomeHeader homeHeader1 onPress={() =>
-                props.navigation.navigate('Homes', { screen: 'searchscreen' })
-              } />
+              <HomeHeader
+                homeHeader1 onPress={() =>
+                  props.navigation.navigate('Homes', { screen: 'searchscreen' })
+                } />
             </View>
             <View style={styles.statusBoxView}>
               <View style={styles.statusAddView}>
@@ -331,9 +324,9 @@ const Home = ({navigation}) => {
                 horizontal={true}
                 showsHorizontalScrollIndicator={false}
                 data={data.statusData}
-                renderItem={({item}) => {
+                renderItem={({ item }) => {
                   return (
-                    <View style={{paddingLeft: 10}}>
+                    <View style={{ paddingLeft: 10 }}>
                       <StatusView
                         imgName={item.imgName}
                         width={item.width}
@@ -348,7 +341,9 @@ const Home = ({navigation}) => {
               />
             </View>
             <View style={styles.pitchlyFeatured}>
-              <PitchlyFeatured />
+              <PitchlyFeatured
+                onPress1={() => navigation.navigate('Homes', { screen: 'homescreensix' })}
+                onPress2={() => navigation.navigate('Homes', { screen: 'home11' })} />
             </View>
 
             <View
@@ -367,13 +362,13 @@ const Home = ({navigation}) => {
                   borderRadius: 5,
                 }}>
                 {/* PRODUCTS FEED */}
-                <Text style={{color: 'black', fontWeight: 'bold'}}>
+                <Text style={{ color: 'black', fontWeight: 'bold' }}>
                   {check.value}
                 </Text>
               </View>
               <LinearGradient
-                start={{x: 1.5, y: 1.0}}
-                end={{x: 1.5, y: 2.5}}
+                start={{ x: 1.5, y: 1.0 }}
+                end={{ x: 1.5, y: 2.5 }}
                 colors={['#28A9F61A', '#4C9BD2']}
                 style={{
                   width: '60%',
@@ -384,7 +379,7 @@ const Home = ({navigation}) => {
                   flexDirection: 'row',
                 }}>
                 <TouchableOpacity
-                  onPress={() => setcheck({...check, value: 'PITCHLY FEED'})}
+                  onPress={() => setcheck({ ...check, value: 'PITCHLY FEED' })}
                   style={{
                     // backgroundColor: 'red',
                     paddingBottom: check.value == 'PITCHLY FEED' ? 2 : null,
@@ -401,7 +396,7 @@ const Home = ({navigation}) => {
                   </Text>
                 </TouchableOpacity>
                 <TouchableOpacity
-                  onPress={() => setcheck({...check, value: 'TALENT FEED'})}
+                  onPress={() => setcheck({ ...check, value: 'TALENT FEED' })}
                   style={{
                     // backgroundColor: 'red',
                     paddingBottom: check.value == 'TALENT FEED' ? 2 : null,
@@ -418,7 +413,7 @@ const Home = ({navigation}) => {
                   </Text>
                 </TouchableOpacity>
                 <TouchableOpacity
-                  onPress={() => setcheck({...check, value: 'SERVICES FEED'})}
+                  onPress={() => setcheck({ ...check, value: 'SERVICES FEED' })}
                   style={{
                     // backgroundColor: 'red',
                     paddingBottom: check.value == 'SERVICES FEED' ? 2 : null,
@@ -436,7 +431,7 @@ const Home = ({navigation}) => {
                   </Text>
                 </TouchableOpacity>
                 <TouchableOpacity
-                  onPress={() => setcheck({...check, value: 'PRODUCTS FEED'})}
+                  onPress={() => setcheck({ ...check, value: 'PRODUCTS FEED' })}
                   style={{
                     // backgroundColor: 'red',
                     paddingBottom: check.value == 'PRODUCTS FEED' ? 2 : null,
@@ -446,8 +441,7 @@ const Home = ({navigation}) => {
                   }}>
                   <Text
                     style={{
-                      fontSize: 11,
-                      fontWeight: 'bold',
+                      fontSize: 11, fontWeight: 'bold',
                       color: check.value == 'PRODUCTS FEED' ? 'blue' : 'black',
                     }}>
                     Products
@@ -473,7 +467,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
   },
-  body: {width: '90%', height: '100%', alignSelf: 'center', paddingBottom: 60},
+  body: { width: '90%', height: '100%', alignSelf: 'center', paddingBottom: 60 },
   statusBoxView: {
     width: '110%',
     marginTop: 20,
@@ -481,7 +475,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
 
-  headerView: {width: '100%', marginTop: 60},
+  headerView: { width: '100%', marginTop: 60 },
   statusAddView: {
     alignItems: 'center',
     justifyContent: 'center',
@@ -496,7 +490,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  statusAddIcon: {width: 24.63, height: 24.63},
+  statusAddIcon: { width: 24.63, height: 24.63 },
   pitchlyFeatured: {
     width: '100%',
     marginTop: 15,

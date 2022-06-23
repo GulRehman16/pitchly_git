@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   ScrollView,
   StatusBar,
@@ -9,23 +9,23 @@ import {
   ImageBackground,
   View,
 } from 'react-native';
-import {Images} from '../../../constants';
-import {FormInput, AppButton, Header, Confirmation} from '../../../components';
-import {Icon} from 'native-base';
-import {SafeAreaView} from 'react-native-safe-area-context';
+import { Images } from '../../../constants';
+import { FormInput, AppButton, Header, Confirmation } from '../../../components';
+import { Icon } from 'native-base';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const ForgetConfirm = props => {
   return (
     <ImageBackground
       style={styles.imageContainer}
-      source={Images.Pictures.forgetBlur}>
+      source={Images.Pictures.appBg}>
       <ScrollView
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={{flexGrow: 1}}>
+        contentContainerStyle={{ flexGrow: 1 }}>
         <StatusBar backgroundColor={'transparent'} translucent={true} />
 
         <View style={styles.screenBody}>
-          <View style={{marginTop: -50, width: '100%'}}>
+          <View style={{ marginTop: 50, width: '100%' }}>
             <Confirmation
               text={'Password Reset Link Sent'}
               image={Images.Logos.done}
@@ -33,7 +33,7 @@ const ForgetConfirm = props => {
             />
           </View>
 
-          <View style={{paddingVertical: 20, width: '100%'}}>
+          <View style={{ paddingVertical: 20, width: '100%' }}>
             <AppButton
               LinearColor1={'#5DF7B8'}
               LinearColor2={'#3109FB'}

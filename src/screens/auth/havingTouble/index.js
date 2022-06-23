@@ -23,19 +23,10 @@ const HavingTouble = props => {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ flexGrow: 1 }}>
         <StatusBar backgroundColor={'transparent'} translucent={true} />
-        <View style={styles.screenHeader}>
-          <Header BAckButton
-            hiddinText
-
-            onPress={() => {
-              navigation.goBack();
-            }}
-          />
-        </View>
         <View style={styles.ScreenBody}>
-          <View style={{ marginTop: -50, width: '100%' }}>
+          <View style={{ marginTop: 50, width: '100%' }}>
             <Confirmation
-              text={'Thank You \n for contacting Us'}
+              text={'Thank You \n For Contacting Us'}
               image={Images.Logos.done}
               text2={'You will receive a reply from us soon'}
             />

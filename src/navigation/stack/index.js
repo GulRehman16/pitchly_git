@@ -1,6 +1,6 @@
 import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import splash from '../../screens/auth/splash';
 import login from '../../screens/auth/login';
 import home from '../../screens/homes/home';
@@ -20,10 +20,11 @@ import AddServices from '../../screens/homes/AddServices';
 import AccountSetting from '../../screens/homes/AccountSetting';
 import Profile from '../../screens/homes/profile';
 
-// import EditProfile from '../../screens/homes/editprofile';
+import EditProfile from '../../screens/homes/editprofile';
 import PremiumMemberScreen from '../../screens/homes/PremiumMemberScreen';
 import ChatScreen from '../../screens/homes/ChatScreen';
 import GetFeaturedPost from '../../screens/homes/Get_It_Featured';
+import GetFeatured from '../../screens/homes/GetFeatured';
 import AccountDeactivation from '../../screens/homes/AccountDeactivation';
 import ChangePassword from '../../screens/homes/ChangePassword';
 import Blocked from '../../screens/homes/Blocked';
@@ -43,10 +44,14 @@ import AddTelent from '../../screens/homes/AddTelent';
 import Addproduct from '../../screens/homes/Addproduct';
 import SearchScreen from '../../screens/homes/SearchbyScreen';
 import FeaturedPost from '../../screens/homes/FeaturedPost';
-import Weekpackage from '../../screens/homes/weekpackage';
-
+import Home11 from '../../screens/homes/home11';
+import StoreCreate from '../../screens/homes/Storecreate';
+import Followers from '../../screens/homes/followers';
+import Following from '../../screens/homes/following';
+import SavedStatus from '../../screens/homes/savedstatus';
+import TalentScreen from '../../screens/homes/TalentScreen';
+// import Weekpackage from '../../screens/homes/weekpackage';
 // import AddTelent from '../../screens/homes/AddTelent'
-
 
 const Stack = createNativeStackNavigator();
 
@@ -56,47 +61,47 @@ const Auth = () => {
       <Stack.Screen
         name="splash"
         component={splash}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
       <Stack.Screen
         name="mainAuth"
         component={mainAuth}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
       <Stack.Screen
         name="login"
         component={login}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
       <Stack.Screen
         name="signup"
         component={signup}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
       <Stack.Screen
         name="forgetPassword"
         component={ForgetPassword}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
       <Stack.Screen
         name="forgetConfirm"
         component={ForgetConfirm}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
       <Stack.Screen
         name="contactUs"
         component={ContactUs}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
       <Stack.Screen
         name="havingTouble"
         component={HavingTouble}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
       <Stack.Screen
         name="addServices"
         component={AddServices}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
     </Stack.Navigator>
   );
@@ -104,163 +109,186 @@ const Auth = () => {
 export const Homes = () => {
   return (
     <Stack.Navigator>
+
+      <Stack.Screen
+        name="home"
+        component={home}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="talentscreen"
+        component={TalentScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="home11"
+        component={Home11}
+        options={{ headerShown: false }}
+      />
       <Stack.Screen
         name="homescreensix"
         component={HomeScreensix}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
 
+      <Stack.Screen
+        name="storecreate"
+        component={StoreCreate}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="followings"
+        component={Following}
+        options={{ headerShown: false }}
+      />
 
+      <Stack.Screen
+        name="follwers"
+        component={Followers}
+        options={{ headerShown: false }}
+      />
 
       <Stack.Screen
         name="notificationsettings"
         component={NotificationSetting}
         options={{ headerShown: false }}
       />
-      <Stack.Screen
-        name="weekpackage"
-        component={Weekpackage}
-        options={{ headerShown: false }}
-      />
+
 
       <Stack.Screen
         name="featuredpost"
         component={FeaturedPost}
         options={{ headerShown: false }}
       />
-
-      <Stack.Screen
-        name="home"
-        component={home}
-        options={{headerShown: false}}
-      />
       <Stack.Screen
         name="productdetails"
         component={Productdetails}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
       <Stack.Screen
         name="profile"
         component={Profile}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
       <Stack.Screen
         name="settings"
         component={Settings}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
       <Stack.Screen
         name="getfeatured"
         component={GetFeatured}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
       <Stack.Screen
         name="fututerdpost"
         component={FeaturedPost}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
 
       <Stack.Screen
         name="thankyouscreen"
         component={ThankYouScreen}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
       <Stack.Screen
         name="payment"
         component={Payment}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
       <Stack.Screen
         name="language"
         component={Language}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
+
       <Stack.Screen
         name="Accountdeactivation"
         component={AccountDeactivation}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
       <Stack.Screen
         name="chatdetails"
         component={ChatDetails}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
       <Stack.Screen
         name="getfeaturePost"
         component={GetFeaturedPost}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
       <Stack.Screen
         name="editprofile"
         component={EditProfile}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
       <Stack.Screen
         name="accountsettings"
         component={AccountSetting}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
       <Stack.Screen
         name="premium"
         component={PremiumMemberScreen}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
+
       <Stack.Screen
         name="chatscreen"
         component={ChatScreen}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
       <Stack.Screen
         name="chatScreen1"
         component={ChatScreen1}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
       <Stack.Screen
         name="messageScreen"
         component={MessageScreen}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
       <Stack.Screen
         name="termsAndCondition"
         component={TermsAndCondition}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
       <Stack.Screen
         name="pictureslider"
         component={PictureSlider}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
       <Stack.Screen
         name="privacyPolicy"
         component={PrivacyPolicy}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
       <Stack.Screen
         name="Notification"
         component={Notification}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
       <Stack.Screen
         name="changepassword"
         component={ChangePassword}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
 
       <Stack.Screen
         name="blocked"
         component={Blocked}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
 
       <Stack.Screen
         name="deactivateaccount"
         component={DeactivateAccount}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
       <Stack.Screen
         name="deleteaccount"
         component={DeleteAccount}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
       <Stack.Screen
         name="addpost"
@@ -287,7 +315,11 @@ export const Homes = () => {
         component={SearchScreen}
         options={{ headerShown: false }}
       />
-
+      <Stack.Screen
+        name="saveStatus"
+        component={SavedStatus}
+        options={{ headerShown: false }}
+      />
     </Stack.Navigator>
   );
 };
@@ -299,19 +331,18 @@ const MyStack = () => {
         <Stack.Screen
           name="Auth"
           component={Auth}
-          options={{headerShown: false}}
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name="Homes"
           component={Homes}
-          options={{headerShown: false}}
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name="MyTabs"
           component={MyTabs}
-          options={{headerShown: false}}
+          options={{ headerShown: false }}
         />
-
       </Stack.Navigator>
     </NavigationContainer>
   );

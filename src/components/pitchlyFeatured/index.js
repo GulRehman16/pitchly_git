@@ -7,14 +7,14 @@ import {
   FlatList,
   ImageBackground,
 } from 'react-native';
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
-import {Images} from '../../constants';
-import {StatusView} from '../statusView';
+import { Images } from '../../constants';
+import { StatusView } from '../statusView';
 import LinearGradient from 'react-native-linear-gradient';
-import {Icon} from 'native-base';
+import { Icon } from 'native-base';
 
-const PitchlyFeatured = ({}) => {
+const PitchlyFeatured = ({ onPress1, onPress2 }) => {
   const [data, setData] = useState({
     statusData: [
       {
@@ -126,8 +126,8 @@ const PitchlyFeatured = ({}) => {
 
         borderRadius: 19,
       }}>
-      <View style={{alignSelf: 'center', width: '90%', height: '100%'}}>
-        <TouchableOpacity style={{position: 'absolute', top: '40%', left: -25}}>
+      <View style={{ alignSelf: 'center', width: '90%', height: '100%' }}>
+        <TouchableOpacity style={{ position: 'absolute', top: '40%', left: -25 }}>
           <Icon
             type="AntDesign"
             name="left"
@@ -138,7 +138,7 @@ const PitchlyFeatured = ({}) => {
           />
         </TouchableOpacity>
         <TouchableOpacity
-          style={{position: 'absolute', top: '40%', right: -15}}>
+          style={{ position: 'absolute', top: '40%', right: -15 }}>
           <Icon
             type="AntDesign"
             name="right"
@@ -156,22 +156,22 @@ const PitchlyFeatured = ({}) => {
             justifyContent: 'space-between',
             marginTop: 10,
           }}>
-          <Text style={{fontSize: 12, fontWeight: 'bold', color: '#000'}}>
+          <Text style={{ fontSize: 12, fontWeight: 'bold', color: '#000' }}>
             Pitchly Featured
           </Text>
-          <TouchableOpacity>
-            <Text style={{color: '#3109FB', fontWeight: 'bold'}}>See All</Text>
+          <TouchableOpacity onPress={onPress2}>
+            <Text style={{ color: '#3109FB', fontWeight: 'bold' }}>See All</Text>
           </TouchableOpacity>
         </View>
 
-        <View style={{width: '100%', marginLeft: -10}}>
+        <View style={{ width: '100%', marginLeft: -10 }}>
           <FlatList
             horizontal={true}
             showsHorizontalScrollIndicator={false}
             data={data.statusData}
-            renderItem={({item}) => {
+            renderItem={({ item }) => {
               return (
-                <View style={{marginTop: 5}}>
+                <View style={{ marginTop: 5 }}>
                   <TouchableOpacity
                     activeOpacity={0.9}
                     style={{
@@ -190,8 +190,8 @@ const PitchlyFeatured = ({}) => {
                       }}>
                       <LinearGradient
                         activeOpacity={0.9}
-                        start={{x: 0, y: 0.0}}
-                        end={{x: 1, y: 1.9}}
+                        start={{ x: 0, y: 0.0 }}
+                        end={{ x: 1, y: 1.9 }}
                         colors={['#4059E4', '#4059E4', '#4059E4', '#5DF7B8']}
                         style={{
                           width: '100%',
@@ -205,7 +205,7 @@ const PitchlyFeatured = ({}) => {
                           alignItems: 'center',
                           justifyContent: 'center',
                         }}>
-                        <Text style={{color: 'white', fontSize: 9}}>
+                        <Text style={{ color: 'white', fontSize: 9 }}>
                           Lorem ipsum
                         </Text>
                       </LinearGradient>
@@ -217,42 +217,45 @@ const PitchlyFeatured = ({}) => {
           />
         </View>
       </View>
-      <LinearGradient
-        activeOpacity={0.9}
-        start={{x: 0, y: 0.0}}
-        end={{x: 1, y: 1.9}}
-        colors={['#5DF7B8', '#3109FB']}
-        style={{
-          width: '99%',
-          alignSelf: 'center',
-          height: 35,
-          backgroundColor: 'red',
-          position: 'absolute',
-          bottom: 0,
-          borderBottomRightRadius: 20,
-          borderBottomLeftRadius: 20,
-          alignItems: 'center',
-          justifyContent: 'center',
-          flexDirection: 'row',
-        }}>
-        <Icon
-          type="AntDesign"
-          name="arrowleft"
-          style={{fontSize: 10, color: 'white', marginRight: 10}}
-        />
-        <Text style={{fontSize: 14, color: 'white'}}>
-          Pitchly Promotions & Discounts
-        </Text>
-        <Icon
-          type="AntDesign"
-          name="arrowright"
-          style={{fontSize: 10, color: 'white', marginLeft: 10}}
-        />
-      </LinearGradient>
+      <TouchableOpacity onPress={onPress1}>
+
+        <LinearGradient
+          activeOpacity={0.9}
+          start={{ x: 0, y: 0.0 }}
+          end={{ x: 1, y: 1.9 }}
+          colors={['#5DF7B8', '#3109FB']}
+          style={{
+            width: '99%',
+            alignSelf: 'center',
+            height: 35,
+            backgroundColor: 'red',
+            position: 'absolute',
+            bottom: 0,
+            borderBottomRightRadius: 20,
+            borderBottomLeftRadius: 20,
+            alignItems: 'center',
+            justifyContent: 'center',
+            flexDirection: 'row',
+          }}>
+          <Icon
+            type="AntDesign"
+            name="arrowleft"
+            style={{ fontSize: 10, color: 'white', marginRight: 10 }}
+          />
+          <Text style={{ fontSize: 14, color: 'white' }}>
+            Pitchly Promotions & Discounts
+          </Text>
+          <Icon
+            type="AntDesign"
+            name="arrowright"
+            style={{ fontSize: 10, color: 'white', marginLeft: 10 }}
+          />
+        </LinearGradient>
+      </TouchableOpacity>
     </View>
   );
 };
 
-export {PitchlyFeatured};
+export { PitchlyFeatured };
 
 const styles = StyleSheet.create({});

@@ -17,7 +17,7 @@ import { Header, Followbtn } from '../../../components'
 
 import { UserData } from '../../../components/usersdata'
 
-const Followers = ({ }) => {
+const Followers = (props) => {
 
     // const [state, setState] = useState('follow');
 
@@ -72,6 +72,7 @@ const Followers = ({ }) => {
                     <View style={styles.screenHeader}>
                         <Header
                             hiddinText
+                            BAckButton
                             text="Followers"
                             onPress={() => {
                                 props.navigation.goBack();
@@ -87,7 +88,6 @@ const Followers = ({ }) => {
                                         return (
                                             <>
                                                 <View style={{}}>
-
                                                     <Followbtn followbutton
                                                         userprofile borderWidth={0.75}
                                                         color1="#eee"

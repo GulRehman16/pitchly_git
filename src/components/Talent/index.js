@@ -1,9 +1,10 @@
-import React, {useEffect} from 'react';
-import {StyleSheet, Text, View, FlatList, Dimensions} from 'react-native';
-import {Images, Themes} from '../../constants';
+import React, { useEffect } from 'react';
+import { StyleSheet, Text, View, FlatList, Dimensions } from 'react-native';
+import { Images, Themes } from '../../constants';
 import LinearGradient from 'react-native-linear-gradient';
-import {PostBox} from '../postBox';
-const Talent = ({feture}) => {
+import { PostBox } from '../../components';
+
+const Talent = ({ feture, navigation }) => {
   const Talent = [
     {
       profileImg: Images.Pictures.statusImg1,
@@ -16,6 +17,7 @@ const Talent = ({feture}) => {
       singleImg: Images.Pictures.talent,
       checksingle: 'false',
       feture: feture ? false : true,
+      Press: () => { navigation.navigate('login') }
     },
     {
       profileImg: Images.Pictures.statusImg3,
@@ -28,6 +30,7 @@ const Talent = ({feture}) => {
       singleImg: Images.Pictures.talent,
       checksingle: 'false',
       feture: feture ? false : true,
+      Press: () => { navigation.navigate('login') }
     },
   ];
 
@@ -35,9 +38,9 @@ const Talent = ({feture}) => {
     <View>
       <FlatList
         data={Talent}
-        renderItem={({item}) => {
+        renderItem={({ item }) => {
           return (
-            <View style={{marginTop: 10}}>
+            <View style={{ marginTop: 10 }}>
               <PostBox
                 profileTitle={item.profileTitle}
                 postTime={item.postTime}
@@ -52,6 +55,8 @@ const Talent = ({feture}) => {
                 checksingle={item.checksingle}
                 feture={item.feture}
                 price={''}
+                Press={item.Press}
+
               />
             </View>
           );
@@ -60,4 +65,4 @@ const Talent = ({feture}) => {
     </View>
   );
 };
-export default Talent;
+export { Talent };

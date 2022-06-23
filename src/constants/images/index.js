@@ -26,7 +26,14 @@ const Images = {
     postImg1: require('../../assets/images/post1.png'),
     talent: require('../../assets/images/Talent.png'),
     highlight: require('../../assets/images/highlight.png'),
+    Highlight2: require('../../assets/images/Highlight2.png'),
     Friendship: require('../../assets/images/Friendship.png'),
+    CarHigh: require('../../assets/images/CarHigh.png'),
+    status1: require('../../assets/images/status1.png'),
+    Whitecar: require('../../assets/images/Whitecar.png'),
+    Devil: require('../../assets/images/Devil.png'),
+    Faram: require('../../assets/images/Faram.png'),
+    Friendship1: require('../../assets/images/Friendship1.png'),
   },
   Logos: {
     plusIcon: require('../../assets/images/plusIcon.png'),
@@ -75,4 +82,4 @@ const Images = {
   },
 };
 
-export {Images};
+export { Images };

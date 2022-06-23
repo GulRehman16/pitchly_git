@@ -24,4 +24,12 @@ export * from './postBox';
 export * from './suggestFriends';
 export * from './overlay';
 export * from './comment';
-export * from './post'
+export * from './Talent';
+export * from './Product';
+export * from './Highlight';
+export * from './Services';
+export * from './All';
+export * from './usersdata';
+export * from './postBox'
+export * from './comment';
+export * from './suggestFriends'

@@ -10,6 +10,7 @@ import {
 } from 'react-native'
 import React, { useState } from 'react';
 import LinearGradient from 'react-native-linear-gradient';
+import { flingGestureHandlerProps } from 'react-native-gesture-handler/lib/typescript/handlers/FlingGestureHandler';
 const Followbtn = ({
     Image1,
     BoldText,
@@ -70,7 +71,7 @@ const Followbtn = ({
                             backgroundColor: colorState === true ? color1 : color2,
                             borderRadius: 3, justifyContent: 'center'
                         }}>
-                        <LinearGradient
+                        {/*  <LinearGradient
                             color1={{ x: 1, y: 0.0 }}
                             color2={{ x: 1, y: 1.9 }}
                             colors={['#5DF7B8', '#3109FB']}
@@ -81,13 +82,17 @@ const Followbtn = ({
                                 justifyContent: 'center'
                                 // borderRadius: 10
                             }}
+                            
                         >
-                            <Text style={{
-                                color: colorState === true ? color3 : color4,
-                                textAlign: 'center',
-                            }} >{state}</Text>
+                        */}
 
-                        </LinearGradient>
+                        <Text style={{
+                            color: colorState === true ? '#3109FB' : '#5DF7B8',
+                            color: colorState === true ? "#000" : "black",
+                            textAlign: 'center',
+                        }} >{state}</Text>
+
+
                     </TouchableOpacity>
 
                 </View>

@@ -64,10 +64,10 @@ const AddServices = (props
                                             placeHolder="Pricing Note Like Per Hour Or Any Specific Info (Optional)" />
                                     </View>
                                     <View style={styles.Input}>
-                                        <FormInput placeHolderColor="#000" placeHolder="State" />
+                                        <FormInput placeHolder="State" />
                                     </View>
                                     <View style={styles.Input}>
-                                        <FormInput placeHolderColor="#000" placeHolder="City" />
+                                        <FormInput placeHolder="City" />
                                     </View>
                                 </View>
                                 <View style={{
@@ -109,7 +109,7 @@ const AddServices = (props
                                     borderWidth={0.5}
                                     borderColor={'#707070'}
                                     backgroundColor={'#FFFFFF'}
-                                    label="Pay Now"
+                                    label="Post Now"
                                     onPress={() =>
                                         props.navigation.replace('MyTabs', { screen: 'home' })
                                     }
@@ -132,7 +132,7 @@ const styles = StyleSheet.create({
     screenHeader: {
         width: '90%',
         height: 80,
-        marginTop: 50,
+        marginTop: 20,
         alignSelf: 'center',
         justifyContent: 'center',
         alignItems: 'center',

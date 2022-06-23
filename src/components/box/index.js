@@ -9,123 +9,162 @@ import {
   TouchableHighlight,
   TouchableOpacity,
 } from 'react-native';
-import React, {useState} from 'react';
-import Swipeable from 'react-native-swipeable';
-import {Avatar} from 'react-native-elements';
-import {Icon} from 'native-base';
-const Box = ({
-  name,
-  textmessage,
-  Nowtext,
-  messagenumber,
-  Image1,
-  Press,
-  SwipeableText,
-}) => {
-  const [state, setState] = useState(true);
-  const rightButtons = [
-    <TouchableOpacity
+import React, { useState, useRef } from 'react';
+import { SwipeListView } from 'react-native-swipe-list-view';
+import { Avatar } from 'react-native-elements';
+import { Icon } from 'native-base';
+const Box = ({ name, textmessage, Nowtext, messagenumber, Image1, Press }) => {
+  const [state, setState] = useState(false);
+
+  const [listData] = useState(
+    Array(10)
+      .fill('')
+      .map((_, i) => ({ key: `${i}`, text: `item #${i}` })),
+  );
+  const openRowRef = useRef(null);
+
+  const onRowDidOpen = (rowKey, rowMap) => {
+    openRowRef.current = rowMap[rowKey];
+  };
+
+  const closeOpenRow = () => {
+    if (openRowRef.current && openRowRef.current.closeRow) {
+      openRowRef.current.closeRow();
+    }
+  };
+
+  const renderItem = data => (
+    <View style={styles.rowFront}>
+      <View style={{ marginLeft: 10, marginTop: 5 }}>
+        <Avatar rounded size={'medium'} source={Image1} />
+      </View>
+
+      <View style={{ width: '55%', marginLeft: 15, marginTop: 10 }}>
+        <Text style={styles.vani}>{name}</Text>
+        <Text style={styles.othertxt}>{textmessage}</Text>
+      </View>
+      <View
+        style={{
+          width: '30%',
+        }}>
+        <Text style={styles.just_now_text}>{Nowtext}</Text>
+        <View
+          style={{
+            width: 20,
+            height: 20,
+            borderRadius: 20,
+            backgroundColor: 'blue',
+            marginVertical: 4,
+            marginLeft: 10,
+          }}>
+          <Text style={{ color: '#ffff', textAlign: 'center' }}>
+            {messagenumber}
+          </Text>
+        </View>
+      </View>
+    </View>
+  );
+
+  const renderHiddenItem = () => (
+    <View
       style={{
-        width: 110,
-        height: 80,
-        borderTopRightRadius: 20,
-        borderBottomRightRadius: 20,
+        borderWidth: 1,
         backgroundColor: 'red',
-        zIndex: 2,
-        marginTop: -10,
+        width: '24%',
+        flex: 1,
+        height: 80,
+        borderTopRightRadius: 10,
+        borderBottomRightRadius: 10,
+        alignSelf: 'flex-end',
+        marginTop: 10,
         justifyContent: 'center',
-        marginLeft: 22,
+        alignItems: 'center',
+
       }}>
       <Icon
-        type="AntDesign"
-        name="delete"
-        style={{color: 'white', fontSize: 26, marginLeft: 36}}
+        name="trash"
+        type="FontAwesome5"
+        style={{
+          color: 'white',
+          marginRight: 55,
+          marginLeft: 15,
+          alignSelf: 'center'
+        }}
       />
-    </TouchableOpacity>,
-  ];
-  // const deleteItem = () => {
-  //     alert('delete Items')
-  // }
+    </View>
+  );
+
   return (
     <>
       <TouchableOpacity onPress={Press}>
-        <View style={styles.cardbox}>
-          <View style={{marginVertical: 20}}>
-            <View style={{flexDirection: 'row'}}>
-              {/* <Image
-                  
-                  style={{width: 50, height: 50, borderRadius: 30}}
-                /> */}
-              <View style={{marginLeft: 10, marginTop: 5}}>
-                <Avatar rounded size={'medium'} source={Image1} />
-              </View>
-
-              <View style={{width: '40%', marginLeft: 15, marginTop: 10}}>
-                <Text style={styles.vani}>{name}</Text>
-                <Text style={styles.othertxt}>{textmessage}</Text>
-              </View>
-              <View
-                style={{
-                  width: '30%',
-                }}>
-                {SwipeableText && (
-                  <Swipeable
-                    rightButtonWidth={250}
-                    leftActionActivationDistan={10}
-                    rightButtons={rightButtons ? rightButtons : LeftButtons}
-                    style={{
-                      marginTop: 10,
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                    }}>
-                    <Text style={styles.just_now_text}>{Nowtext}</Text>
-                    <View
-                      style={{
-                        width: 20,
-                        height: 20,
-                        borderRadius: 20,
-                        backgroundColor: 'blue',
-                        marginVertical: 4,
-                        marginLeft: 10,
-                      }}>
-                      <Text style={{color: '#ffff', textAlign: 'center'}}>
-                        {messagenumber}
-                      </Text>
-                    </View>
-                  </Swipeable>
-                )}
-              </View>
-            </View>
-          </View>
-        </View>
+        <SwipeListView
+          data={listData}
+          renderItem={renderItem}
+          renderHiddenItem={renderHiddenItem}
+          leftOpenValue={0}
+          rightOpenValue={-60}
+          previewRowKey={'0'}
+          previewOpenValue={-40}
+          previewOpenDelay={1000}
+          onRowDidOpen={onRowDidOpen}
+        />
       </TouchableOpacity>
     </>
   );
 };
-export {Box};
+export { Box };
 
 const styles = StyleSheet.create({
-  Container: {
+  container: {
     flex: 1,
   },
-
-  cardbox: {
-    width: '100%',
-    height: 80,
-    zIndex: 0,
-    marginVertical: 10,
-    borderRadius: 25,
-    backgroundColor: '#fff',
-    justifyContent: 'space-evenly',
-    elevation: 4,
+  backTextWhite: {
+    color: 'white',
   },
-  ImgView: {
-    justifyContent: 'space-evenly',
-    width: 60,
-    height: 60,
-    borderRadius: 30,
-    backgroundColor: 'grey',
-    marginLeft: 20,
+  rowFront: {
+    alignItems: 'center',
+    backgroundColor: '#ffff',
+    elevation: 5,
+    marginTop: 5,
+
+    height: 82,
+
+    borderRadius: 10,
+    flexDirection: 'row',
+  },
+  rowBack: {
+    alignItems: 'center',
+
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    // paddingLeft: 15,
+  },
+  backRightBtn: {
+    position: 'absolute',
+    top: 5,
+    width: 97,
+    height: 82,
+  },
+  backRightBtnRight: {
+    backgroundColor: 'red',
+    right: 0,
+    borderTopRightRadius: 20,
+    borderBottomRightRadius: 20,
+    width: 97,
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 30,
+  },
+  closeButton: {
+    backgroundColor: 'white',
+    bottom: 30,
+    borderWidth: 1,
+    borderRadius: 4,
+    borderColor: 'black',
+    padding: 15,
+    position: 'absolute',
+    right: 30,
   },
   vani: {
     color: 'grey',
@@ -136,16 +175,5 @@ const styles = StyleSheet.create({
     color: 'grey',
     fontSize: 13,
     fontWeight: '700',
-  },
-  just_now_text: {
-    color: 'blue',
-    fontSize: 13,
-  },
-  btn: {
-    //  width: 60,
-    // padding: 10,
-    // backgroundColor: 'red',
-
-    color: '#fff',
   },
 });

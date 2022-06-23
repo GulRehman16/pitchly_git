@@ -38,14 +38,12 @@ const AddTelent = ({ onPress, borderRadius, navigation }) => {
                         <View style={styles.whitebox}>
                             <View style={styles.Input}>
                                 <FormInput multiLine height={45}
-                                    placeHolder="lorem ipsome" />
+                                    placeHolder="Telent tiltle" />
                             </View>
                             <View style={styles.screenBody}>
                                 <View style={styles.Input}>
                                     <FormInput multiLine height={160}
-                                        placeHolder="Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-                                 sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, 
-                                sed diam voluptua. At vero eos et accusam et justo." />
+                                        placeHolder="Discription" />
                                 </View>
 
                                 <View style={styles.Input}>
@@ -56,7 +54,10 @@ const AddTelent = ({ onPress, borderRadius, navigation }) => {
                                     <FormInput multiLine height={45}
                                         placeHolder="City" />
                                 </View>
-                                <View style={{ flexDirection: 'row', width: '90%', alignItems: 'center', alignSelf: 'center', marginTop: 10 }}>
+                                <View style={{
+                                    flexDirection: 'row', width: '90%',
+                                    alignItems: 'center', alignSelf: 'center', marginTop: 10
+                                }}>
                                     <TouchableOpacity activeOpacity={0.8} onPress={onPress}>
                                         <LinearGradient
                                             start={{ x: 1, y: 0.0 }}
@@ -93,7 +94,7 @@ const AddTelent = ({ onPress, borderRadius, navigation }) => {
                                     borderWidth={0.5}
                                     borderColor={'#707070'}
                                     backgroundColor={'#FFFFFF'}
-                                    label="Review"
+                                    label="Post Now"
                                 />
                             </View>
                         </View>
@@ -114,7 +115,7 @@ const styles = StyleSheet.create({
     screenHeader: {
         width: '90%',
         height: 80,
-        marginTop: 50,
+        marginTop: 20,
         alignSelf: 'center',
         justifyContent: 'center',
         alignItems: 'center',

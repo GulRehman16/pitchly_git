@@ -32,7 +32,7 @@ const Settings = (props) => {
       Image1: Images.Icons.Save,
       text2: 'Your Saved Posts',
       Image2: Images.Icons.arrowforward,
-      Press: () => props.navigation.navigate('home')
+      Press: () => props.navigation.navigate('home11')
     },
     {
       Image1: Images.Icons.Account,
@@ -114,8 +114,7 @@ const styles = StyleSheet.create({
   screenHeader: {
     width: '90%',
     height: 80,
-    marginTop: 50,
-    alignSelf: 'center',
+    marginTop: 20, alignSelf: 'center',
     justifyContent: 'center',
     alignItems: 'center',
   },

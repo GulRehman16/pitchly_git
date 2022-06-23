@@ -75,9 +75,6 @@ const HomeHeader = ({
 
 
       )}
-
-
-
       {homeHeader2 && (
         <View
           style={{

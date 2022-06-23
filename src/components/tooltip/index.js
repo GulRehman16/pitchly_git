@@ -116,7 +116,7 @@ const Tip = ({
                 fontWeight: 'bold',
                 color: 'black',
               }}>
-              Upload
+              UPLOAD
             </Text>
             <View style={styles.TooltipContainerMain}>
 
@@ -158,7 +158,7 @@ const Tip = ({
 
                 )}
 
-                <Text>{Text1}</Text>
+                <Text style={styles.texts}>{Text1}</Text>
               </TouchableOpacity>
               <TouchableOpacity
                 onPress={onPress2}
@@ -168,7 +168,7 @@ const Tip = ({
                   resizeMode="contain"
                   style={{ width: 40, height: 40 }}
                 />
-                <Text>{Text2}</Text>
+                <Text style={styles.texts}>{Text2}</Text>
               </TouchableOpacity>
 
               <TouchableOpacity
@@ -179,7 +179,7 @@ const Tip = ({
                   resizeMode="contain"
                   style={{ width: 40, height: 40 }}
                 />
-                <Text>{Text3}</Text>
+                <Text style={styles.texts}>{Text3}</Text>
               </TouchableOpacity>
 
               <TouchableOpacity
@@ -190,7 +190,7 @@ const Tip = ({
                   resizeMode="contain"
                   style={{ width: 40, height: 40 }}
                 />
-                <Text>{Text4}</Text>
+                <Text style={styles.texts}>{Text4}</Text>
               </TouchableOpacity>
 
 
@@ -265,6 +265,9 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     marginVertical: 10,
   },
+  texts: {
+    fontSize: 12
+  }
 
 })
 

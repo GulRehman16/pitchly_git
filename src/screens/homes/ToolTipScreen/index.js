@@ -31,7 +31,7 @@ const ToolTipScreen = (props) => {
             <Tip tooltipdata2
               marginVertical={70}
               Toppint
-              Text1="Genteral"
+              Text1="General"
               Text2="Talent"
               Text3="Services"
               Text4="Products"

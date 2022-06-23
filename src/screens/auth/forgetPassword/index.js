@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   ScrollView,
   StatusBar,
@@ -9,9 +9,9 @@ import {
   ImageBackground,
   View,
 } from 'react-native';
-import {Images} from '../../../constants';
-import {FormInput, AppButton, Header} from '../../../components';
-import {Icon} from 'native-base';
+import { Images } from '../../../constants';
+import { FormInput, AppButton, Header } from '../../../components';
+import { Icon } from 'native-base';
 
 const ForgetPassword = props => {
   const [state, setState] = useState({
@@ -28,10 +28,11 @@ const ForgetPassword = props => {
       source={Images.Pictures.appBg}>
       <ScrollView
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={{flexGrow: 1}}>
+        contentContainerStyle={{ flexGrow: 1 }}>
         <StatusBar backgroundColor={'transparent'} translucent={true} />
         <View style={styles.screenHeader}>
           <Header
+            BAckButton
             onPress={() => {
               props.navigation.goBack();
             }}
@@ -42,11 +43,11 @@ const ForgetPassword = props => {
             <View style={styles.profileImage}>
               <Image
                 source={Images.Logos.forgetPassword}
-                style={{width: '100%', height: '100%'}}
+                style={{ width: '100%', height: '100%' }}
               />
             </View>
           </View>
-          <View style={{width: '100%', alignItems: 'center'}}>
+          <View style={{ width: '100%', alignItems: 'center' }}>
             <Text
               style={{
                 width: 138,
@@ -55,6 +56,7 @@ const ForgetPassword = props => {
                 fontWeight: 'bold',
                 marginTop: 20,
                 color: '#000000',
+                textAlign: 'center'
               }}>
               Forget Your Password?
             </Text>
@@ -64,6 +66,7 @@ const ForgetPassword = props => {
                 fontSize: 15,
                 marginTop: 20,
                 color: '#000000',
+                textAlign: 'center'
               }}>
               Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
               nonumy eirmod
@@ -80,14 +83,14 @@ const ForgetPassword = props => {
               }}>
               <FormInput
                 value={state.email}
-                onChangeText={value => setState({...state, email: value})}
+                onChangeText={value => setState({ ...state, email: value })}
                 placeHolder="Enter Your Email"
-                onFocus={() => setState({...state, focus: 'email'})}
-                onBlur={() => setState({...state, focus: ''})}
+                onFocus={() => setState({ ...state, focus: 'email' })}
+                onBlur={() => setState({ ...state, focus: '' })}
               />
             </View>
           </View>
-          <View style={{paddingVertical: 20, width: '100%'}}>
+          <View style={{ paddingVertical: 20, width: '100%' }}>
             <AppButton
               LinearColor1={'#5DF7B8'}
               LinearColor2={'#3109FB'}
@@ -114,7 +117,7 @@ const styles = StyleSheet.create({
   screenHeader: {
     width: '90%',
     height: 80,
-    marginTop: 50,
+    marginTop: 20,
     alignSelf: 'center',
     justifyContent: 'center',
     alignItems: 'center',
@@ -156,5 +159,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  inputLabelName: {alignSelf: 'flex-start', color: '#000000', fontSize: 14},
+  inputLabelName: { alignSelf: 'flex-start', color: '#000000', fontSize: 14 },
 });

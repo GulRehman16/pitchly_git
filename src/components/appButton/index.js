@@ -20,7 +20,10 @@ const AppButton = ({
   LinearColor2,
   height,
   Radius,
-  borderRadius
+  borderRadius,
+  right,
+  left
+
 }) => {
   const icon = iconL || iconR;
 
@@ -55,6 +58,8 @@ const AppButton = ({
               left: iconL ? 15 : null,
               justifyContent: 'center',
               alignItems: 'center',
+              marginRight: right || 0,
+              marginLeft: left || 0
             }}>
             <Icon
               name={iconN || 'right'}

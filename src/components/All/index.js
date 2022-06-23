@@ -1,10 +1,16 @@
-import React, {useEffect} from 'react';
-import {StyleSheet, Text, View, FlatList, Dimensions} from 'react-native';
-import {Images, Themes} from '../../constants';
+import React, { useEffect } from 'react';
+import { StyleSheet, Text, View, FlatList, Dimensions } from 'react-native';
+import { Images, Themes } from '../../constants';
 import LinearGradient from 'react-native-linear-gradient';
-import {PostBox} from '../postBox';
-import {SuggestFriends} from '../suggestFriends';
-const AllMixed = ({feture, navigation}) => {
+import { PostBox, SuggestFriends } from '../../components'
+import { TouchableOpacity } from 'react-native-gesture-handler';
+
+
+
+const AllMixed = ({ props }) => {
+
+
+
   const statusData2 = [
     {
       imgName: Images.Pictures.statusImg1,
@@ -16,6 +22,7 @@ const AllMixed = ({feture, navigation}) => {
       width: 61,
       height: 61,
       text: 'John',
+      // Press: () => { navigation.navigate('contactUs') }
     },
     {
       imgName: Images.Pictures.statusImg2,
@@ -27,6 +34,7 @@ const AllMixed = ({feture, navigation}) => {
       width: 61,
       height: 61,
       text: 'Veni',
+      // Press: () => { navigation.navigate('') }
     },
     {
       imgName: Images.Pictures.statusImg3,
@@ -38,6 +46,8 @@ const AllMixed = ({feture, navigation}) => {
       width: 61,
       height: 61,
       text: 'Bella',
+      // Press: () => { navigation.navigate('') }
+
     },
     {
       imgName: Images.Pictures.statusImg4,
@@ -49,6 +59,7 @@ const AllMixed = ({feture, navigation}) => {
       width: 61,
       height: 61,
       text: 'Saher',
+      // Press: () => { navigation.navigate('') }
     },
   ];
   const All = [
@@ -67,9 +78,11 @@ const AllMixed = ({feture, navigation}) => {
       gridImg4: Images.Pictures.productcackImg5,
       checksingle: false,
       checkfollow: false,
-      feture: feture ? false : true,
-      // ImgPress: navigation.navigate('Homes', {screen: 'productdetails'}),
+      // feture: feture ? false : true,
+      Press: () => props.navigate('Homes', { screen: 'profile' })
+
     },
+
     {
       profileImg: Images.Pictures.statusImg1,
       profileTitle: 'Veni Paul',
@@ -80,8 +93,8 @@ const AllMixed = ({feture, navigation}) => {
       singleImg: Images.Pictures.talent,
       checksingle: true,
       checkfollow: true,
-      feture: feture ? false : true,
-      // ImgPress: navigation.navigate('Homes', {screen: 'productdetails'}),
+      // feture: feture ? false : true,
+      // Press: () => navigation.navigate('Homes', { screen: 'profile' })
     },
     {
       profileImg: Images.Pictures.statusImg1,
@@ -98,8 +111,9 @@ const AllMixed = ({feture, navigation}) => {
       gridImg4: Images.Pictures.productcackImg5,
       checksingle: false,
       checkfollow: false,
-      feture: feture ? false : true,
-      // ImgPress: navigation.navigate('Homes', {screen: 'productdetails'}),
+      // feture: feture ? false : true,
+
+      // Press: () => navigation.navigate('Homes', { screen: 'profile' })
     },
     {
       profileImg: Images.Pictures.talent,
@@ -112,7 +126,9 @@ const AllMixed = ({feture, navigation}) => {
       singleImg: Images.Pictures.postImg1,
       checksingle: true,
       checkfollow: false,
-      feture: feture ? false : true,
+      // feture: feture ? false : true,
+      // Press: () => navigation.navigate('Homes', { screen: 'profile' })
+
       //   ImgPress: navigation.navigate('Homes', {screen: 'productdetails'}),
     },
   ];
@@ -121,9 +137,9 @@ const AllMixed = ({feture, navigation}) => {
     <View>
       <FlatList
         data={All}
-        renderItem={({item}) => {
+        renderItem={({ item }) => {
           return (
-            <View style={{marginTop: 10}}>
+            <View style={{ marginTop: 10 }}>
               <PostBox
                 profileTitle={item.profileTitle}
                 postTime={item.postTime}
@@ -137,8 +153,8 @@ const AllMixed = ({feture, navigation}) => {
                 singleImg={item.singleImg}
                 checksingle={item.checksingle}
                 price={item.price}
-                ImgPress={item.ImgPress}
-                feture={item.feture}
+                // feture={item.feture}
+                Press={item.Press}
               />
               {item.checkfollow == true ? (
                 <View>
@@ -163,9 +179,9 @@ const AllMixed = ({feture, navigation}) => {
                       horizontal={true}
                       showsHorizontalScrollIndicator={false}
                       data={statusData2}
-                      renderItem={({item}) => {
+                      renderItem={({ item }) => {
                         return (
-                          <View style={{marginLeft: 10}}>
+                          <View style={{ marginLeft: 10 }}>
                             <SuggestFriends
                               imgName={item.imgName}
                               width={item.width}
@@ -173,6 +189,7 @@ const AllMixed = ({feture, navigation}) => {
                               imgWidth={item.imgWidth}
                               imgHeight={item.imgHeight}
                               text={item.text}
+                              Press={item.Press}
                             />
                           </View>
                         );
@@ -188,4 +205,4 @@ const AllMixed = ({feture, navigation}) => {
     </View>
   );
 };
-export default AllMixed;
+export { AllMixed };

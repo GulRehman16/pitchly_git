@@ -17,7 +17,7 @@ import { Followbtn, Header, } from '../../../components'
 
 import { UserData } from '../../../components/usersdata'
 
-const Following = ({ }) => {
+const Following = (props) => {
 
     // const [state, setState] = useState('follow');
 
@@ -57,9 +57,7 @@ const Following = ({ }) => {
             BoldText: 'Nargis',
             LighterText: '@nargis',
         },
-
     ]
-
     return (
         <ImageBackground
             style={styles.imageContainer}
@@ -72,6 +70,7 @@ const Following = ({ }) => {
                     <View style={styles.screenHeader}>
                         <Header
                             hiddinText
+                            BAckButton
                             text="Following"
                             onPress={() => {
                                 props.navigation.goBack();
@@ -86,21 +85,24 @@ const Following = ({ }) => {
                                     renderItem={({ item }) => {
                                         return (
                                             <>
+
+
                                                 <View style={{}}>
                                                     <Followbtn followbutton
-                                                        borderWidth={0.75}
-                                                        color1="#3109FB"
-                                                        color2="#eee"
-                                                        color3="#fff"
-                                                        color4="#000"
+                                                        userprofile borderWidth={0.75}
+                                                        color1="#eee"
+                                                        color2="#3109FB"
+                                                        color3="#000"
+                                                        color4="#fff"
                                                         User
-                                                        follow="Follow"
-                                                        unfollow="unfollow"
+                                                        follow="unfollow"
+                                                        unfollow="follow"
                                                         Image1={item.Image1}
                                                         BoldText={item.BoldText}
                                                         LighterText={item.LighterText}
                                                     />
                                                 </View>
+
                                             </>
                                         )
                                     }}

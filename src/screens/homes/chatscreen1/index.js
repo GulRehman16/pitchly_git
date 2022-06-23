@@ -220,7 +220,7 @@ const ChatScreen1 = ({ navigation }) => {
                 width: '95%',
                 borderWidth: 1,
                 backgroundColor: 'white',
-                height: '4%',
+                height: 45,
                 borderRadius: 10,
                 justifyContent: 'center',
                 alignItems: 'center',
@@ -256,7 +256,6 @@ const ChatScreen1 = ({ navigation }) => {
                 }}
               />
             </View>
-
             <View style={{}}>
               <Text style={styles.message}>Message</Text>
             </View>
@@ -350,7 +349,7 @@ const styles = StyleSheet.create({
   },
   btn: {
     width: 60,
-    padding: 10,
+    padding: 20,
     backgroundColor: 'red',
     textAlign: 'center',
   },

@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import {
   StyleSheet,
   Text,
@@ -7,9 +7,9 @@ import {
   Dimensions,
   TouchableOpacity,
 } from 'react-native';
-import {Images, Themes} from '../../constants';
-import {PostBox} from '../postBox';
-const Services = ({feture}) => {
+import { Images, Themes } from '../../constants';
+import { PostBox } from '../../components';
+const Services = ({ feture }) => {
   const Service = [
     {
       profileImg: Images.Pictures.statusImg1,
@@ -41,9 +41,9 @@ const Services = ({feture}) => {
     <View>
       <FlatList
         data={Service}
-        renderItem={({item}) => {
+        renderItem={({ item }) => {
           return (
-            <View style={{marginTop: 10}}>
+            <View style={{ marginTop: 10 }}>
               <PostBox
                 profileTitle={item.profileTitle}
                 postTime={item.postTime}
@@ -66,4 +66,4 @@ const Services = ({feture}) => {
     </View>
   );
 };
-export default Services;
+export { Services };

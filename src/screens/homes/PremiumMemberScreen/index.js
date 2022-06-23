@@ -56,11 +56,12 @@ const PremiumMemberScreen = ({ props, navigation }) => {
                                 <View style={styles.centerImage}>
                                     <Image source={Images.Icons.premium} />
                                 </View>
-                                <View style={{ width: '60%', alignSelf: 'center' }}>
-                                    <View style={{ marginTop: -25 }}>
+                                <View style={{ width: '64%', alignSelf: 'center', }}>
+                                    <View style={{ marginTop: -25, }}>
                                         <AppButton
                                             icon
                                             iconL
+                                            left={-12}
                                             iconBG="transparent"
                                             Icon iconN="camera"
                                             iconT="AntDesign"
@@ -71,7 +72,7 @@ const PremiumMemberScreen = ({ props, navigation }) => {
                                             borderColor={'#707070'}
                                             backgroundColor={'#FFFFFF'}
                                             label="Upload Photo Id"
-                                            onPress={() => { setState(!state) }}
+                                        // onPress={() => { setState(!state) }}
                                         />
                                     </View>
                                     <View style={{ width: '80%', alignSelf: 'center', marginVertical: 25 }}>
@@ -106,7 +107,7 @@ const styles = StyleSheet.create({
     screenHeader: {
         width: '90%',
         height: 80,
-        marginTop: 50,
+        marginTop: 20,
         alignSelf: 'center',
         justifyContent: 'center',
         alignItems: 'center',
@@ -152,6 +153,7 @@ const styles = StyleSheet.create({
     centerImage: {
         alignSelf: 'center',
         marginTop: 15,
+
     }
 
 })  

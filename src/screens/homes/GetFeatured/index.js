@@ -17,7 +17,7 @@ import { AppButton, Box, Header, Row, Switch1 } from '../../../components'
 import { Item, Textarea } from 'native-base'
 import { Icon } from 'react-native-elements'
 
-const Weekpackage = (props) => {
+const GetFeatured = (props) => {
 
     const data = [
         {
@@ -119,7 +119,7 @@ const Weekpackage = (props) => {
         </ImageBackground >
     )
 }
-export default Weekpackage
+export default GetFeatured
 
 const styles = StyleSheet.create({
     imageContainer: {

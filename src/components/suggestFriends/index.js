@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   StyleSheet,
   Text,
@@ -8,7 +8,7 @@ import {
   Image,
   Dimensions,
 } from 'react-native';
-import {Images, Themes} from '../../constants';
+import { Images, Themes } from '../../constants';
 import LinearGradient from 'react-native-linear-gradient';
 
 const SuggestFriends = ({
@@ -34,7 +34,7 @@ const SuggestFriends = ({
         alignItems: 'center',
         justifyContent: 'center',
       }}>
-      <View style={{alignItems: 'center', justifyContent: 'center'}}>
+      <View style={{ alignItems: 'center', justifyContent: 'center' }}>
         <TouchableOpacity
           activeOpacity={0.7}
           style={{
@@ -48,10 +48,10 @@ const SuggestFriends = ({
           }}>
           <Image
             source={imgName}
-            style={{width: imgWidth, height: imgHeight}}
+            style={{ width: imgWidth, height: imgHeight }}
           />
         </TouchableOpacity>
-        <Text style={{marginTop: 5, color: '#4B4B4B', fontSize: 14}}>
+        <Text style={{ marginTop: 5, color: '#4B4B4B', fontSize: 14 }}>
           {text}
         </Text>
       </View>
@@ -60,10 +60,10 @@ const SuggestFriends = ({
         //   }
         onPress={() => setcheck(false)}
         activeOpacity={0.7}
-        style={{width: '100%'}}>
+        style={{ width: '100%' }}>
         <LinearGradient
-          start={{x: 1.0, y: 0.0}}
-          end={{x: 1.0, y: 1.5}}
+          start={{ x: 1.0, y: 0.0 }}
+          end={{ x: 1.0, y: 1.5 }}
           colors={
             check == true
               ? ['#4059E4', '#4059E4', '#4059E4', '#5DF7B8']
@@ -93,6 +93,6 @@ const SuggestFriends = ({
   );
 };
 
-export {SuggestFriends};
+export { SuggestFriends };
 
 const styles = StyleSheet.create({});

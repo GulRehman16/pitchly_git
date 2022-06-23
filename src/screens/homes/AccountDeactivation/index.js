@@ -71,7 +71,14 @@ const AccountDeactivation = (props) => {
                                             fontWeight: '600', color: '#000',
                                             fontSize: 18
                                         }}>Temporary Deactivation</Text>
-                                        <TouchableOpacity onPress={() => { props.navigation.navigate('deleteaccount') }}>
+                                        <TouchableOpacity onPress={() => {
+                                            props.navigation.navigate('deleteaccount',
+                                                {
+                                                    text1: 'Deactivate Account',
+                                                    text2: `Are you sure to Deactivate your \n  your account`
+                                                }
+                                            )
+                                        }}>
                                             <Text style={{
                                                 fontWeight: '500', color: 'red', marginVertical: 5,
                                                 fontSize: 18
@@ -90,7 +97,13 @@ const AccountDeactivation = (props) => {
                                             fontWeight: '600', color: '#000',
                                             fontSize: 18
                                         }}>Permanent Delete Account</Text>
-                                        <TouchableOpacity onPress={() => { props.navigation.navigate('deleteaccount') }}>
+                                        <TouchableOpacity onPress={() => {
+                                            props.navigation.navigate('deleteaccount', {
+                                                text1: 'Delete Account',
+
+                                                text2: `Are you sure to Deactivate your \n account`
+                                            })
+                                        }}>
                                             <Text style={{
                                                 fontWeight: '500', color: 'red', marginVertical: 5,
                                                 fontSize: 18

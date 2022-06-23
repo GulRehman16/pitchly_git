@@ -14,15 +14,19 @@ import {
 } from 'react-native';
 import { Images } from '../../../constants';
 import { AppButton, Header } from '../../../components';
+import { useRoute } from '@react-navigation/native';
 const height = Dimensions.get('window').height / 2.5;
 const width = Dimensions.get('window').width;
 const DeactivateAccount = ({ navigation }) => {
+
     // useEffect(() => {
     //   setTimeout(() => {
     //     navigation.replace('mainAuth');
     //   }, 1500);
     // }, []);
 
+
+    const route = useRoute();
     return (
         <ImageBackground
             style={styles.imageContainer}
@@ -34,7 +38,6 @@ const DeactivateAccount = ({ navigation }) => {
                 <View style={styles.screenHeader}>
                     <Header BAckButton
                         hiddinText
-
                         onPress={() => {
                             navigation.goBack();
                         }}
@@ -54,7 +57,7 @@ const DeactivateAccount = ({ navigation }) => {
                         <View style={styles.texts}>
 
                             <Text style={styles.headerText1}>
-                                Deactivate Account
+
                             </Text>
                             <Text style={styles.headerText2}>
                                 Enter your password

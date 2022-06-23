@@ -7,8 +7,8 @@ import {
 } from 'react-native';
 import React from 'react';
 import LinearGradient from 'react-native-linear-gradient';
-import {Icon} from 'native-base';
-import {Avatar} from 'react-native-elements';
+import { Icon } from 'native-base';
+import { Avatar } from 'react-native-elements';
 
 export default function Headerchat({
   borderRadius,
@@ -19,6 +19,7 @@ export default function Headerchat({
   icon,
   onPress,
   navigation,
+  marginTop
 }) {
   const Width = Dimensions.get('window').width;
 
@@ -31,11 +32,12 @@ export default function Headerchat({
         width: '100%',
         height: 60,
         alignItems: 'center',
+        marginTop: 20
       }}>
       <TouchableOpacity onPress={() => Press}>
         <LinearGradient
-          start={{x: 1, y: 0.0}}
-          end={{x: 1, y: 1.9}}
+          start={{ x: 1, y: 0.0 }}
+          end={{ x: 1, y: 1.9 }}
           colors={['#5DF7B8', '#3109FB']}
           style={{
             width: 35,
@@ -48,21 +50,22 @@ export default function Headerchat({
           <Icon
             type="AntDesign"
             name="left"
-            style={{color: 'white', fontSize: 24}}
+            style={{ color: 'white', fontSize: 24 }}
           />
         </LinearGradient>
       </TouchableOpacity>
-      <View style={{marginLeft: 15}}>
+      <View style={{ marginLeft: 15 }}>
         <Avatar rounded size={'medium'} resizeMode="contain" source={image} />
       </View>
 
-      <View style={{width: Width * 0.58}}>
+      <View style={{ width: Width * 0.58 }}>
         <Text
           style={{
             fontSize: 18,
             fontWeight: 'bold',
             marginLeft: 10,
             color: 'black',
+            marginTop: marginTop || 0
           }}>
           {name}
         </Text>
@@ -91,7 +94,7 @@ export default function Headerchat({
           <Icon
             type="AntDesign"
             name="exclamationcircleo"
-            style={{color: 'black', fontSize: 30}}
+            style={{ color: 'black', fontSize: 30 }}
           />
         </TouchableOpacity>
       ) : null}

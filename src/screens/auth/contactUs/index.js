@@ -33,7 +33,7 @@ const ContactUs = props => {
         <View style={styles.screenHeader}>
           <Header
             BAckButton
-            onPress={() => props.navigation.navigate('Homes', { screen: 'settings' })}
+            onPress={() => props.navigation.navigate('Auth', { screen: 'login' })}
             press={() => props.navigation.goBack()}
           />
         </View>
@@ -156,7 +156,7 @@ const styles = StyleSheet.create({
   screenHeader: {
     width: '90%',
     height: 80,
-    marginTop: 50,
+    marginTop: 20,
     alignSelf: 'center',
     justifyContent: 'center',
     alignItems: 'center',

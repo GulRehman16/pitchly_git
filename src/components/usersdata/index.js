@@ -7,12 +7,12 @@ import {
   Appearance,
   TouchableOpacity,
 } from 'react-native';
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
-import {Icon} from 'react-native-elements';
+import { Icon } from 'react-native-elements';
 import LinearGradient from 'react-native-linear-gradient';
-import {Images} from '../../constants';
-import {Followbtn} from '../Followbtn';
+import { Images } from '../../constants';
+import { Followbtn } from '../Followbtn';
 
 const UserData = ({
   navigation,
@@ -31,6 +31,8 @@ const UserData = ({
   Email,
   Location,
   pressme,
+  onPress1,
+  onPress2
 }) => {
   const [state, setState] = useState('follow');
   const [colorState, setColorsate] = useState(true);
@@ -46,40 +48,40 @@ const UserData = ({
         <View>
           <View style={styles.bioBox}>
             <View style={styles.profilerow}>
-              <View style={{flexDirection: 'row', width: '90%'}}>
+              <View style={{ flexDirection: 'row', width: '90%' }}>
                 <View style={styles.Profilepic}>
                   <Image
                     source={Image1}
                     resizeMode="contain"
-                    style={{width: '100%', height: '100%', borderRadius: 100}}
+                    style={{ width: '100%', height: '100%', borderRadius: 100 }}
                   />
                 </View>
                 <View style={styles.userInfo}>
                   <Text style={styles.UserName}>{UserName}</Text>
                   <Text style={styles.UserEmail}>{UserEmail}</Text>
                   <View style={styles.followerText}>
-                    <View style={{margin: 10}}>
+                    <View style={{ margin: 10 }}>
                       <Text style={styles.UserPostNumber}>{Post}</Text>
                       <Text style={styles.UserPost}>Post</Text>
                     </View>
-                    <View style={{margin: 10}}>
+                    <TouchableOpacity onPress={onPress1} style={{ margin: 10 }}>
                       <Text style={styles.UserPostNumber}>{Followers}</Text>
                       <Text style={styles.UserPost}>Followers</Text>
-                    </View>
-                    <View style={{margin: 10}}>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={onPress2} style={{ margin: 10 }}>
                       <Text style={styles.UserPostNumber}>{Following}</Text>
                       <Text style={styles.UserPost}>Following</Text>
-                    </View>
+                    </TouchableOpacity>
                   </View>
                 </View>
               </View>
               <TouchableOpacity
                 activeOpacity={0.8}
                 onPress={pressme}
-                style={{width: '10%'}}>
+                style={{ width: '10%' }}>
                 <LinearGradient
-                  start={{x: 1, y: 0.0}}
-                  end={{x: 1, y: 1.9}}
+                  start={{ x: 1, y: 0.0 }}
+                  end={{ x: 1, y: 1.9 }}
                   colors={['#5DF7B8', '#3109FB']}
                   style={{
                     width: 35,
@@ -91,12 +93,12 @@ const UserData = ({
                     name="edit"
                     color="#fff"
                     size={22}
-                    style={{margin: 4}}
+                    style={{ margin: 4 }}
                   />
                 </LinearGradient>
               </TouchableOpacity>
             </View>
-            <View style={{width: '90%', alignSelf: 'center'}}>
+            <View style={{ width: '90%', alignSelf: 'center' }}>
               <View>
                 <Text style={styles.Bios}>Bios</Text>
                 <Text style={styles.Descriprion}>{Bios}</Text>
@@ -121,7 +123,7 @@ const UserData = ({
   );
 };
 
-export {UserData};
+export { UserData };
 
 const styles = StyleSheet.create({
   imageContainer: {
@@ -216,7 +218,13 @@ const styles = StyleSheet.create({
     marginLeft: 7,
     marginTop: -7,
   },
-  bioBox: {},
+  bioBox: {
+    width: '90%',
+    alignSelf: 'center',
+    backgroundColor: '#fff',
+    height: 350,
+    borderRadius: 20
+  },
 
   profilerow: {
     marginVertical: 15,
@@ -224,6 +232,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     flexDirection: 'row',
     justifyContent: 'space-between',
+
   },
   Profilepic: {
     width: 100,
@@ -273,7 +282,7 @@ const styles = StyleSheet.create({
     letterSpacing: 1,
     fontWeight: 'bold',
   },
-  btnw: {fontWeight: 'bold', color: 'black'},
+  btnw: { fontWeight: 'bold', color: 'black' },
 
   profilerow: {
     marginVertical: 15,

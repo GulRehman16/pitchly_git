@@ -1,8 +1,8 @@
-import React, {useEffect} from 'react';
-import {StyleSheet, Text, View, FlatList, Dimensions} from 'react-native';
-import {Images, Themes} from '../../constants';
-import {PostBox} from '../postBox';
-const Product = ({feture}) => {
+import React, { useEffect } from 'react';
+import { StyleSheet, Text, View, FlatList, Dimensions } from 'react-native';
+import { Images, Themes } from '../../constants';
+import { PostBox } from '../../components';
+const Product = ({ feture }) => {
   const Products = [
     {
       profileImg: Images.Pictures.statusImg1,
@@ -42,9 +42,9 @@ const Product = ({feture}) => {
     <View>
       <FlatList
         data={Products}
-        renderItem={({item}) => {
+        renderItem={({ item }) => {
           return (
-            <View style={{marginTop: 10}}>
+            <View style={{ marginTop: 10 }}>
               <PostBox
                 profileTitle={item.profileTitle}
                 postTime={item.postTime}
@@ -66,4 +66,4 @@ const Product = ({feture}) => {
     </View>
   );
 };
-export default Product;
+export { Product };

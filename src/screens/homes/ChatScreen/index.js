@@ -12,9 +12,9 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import React from 'react';
-import {Icon} from 'native-base';
-import {Images} from '../../../constants';
-import {useState, useEffect} from 'react';
+import { Icon } from 'native-base';
+import { Images } from '../../../constants';
+import { useState, useEffect } from 'react';
 import Headerchat from '../../../components/Headerchat';
 import ImagePicker from 'react-native-image-crop-picker';
 const ChatScreen = props => {
@@ -105,7 +105,7 @@ const ChatScreen = props => {
 
     setMessage('');
 
-    scrollViewRef.scrollToEnd({animated: true});
+    scrollViewRef.scrollToEnd({ animated: true });
   };
 
   function formatAMPM(date) {
@@ -144,13 +144,13 @@ const ChatScreen = props => {
             }}>
             <ScrollView
               showsVerticalScrollIndicator={false}
-              contentContainerStyle={{flexGrow: 1}}
+              contentContainerStyle={{ flexGrow: 1 }}
               ref={ref => setRef(ref)}
               onContentSizeChange={() =>
-                scrollViewRef.scrollToEnd({animated: true})
+                scrollViewRef.scrollToEnd({ animated: true })
               }>
               <View>
-                <View style={{marginTop: 10}}>
+                <View style={{ marginTop: 10 }}>
                   <Headerchat
                     image={Images.Pictures.statusImg2}
                     name={'Veni'}
@@ -159,16 +159,16 @@ const ChatScreen = props => {
                       props.navigate.goback();
                     }}
                     icon={true}
-                    // onPress={() => {
-                    //   props.navigate.goback();
-                    // }}
+                  // onPress={() => {
+                  //   props.navigate.goback();
+                  // }}
                   />
                 </View>
 
                 {/* <Header text="Live Chat" navigation={props.navigation} /> */}
               </View>
               <View
-                style={{width: '90%', alignSelf: 'center', paddingBottom: 20}}>
+                style={{ width: '90%', alignSelf: 'center', paddingBottom: 20 }}>
                 {messages.map((message, i) => {
                   return (
                     <>
@@ -260,7 +260,7 @@ const ChatScreen = props => {
                 <Icon
                   name="pluscircle"
                   type="AntDesign"
-                  style={{color: '#4059E4', marginRight: 10}}
+                  style={{ color: '#4059E4', marginRight: 10 }}
                 />
               </TouchableOpacity>
               <TextInput
@@ -294,7 +294,7 @@ const ChatScreen = props => {
                 <Icon
                   name="keyboard-voice"
                   type="MaterialIcons"
-                  style={{color: '#4059E4', marginRight: 10}}
+                  style={{ color: '#4059E4', marginRight: 10 }}
                 />
               </TouchableOpacity>
 
@@ -305,7 +305,7 @@ const ChatScreen = props => {
                 <Icon
                   name="send"
                   type="Feather"
-                  style={{color: '#4059E4', marginRight: 10}}
+                  style={{ color: '#4059E4', marginRight: 10 }}
                 />
               </TouchableOpacity>
             </View>

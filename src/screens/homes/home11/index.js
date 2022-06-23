@@ -16,7 +16,7 @@ import { AllMixed, HomeHeader, Product, Services, Talent, } from '../../../compo
 
 
 
-const HomeScreensix = (props) => {
+const Home11 = (props) => {
 
     const [data, setData] = useState({
         postDataAll: [
@@ -280,7 +280,7 @@ const HomeScreensix = (props) => {
 
     const [img, setImg] = useState(Images.Logos.plusIcon);
     const [check, setcheck] = useState({
-        value: 'SERVICES FEED',
+        value: 'PITCHLY FEED',
     });
     return (
 
@@ -306,21 +306,66 @@ const HomeScreensix = (props) => {
                                 height: 35,
                                 flexDirection: 'row',
                             }}>
+                            <View
+                                style={{
+                                    width: '33%',
+                                    height: '100%',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    borderRadius: 5,
+                                }}>
 
+
+                                <Text style={{ color: 'black', fontWeight: 'bold', fontSize: 16, letterSpacing: 1 }}>
+                                    Saved Post
+                                </Text>
+                            </View>
                             <LinearGradient
                                 start={{ x: 1.5, y: 1.0 }}
                                 end={{ x: 1.5, y: 2.5 }}
                                 colors={['#28A9F61A', '#4C9BD2']}
                                 style={{
-                                    width: '100%',
+                                    width: '67%',
                                     height: '100%',
                                     borderRadius: 5,
                                     alignItems: 'center',
                                     justifyContent: 'space-evenly',
                                     flexDirection: 'row',
                                 }}>
-
-
+                                <TouchableOpacity
+                                    onPress={() => setcheck({ ...check, value: 'PITCHLY FEED' })}
+                                    style={{
+                                        // backgroundColor: 'red',
+                                        paddingBottom: check.value == 'PITCHLY FEED' ? 2 : null,
+                                        borderBottomWidth: check.value == 'PITCHLY FEED' ? 1 : null,
+                                        borderColor: check.value == 'PITCHLY FEED' ? 'blue' : null,
+                                    }}>
+                                    <Text
+                                        style={{
+                                            fontSize: 11,
+                                            fontWeight: 'bold',
+                                            color: check.value == 'PITCHLY FEED' ? 'blue' : 'black',
+                                        }}>
+                                        All
+                                    </Text>
+                                </TouchableOpacity>
+                                <TouchableOpacity
+                                    onPress={() => setcheck({ ...check, value: 'TALENT FEED' })}
+                                    style={{
+                                        // backgroundColor: 'red',
+                                        paddingBottom: check.value == 'TALENT FEED' ? 2 : null,
+                                        borderBottomWidth: check.value == 'TALENT FEED' ? 1 : null,
+                                        borderColor: check.value == 'TALENT FEED' ? 'blue' : null,
+                                    }}>
+                                    <Text
+                                        style={{
+                                            fontSize: 11,
+                                            fontWeight: 'bold',
+                                            color: check.value == 'TALENT FEED' ? 'blue' : 'black',
+                                        }}>
+                                        Talent
+                                    </Text>
+                                </TouchableOpacity>
                                 <TouchableOpacity
                                     onPress={() => setcheck({ ...check, value: 'SERVICES FEED' })}
                                     style={{
@@ -358,7 +403,8 @@ const HomeScreensix = (props) => {
                                 </TouchableOpacity>
                             </LinearGradient>
                         </View>
-
+                        {check.value === 'PITCHLY FEED' && <AllMixed feture={false} />}
+                        {check.value === 'TALENT FEED' && <Talent feture={false} />}
                         {check.value === 'SERVICES FEED' && <Services feture={false} />}
                         {check.value === 'PRODUCTS FEED' && <Product feture={false} />}
 
@@ -370,7 +416,7 @@ const HomeScreensix = (props) => {
 };
 
 
-export default HomeScreensix
+export default Home11
 
 const styles = StyleSheet.create({
     imageContainer: {

@@ -25,48 +25,52 @@ const ThankYouScreen = ({ navigation }) => {
 
     return (
 
-        <ScrollView
-            showsVerticalScrollIndicator={false}
-            contentContainerStyle={{ flexGrow: 1 }}>
-            <StatusBar backgroundColor={'transparent'} translucent={true} />
+        <ImageBackground
+            style={styles.imageContainer}
+            source={Images.Pictures.appBg}>
+            <ScrollView
+                showsVerticalScrollIndicator={false}
+                contentContainerStyle={{ flexGrow: 1 }}>
+                <StatusBar backgroundColor={'transparent'} translucent={true} />
 
-            <View style={styles.ScreenBody}>
+                <View style={styles.ScreenBody}>
 
-                <View style={[styles.connect]}>
-                    <Image
-                        source={Images.Icons.yes}
-                        resizeMode={'contain'}
-                        style={{ width: '100%', height: '100%' }}
-                    />
-                </View>
-                <View style={styles.texts}>
-
-                    <Text style={styles.headerText1}>
-                        Thank You
-                    </Text>
-                    <Text style={styles.headerText2}>
-                        Your Payment Processed
-                    </Text>
-                    <Text style={styles.headerText2}>
-                        Your Premium Membership is under review now, you will be intimated once it is approved
-                    </Text>
-                </View>
-                <View style={styles.authButtonContainer}>
-                    <View style={styles.authButton}>
-                        <AppButton
-                            LinearColor1={'#5DF7B8'}
-                            LinearColor2={'#3109FB'}
-                            color={'white'}
-                            borderWidth={0.5}
-                            borderColor={'#707070'}
-                            backgroundColor={'#FFFFFF'}
-                            label=" Continue "
-                            onPress={() => navigation.navigate('MyTabs', { screen: 'profile' })}
+                    <View style={[styles.connect]}>
+                        <Image
+                            source={Images.Icons.yes}
+                            resizeMode={'contain'}
+                            style={{ width: '100%', height: '100%' }}
                         />
                     </View>
+                    <View style={styles.texts}>
+
+                        <Text style={styles.headerText1}>
+                            Thank You
+                        </Text>
+                        <Text style={styles.headerText2}>
+                            Your Payment Processed
+                        </Text>
+                        <Text style={styles.headerText2}>
+                            Your featured Posts is under review now, you will be intimated once it is approved
+                        </Text>
+                    </View>
+                    <View style={styles.authButtonContainer}>
+                        <View style={styles.authButton}>
+                            <AppButton
+                                LinearColor1={'#5DF7B8'}
+                                LinearColor2={'#3109FB'}
+                                color={'white'}
+                                borderWidth={0.5}
+                                borderColor={'#707070'}
+                                backgroundColor={'#FFFFFF'}
+                                label=" Continue "
+                                onPress={() => navigation.navigate('MyTabs', { screen: 'profile' })}
+                            />
+                        </View>
+                    </View>
                 </View>
-            </View>
-        </ScrollView>
+            </ScrollView>
+        </ImageBackground>
 
     );
 };

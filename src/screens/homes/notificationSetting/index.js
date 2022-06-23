@@ -33,7 +33,7 @@ const NotificationSetting = (props) => {
 
         { text: "Messages" },
 
-        { text: "Posts" },
+
 
     ]
 

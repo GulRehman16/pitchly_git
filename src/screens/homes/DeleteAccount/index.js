@@ -15,12 +15,16 @@ import { Images } from '../../../constants';
 import { AppButton, Header } from '../../../components';
 const height = Dimensions.get('window').height / 2.5;
 const width = Dimensions.get('window').width;
-const DeleteAccount = ({ navigation }) => {
+import { useRoute } from '@react-navigation/native';
+
+const DeleteAccount = ({ route, navigation }) => {
     // useEffect(() => {
     //   setTimeout(() => {
     //     navigation.replace('mainAuth');
     //   }, 1500);
     // }, []);
+
+    const { text1, text2, Image1 } = route.params;
 
     return (
 
@@ -49,12 +53,12 @@ const DeleteAccount = ({ navigation }) => {
                 <View style={styles.texts}>
 
                     <Text style={styles.headerText1}>
-                        Deactivate Account
+
+                        {text1}
                     </Text>
                     <Text style={styles.headerText2}>
-                        Are you sure to Deactivate your
-                        {'\n'}
-                        account
+
+                        {text2}
                     </Text>
                 </View>
                 <View style={styles.authButtonContainer}>
@@ -100,7 +104,7 @@ const styles = StyleSheet.create({
 
     ScreenBody: {
         width: '100%',
-        // height: '100%',
+        height: '70%',
         alignSelf: 'center',
         alignItems: 'center',
         justifyContent: 'center'
