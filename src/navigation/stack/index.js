@@ -46,7 +46,8 @@ import SearchScreen from '../../screens/homes/SearchbyScreen';
 import FeaturedPost from '../../screens/homes/FeaturedPost';
 import Weekpackage from '../../screens/homes/weekpackage';
 import EditProfile from '../../screens/homes/EditProfile';
-
+import CameraStorie from '../../screens/homes/CameraStorie';
+import StorieCreate from '../../screens/homes/Storiecreate';
 // import AddTelent from '../../screens/homes/AddTelent'
 
 const Stack = createNativeStackNavigator();
@@ -284,6 +285,16 @@ export const Homes = () => {
       <Stack.Screen
         name="searchscreen"
         component={SearchScreen}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="cameraStorie"
+        component={CameraStorie}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="storieCreate"
+        component={StorieCreate}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

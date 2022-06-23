@@ -5,15 +5,18 @@ import {Images} from '../../../constants';
 import {RNCamera} from 'react-native-camera';
 import ImagePicker from 'react-native-image-crop-picker';
 import {Icon} from 'native-base';
+import {useState} from 'react';
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
-const CameraStorie = () => {
+const CameraStorie = props => {
   // const [Visible, setVisible] = useState(true);
-
+  const [image, setimage] = useState('');
   const takePicture = async camera => {
     const options = {quality: 0.5, base64: true};
     const data = await camera.takePictureAsync(options);
     console.log(data.uri);
+    setimage(data.uri);
+    // props.navigate('Homes', {screen: 'storieCreate'});
   };
   const pickerGallery = () => {
     ImagePicker.openPicker({
@@ -22,7 +25,9 @@ const CameraStorie = () => {
       cropping: true,
     }).then(image => {
       // setimg(image.path);
-      console.log(image);
+      console.log(image.path);
+      setimage(image.path);
+      props.navigate('Homes', {screen: 'storieCreate'});
       //   setVisible(true);
     });
   };

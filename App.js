@@ -7,7 +7,7 @@ const App = props => {
   // return <PictureSlider />
   // return <MyStack {...props} />;
 
-  return <StorieCreate />;
+  return <CameraStorie />;
 };
 
 export default App;

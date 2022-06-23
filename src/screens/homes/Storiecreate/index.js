@@ -8,11 +8,10 @@ import {
 import React from 'react';
 import {TextInput} from 'react-native-gesture-handler';
 import {Icon} from 'native-base';
-import ImagePicker from 'react-native-image-crop-picker';
-
+import {useState} from 'react';
 export default function StorieCreate() {
-  const [status, setstatus] = React.useState('Type A Status');
-  const [image, setimage] = React.useState('');
+  const [status, setstatus] = useState('Type A Status');
+  const [image, setimage] = useState('');
 
   return (
     <ImageBackground source={{uri: image}} style={styles.container}>
@@ -37,7 +36,6 @@ export default function StorieCreate() {
           style={{
             alignItems: 'center',
             justifyContent: 'center',
-
             width: '10%',
           }}>
           <TouchableOpacity>
