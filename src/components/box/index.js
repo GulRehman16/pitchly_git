@@ -19,7 +19,11 @@ const Box = ({ name, textmessage, Nowtext, messagenumber, Image1, Press }) => {
   const [listData] = useState(
     Array(10)
       .fill('')
-      .map((_, i) => ({ key: `${i}`, text: `item #${i}` })),
+    // <<<<<<< HEAD
+    //       .map((_, i) => ({ key: `${i}`, text: `item #${i}` })),
+    // =======
+    //       .map((_, i) => ({key: `${i}`, text: `item #${i}`})),
+    // >>>>>>> 0b77aa4a13784cc2c360ca74b810778a2064284a
   );
   const openRowRef = useRef(null);
 
@@ -79,7 +83,6 @@ const Box = ({ name, textmessage, Nowtext, messagenumber, Image1, Press }) => {
         marginTop: 10,
         justifyContent: 'center',
         alignItems: 'center',
-
       }}>
       <Icon
         name="trash"

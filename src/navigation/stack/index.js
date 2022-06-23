@@ -50,6 +50,7 @@ import Followers from '../../screens/homes/followers';
 import Following from '../../screens/homes/following';
 import SavedStatus from '../../screens/homes/savedstatus';
 import TalentScreen from '../../screens/homes/TalentScreen';
+import CameraStorie from '../../screens/homes/CameraStorie';
 // import Weekpackage from '../../screens/homes/weekpackage';
 // import AddTelent from '../../screens/homes/AddTelent'
 
@@ -131,22 +132,6 @@ export const Homes = () => {
         options={{ headerShown: false }}
       />
 
-      <Stack.Screen
-        name="storecreate"
-        component={StoreCreate}
-        options={{ headerShown: false }}
-      />
-      <Stack.Screen
-        name="followings"
-        component={Following}
-        options={{ headerShown: false }}
-      />
-
-      <Stack.Screen
-        name="follwers"
-        component={Followers}
-        options={{ headerShown: false }}
-      />
 
       <Stack.Screen
         name="notificationsettings"
@@ -316,8 +301,13 @@ export const Homes = () => {
         options={{ headerShown: false }}
       />
       <Stack.Screen
-        name="saveStatus"
-        component={SavedStatus}
+        name="cameraStorie"
+        component={CameraStorie}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="storieCreate"
+        component={CameraStorie}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>

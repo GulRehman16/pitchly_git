@@ -13,29 +13,27 @@ import { Images, Themes } from '../../constants';
 import LinearGradient from 'react-native-linear-gradient';
 import { Tooltip } from 'react-native-elements';
 import { AppButton } from '../appButton';
-const PostBox = props => {
 
-  const {
-    navigation,
-    profileImg,
-    profileTitle,
-    postTime,
-    boxTitle,
-    boxDetail,
-    gridImg,
-    gridImg1,
-    gridImg2,
-    gridImg3,
-    gridImg4,
-    singleImg,
-    Video,
-    price,
-    checksingle,
-    ImgPress,
-    feture,
-    Press,
-    onPress
-  } = props
+const PostBox = ({
+  profileImg,
+  profileTitle,
+  postTime,
+  boxTitle,
+  boxDetail,
+  gridImg,
+  gridImg1,
+  gridImg2,
+  gridImg3,
+  gridImg4,
+  singleImg,
+  Video,
+  price,
+  checksingle,
+  ImgPress,
+  feture,
+  GetFeture,
+  navigation,
+}) => {
   const [Grid, setGrid] = useState(checksingle);
   console.log('Grid', Grid);
 
@@ -254,7 +252,7 @@ const PostBox = props => {
         <View
           style={{
             height: 25,
-            width: '90%',
+            width: '100%',
             flexDirection: 'row',
             alignItems: 'center',
           }}>
@@ -288,16 +286,18 @@ const PostBox = props => {
                   alignSelf: 'flex-end',
                   borderRadius: 5,
                   marginBottom: 15,
+                  marginRight: 10,
                 }}>
                 <AppButton
-                  LinearColor1={'#5DF7B8'}
-                  LinearColor2={'#3109FB'}
-                  color={'white'}
+                  LinearColor1={GetFeture === true ? '#5DF7B8' : 'white'}
+                  LinearColor2={GetFeture === true ? '#3109FB' : 'white'}
+                  color={GetFeture === true ? 'white' : 'black'}
                   height={'130%'}
-                  borderWidth={0.5}
-                  borderColor={'#707070'}
+                  borderWidth={GetFeture === true ? 0.5 : 0.8}
+                  borderRadius={GetFeture === true ? 0 : 12}
+                  borderColor={GetFeture === true ? '#707070' : 'black'}
                   backgroundColor={'#FFFFFF'}
-                  label="Get it Featured"
+                  label={GetFeture === true ? 'Get it Featured' : 'Featured'}
                 // onPress={() =>
                 //   navigation.replace('MyTabs', {screen: 'home'})
                 // }

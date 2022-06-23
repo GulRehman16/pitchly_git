@@ -3,6 +3,7 @@ import React from 'react';
 import LinearGradient from 'react-native-linear-gradient';
 import { Icon } from 'native-base';
 import { Images } from '../../constants';
+import { TextInput } from 'react-native-gesture-handler';
 
 const HomeHeader = ({
   left,
@@ -28,7 +29,8 @@ const HomeHeader = ({
   borderColor,
   onPress,
   homeHeader2,
-  homeHeader1
+  homeHeader1,
+  visibleINPUT,
 }) => {
   return (
     <>
@@ -72,9 +74,8 @@ const HomeHeader = ({
             </LinearGradient>
           </TouchableOpacity>
         </View>
-
-
       )}
+
       {homeHeader2 && (
         <View
           style={{
@@ -102,30 +103,54 @@ const HomeHeader = ({
               />
             </LinearGradient>
           </TouchableOpacity>
-
-          <TouchableOpacity activeOpacity={0.8} >
-            <LinearGradient
-              start={{ x: 1, y: 0.0 }}
-              end={{ x: 1, y: 1.9 }}
-              colors={['#5DF7B8', '#3109FB']}
+          <View
+            style={{
+              flexDirection: 'row',
+              flex: 1,
+              alignSelf: 'flex-end',
+              alignItems: 'center',
+              justifyContent: 'flex-end',
+            }}>
+            <View
               style={{
-                width: 35,
-                height: 35,
-                borderRadius: borderRadius || 5,
-                alignItems: 'center',
-                justifyContent: 'center',
+                width: '85%',
+                height: '30%',
+                borderRadius: 5,
               }}>
-              <Icon
-                type="AntDesign"
-                name="search1"
-                style={{ color: 'white', fontSize: 24 }}
-              />
-            </LinearGradient>
-          </TouchableOpacity>
+              {visibleINPUT === true ? (
+                <TextInput
+                  style={{
+                    width: '100%',
+                    backgroundColor: 'white',
+                    elevation: 3,
+                    height: 35,
+                  }}
+                  placeholder="Search by Service"
+                />
+              ) : null}
+            </View>
+            <TouchableOpacity activeOpacity={0.8}>
+              <LinearGradient
+                start={{ x: 1, y: 0.0 }}
+                end={{ x: 1, y: 1.9 }}
+                colors={['#5DF7B8', '#3109FB']}
+                style={{
+                  width: 35,
+                  height: 35,
+                  borderRadius: borderRadius || 5,
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}>
+                <Icon
+                  type="AntDesign"
+                  name="search1"
+                  style={{ color: 'white', fontSize: 24 }}
+                />
+              </LinearGradient>
+            </TouchableOpacity>
+          </View>
         </View>
       )}
-
-
     </>
   );
 };

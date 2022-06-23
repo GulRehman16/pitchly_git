@@ -8,20 +8,11 @@ import {
 import React from 'react';
 import {TextInput} from 'react-native-gesture-handler';
 import {Icon} from 'native-base';
-import ImagePicker from 'react-native-image-crop-picker';
-export default function StoreCreate() {
-  const [status, setstatus] = React.useState('Type A Status');
-  const [image, setimage] = React.useState('');
-  const picker = () => {
-    ImagePicker.openCamera({
-      width: 300,
-      height: 400,
-      cropping: true,
-    }).then(image => {
-      setimage(image.path);
-      console.log(image);
-    });
-  };
+import {useState} from 'react';
+export default function StorieCreate() {
+  const [status, setstatus] = useState('Type A Status');
+  const [image, setimage] = useState('');
+
   return (
     <ImageBackground source={{uri: image}} style={styles.container}>
       <Text
@@ -31,6 +22,7 @@ export default function StoreCreate() {
           alignSelf: 'center',
           justifyContent: 'center',
           alignItems: 'center',
+          fontWeight: '600',
         }}>
         {status}
       </Text>
@@ -38,16 +30,13 @@ export default function StoreCreate() {
         <TextInput
           placeholder="Type a Status"
           onChangeText={text => setstatus(text)}
-          style={{width: '80%'}}
+          style={{width: '75%'}}
         />
         <View
           style={{
             alignItems: 'center',
-            flex: 1,
             justifyContent: 'center',
-            marginRight: 10,
-            width: '20%',
-            flexDirection: 'row',
+            width: '10%',
           }}>
           <TouchableOpacity>
             <Icon
@@ -56,18 +45,7 @@ export default function StoreCreate() {
               style={{
                 color: '#4059E4',
                 fontSize: 24,
-                marginleft: 10,
-              }}
-            />
-          </TouchableOpacity>
-
-          <TouchableOpacity onPress={() => picker()}>
-            <Icon
-              type="AntDesign"
-              name="pluscircle"
-              style={{
-                color: '#4059E4',
-                fontSize: 24,
+                marginleft: 0,
               }}
             />
           </TouchableOpacity>
