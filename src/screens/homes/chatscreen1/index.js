@@ -349,7 +349,7 @@ const styles = StyleSheet.create({
   },
   btn: {
     width: 60,
-    padding: 20,
+    // padding: 2,
     backgroundColor: 'red',
     textAlign: 'center',
   },
