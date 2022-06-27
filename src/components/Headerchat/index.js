@@ -19,7 +19,8 @@ export default function Headerchat({
   icon,
   onPress,
   navigation,
-  marginTop
+  marginTop,
+  imgpress
 }) {
   const Width = Dimensions.get('window').width;
 
@@ -34,7 +35,7 @@ export default function Headerchat({
         alignItems: 'center',
         marginTop: 20
       }}>
-      <TouchableOpacity onPress={() => Press}>
+      <TouchableOpacity onPress={Press}>
         <LinearGradient
           start={{ x: 1, y: 0.0 }}
           end={{ x: 1, y: 1.9 }}
@@ -54,9 +55,10 @@ export default function Headerchat({
           />
         </LinearGradient>
       </TouchableOpacity>
-      <View style={{ marginLeft: 15 }}>
+      <TouchableOpacity onPress={imgpress}
+        style={{ marginLeft: 15 }}>
         <Avatar rounded size={'medium'} resizeMode="contain" source={image} />
-      </View>
+      </TouchableOpacity>
 
       <View style={{ width: Width * 0.58 }}>
         <Text
@@ -79,26 +81,28 @@ export default function Headerchat({
         </Text>
       </View>
 
-      {icon == true ? (
-        <TouchableOpacity
-          onPress={onPress}
-          style={{
-            alignSelf: 'flex-end',
-            flex: 1,
-            //   alignItems: 'center',
-            justifyContent: 'center',
-            // marginLeft: 70,
-            marginBottom: 15,
-            // onPress={()=}
-          }}>
-          <Icon
-            type="AntDesign"
-            name="exclamationcircleo"
-            style={{ color: 'black', fontSize: 30 }}
-          />
-        </TouchableOpacity>
-      ) : null}
-    </View>
+      {
+        icon == true ? (
+          <TouchableOpacity
+            onPress={onPress}
+            style={{
+              alignSelf: 'flex-end',
+              flex: 1,
+              //   alignItems: 'center',
+              justifyContent: 'center',
+              // marginLeft: 70,
+              marginBottom: 15,
+              // onPress={()=}
+            }}>
+            <Icon
+              type="AntDesign"
+              name="exclamationcircleo"
+              style={{ color: 'black', fontSize: 30 }}
+            />
+          </TouchableOpacity>
+        ) : null
+      }
+    </View >
   );
 }
 

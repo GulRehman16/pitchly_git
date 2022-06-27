@@ -1,9 +1,13 @@
-import {StyleSheet, Text, View, FlatList} from 'react-native';
+import { StyleSheet, Text, View, FlatList, ImageBackground } from 'react-native';
 import React from 'react';
-import {HomeHeader} from '../../../components';
-import {Avatar} from 'react-native-elements';
-import {Images} from '../../../constants';
-const Search = () => {
+import { HomeHeader } from '../../../components';
+import { Avatar } from 'react-native-elements';
+import { Images } from '../../../constants';
+
+
+
+const Search = (props) => {
+
   const data = [
     {
       img: Images.Pictures.statusImg3,
@@ -19,14 +23,24 @@ const Search = () => {
     },
   ];
   return (
-    <View>
-      <View style={{marginTop: 10}}>
-        <HomeHeader homeHeader2={true} visibleINPUT={true} />
+    <ImageBackground
+      style={styles.imageContainer}
+      source={Images.Pictures.homeMainBg}>
+
+      <View style={{ marginVertical: 30 }}>
+        <View style={styles.screenHeader}>
+          <HomeHeader homeHeader2={true} visibleINPUT={true}
+            search={true}
+            onPress={() => {
+              props.navigation.goBack();
+            }}
+          />
+        </View>
       </View>
 
       <FlatList
         data={data}
-        renderItem={({item}) => (
+        renderItem={({ item }) => (
           <View
             style={{
               // justifyContent: 'center',
@@ -41,22 +55,29 @@ const Search = () => {
               flexDirection: 'row',
               marginBottom: 10,
             }}>
-            <View style={{marginLeft: 15}}>
+            <View style={{ marginLeft: 15 }}>
               <Avatar rounded size={40} source={item.img} />
             </View>
 
-            <Text style={{marginLeft: 15}}>{item.name}</Text>
+            <Text style={{ marginLeft: 15 }}>{item.name}</Text>
           </View>
         )}
       />
-    </View>
+    </ImageBackground>
+
   );
 };
 export default Search;
 const styles = StyleSheet.create({
-  container: {
+  imageContainer: {
     flex: 1,
-    width: ' 100%',
-    height: '100%',
+  },
+  screenHeader: {
+    width: '90%',
+    height: 30,
+    marginTop: 20,
+    alignSelf: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });

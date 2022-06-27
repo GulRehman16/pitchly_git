@@ -6,9 +6,13 @@ import {
 import React, { useState } from 'react'
 import { Images } from '../../../constants'
 import { Box, Header, AppButton, FormInput } from '../../../components'
-import { Textarea } from 'native-base'
+// import { Textarea } from 'native-base'
+import { useRoute } from '@react-navigation/native';
 
-const Payment = (props) => {
+const Payment = ({ route, navigation }) => {
+
+    const { onPress1, onPress2 } = route.params;
+    // const route = useRoute();
 
     return (
 
@@ -25,9 +29,7 @@ const Payment = (props) => {
                             BAckButton
                             hiddinText
                             text="Get Premium"
-                            onPress={() => {
-                                props.navigation.goBack();
-                            }}
+                            onPress={onPress2}
                         />
                     </View>
                     <View style={styles.screenBody}>
@@ -85,8 +87,8 @@ const Payment = (props) => {
                                 borderColor={'#707070'}
                                 backgroundColor={'#FFFFFF'}
                                 label="Pay Now"
-                                onPress={() =>
-                                    props.navigation.navigate('thankyouscreen')}
+                                onPress={onPress1}
+
                             />
                         </View>
 
@@ -105,16 +107,14 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
     },
-
     screenHeader: {
         width: '90%',
         height: 80,
-        marginTop: 50,
+        marginTop: 20,
         alignSelf: 'center',
         justifyContent: 'center',
         alignItems: 'center',
     },
-
     headingText: {
         fontSize: 24,
         color: 'black',

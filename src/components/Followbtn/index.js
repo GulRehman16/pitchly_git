@@ -9,7 +9,6 @@ import {
 } from 'react-native';
 import React, { useState } from 'react';
 import LinearGradient from 'react-native-linear-gradient';
-import { flingGestureHandlerProps } from 'react-native-gesture-handler/lib/typescript/handlers/FlingGestureHandler';
 const Followbtn = ({
   Image1,
   BoldText,
@@ -31,7 +30,6 @@ const Followbtn = ({
 }) => {
   const [state, setState] = useState(true);
   const [colorState, setColorsate] = useState(true);
-
   const Click = () => {
     setState(unfollow);
     setColorsate(color);
@@ -65,17 +63,21 @@ const Followbtn = ({
             }}
             style={{
               borderWidth: borderWidth,
-              width: width || '26%',
+              width: width || '20%',
               height: height || 30,
               alignSelf: 'center',
               backgroundColor: colorState === true ? color1 : color2,
               borderRadius: 3,
+              borderColor: 'black',
               justifyContent: 'center',
             }}>
             <LinearGradient
               color1={{ x: 1, y: 0.0 }}
               color2={{ x: 1, y: 1.9 }}
-              colors={['#5DF7B8', '#3109FB']}
+              colors={[
+                state === true ? '#5DF7B8' : 'white',
+                state === true ? '#3109FB' : 'white',
+              ]}
               style={{
                 width: '100%',
                 height: '100%',
@@ -98,7 +100,6 @@ const Followbtn = ({
   );
 };
 export { Followbtn };
-
 const styles = StyleSheet.create({
   textbox: {
     width: '100%',

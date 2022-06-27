@@ -8,7 +8,7 @@ const Product = ({ feture }) => {
       profileImg: Images.Pictures.statusImg1,
       profileTitle: 'Veni Paul',
       postTime: '1 hour ago',
-      boxTitle: 'Product Name',
+      boxTitle: 'Talent Name',
       boxDetail:
         ' Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diamnonumy eirmod tempor...',
       price: '$ 120.00',
@@ -24,7 +24,7 @@ const Product = ({ feture }) => {
       profileImg: Images.Pictures.statusImg1,
       profileTitle: 'Veni Paul',
       postTime: '1 hour ago',
-      boxTitle: 'Product Name',
+      boxTitle: 'Talent Name',
       boxDetail:
         ' Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diamnonumy eirmod tempor...',
       price: '$ 120.00',

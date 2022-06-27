@@ -62,7 +62,7 @@ const EditProfile = ({ onSwitch, navigation }) => {
                                     <FormInput placeHolder="Tarrance" />
                                     <Text style={styles.UserName}>User Name</Text>
                                     <FormInput placeHolder="@Tarrance_Official" />
-                                    <Text style={styles.UserName}>Bios</Text>
+                                    <Text style={styles.UserName}>Bio</Text>
                                     <FormInput
                                         multiLine
                                         height={124}
@@ -71,7 +71,7 @@ const EditProfile = ({ onSwitch, navigation }) => {
                                      Eos Et Accusam Et Justo."
                                     />
 
-                                    <Text style={styles.UserName}>Email</Text>
+                                    <Text style={styles.UserName}>Hide</Text>
                                     <View style={styles.profilerow}>
                                         <View style={{ width: '85%' }}>
                                             <FormInput
@@ -92,7 +92,7 @@ const EditProfile = ({ onSwitch, navigation }) => {
                                             size="lg"
                                         />
                                     </View>
-                                    <Text style={styles.UserName}>Contact No:</Text>
+                                    <Text style={styles.UserName}>Unhide</Text>
                                     <View style={styles.profilerow}>
                                         <View style={{ width: '85%' }}>
                                             <FormInput

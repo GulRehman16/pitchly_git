@@ -58,16 +58,14 @@ const AddTelent = ({ onPress, borderRadius, navigation }) => {
           <View style={{ marginTop: 10 }}>
             <View style={styles.whitebox}>
               <View style={styles.Input}>
-                <FormInput multiLine height={45} placeHolder="lorem ipsome" />
+                <FormInput multiLine height={45} placeHolder="Talent" />
               </View>
               <View style={styles.screenBody}>
                 <View style={styles.Input}>
                   <FormInput
                     multiLine
                     height={160}
-                    placeHolder="Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-                                 sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, 
-                                sed diam voluptua. At vero eos et accusam et justo."
+                    placeHolder="Talent Discription"
                   />
                 </View>
 
@@ -114,7 +112,8 @@ const AddTelent = ({ onPress, borderRadius, navigation }) => {
                     width: '90%',
                     alignItems: 'center',
                     alignSelf: 'center',
-                    marginTop: 10,
+                    marginTop: 4,
+
                   }}>
                   <TouchableOpacity
                     activeOpacity={0.8}
@@ -154,7 +153,7 @@ const AddTelent = ({ onPress, borderRadius, navigation }) => {
                   borderWidth={0.5}
                   borderColor={'#707070'}
                   backgroundColor={'#FFFFFF'}
-                  label="Review"
+                  label="Poat Now"
                 />
               </View>
             </View>

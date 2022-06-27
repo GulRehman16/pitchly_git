@@ -22,7 +22,7 @@ const Tip = ({
   bottompoint,
   marginBottom,
   marginVertical,
-  Icon1, borderRadius, img1
+  Icon1, borderRadius, img1, headingtext
 }) => {
   const [showTip, setShowTip] = useState(false)
   return (
@@ -116,7 +116,7 @@ const Tip = ({
                 fontWeight: 'bold',
                 color: 'black',
               }}>
-              UPLOAD
+              {headingtext}
             </Text>
             <View style={styles.TooltipContainerMain}>
 
@@ -181,7 +181,6 @@ const Tip = ({
                 />
                 <Text style={styles.texts}>{Text3}</Text>
               </TouchableOpacity>
-
               <TouchableOpacity
                 onPress={onPress4}
                 style={styles.box}>
@@ -192,8 +191,6 @@ const Tip = ({
                 />
                 <Text style={styles.texts}>{Text4}</Text>
               </TouchableOpacity>
-
-
             </View>
           </View>
         </View>

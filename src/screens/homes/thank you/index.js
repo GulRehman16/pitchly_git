@@ -12,16 +12,20 @@ import {
     TouchableOpacity,
 } from 'react-native';
 import { Images } from '../../../constants';
+import { useRoute } from '@react-navigation/native';
 import { AppButton } from '../../../components';
 import MyTabs from '../../../navigation/bottomTab';
 const height = Dimensions.get('window').height / 2.5;
 const width = Dimensions.get('window').width;
-const ThankYouScreen = ({ navigation }) => {
+const ThankYouScreen = ({ route, navigation }) => {
     // useEffect(() => {
     //   setTimeout(() => {
     //     navigation.replace('mainAuth');
     //   }, 1500);
     // }, []);
+
+
+
 
     return (
 
@@ -64,7 +68,7 @@ const ThankYouScreen = ({ navigation }) => {
                                 borderColor={'#707070'}
                                 backgroundColor={'#FFFFFF'}
                                 label=" Continue "
-                                onPress={() => navigation.navigate('MyTabs', { screen: 'profile' })}
+                                onPress={() => navigation.replace('MyTabs', { screen: 'profile' })}
                             />
                         </View>
                     </View>

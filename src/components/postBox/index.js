@@ -9,10 +9,11 @@ import {
   Image,
   Dimensions,
 } from 'react-native';
-import { Images, Themes } from '../../constants';
+import { Images } from '../../constants';
 import LinearGradient from 'react-native-linear-gradient';
 import { Tooltip } from 'react-native-elements';
-import { AppButton } from '../appButton';
+import { useNavigation } from '@react-navigation/native';
+import { AppButton } from '../../components'
 
 const PostBox = ({
   profileImg,
@@ -32,10 +33,13 @@ const PostBox = ({
   ImgPress,
   feture,
   GetFeture,
-  navigation,
+  press,
+  Press1
 }) => {
   const [Grid, setGrid] = useState(checksingle);
   console.log('Grid', Grid);
+
+  const navigation = useNavigation();
 
   return (
     <View style={styles.container}>
@@ -49,7 +53,8 @@ const PostBox = ({
             justifyContent: 'space-between',
           }}>
           <View style={{ flexDirection: 'row' }}>
-            <TouchableOpacity style={{ width: 40, height: 40 }}>
+            <TouchableOpacity onPress={() => navigation.navigate("Homes", { screen: 'talentscreen' })}
+              style={{ width: 40, height: 40 }}>
               <Image
                 source={Images.Pictures.profile}
                 style={{ width: '100%', height: '100%' }}
@@ -134,7 +139,10 @@ const PostBox = ({
                   width: '100%',
                   height: '100%',
                 }}>
-                <TouchableOpacity onPress={Press}
+                <TouchableOpacity onPress={() => navigation.navigate("Homes", { screen: 'talentscreen' },
+
+
+                )}
                   style={{ width: '45%', height: '100%' }}>
                   <Image
                     source={gridImg}
@@ -234,7 +242,9 @@ const PostBox = ({
                 style={{ width: '100%', height: '100%', justifyContent: 'center', alignItems: 'center' }}
                 resizeMode="stretch">
                 <TouchableOpacity
-                  onPress={Press}
+                  // onPress={Press}
+                  onPress={() => navigation.navigate("Homes", { screen: 'talentscreen' })}
+                  // title="Go to notifications"
                   style={{
                     width: 50, height: 50, borderRadius: 10, borderWidth: 35,
                     backgroundColor: '#eee',

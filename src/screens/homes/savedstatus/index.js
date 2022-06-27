@@ -66,7 +66,7 @@ const SavedStatus = props => {
                     renderItem={({ item }) => {
                         return (
                             <View style={styles.imgview}>
-                                <TouchableOpacity style={{ width: '100%' }}>
+                                <TouchableOpacity onPress={() => { props.navigation.navigate('Viewstatus') }} style={{ width: '100%' }}>
                                     <Image
                                         source={item.image1}
                                         resizeMode="contain"

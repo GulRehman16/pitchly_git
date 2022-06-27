@@ -300,8 +300,14 @@ const HomeScreensix = (props) => {
           contentContainerStyle={{ flexGrow: 1 }}>
           <StatusBar backgroundColor={'transparent'} translucent={true} />
           <View style={styles.body}>
-            <View style={styles.headerView}>
-              <HomeHeader />
+            <View style={styles.screenHeader}>
+              <HomeHeader
+                homeHeader2={true}
+                search={true}
+                onPress={() => props.navigation.goBack()}
+                // onPress={() => props.navigation.navigate('Homes', { screen: 'home' })}
+                onPress1={() => props.navigation.navigate('Homes', { screen: 'searchscreen' })}
+              />
             </View>
             <View style={{ marginTop: 20, marginVertical: 5 }}>
               <Text style={{ color: '#000', fontWeight: 'bold', fontSize: 22 }}>
@@ -393,7 +399,7 @@ const styles = StyleSheet.create({
   },
 
   screenHeader: {
-    width: '90%',
+    width: '100%',
     height: 80,
     marginTop: 20, alignSelf: 'center',
     justifyContent: 'center',

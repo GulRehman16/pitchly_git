@@ -19,7 +19,6 @@ import Notification from '../../screens/homes/Notifications';
 import AddServices from '../../screens/homes/AddServices';
 import AccountSetting from '../../screens/homes/AccountSetting';
 import Profile from '../../screens/homes/profile';
-
 import EditProfile from '../../screens/homes/editprofile';
 import PremiumMemberScreen from '../../screens/homes/PremiumMemberScreen';
 import ChatScreen from '../../screens/homes/ChatScreen';
@@ -45,13 +44,18 @@ import Addproduct from '../../screens/homes/Addproduct';
 import SearchScreen from '../../screens/homes/SearchbyScreen';
 import FeaturedPost from '../../screens/homes/FeaturedPost';
 import Home11 from '../../screens/homes/home11';
-import StoreCreate from '../../screens/homes/Storecreate';
 import Followers from '../../screens/homes/followers';
 import Following from '../../screens/homes/following';
 import SavedStatus from '../../screens/homes/savedstatus';
 import TalentScreen from '../../screens/homes/TalentScreen';
-import CameraStorie from '../../screens/homes/CameraStorie';
-// import Weekpackage from '../../screens/homes/weekpackage';
+import CameraStorie from '../../screens/homes/CameraStorie'
+import Search from '../../screens/homes/Search';
+import Viewstatus from '../../screens/homes/viewstatus';
+import SavedPost from '../../screens/homes/savedPost';
+import StorieCreate from '../../screens/homes/Storiecreate';
+import Account from '../../screens/homes/account';
+
+
 // import AddTelent from '../../screens/homes/AddTelent'
 
 const Stack = createNativeStackNavigator();
@@ -117,8 +121,59 @@ export const Homes = () => {
         options={{ headerShown: false }}
       />
       <Stack.Screen
+        name="savedpost"
+        component={SavedPost}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="createstorie"
+        component={StorieCreate}
+        options={{ headerShown: false }}
+      />
+
+      <Stack.Screen
+        name="Search"
+        component={Search}
+        options={{ headerShown: false }}
+      />
+
+      <Stack.Screen
+        name="Viewstatus"
+        component={Viewstatus}
+        options={{ headerShown: false }}
+      />
+
+      <Stack.Screen
+        name="homesix"
+        component={HomeScreensix}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="camerastorie"
+        component={CameraStorie}
+        options={{ headerShown: false }}
+      />
+
+      <Stack.Screen
+        name="Savedstatus"
+        component={SavedStatus}
+        options={{ headerShown: false }}
+      />
+
+
+      <Stack.Screen
         name="talentscreen"
         component={TalentScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="followers"
+        component={Followers}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="following"
+        component={Following}
         options={{ headerShown: false }}
       />
       <Stack.Screen
@@ -131,7 +186,6 @@ export const Homes = () => {
         component={HomeScreensix}
         options={{ headerShown: false }}
       />
-
 
       <Stack.Screen
         name="notificationsettings"
@@ -190,6 +244,11 @@ export const Homes = () => {
       <Stack.Screen
         name="Accountdeactivation"
         component={AccountDeactivation}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="account"
+        component={Account}
         options={{ headerShown: false }}
       />
       <Stack.Screen
@@ -300,16 +359,7 @@ export const Homes = () => {
         component={SearchScreen}
         options={{ headerShown: false }}
       />
-      <Stack.Screen
-        name="cameraStorie"
-        component={CameraStorie}
-        options={{ headerShown: false }}
-      />
-      <Stack.Screen
-        name="storieCreate"
-        component={CameraStorie}
-        options={{ headerShown: false }}
-      />
+
     </Stack.Navigator>
   );
 };

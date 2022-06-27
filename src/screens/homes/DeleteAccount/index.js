@@ -24,7 +24,7 @@ const DeleteAccount = ({ route, navigation }) => {
     //   }, 1500);
     // }, []);
 
-    const { text1, text2, Image1 } = route.params;
+    const { text1, text2, Image1, onPress } = route.params;
 
     return (
 
@@ -57,7 +57,6 @@ const DeleteAccount = ({ route, navigation }) => {
                         {text1}
                     </Text>
                     <Text style={styles.headerText2}>
-
                         {text2}
                     </Text>
                 </View>

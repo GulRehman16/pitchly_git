@@ -32,7 +32,7 @@ const Settings = props => {
       Image1: Images.Icons.Save,
       text2: 'Your Saved Posts',
       Image2: Images.Icons.arrowforward,
-      Press: () => props.navigation.navigate('home'),
+      Press: () => props.navigation.navigate('Homes', { screen: 'savedpost' }),
     },
     {
       Image1: Images.Icons.Account,

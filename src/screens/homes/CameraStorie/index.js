@@ -108,7 +108,8 @@ const CameraStorie = props => {
                 </TouchableOpacity>
 
                 <TouchableOpacity
-                  onPress={() => takePicture(camera)}
+                  // onPress={() => takePicture(camera)}
+                  onPress={() => { props.navigation.navigate("Homes", { screen: 'createstorie' }) }}
                   style={styles.capture}>
                   <Text
                     style={{

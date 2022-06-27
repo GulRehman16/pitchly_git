@@ -31,9 +31,9 @@ const Login = props => {
             visibleText
             BAckButton
             text="Sign In"
-            onPress={() => {
-              props.navigation.goBack();
-            }}
+          // onPress={() => {
+          //   props.navigation.goBack();
+          // }}
           />
         </View>
         <View style={styles.screenBody}>

@@ -83,16 +83,13 @@ const Addproduct = props => {
                     marginVertical: 20,
                   }}>
                   <View style={{ marginVertical: 5 }}>
-                    <FormInput placeHolder="lore ipsome  " />
+                    <FormInput placeHolder="Produc name " />
                   </View>
                   <View style={{ marginVertical: 5 }}>
                     <FormInput
                       multiLine
                       height={124}
-                      placeHolder="Lorem Ipsum Dolor Sit Amet, 
-                                           Labore Et Dolore Magna Aliquyam Erat, Sed Diam.
-                                           Lorem Ipsum Dolor Sit Amet, 
-                                           Labore Et Dolore Magna Aliquyam Erat, Sed Diam."
+                      placeHolder="Product Discription"
                     />
                   </View>
                   <View style={{ marginVertical: 5 }}>
@@ -231,7 +228,7 @@ const Addproduct = props => {
                   borderWidth={0.5}
                   borderColor={'#707070'}
                   backgroundColor={'#FFFFFF'}
-                  label="Pay Now"
+                  label="Post Now"
                   onPress={() =>
                     props.navigation.replace('MyTabs', { screen: 'home' })
                   }
@@ -254,7 +251,7 @@ const styles = StyleSheet.create({
   screenHeader: {
     width: '90%',
     height: 80,
-    marginTop: 50,
+    marginTop: 20,
     alignSelf: 'center',
     justifyContent: 'center',
     alignItems: 'center',

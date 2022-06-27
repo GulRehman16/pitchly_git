@@ -39,7 +39,7 @@ const PremiumMemberScreen = ({ props, navigation }) => {
                             hiddinText
                             text="Become Premium Member"
                             onPress={() => {
-                                navigation.goBack();
+                                navigation.goBack('');
                             }}
                         />
                     </View>
@@ -84,7 +84,13 @@ const PremiumMemberScreen = ({ props, navigation }) => {
                                             borderColor={'#707070'}
                                             backgroundColor={'#FFFFFF'}
                                             label="Next"
-                                            onPress={() => navigation.navigate('payment')}
+                                            onPress={() => navigation.navigate('payment',
+                                                {
+                                                    onPress1: () => navigation.replace('Homes', { screen: 'thankyouscreen' }),
+                                                    onPress2: () => navigation.replace('MyTabs', { screen: 'profile' })
+
+                                                }
+                                            )}
                                         />
                                     </View>
                                 </View>

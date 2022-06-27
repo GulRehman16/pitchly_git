@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -11,15 +11,10 @@ import {
   FlatList,
   TouchableOpacity,
 } from 'react-native';
-import { AppButton, Header, StatusView, AllMixed, HomeHeader, Product, Services, Talent, } from '../../../components';
-import UserBios from '../../../components/userbios';
-import { UserData } from '../../../components/usersdata';
+import { Header, Highlight, AllMixed, HomeHeader, Product, Services, Talent, UserData } from '../../../components';
 import { Images } from '../../../constants';
-import { useState } from 'react';
 import LinearGradient from 'react-native-linear-gradient';
 
-import ImagePicker from 'react-native-image-crop-picker';
-import { Highlight } from '../../../components/Highlight';
 const Profile = props => {
   const statusData = [
     {
@@ -85,8 +80,9 @@ const Profile = props => {
           </View>
           <View style={styles.screenBody}>
             <UserData
+              editoption={true}
               Bio
-              editicon
+              // editicon
               Image1={Images.Pictures.profile1}
               UserName="Tarrance"
               UserEmail="@Tarrance_official "
@@ -94,12 +90,15 @@ const Profile = props => {
               informationtext
               Followers={70}
               Following={52}
-              onPress1={() => props.navigation.navigate('Homes', { screen: 'follwers' })}
-              onPress2={() => props.navigation.navigate('Homes', { screen: 'followings' })}
+              onPress1={() => props.navigation.navigate('Homes', { screen: 'followers' })}
+              onPress2={() => props.navigation.navigate('Homes', { screen: 'following' })}
               Bios="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, 
               sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,"
+              Contact1="Contact"
               Contact="+13246987"
+              Email1="Email"
               Email="Lorem ipsome"
+              Location1="Location"
               Location="lorem ipsome"
               pressme={() => {
                 props.navigation.navigate('Homes', { screen: 'editprofile' });
@@ -121,6 +120,7 @@ const Profile = props => {
                         imgWidth={item.imgWidth}
                         imgHeight={item.imgHeight}
                         text={item.text}
+
                       />
                     </View>
                   );
@@ -128,11 +128,11 @@ const Profile = props => {
               />
               <View style={styles.statusAddView}>
                 <TouchableOpacity
-                  onPress={() => props.navigation.navigate("Homes", { screen: 'saveStatus' })}
+                  onPress={() => props.navigation.navigate("Homes", { screen: 'Savedstatus' })}
                   style={styles.statusAddBox}>
                   <Image source={img} style={styles.statusAddIcon} />
                 </TouchableOpacity>
-                <Text>You</Text>
+                <Text>New</Text>
               </View>
             </View>
 

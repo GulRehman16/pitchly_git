@@ -13,17 +13,23 @@ import React, { useState, useRef } from 'react';
 import { SwipeListView } from 'react-native-swipe-list-view';
 import { Avatar } from 'react-native-elements';
 import { Icon } from 'native-base';
-const Box = ({ name, textmessage, Nowtext, messagenumber, Image1, Press }) => {
+const Box = ({
+  name,
+  textmessage,
+  Nowtext,
+  messagenumber,
+  Image1,
+  Press,
+  navigation,
+  onPress,
+  Time,
+}) => {
   const [state, setState] = useState(false);
 
   const [listData] = useState(
-    Array(10)
+    Array(1)
       .fill('')
-    // <<<<<<< HEAD
-    //       .map((_, i) => ({ key: `${i}`, text: `item #${i}` })),
-    // =======
-    //       .map((_, i) => ({key: `${i}`, text: `item #${i}`})),
-    // >>>>>>> 0b77aa4a13784cc2c360ca74b810778a2064284a
+      .map((_, i) => ({ key: `${i}`, text: `item #${i}` })),
   );
   const openRowRef = useRef(null);
 
@@ -33,65 +39,66 @@ const Box = ({ name, textmessage, Nowtext, messagenumber, Image1, Press }) => {
 
   const closeOpenRow = () => {
     if (openRowRef.current && openRowRef.current.closeRow) {
-      openRowRef.current.closeRow();
+      openRowRef.current.closeRow(); s
     }
   };
 
   const renderItem = data => (
-    <View style={styles.rowFront}>
-      <View style={{ marginLeft: 10, marginTop: 5 }}>
-        <Avatar rounded size={'medium'} source={Image1} />
-      </View>
+    <TouchableOpacity onPress={onPress}>
+      <View style={styles.rowFront}>
+        <View style={{ marginLeft: 10, marginTop: 5 }}>
+          <Avatar rounded size={'medium'} source={Image1} />
+        </View>
 
-      <View style={{ width: '55%', marginLeft: 15, marginTop: 10 }}>
-        <Text style={styles.vani}>{name}</Text>
-        <Text style={styles.othertxt}>{textmessage}</Text>
-      </View>
-      <View
-        style={{
-          width: '30%',
-        }}>
-        <Text style={styles.just_now_text}>{Nowtext}</Text>
+        <View style={{ width: '55%', marginLeft: 15, marginTop: 10 }}>
+          <Text style={styles.vani}>{name}</Text>
+          <Text style={styles.othertxt}>{textmessage}</Text>
+        </View>
+
         <View
           style={{
-            width: 20,
-            height: 20,
-            borderRadius: 20,
-            backgroundColor: 'blue',
-            marginVertical: 4,
-            marginLeft: 10,
+            width: '30%',
+            marginLeft: 1,
           }}>
-          <Text style={{ color: '#ffff', textAlign: 'center' }}>
-            {messagenumber}
-          </Text>
+          <Text style={styles.just_now_text}>{Time ? Time : Nowtext}</Text>
+          <View
+            style={{
+              width: 20,
+              height: 20,
+              borderRadius: 20,
+              backgroundColor: Time ? null : 'blue',
+              marginVertical: 4,
+              marginLeft: 10,
+            }}>
+            <Text style={{ color: '#ffff', textAlign: 'center' }}>
+              {messagenumber}
+            </Text>
+          </View>
         </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 
   const renderHiddenItem = () => (
     <View
       style={{
-        borderWidth: 1,
         backgroundColor: 'red',
-        width: '24%',
-        flex: 1,
-        height: 80,
-        borderTopRightRadius: 10,
-        borderBottomRightRadius: 10,
-        alignSelf: 'flex-end',
-        marginTop: 10,
+        width: '100%',
+        alignItems: 'flex-end',
         justifyContent: 'center',
-        alignItems: 'center',
+        height: 80,
+        borderRadius: 16,
+        marginTop: 10,
       }}>
       <Icon
         name="trash"
         type="FontAwesome5"
         style={{
           color: 'white',
-          marginRight: 55,
-          marginLeft: 15,
-          alignSelf: 'center'
+          marginRight: 20,
+          alignself: 'center',
+          marginTop: 20,
+          flex: 1,
         }}
       />
     </View>
@@ -149,6 +156,7 @@ const styles = StyleSheet.create({
     width: 97,
     height: 82,
   },
+
   backRightBtnRight: {
     backgroundColor: 'red',
     right: 0,

@@ -13,6 +13,8 @@ import { Icon } from 'react-native-elements';
 import LinearGradient from 'react-native-linear-gradient';
 import { Images } from '../../constants';
 import { Followbtn } from '../Followbtn';
+import { Tooltip } from 'react-native-elements';
+import { Tip } from '../tooltip';
 
 const UserData = ({
   navigation,
@@ -32,7 +34,8 @@ const UserData = ({
   Location,
   pressme,
   onPress1,
-  onPress2
+  onPress2,
+  threebtn, Bios1, Contact1, Email1, Location1, editoption, premiumicon
 }) => {
   const [state, setState] = useState('follow');
   const [colorState, setColorsate] = useState(true);
@@ -57,66 +60,155 @@ const UserData = ({
                   />
                 </View>
                 <View style={styles.userInfo}>
-                  <Text style={styles.UserName}>{UserName}</Text>
-                  <Text style={styles.UserEmail}>{UserEmail}</Text>
-                  <View style={styles.followerText}>
-                    <View style={{ margin: 10 }}>
-                      <Text style={styles.UserPostNumber}>{Post}</Text>
-                      <Text style={styles.UserPost}>Post</Text>
+
+                  <View>
+                    <View style={{ flexDirection: 'row' }}>
+                      <View>
+                        <Text style={styles.UserName}>{UserName}</Text>
+                        <Text style={styles.UserEmail}>{UserEmail}</Text>
+                      </View>
+                      {premiumicon && (
+
+                        <View style={{ alignSelf: 'flex-end' }}>
+
+
+                          <Tooltip
+                            containerStyle={{
+                              width: 120,
+                              height: 80,
+                              shadowColor: '#000',
+                              shadowOffset: {
+                                width: 0,
+                                height: 3,
+                              },
+                              shadowOpacity: 0.27,
+                              shadowRadius: 4.65,
+
+                              elevation: 6,
+                              flexDirection: 'row',
+                            }}
+                            backgroundColor="#fff"
+                            withPointer={true}
+                            popover={
+                              <View style={{ width: 280, height: 140, backgroundColor: '#fff', elevation: 5, borderRadius: 10 }}>
+                                <Text style={{ marginVertical: 2, padding: 5, color: '#000', fontWeight: 'bold' }}>Premium Account</Text>
+                                <Text style={{ marginVertical: 2, padding: 6, color: '#000' }}>Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+                                  sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+                                  sed diam voluptua.</Text>
+
+                              </View>
+                            }>
+                            <View
+                              activeOpacity={0.8}
+
+                              style={{}}>
+                              <View style={styles.premiumicon}>
+                                <Image source={Images.Icons.premium}
+                                  resizeMode="contain" style={{ width: '100%', height: '100%' }} />
+                              </View>
+                            </View>
+
+                          </Tooltip>
+
+                        </View>
+
+
+                      )}
                     </View>
-                    <TouchableOpacity onPress={onPress1} style={{ margin: 10 }}>
-                      <Text style={styles.UserPostNumber}>{Followers}</Text>
-                      <Text style={styles.UserPost}>Followers</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={onPress2} style={{ margin: 10 }}>
-                      <Text style={styles.UserPostNumber}>{Following}</Text>
-                      <Text style={styles.UserPost}>Following</Text>
-                    </TouchableOpacity>
+                    <View style={styles.followerText}>
+                      <View style={{ margin: 10 }}>
+                        <Text style={styles.UserPostNumber}>{Post}</Text>
+                        <Text style={styles.UserPost}>Post</Text>
+                      </View>
+                      <TouchableOpacity onPress={onPress1} style={{ margin: 10 }}>
+                        <Text style={styles.UserPostNumber}>{Followers}</Text>
+                        <Text style={styles.UserPost}>Followers</Text>
+                      </TouchableOpacity>
+                      <TouchableOpacity onPress={onPress2} style={{ margin: 10 }}>
+                        <Text style={styles.UserPostNumber}>{Following}</Text>
+                        <Text style={styles.UserPost}>Following</Text>
+                      </TouchableOpacity>
+                    </View>
                   </View>
                 </View>
+
               </View>
-              <TouchableOpacity
-                activeOpacity={0.8}
-                onPress={pressme}
-                style={{ width: '10%' }}>
-                <LinearGradient
-                  start={{ x: 1, y: 0.0 }}
-                  end={{ x: 1, y: 1.9 }}
-                  colors={['#5DF7B8', '#3109FB']}
-                  style={{
-                    width: 35,
-                    height: 35,
-                    borderRadius: 10,
-                  }}>
-                  <Icon
-                    type="FontAwesome"
-                    name="edit"
-                    color="#fff"
-                    size={22}
-                    style={{ margin: 4 }}
-                  />
-                </LinearGradient>
-              </TouchableOpacity>
+
+
+              {editoption && (
+
+                <TouchableOpacity
+                  activeOpacity={0.8}
+                  onPress={pressme}
+                  style={{ width: '10%' }}>
+                  <LinearGradient
+                    start={{ x: 1, y: 0.0 }}
+                    end={{ x: 1, y: 1.9 }}
+                    colors={['#5DF7B8', '#3109FB']}
+                    style={{
+                      width: 35,
+                      height: 35,
+                      borderRadius: 10,
+                    }}>
+                    <Icon
+                      type="FontAwesome"
+                      name="edit"
+                      color="#fff"
+                      size={22}
+                      style={{ margin: 4 }}
+                    />
+                  </LinearGradient>
+                </TouchableOpacity>
+
+              )}
+
+
             </View>
-            <View style={{ width: '90%', alignSelf: 'center' }}>
+            <View style={{ width: '90%', alignSelf: 'center', height: '40%' }}>
               <View>
                 <Text style={styles.Bios}>Bios</Text>
                 <Text style={styles.Descriprion}>{Bios}</Text>
               </View>
               <View>
-                <Text style={styles.Bios}>Contact</Text>
+                <Text style={styles.Bios}>{Contact1}</Text>
                 <Text style={styles.Descriprion}>{Contact}</Text>
               </View>
               <View>
-                <Text style={styles.Bios}>Email</Text>
+                <Text style={styles.Bios}>{Email1}</Text>
                 <Text style={styles.Descriprion}>{Email}</Text>
               </View>
               <View>
-                <Text style={styles.Bios}>Location</Text>
+                <Text style={styles.Bios}>{Location1}</Text>
                 <Text style={styles.Descriprion}>{Location}</Text>
               </View>
             </View>
+
+            {threebtn && (
+              <View style={{ flexDirection: 'row', width: '90%', alignSelf: 'center', justifyContent: 'space-around' }}>
+                <View style={{ width: '31%', top: -15 }}>
+                  <Followbtn
+                    borderWidth={0.75}
+                    width='100%'
+                    color1="#eee"
+                    color2="#eee"
+                    color3="#000"
+                    color4="#000"
+                    User
+                    follow="follow"
+                    unfollow="Unfollow"
+                  />
+                </View>
+                <View style={{ borderWidth: 1, width: '31%', height: 30, borderRadius: 5, justifyContent: 'center' }}>
+                  <Text style={{ textAlign: 'center', color: '#000' }}>Message</Text>
+                </View>
+                <View style={{ borderWidth: 1, width: '31%', height: 30, borderRadius: 5, justifyContent: 'center' }}>
+                  <Text style={{ textAlign: 'center', color: '#000' }}>Message</Text>
+                </View>
+              </View>
+            )}
           </View>
+
+
         </View>
       )}
     </View>
@@ -167,7 +259,8 @@ const styles = StyleSheet.create({
   premiumicon: {
     width: 110,
     height: 65,
-    marginLeft: -20,
+    // marginRight: 80
+
   },
   Image1: {
     width: '100%',

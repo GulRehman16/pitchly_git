@@ -1,5 +1,5 @@
-import React from 'react';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
+
 import {
     StyleSheet,
     Text,
@@ -10,7 +10,8 @@ import {
     Dimensions,
     ScrollView,
     TouchableOpacity,
-    TextInput
+    TextInput,
+    BackHandler
 } from 'react-native';
 import { Images } from '../../../constants';
 import { AppButton, Header } from '../../../components';
@@ -20,11 +21,18 @@ const width = Dimensions.get('window').width;
 const DeactivateAccount = ({ navigation }) => {
 
     // useEffect(() => {
-    //   setTimeout(() => {
-    //     navigation.replace('mainAuth');
-    //   }, 1500);
+    //     setTimeout(() => {
+    //         navigation.replace('mainAuth');
+    //     }, 1500);
     // }, []);
 
+
+    // useEffect(() => {
+    //     BackHandler.addEventListener('hardwareBackPress');
+    //     return () => {
+    //         BackHandler.removeEventListener('hardwareBackPress');
+    //     };
+    // }, []);
 
     const route = useRoute();
     return (
@@ -57,7 +65,7 @@ const DeactivateAccount = ({ navigation }) => {
                         <View style={styles.texts}>
 
                             <Text style={styles.headerText1}>
-
+                                Deactivate Account
                             </Text>
                             <Text style={styles.headerText2}>
                                 Enter your password
@@ -84,7 +92,7 @@ const DeactivateAccount = ({ navigation }) => {
                                     borderColor={'#707070'}
                                     backgroundColor={'#FFFFFF'}
                                     label="Confirm"
-                                    onPress={() => navigation.navigate('Auth', { screen: "login" })}
+                                    onPress={() => navigation.replace('Auth', { screen: 'login' })}
                                 />
                             </View>
                         </View>

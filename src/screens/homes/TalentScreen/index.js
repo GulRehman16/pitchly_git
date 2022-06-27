@@ -23,7 +23,7 @@ import ImagePicker from 'react-native-image-crop-picker';
 import { Comment, PostBox } from '../../../components';
 
 import { Images } from '../../../constants';
-import { Homes } from '../../../navigation/stack';
+// import { Homes } from '../../../navigation/stack';
 const TalentScreen = props => {
     const [messages, setMessages] = useState([]);
     const [message, setMessage] = useState('');
@@ -158,16 +158,16 @@ const TalentScreen = props => {
                             }>
                             <View>
                                 <View style={{
-                                    marginTop: 10
+                                    width: '95%', alignSelf: 'center',
                                 }}>
                                     < Headerchat
                                         image={Images.Pictures.statusImg2}
                                         name={'Veni'}
                                         marginTop={20}
                                         Press={() => {
-                                            props.navigate.goback();
+                                            props.navigation.goBack()
                                         }}
-
+                                        imgpress={() => props.navigation.navigate('account')}
                                     />
                                 </View>
 

@@ -1,5 +1,6 @@
 const Images = {
   Pictures: {
+
     loginBG: require('../../assets/images/joker.jpg'),
     homeBg: require('../../assets/images/homeBg.png'),
     homeMainBg: require('../../assets/images/homeMainBg.jpg'),
@@ -34,6 +35,7 @@ const Images = {
     Devil: require('../../assets/images/Devil.png'),
     Faram: require('../../assets/images/Faram.png'),
     Friendship1: require('../../assets/images/Friendship1.png'),
+    // bgstatus: require('../../assets/images/bgstatus.png')
   },
   Logos: {
     plusIcon: require('../../assets/images/plusIcon.png'),

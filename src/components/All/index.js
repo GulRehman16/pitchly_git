@@ -1,18 +1,17 @@
 import React, { useEffect } from 'react';
-import { StyleSheet, Text, View, FlatList, Dimensions } from 'react-native';
+import { StyleSheet, Text, View, FlatList, Dimensions, TouchableOpacity, Image } from 'react-native';
 import { Images, Themes } from '../../constants';
 import LinearGradient from 'react-native-linear-gradient';
-import { PostBox, SuggestFriends } from '../../components'
-import { TouchableOpacity } from 'react-native-gesture-handler';
-
-
+import { PostBox, SuggestFriends } from '../../components';
+import { useNavigation } from '@react-navigation/native';
 
 const AllMixed = ({ props }) => {
 
 
-
+  const navigation = useNavigation();
   const statusData2 = [
     {
+      id: 1,
       imgName: Images.Pictures.statusImg1,
       imgWidth: 59,
       imgHeight: 59,
@@ -25,6 +24,7 @@ const AllMixed = ({ props }) => {
       // Press: () => { navigation.navigate('contactUs') }
     },
     {
+      id: 2,
       imgName: Images.Pictures.statusImg2,
       imgWidth: 59,
       imgHeight: 59,
@@ -37,6 +37,7 @@ const AllMixed = ({ props }) => {
       // Press: () => { navigation.navigate('') }
     },
     {
+      id: 3,
       imgName: Images.Pictures.statusImg3,
       imgWidth: 59,
       imgHeight: 59,
@@ -50,6 +51,7 @@ const AllMixed = ({ props }) => {
 
     },
     {
+      id: 4,
       imgName: Images.Pictures.statusImg4,
       imgWidth: 59,
       imgHeight: 59,
@@ -59,15 +61,16 @@ const AllMixed = ({ props }) => {
       width: 61,
       height: 61,
       text: 'Saher',
-      // Press: () => { navigation.navigate('') }
+
     },
   ];
   const All = [
     {
+      id: 1,
       profileImg: Images.Pictures.statusImg1,
       profileTitle: 'Veni Paul',
       postTime: '1 hour ago',
-      boxTitle: 'Product Name',
+      boxTitle: 'Talent Name',
       boxDetail:
         ' Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diamnonumy eirmod tempor...',
       price: '$ 120.00',
@@ -79,11 +82,11 @@ const AllMixed = ({ props }) => {
       checksingle: false,
       checkfollow: false,
       // feture: feture ? false : true,
-      Press: () => props.navigate('Homes', { screen: 'profile' })
-
+      // onPress: () => props.navigation.replace('MyTabs', { screen: 'home' })
     },
 
     {
+      id: 2,
       profileImg: Images.Pictures.statusImg1,
       profileTitle: 'Veni Paul',
       postTime: '1 hour ago',
@@ -97,10 +100,12 @@ const AllMixed = ({ props }) => {
       // Press: () => navigation.navigate('Homes', { screen: 'profile' })
     },
     {
+
+      id: 3,
       profileImg: Images.Pictures.statusImg1,
       profileTitle: 'Veni Paul',
       postTime: '1 hour ago',
-      boxTitle: 'Product Name',
+      boxTitle: 'Talent Name',
       boxDetail:
         ' Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diamnonumy eirmod tempor...',
       price: '$ 120.00',
@@ -114,12 +119,15 @@ const AllMixed = ({ props }) => {
       // feture: feture ? false : true,
 
       // Press: () => navigation.navigate('Homes', { screen: 'profile' })
+      // Press: () => navigation.navigate("Homes", { screen: 'Notifications' })
     },
     {
+
+      id: 4,
       profileImg: Images.Pictures.talent,
       profileTitle: 'Veni Paul',
       postTime: '1 hour ago',
-      boxTitle: 'Service Name',
+      boxTitle: 'Talent Name',
       boxDetail:
         ' Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diamnonumy eirmod tempor...',
       price: '$ 10.00',
@@ -127,7 +135,7 @@ const AllMixed = ({ props }) => {
       checksingle: true,
       checkfollow: false,
       // feture: feture ? false : true,
-      // Press: () => navigation.navigate('Homes', { screen: 'profile' })
+      Press1: () => props.navigation.navigate('Homes', { screen: 'profile' })
 
       //   ImgPress: navigation.navigate('Homes', {screen: 'productdetails'}),
     },
@@ -139,8 +147,10 @@ const AllMixed = ({ props }) => {
         data={All}
         renderItem={({ item }) => {
           return (
-            <View style={{ marginTop: 10 }}>
+            <View style={{ marginTop: 10, }}>
+
               <PostBox
+                keyExtractor={item => item.id}
                 profileTitle={item.profileTitle}
                 postTime={item.postTime}
                 boxTitle={item.boxTitle}
@@ -153,8 +163,10 @@ const AllMixed = ({ props }) => {
                 singleImg={item.singleImg}
                 checksingle={item.checksingle}
                 price={item.price}
-                // feture={item.feture}
-                Press={item.Press}
+                Press={item.Press1}
+              // feture={item.feture}
+              // Press={item.onPress}
+
               />
               {item.checkfollow == true ? (
                 <View>
@@ -190,6 +202,7 @@ const AllMixed = ({ props }) => {
                               imgHeight={item.imgHeight}
                               text={item.text}
                               Press={item.Press}
+                              keyExtractor={item => item.id}
                             />
                           </View>
                         );

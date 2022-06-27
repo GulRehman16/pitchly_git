@@ -154,22 +154,25 @@ const AddServices = props => {
                     Upload Photo & Video<Text styl={{ color: 'red' }}>*</Text>
                   </Text>
                 </View>
+                <View
+                  style={{
+                    width: '80%', alignSelf: 'center', marginBottom: 100, marginVertical: 10
+                  }}>
+                  <AppButton
+                    LinearColor1={'#5DF7B8'}
+                    LinearColor2={'#3109FB'}
+                    color={'white'}
+                    borderWidth={0.5}
+                    borderColor={'#707070'}
+                    backgroundColor={'#FFFFFF'}
+                    label="Post Now"
+                    onPress={() =>
+                      props.navigation.replace('MyTabs', { screen: 'home' })
+                    }
+                  />
+                </View>
               </View>
-              <View
-                style={{ width: '80%', alignSelf: 'center', marginVertical: 10 }}>
-                <AppButton
-                  LinearColor1={'#5DF7B8'}
-                  LinearColor2={'#3109FB'}
-                  color={'white'}
-                  borderWidth={0.5}
-                  borderColor={'#707070'}
-                  backgroundColor={'#FFFFFF'}
-                  label="Pay Now"
-                  onPress={() =>
-                    props.navigation.replace('MyTabs', { screen: 'home' })
-                  }
-                />
-              </View>
+
             </View>
           </View>
         </View>
@@ -187,7 +190,7 @@ const styles = StyleSheet.create({
   screenHeader: {
     width: '90%',
     height: 80,
-    marginTop: 50,
+    marginTop: 20,
     alignSelf: 'center',
     justifyContent: 'center',
     alignItems: 'center',

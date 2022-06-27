@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     SafeAreaView,
     StyleSheet,
@@ -11,17 +11,10 @@ import {
     FlatList,
     TouchableOpacity,
 } from 'react-native';
-import { AppButton, Header, StatusView } from '../../../components';
-import UserBios from '../../../components/userbios';
-import { UserData } from '../../../components/usersdata';
-import { Images } from '../../../constants';
-import { useState } from 'react';
+import { Header, StatusView, AllMixed, Product, Services, Talent, UserBios, UserData, Highlight } from '../../../components'
 import LinearGradient from 'react-native-linear-gradient';
-import Talent from '../../../components/Talent';
-import Services from '../../../components/Services';
-import Product from '../../../components/Product';
-import AllMixed from '../../../components/All';
-import ImagePicker from 'react-native-image-crop-picker';
+import { Images } from '../../../constants';
+
 const Account = (props) => {
     const statusData = [
         {
@@ -155,11 +148,13 @@ const Account = (props) => {
                         <Header
                             onPress={() => props.navigation.navigate('Homes', { screen: 'settings' })}
                             header2
-                            press={() => props.navigation.goBack()}
+                            onPress1={() => props.navigation.goBack()}
                         />
                     </View>
                     <View style={styles.screenBody}>
                         <UserData
+                            onPress1={() => props.navigation.navigate('Homes', { screen: 'followers' })}
+                            onPress2={() => props.navigation.navigate('Homes', { screen: 'following' })}
                             height={320}
                             Bio
                             premiumicon
@@ -169,15 +164,16 @@ const Account = (props) => {
                             Post={111}
                             Followers={70}
                             Following={52}
-                            followbtn1
-
+                            threebtn={true}
                             Bios="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, 
-              sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,"
-                            Contact="+13246987"
-                            Email="Lorem ipsome"
-                            Location="lorem ipsome"
+              sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+              nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat
+              nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat"
+
                             pressme={() => { props.navigation.navigate("Homes", { screen: 'editprofile' }) }}
                         />
+
+
                         <View style={styles.statusBoxView}>
                             <FlatList
                                 horizontal={true}
@@ -186,20 +182,31 @@ const Account = (props) => {
                                 renderItem={({ item }) => {
                                     return (
                                         <View style={{ paddingLeft: 10 }}>
-                                            <StatusView
+                                            <Highlight
                                                 imgName={item.imgName}
                                                 width={item.width}
                                                 height={item.height}
                                                 imgWidth={item.imgWidth}
                                                 imgHeight={item.imgHeight}
                                                 text={item.text}
+
                                             />
                                         </View>
                                     );
                                 }}
                             />
-
+                            <View style={styles.statusAddView}>
+                                <TouchableOpacity
+                                    onPress={() => props.navigation.navigate("Homes", { screen: 'Savedstatus' })}
+                                    style={styles.statusAddBox}>
+                                    <Image source={img} style={styles.statusAddIcon} />
+                                </TouchableOpacity>
+                                <Text>New</Text>
+                            </View>
                         </View>
+
+
+
                         <View
                             style={{
                                 width: '90%',
@@ -294,10 +301,11 @@ const Account = (props) => {
                             </LinearGradient>
                         </View>
                         <View style={{ width: '90%', alignSelf: 'center' }}>
-                            {check.value === 'PITCHLY FEED' && <AllMixed />}
-                            {check.value === 'TALENT FEED' && <Talent />}
-                            {check.value === 'SERVICES FEED' && <Services />}
-                            {check.value === 'PRODUCTS FEED' && <Product />}
+                            {check.value === 'PITCHLY FEED' && <AllMixed feture={false} />}
+                            {check.value === 'TALENT FEED' && <Talent feture={false} />}
+                            {check.value === 'SERVICES FEED' && <Services feture={false} />}
+                            {check.value === 'PRODUCTS FEED' && <Product feture={false} />}
+
                         </View>
                         <View></View>
                     </View>
@@ -316,7 +324,7 @@ const styles = StyleSheet.create({
     screenHeader: {
         width: '90%',
         height: 80,
-        marginTop: 50,
+        marginTop: 20,
         alignSelf: 'center',
         justifyContent: 'center',
         alignItems: 'center',

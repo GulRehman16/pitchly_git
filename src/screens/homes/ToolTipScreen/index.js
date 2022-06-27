@@ -29,6 +29,7 @@ const ToolTipScreen = (props) => {
         <View style={styles.Body}>
           <View style={{}}>
             <Tip tooltipdata2
+              headingtext="UPLOAD"
               marginVertical={70}
               Toppint
               Text1="General"

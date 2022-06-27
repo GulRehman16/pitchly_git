@@ -13,7 +13,11 @@ import {
 import LinearGradient from 'react-native-linear-gradient';
 import { Images } from '../../../constants';
 import { AllMixed, HomeHeader, Product, Services, Talent, } from '../../../components'
-const Home11 = (props) => {
+
+
+
+const SavedPost = (props) => {
+
     const [data, setData] = useState({
         postDataAll: [
             {
@@ -291,7 +295,7 @@ const Home11 = (props) => {
                     <View style={styles.screenHeader}>
                         <HomeHeader
                             homeHeader2={true}
-                            search={true}
+                            // search={true}
                             onPress={() => props.navigation.goBack()}
                             onPress1={() => props.navigation.navigate('Homes', { screen: 'searchscreen' })}
 
@@ -315,7 +319,7 @@ const Home11 = (props) => {
 
 
                                 <Text style={{ color: 'black', fontWeight: 'bold', fontSize: 16, letterSpacing: 1 }}>
-                                    Featured Post
+                                    Saved Post
                                 </Text>
                             </View>
                             <LinearGradient
@@ -414,7 +418,7 @@ const Home11 = (props) => {
 };
 
 
-export default Home11
+export default SavedPost
 
 const styles = StyleSheet.create({
     imageContainer: {

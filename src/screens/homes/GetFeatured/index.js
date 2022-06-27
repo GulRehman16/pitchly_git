@@ -17,7 +17,11 @@ import { AppButton, Box, Header, Row, Switch1 } from '../../../components';
 import { Item, Textarea } from 'native-base';
 import { Icon } from 'react-native-elements';
 
-const GetFeatured = props => {
+const GetFeatured = ({ route, navigation }) => {
+
+  // const { onPress1 } = route.params;
+  // const route = useRoute();
+
   const data = [
     {
       txt1: '1 Week',
@@ -51,9 +55,10 @@ const GetFeatured = props => {
               BAckButton
               hiddinText
               text="Get it Featured"
-              onPress={() => {
-                props.navigation.goBack();
-              }}
+
+              onPress={() => navigation.navigate("settings")}
+
+
             />
           </View>
           <View style={styles.screenBody}>
@@ -96,7 +101,13 @@ const GetFeatured = props => {
                             borderColor={'#707070'}
                             backgroundColor={'#FFFFFF'}
                             label="Get Now"
-                            onPress={() => props.navigation.navigate('payment')}
+                            onPress={() => navigation.navigate('payment',
+                              {
+                                onPress1: () => navigation.replace('MyTabs', { screen: 'profile' }),
+                                onPress2: () => { navigation.goBack('') }
+                              }
+
+                            )}
                           />
                         </View>
                       </View>

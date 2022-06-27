@@ -12,7 +12,20 @@ const Post = ({ Image1, TalentName, City, state, Duration, Date, Press1 }) => {
         <View style={styles.textView}>
           <View style={styles.PostImage}>
             <BackgroundImage source={Image1} resizMode="contain"
-              style={{ width: '100%', height: '100%' }} >
+              style={{ width: '100%', height: '100%', justifyContent: 'center' }} >
+              <TouchableOpacity
+                // onPress={() => { props.navigation.navigate("Homes", { screen: 'pictureslider' }) }}
+                style={{
+                  width: 50, height: 50, borderRadius: 10, borderWidth: 35,
+                  backgroundColor: '#eee',
+                  justifyContent: 'center', alignSelf: 'center',
+                  opacity: 0.45
+
+                }}>
+                <Image source={Images.Icons.play}
+                  resizeMode="contain" style={{ alignSelf: 'center' }}
+                />
+              </TouchableOpacity>
             </BackgroundImage>
           </View>
           <View style={{ marginVertical: 10 }}>

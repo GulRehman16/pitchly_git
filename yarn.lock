@@ -6694,7 +6694,7 @@ prompts@^2.0.1, prompts@^2.4.0:
     kleur "^3.0.3"
     sisteransi "^1.0.5"
 
-prop-types@*, prop-types@^15.5.10, prop-types@^15.5.8, prop-types@^15.6.1, prop-types@^15.7.2, prop-types@^15.7.x, prop-types@^15.8.1:
+prop-types@*, prop-types@^15.5.10, prop-types@^15.5.8, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2, prop-types@^15.7.x, prop-types@^15.8.1:
   version "15.8.1"
   resolved "https://registry.npmjs.org/prop-types/-/prop-types-15.8.1.tgz"
   integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
@@ -6703,19 +6703,24 @@ prop-types@*, prop-types@^15.5.10, prop-types@^15.5.8, prop-types@^15.6.1, prop-
     object-assign "^4.1.1"
     react-is "^16.13.1"
 
-"prop-types@*", "prop-types@^15.5.10", "prop-types@^15.5.8", "prop-types@^15.6.1", "prop-types@^15.6.2", "prop-types@^15.7.2", "prop-types@^15.7.x", "prop-types@^15.8.1", "prop-types@>=15.5.0":
-  "integrity" "sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg=="
-  "resolved" "https://registry.npmjs.org/prop-types/-/prop-types-15.8.1.tgz"
-  "version" "15.8.1"
+prop-types@15.7.2:
+  version "15.7.2"
+  resolved "https://registry.npmjs.org/prop-types/-/prop-types-15.7.2.tgz"
+  integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
   dependencies:
     loose-envify "^1.4.0"
     object-assign "^4.1.1"
     react-is "^16.8.1"
 
-"prop-types@^15.6.0", "prop-types@15.7.2":
-  "integrity" "sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ=="
-  "resolved" "https://registry.npmjs.org/prop-types/-/prop-types-15.7.2.tgz"
-  "version" "15.7.2"
+psl@^1.1.28, psl@^1.1.33:
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/psl/-/psl-1.8.0.tgz#9326f8bcfb013adcc005fdff056acce020e51c24"
+  integrity sha512-RIdOzyoavK+hA18OGGWDqUTsCLhtA7IcZ/6NCs4fFJaHBDab+pDDmDIByWFRQJq2Cd7r1OoQxBGKOaztq+hjIQ==
+
+pump@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/pump/-/pump-3.0.0.tgz#b4a2116815bde2f4e1ea602354e8c75565107a64"
+  integrity sha512-LwZy+p3SFs1Pytd/jYct4wpv49HiYCqd9Rlc5ZVdk0V+8Yzv6jR5Blk3TRmPL1ft69TxP0IMZGJ+WPFU2BFhww==
   dependencies:
     end-of-stream "^1.1.0"
     once "^1.3.1"
@@ -6812,32 +6817,17 @@ react-is@^16.13.0, react-is@^16.13.1, react-is@^16.7.0, react-is@^16.8.1:
   resolved "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
-"react-is@^16.13.0":
-  "integrity" "sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ=="
-  "resolved" "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
-  "version" "16.13.1"
-
-"react-is@^16.13.1":
-  "integrity" "sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ=="
-  "resolved" "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
-  "version" "16.13.1"
-
-"react-is@^16.7.0", "react-is@^16.8.1":
-  "integrity" "sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ=="
-  "resolved" "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
-  "version" "16.13.1"
-
-"react-native-camera@^4.2.1":
-  "integrity" "sha512-+Vkql24PFYQfsPRznJCvPwJQfyzCnjlcww/iZ4Ej80bgivKjL9eU0IMQIXp4yi6XCrKi4voWXxIDPMupQZKeIQ=="
-  "resolved" "https://registry.npmjs.org/react-native-camera/-/react-native-camera-4.2.1.tgz"
-  "version" "4.2.1"
+react-native-camera@^4.2.1:
+  version "4.2.1"
+  resolved "https://registry.npmjs.org/react-native-camera/-/react-native-camera-4.2.1.tgz"
+  integrity sha512-+Vkql24PFYQfsPRznJCvPwJQfyzCnjlcww/iZ4Ej80bgivKjL9eU0IMQIXp4yi6XCrKi4voWXxIDPMupQZKeIQ==
   dependencies:
-    "prop-types" "^15.6.2"
+    prop-types "^15.6.2"
 
-"react-native-codegen@^0.0.17":
-  "integrity" "sha512-7GIEUmAemH9uWwB6iYXNNsPoPgH06pxzGRmdBzK98TgFBdYJZ7CBuZFPMe4jmHQTPOkQazKZ/w5O6/71JBixmw=="
-  "resolved" "https://registry.npmjs.org/react-native-codegen/-/react-native-codegen-0.0.17.tgz"
-  "version" "0.0.17"
+react-native-codegen@^0.0.17:
+  version "0.0.17"
+  resolved "https://registry.npmjs.org/react-native-codegen/-/react-native-codegen-0.0.17.tgz"
+  integrity sha512-7GIEUmAemH9uWwB6iYXNNsPoPgH06pxzGRmdBzK98TgFBdYJZ7CBuZFPMe4jmHQTPOkQazKZ/w5O6/71JBixmw==
   dependencies:
     "@babel/parser" "^7.14.0"
     flow-parser "^0.121.0"
@@ -6901,15 +6891,15 @@ react-native-gesture-handler@^2.4.2:
     lodash "^4.17.21"
     prop-types "^15.7.2"
 
-"react-native-gif-search@^1.3.2":
-  "integrity" "sha512-/crFnBbSY4EY8uZMK1HYSCojyO2SzrFhprnpHt7/HW55/fOyjiYsJK1KumaBhopvUjWNBuRULKhQybiG3tivAg=="
-  "resolved" "https://registry.npmjs.org/react-native-gif-search/-/react-native-gif-search-1.3.2.tgz"
-  "version" "1.3.2"
+react-native-gif-search@^1.3.2:
+  version "1.3.2"
+  resolved "https://registry.npmjs.org/react-native-gif-search/-/react-native-gif-search-1.3.2.tgz"
+  integrity sha512-/crFnBbSY4EY8uZMK1HYSCojyO2SzrFhprnpHt7/HW55/fOyjiYsJK1KumaBhopvUjWNBuRULKhQybiG3tivAg==
 
-"react-native-gifted-chat@^1.0.1":
-  "integrity" "sha512-XmLcJe7HDBYcS9F/p6bJhVamhp62I4dqPmY3LBdgUYyF4Ii7UQOOZb3oo3uc3vIJLgO2Gu6aYVQHxj8+kzdMYw=="
-  "resolved" "https://registry.npmjs.org/react-native-gifted-chat/-/react-native-gifted-chat-1.0.1.tgz"
-  "version" "1.0.1"
+react-native-gifted-chat@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.npmjs.org/react-native-gifted-chat/-/react-native-gifted-chat-1.0.1.tgz"
+  integrity sha512-XmLcJe7HDBYcS9F/p6bJhVamhp62I4dqPmY3LBdgUYyF4Ii7UQOOZb3oo3uc3vIJLgO2Gu6aYVQHxj8+kzdMYw==
   dependencies:
     "@expo/react-native-action-sheet" "3.13.0"
     dayjs "1.8.26"
@@ -6971,10 +6961,15 @@ react-native-phone-number-input@^2.1.0:
     google-libphonenumber "^3.2.10"
     react-native-country-picker-modal "^2.0.0"
 
-"react-native-phone-number-input@^2.1.0":
-  "integrity" "sha512-EItzeDH6QUw6Kd1uwqFgcUl1YstxULB1M3HuCMHTvHVLoPE3ddjiuHyx+EHs0+4FcZtaXLQzLuC4cC/c4XIEuA=="
-  "resolved" "https://registry.npmjs.org/react-native-phone-number-input/-/react-native-phone-number-input-2.1.0.tgz"
-  "version" "2.1.0"
+react-native-popup-menu@^0.15.12:
+  version "0.15.12"
+  resolved "https://registry.yarnpkg.com/react-native-popup-menu/-/react-native-popup-menu-0.15.12.tgz#386852f4245f8d661a5003776989b9b55c9ce381"
+  integrity sha512-33zMqHW+7rt5m2Bgg7xM8jy1guIdUCE8qJfznYYNRlIt4+fJX/rDcwmJIrkSGrvfhlhhEaG3otW6h25uFZLFfg==
+
+react-native-ratings@8.0.4:
+  version "8.0.4"
+  resolved "https://registry.yarnpkg.com/react-native-ratings/-/react-native-ratings-8.0.4.tgz#efd5ebad8acc08bf98d34d39b18fb7a6813ef991"
+  integrity sha512-Xczu5lskIIRD6BEdz9A0jDRpEck/SFxRqiglkXi0u67yAtI1/pcJC76P4MukCbT8K4BPVl+42w83YqXBoBRl7A==
   dependencies:
     lodash "^4.17.15"
 
@@ -7011,7 +7006,7 @@ react-native-svg@12.1.1:
 
 react-native-swipe-list-view@^3.2.9:
   version "3.2.9"
-  resolved "https://registry.yarnpkg.com/react-native-swipe-list-view/-/react-native-swipe-list-view-3.2.9.tgz#d725c7cdf481dd5df12a00dbfe0120013b5f2e59"
+  resolved "https://registry.npmjs.org/react-native-swipe-list-view/-/react-native-swipe-list-view-3.2.9.tgz"
   integrity sha512-SjAEuHc/D6ovp+RjDUhfNmw6NYOntdT7+GFhfMGfP/BSLMuMWynpzJy9GKQeyB8sI78T6Lzip21TVbongOg1Mw==
 
 react-native-swipe-list@^0.0.2:
@@ -7050,25 +7045,10 @@ react-native-vector-icons@8.1.0:
     prop-types "^15.7.2"
     yargs "^16.1.1"
 
-"react-native-swipe-list-view@^3.2.9":
-  "integrity" "sha512-SjAEuHc/D6ovp+RjDUhfNmw6NYOntdT7+GFhfMGfP/BSLMuMWynpzJy9GKQeyB8sI78T6Lzip21TVbongOg1Mw=="
-  "resolved" "https://registry.npmjs.org/react-native-swipe-list-view/-/react-native-swipe-list-view-3.2.9.tgz"
-  "version" "3.2.9"
-
-"react-native-swipe-list@^0.0.2":
-  "integrity" "sha512-NMa/924vkikVnmE9TgXZLiXqfQaBSwM5vpwOZ+wp7eFGdZhYFuW9rblaesx2y6sbDbJGjwlPPlSNhzBWPUU61A=="
-  "resolved" "https://registry.npmjs.org/react-native-swipe-list/-/react-native-swipe-list-0.0.2.tgz"
-  "version" "0.0.2"
-
-"react-native-swipeable-item@^2.0.2":
-  "integrity" "sha512-xuDkCQm3BZQV+iaMnlmQHG7YeZnxY85Zenoj4nuf90TnuuBIhlPYlzi8J81qoQbt5m4IcmoB+VTC9zJRYIm9vg=="
-  "resolved" "https://registry.npmjs.org/react-native-swipeable-item/-/react-native-swipeable-item-2.0.2.tgz"
-  "version" "2.0.2"
-
-"react-native-swipeable@^0.6.0":
-  "integrity" "sha512-OJUmOtPAZ3s6OHdbmGdGBq3oNZaUFOV81UMQfO2fvIF2cUOMbjUKQCRU7EhijEyufiaMAlSu/VguCRAdLRLk3w=="
-  "resolved" "https://registry.npmjs.org/react-native-swipeable/-/react-native-swipeable-0.6.0.tgz"
-  "version" "0.6.0"
+react-native-vector-icons@^7.0.0:
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/react-native-vector-icons/-/react-native-vector-icons-7.1.0.tgz#145487d617b2a81d395d2cf64e6e065fcab3a454"
+  integrity sha512-V2a1zJ4i+kS8O4j183gIwX14St9AxxXabxwYpFBgRhvr2NDXyFcjHDEAgrOYYlt2W57e20aN1tBDU/I+wn9WtQ==
   dependencies:
     lodash.frompairs "^4.0.1"
     lodash.isequal "^4.5.0"
@@ -7087,48 +7067,10 @@ react-native-walkthrough-tooltip@^1.3.1:
     prop-types "^15.6.1"
     react-fast-compare "^2.0.4"
 
-"react-native-vector-icons@>7.0.0", "react-native-vector-icons@8.1.0":
-  "integrity" "sha512-sHIdBB6Y0dHaot2fMXgy5J/hhCn5YuyN7SKDNFgPzL8KA1oF2/v7mgYMavnK7LIIs2dJoGnDANKf61dsU+TZlg=="
-  "resolved" "https://registry.npmjs.org/react-native-vector-icons/-/react-native-vector-icons-8.1.0.tgz"
-  "version" "8.1.0"
-  dependencies:
-    "lodash.frompairs" "^4.0.1"
-    "lodash.isequal" "^4.5.0"
-    "lodash.isstring" "^4.0.1"
-    "lodash.omit" "^4.5.0"
-    "lodash.pick" "^4.4.0"
-    "lodash.template" "^4.5.0"
-    "prop-types" "^15.7.2"
-    "yargs" "^16.1.1"
-
-"react-native-walkthrough-tooltip@^1.3.1":
-  "integrity" "sha512-YDsmfMZJDwCjWTcqb7P2RNExh7C/hGMm2WIy4txKZDPrU/Hx1INcujG+JkRDvbhBq9KgO4mc3ig65sdjb6IbPQ=="
-  "resolved" "https://registry.npmjs.org/react-native-walkthrough-tooltip/-/react-native-walkthrough-tooltip-1.3.1.tgz"
-  "version" "1.3.1"
-  dependencies:
-    "prop-types" "^15.6.1"
-    "react-fast-compare" "^2.0.4"
-
-"react-native-web@*", "react-native-web@0.9.x":
-  "integrity" "sha512-P1nCvBVFrv3J5BXu39iS4A3fR7m0vtGaCAy4MigAtZpakIuara/98h516fDQajPqoVy2T4cQgYZUQAr+FBnppQ=="
-  "resolved" "https://registry.npmjs.org/react-native-web/-/react-native-web-0.9.13.tgz"
-  "version" "0.9.13"
-  dependencies:
-    "array-find-index" "^1.0.2"
-    "create-react-class" "^15.6.2"
-    "debounce" "^1.2.0"
-    "deep-assign" "^3.0.0"
-    "fbjs" "^1.0.0"
-    "hyphenate-style-name" "^1.0.2"
-    "inline-style-prefixer" "^5.0.3"
-    "normalize-css-color" "^1.0.2"
-    "prop-types" "^15.6.0"
-    "react-timer-mixin" "^0.13.4"
-
-"react-native@*", "react-native@>=0.23.1", "react-native@>=0.38.0", "react-native@>=0.40.0", "react-native@>=0.42.0", "react-native@>=0.43.0", "react-native@>=0.44.0", "react-native@>=0.50.0", "react-native@>=0.55", "react-native@>=0.56.0", "react-native@>=0.57", "react-native@>=0.60.5", "react-native@>=0.61.0", "react-native@>=0.63.0", "react-native@>=0.64.0", "react-native@0.68.2":
-  "integrity" "sha512-qNMz+mdIirCEmlrhapAtAG+SWVx6MAiSfCbFNhfHqiqu1xw1OKXdzIrjaBEPihRC2pcORCoCHduHGQe/Pz9Yuw=="
-  "resolved" "https://registry.npmjs.org/react-native/-/react-native-0.68.2.tgz"
-  "version" "0.68.2"
+react-native@0.68.2:
+  version "0.68.2"
+  resolved "https://registry.npmjs.org/react-native/-/react-native-0.68.2.tgz"
+  integrity sha512-qNMz+mdIirCEmlrhapAtAG+SWVx6MAiSfCbFNhfHqiqu1xw1OKXdzIrjaBEPihRC2pcORCoCHduHGQe/Pz9Yuw==
   dependencies:
     "@jest/create-cache-key-function" "^27.0.1"
     "@react-native-community/cli" "^7.0.3"
@@ -7202,10 +7144,10 @@ react-tween-state@^0.1.5:
     raf "^3.1.0"
     tween-functions "^1.0.1"
 
-"react@*", "react@^16.0.0 || ^17.0.0", "react@^16.0.0 || ^17.0.0 || ^18.0.0", "react@^16.13.1", "react@^16.3.0", "react@^16.8.0 || ^17.0.0", "react@^17.0.0", "react@^18.1.0", "react@>=0.14.8", "react@>=15.2.0", "react@>=16.0.0-alpha.3", "react@>=16.3.0", "react@>=16.4.1", "react@>=16.5.1", "react@>=16.8", "react@>=16.8.0", "react@>=16.8.6", "react@16 || 17", "react@16.x.x", "react@17.0.2":
-  "integrity" "sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA=="
-  "resolved" "https://registry.npmjs.org/react/-/react-17.0.2.tgz"
-  "version" "17.0.2"
+react@17.0.2:
+  version "17.0.2"
+  resolved "https://registry.npmjs.org/react/-/react-17.0.2.tgz"
+  integrity sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"

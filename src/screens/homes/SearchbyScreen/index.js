@@ -26,8 +26,9 @@ const SearchScreen = (props) => {
                     <View style={styles.screenHeader}>
                         <HomeHeader
                             homeHeader2
+                            search={true}
                             onPress={() => {
-                                props.navigation.goBack();
+                                props.navigation.replace('Homes', { screen: 'home' });
                             }}
                         />
                     </View>
@@ -36,15 +37,16 @@ const SearchScreen = (props) => {
                 <View style={styles.Body}>
                     <View style={{}}>
                         <Tip tooltipdata2
+                            headingtext="Search"
                             bottompoint
                             bottom={140}
                             left={200}
-                            Text1="Genteral"
-                            Text2="Talent"
-                            Text3="Services"
+                            Text1="All"
+                            Text2="Services"
+                            Text3="Talent"
                             Text4="Products"
                             onPress1={() => { props.navigation.navigate("Homes", { screen: 'addpost' }) }}
-                            onPress2={() => { props.navigation.navigate("Homes", { screen: 'addtelent' }) }}
+                            onPress2={() => { props.navigation.navigate("Homes", { screen: 'Search' }) }}
                             onPress3={() => { props.navigation.navigate("Homes", { screen: 'addservices' }) }}
                             onPress4={() => { props.navigation.navigate("Homes", { screen: 'addproduct' }) }}
                             Icon1
@@ -69,7 +71,7 @@ const styles = StyleSheet.create({
     screenHeader: {
         width: '100%',
         height: 30,
-        marginTop: 50,
+        marginTop: 20,
         alignSelf: 'center',
         justifyContent: 'center',
         alignItems: 'center',

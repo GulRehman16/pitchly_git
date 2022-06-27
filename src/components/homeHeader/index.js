@@ -29,8 +29,10 @@ const HomeHeader = ({
   borderColor,
   onPress,
   homeHeader2,
+  search,
   homeHeader1,
   visibleINPUT,
+  onPress1
 }) => {
   return (
     <>
@@ -129,25 +131,29 @@ const HomeHeader = ({
                 />
               ) : null}
             </View>
-            <TouchableOpacity activeOpacity={0.8}>
-              <LinearGradient
-                start={{ x: 1, y: 0.0 }}
-                end={{ x: 1, y: 1.9 }}
-                colors={['#5DF7B8', '#3109FB']}
-                style={{
-                  width: 35,
-                  height: 35,
-                  borderRadius: borderRadius || 5,
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}>
-                <Icon
-                  type="AntDesign"
-                  name="search1"
-                  style={{ color: 'white', fontSize: 24 }}
-                />
-              </LinearGradient>
-            </TouchableOpacity>
+            {search && (
+              <TouchableOpacity onPress={onPress1} activeOpacity={0.8}>
+                <LinearGradient
+                  start={{ x: 1, y: 0.0 }}
+                  end={{ x: 1, y: 1.9 }}
+                  colors={['#5DF7B8', '#3109FB']}
+                  style={{
+                    width: 35,
+                    height: 35,
+                    borderRadius: borderRadius || 5,
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}>
+                  <Icon
+                    type="AntDesign"
+                    name="search1"
+                    style={{ color: 'white', fontSize: 24 }}
+                  />
+                </LinearGradient>
+              </TouchableOpacity>
+
+            )}
+
           </View>
         </View>
       )}

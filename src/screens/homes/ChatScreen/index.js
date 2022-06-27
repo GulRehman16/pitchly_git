@@ -13,17 +13,17 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-import {
-  GifSearch,
-  poweredByTenorLogoWhite,
-  poweredByTenorLogoGrey,
-  poweredByTenorLogoBlue,
-  viaTenorLogoWhite,
-  viaTenorLogoGrey,
-  viaTenorLogoBlue,
-  poweredByGiphyLogoGrey,
-  poweredByGiphyLogoWhite,
-} from 'react-native-gif-search';
+// import {
+//   GifSearch,
+//   poweredByTenorLogoWhite,
+//   poweredByTenorLogoGrey,
+//   poweredByTenorLogoBlue,
+//   viaTenorLogoWhite,
+//   viaTenorLogoGrey,
+//   viaTenorLogoBlue,
+//   poweredByGiphyLogoGrey,
+//   poweredByGiphyLogoWhite,
+// } from 'react-native-gif-search';
 
 import React from 'react';
 import { Icon } from 'native-base';
@@ -215,18 +215,16 @@ const ChatScreen = props => {
                 scrollViewRef.scrollToEnd({ animated: true })
               }>
               <View>
-                <View style={{ marginTop: 10 }}>
+                <View style={{ width: '95%', alignSelf: 'center' }}>
                   <Headerchat
                     image={Images.Pictures.statusImg2}
                     name={'Veni'}
                     time={'offline 45 min ago'}
-                    Press={() => {
-                      props.navigate.goback();
-                    }}
+                    Press={() => { props.navigation.goBack() }}
                     icon={true}
-                  // onPress={() => {
-                  //   props.navigate.goback();
-                  // }}
+                    onPress={() => {
+                      props.navigation.navigate("chatdetails");
+                    }}
                   />
                 </View>
 

@@ -90,10 +90,7 @@ const Followers = (props) => {
                                                 <View style={{}}>
                                                     <Followbtn followbutton
                                                         userprofile borderWidth={0.75}
-                                                        color1="#eee"
-                                                        color2="#3109FB"
-                                                        color3="#000"
-                                                        color4="#fff"
+
                                                         User
                                                         follow="unfollow"
                                                         unfollow="follow"

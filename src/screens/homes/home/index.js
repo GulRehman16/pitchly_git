@@ -14,14 +14,10 @@ import { Images } from '../../../constants';
 import {
   StatusView,
   PitchlyFeatured,
-
-  SuggestFriends,
-  OverlayScreen,
   AllMixed, HomeHeader, Product, Services, Talent,
 } from '../../../components';
-import { Icon } from 'native-base';
 import LinearGradient from 'react-native-linear-gradient';
-import ImagePicker from 'react-native-image-crop-picker';
+
 const Home = ({ feture, navigation }) => {
   const [data, setData] = useState({
     postDataAll: [
@@ -285,16 +281,16 @@ const Home = ({ feture, navigation }) => {
   const [check, setcheck] = useState({
     value: 'PITCHLY FEED',
   });
-  const picker = () => {
-    ImagePicker.openCamera({
-      width: 300,
-      height: 400,
-      cropping: true,
-    }).then(image => {
-      setImg(image.path);
-      console.log(image);
-    });
-  };
+  // const picker = () => {
+  //   ImagePicker.openCamera({
+  //     width: 300,
+  //     height: 400,
+  //     cropping: true,
+  //   }).then(image => {
+  //     setImg(image.path);
+  //     console.log(image);
+  //   });
+  // };
   return (
     <>
       <ImageBackground
@@ -308,13 +304,13 @@ const Home = ({ feture, navigation }) => {
             <View style={styles.headerView}>
               <HomeHeader
                 homeHeader1 onPress={() =>
-                  props.navigation.navigate('Homes', { screen: 'searchscreen' })
+                  navigation.navigate('Homes', { screen: 'searchscreen' })
                 } />
             </View>
             <View style={styles.statusBoxView}>
               <View style={styles.statusAddView}>
                 <TouchableOpacity
-                  onPress={() => picker()}
+                  onPress={() => navigation.navigate("Homes", { screen: 'camerastorie' })}
                   style={styles.statusAddBox}>
                   <Image source={img} style={styles.statusAddIcon} />
                 </TouchableOpacity>
@@ -449,10 +445,10 @@ const Home = ({ feture, navigation }) => {
                 </TouchableOpacity>
               </LinearGradient>
             </View>
-            {check.value === 'PITCHLY FEED' && <AllMixed feture={false} />}
-            {check.value === 'TALENT FEED' && <Talent feture={false} />}
-            {check.value === 'SERVICES FEED' && <Services feture={false} />}
-            {check.value === 'PRODUCTS FEED' && <Product feture={false} />}
+            {check.value === 'PITCHLY FEED' && <AllMixed onPress={true} feture={false} />}
+            {check.value === 'TALENT FEED' && <Talent onPress={true} feture={false} />}
+            {check.value === 'SERVICES FEED' && <Services onPress={true} feture={false} />}
+            {check.value === 'PRODUCTS FEED' && <Product onPzress={true} feture={false} />}
           </View>
         </ScrollView>
       </ImageBackground>
@@ -470,12 +466,12 @@ const styles = StyleSheet.create({
   body: { width: '90%', height: '100%', alignSelf: 'center', paddingBottom: 60 },
   statusBoxView: {
     width: '110%',
-    marginTop: 20,
+    marginTop: 10,
     marginLeft: -10,
     flexDirection: 'row',
   },
 
-  headerView: { width: '100%', marginTop: 60 },
+  headerView: { width: '100%', marginTop: 30 },
   statusAddView: {
     alignItems: 'center',
     justifyContent: 'center',
