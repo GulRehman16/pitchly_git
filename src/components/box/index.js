@@ -44,7 +44,7 @@ const Box = ({
   };
 
   const renderItem = data => (
-    <TouchableOpacity onPress={onPress}>
+    <TouchableOpacity activeOpacity={0.8} onPress={onPress}>
       <View style={styles.rowFront}>
         <View style={{ marginLeft: 10, marginTop: 5 }}>
           <Avatar rounded size={'medium'} source={Image1} />
@@ -68,7 +68,7 @@ const Box = ({
               borderRadius: 20,
               backgroundColor: Time ? null : 'blue',
               marginVertical: 4,
-              marginLeft: 10,
+              marginLeft: 12,
             }}>
             <Text style={{ color: '#ffff', textAlign: 'center' }}>
               {messagenumber}
@@ -108,6 +108,7 @@ const Box = ({
     <>
       <TouchableOpacity onPress={Press}>
         <SwipeListView
+          disableRightSwipe={true}
           data={listData}
           renderItem={renderItem}
           renderHiddenItem={renderHiddenItem}
@@ -132,15 +133,15 @@ const styles = StyleSheet.create({
     color: 'white',
   },
   rowFront: {
+    activeOpacity: 0.95,
     alignItems: 'center',
     backgroundColor: '#ffff',
     elevation: 5,
     marginTop: 5,
-
     height: 82,
-
     borderRadius: 10,
     flexDirection: 'row',
+
   },
   rowBack: {
     alignItems: 'center',

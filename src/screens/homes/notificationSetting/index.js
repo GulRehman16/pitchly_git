@@ -8,7 +8,8 @@ import {
     ScrollView,
     StatusBar,
     Switch,
-    FlatList
+    FlatList,
+    statusBarStyle, statusBarTransition, hidden
 } from 'react-native'
 import React, { useState } from 'react'
 import { Images } from '../../../constants'
@@ -45,7 +46,12 @@ const NotificationSetting = (props) => {
             <ScrollView
                 showsVerticalScrollIndicator={false}
                 contentContainerStyle={{ flexGrow: 1 }}>
-                <StatusBar backgroundColor={'transparent'} translucent={true} />
+                <StatusBar
+                    animated={true}
+                    backgroundColor="#000"
+                    barStyle={statusBarStyle}
+                    showHideTransition={statusBarTransition}
+                    hidden={hidden} />
                 <View style={{}}>
                     <View style={styles.screenHeader}>
                         <Header

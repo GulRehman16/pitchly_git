@@ -15,6 +15,7 @@ import {
   Header,
   CheckBox,
   Policies,
+  hidden, statusBarStyle, statusBarTransition
 } from '../../../components';
 
 const TermsAndCondition = props => {
@@ -25,7 +26,12 @@ const TermsAndCondition = props => {
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ flexGrow: 1 }}>
-        <StatusBar backgroundColor={'transparent'} translucent={true} />
+        <StatusBar
+          animated={true}
+          backgroundColor="#000"
+          barStyle={statusBarStyle}
+          showHideTransition={statusBarTransition}
+          hidden={hidden} />
         <View style={styles.screenHeader}>
           <Header
             BAckButton
@@ -43,6 +49,7 @@ const TermsAndCondition = props => {
               fontSize={16}
               fontWeight={'400'}
               color={'#000000'}
+              marginTop={10}
               text={
                 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. \n \nconsetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos. Lorem ipsum dolor sit amet, consetetur sadipscing elitr,\n \n sed diam nonumy eirmod tempo gubergren, no sea takimata sanctus est Lorem Lorem ipsum dolor sit amet,\n \n consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusa.'
               }
@@ -64,7 +71,7 @@ const styles = StyleSheet.create({
   screenHeader: {
     width: '90%',
     height: 100,
-    marginTop: 50,
+    marginTop: 10,
     alignSelf: 'center',
     justifyContent: 'center',
     alignItems: 'center',
@@ -89,5 +96,7 @@ const styles = StyleSheet.create({
     height: '100%',
     backgroundColor: 'white',
     alignSelf: 'center',
+    elevation: 4,
+    borderRadius: 10
   },
 });

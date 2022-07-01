@@ -7,7 +7,7 @@ import {
     TouchableOpacity,
     Image,
     FlatList,
-    ImageBackground,
+    ImageBackground, StatusBar, hidden, statusBarStyle, statusBarTransition
 } from 'react-native';
 import { Icon } from 'native-base';
 import React, { useState, useEffect } from 'react';
@@ -22,13 +22,19 @@ const SearchScreen = (props) => {
                 keyboardShouldPersistTaps="handled"
                 showsVerticalScrollIndicator={false}
                 contentContainerStyle={{ flexGrow: 1 }}>
+                <StatusBar
+                    animated={true}
+                    backgroundColor="#000"
+                    barStyle={statusBarStyle}
+                    showHideTransition={statusBarTransition}
+                    hidden={hidden} />
                 <View style={{ width: '90%', alignSelf: 'center' }}>
                     <View style={styles.screenHeader}>
                         <HomeHeader
                             homeHeader2
                             search={true}
                             onPress={() => {
-                                props.navigation.replace('Homes', { screen: 'home' });
+                                props.navigation.goBack();
                             }}
                         />
                     </View>
@@ -45,10 +51,10 @@ const SearchScreen = (props) => {
                             Text2="Services"
                             Text3="Talent"
                             Text4="Products"
-                            onPress1={() => { props.navigation.navigate("Homes", { screen: 'addpost' }) }}
+                            onPress1={() => { props.navigation.navigate("Homes", { screen: 'Search' }) }}
                             onPress2={() => { props.navigation.navigate("Homes", { screen: 'Search' }) }}
-                            onPress3={() => { props.navigation.navigate("Homes", { screen: 'addservices' }) }}
-                            onPress4={() => { props.navigation.navigate("Homes", { screen: 'addproduct' }) }}
+                            onPress3={() => { props.navigation.navigate("Homes", { screen: 'Search' }) }}
+                            onPress4={() => { props.navigation.navigate("Homes", { screen: 'Search' }) }}
                             Icon1
                             Image3={Images.Icons.user1}
                             Image2={Images.Icons.setting1}
@@ -71,7 +77,7 @@ const styles = StyleSheet.create({
     screenHeader: {
         width: '100%',
         height: 30,
-        marginTop: 20,
+        marginTop: 30,
         alignSelf: 'center',
         justifyContent: 'center',
         alignItems: 'center',

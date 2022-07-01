@@ -10,6 +10,7 @@ import {
     Dimensions,
     ScrollView,
     TouchableOpacity,
+    hidden, statusBarStyle, statusBarTransition
 } from 'react-native';
 import { Images } from '../../../constants';
 import { useRoute } from '@react-navigation/native';
@@ -35,8 +36,12 @@ const ThankYouScreen = ({ route, navigation }) => {
             <ScrollView
                 showsVerticalScrollIndicator={false}
                 contentContainerStyle={{ flexGrow: 1 }}>
-                <StatusBar backgroundColor={'transparent'} translucent={true} />
-
+                <StatusBar
+                    animated={true}
+                    backgroundColor="#000"
+                    barStyle={statusBarStyle}
+                    showHideTransition={statusBarTransition}
+                    hidden={hidden} />
                 <View style={styles.ScreenBody}>
 
                     <View style={[styles.connect]}>
@@ -55,7 +60,7 @@ const ThankYouScreen = ({ route, navigation }) => {
                             Your Payment Processed
                         </Text>
                         <Text style={styles.headerText2}>
-                            Your featured Posts is under review now, you will be intimated once it is approved
+                            Your Premium Membership is under review now, you will be intimated once it is approved
                         </Text>
                     </View>
                     <View style={styles.authButtonContainer}>

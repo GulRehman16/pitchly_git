@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, FlatList, ImageBackground } from 'react-native';
+import { StyleSheet, Text, View, FlatList, ImageBackground, StatusBar, statusBarStyle, statusBarTransition, hidden } from 'react-native';
 import React from 'react';
 import { HomeHeader } from '../../../components';
 import { Avatar } from 'react-native-elements';
@@ -26,6 +26,12 @@ const Search = (props) => {
     <ImageBackground
       style={styles.imageContainer}
       source={Images.Pictures.homeMainBg}>
+      <StatusBar
+        animated={true}
+        backgroundColor="#000"
+        barStyle={statusBarStyle}
+        showHideTransition={statusBarTransition}
+        hidden={hidden} />
 
       <View style={{ marginVertical: 30 }}>
         <View style={styles.screenHeader}>

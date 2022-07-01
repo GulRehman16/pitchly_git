@@ -8,40 +8,48 @@ import {
     Image,
     FlatList,
     ImageBackground,
+    StatusBar, statusBarStyle, statusBarTransition, hidden
 } from 'react-native';
 import { Icon, Item } from 'native-base';
 import React, { useState, useEffect } from 'react';
 import { Images } from '../../../constants';
 import { Tip, Header, HomeHeader } from '../../../components';
-const SavedStatus = props => {
+const SavedStatus = ({ navigation, onPress }) => {
     const data = [
         {
             image1: Images.Pictures.Highlight2,
             date: '2 Oct',
+            onPress: () => navigation.navigate('Viewstatus')
         },
         {
             image1: Images.Pictures.CarHigh,
             date: '1 Oct',
+            onPress: () => navigation.navigate('Viewstatus')
         },
         {
             image1: Images.Pictures.status1,
             date: '22 Sep',
+            onPress: () => navigation.navigate('Viewstatus')
         },
         {
             image1: Images.Pictures.Whitecar,
             date: '5 Sep',
+            onPress: () => navigation.navigate('Viewstatus')
         },
         {
             image1: Images.Pictures.Devil,
             date: '14 Aug',
+            onPress: () => navigation.navigate('Viewstatus')
         },
         {
             image1: Images.Pictures.Faram,
             date: '4 Jul',
+            onPress: () => navigation.navigate('Viewstatus')
         },
         {
             image1: Images.Pictures.Friendship1,
             date: '20 Feb',
+            onPress: () => navigation.navigate('Viewstatus')
         },
     ];
 
@@ -49,13 +57,19 @@ const SavedStatus = props => {
         <ImageBackground
             style={styles.imageContainer}
             source={Images.Pictures.homeMainBg}>
+            <StatusBar
+                animated={true}
+                backgroundColor="#000"
+                barStyle={statusBarStyle}
+                showHideTransition={statusBarTransition}
+                hidden={hidden} />
             <View style={styles.screenHeader}>
                 <Header
                     BAckButton
                     hiddinText
                     text="Select Photo or Video"
                     onPress={() => {
-                        props.navigation.goBack();
+                        navigation.goBack();
                     }}
                 />
             </View>
@@ -66,7 +80,7 @@ const SavedStatus = props => {
                     renderItem={({ item }) => {
                         return (
                             <View style={styles.imgview}>
-                                <TouchableOpacity onPress={() => { props.navigation.navigate('Viewstatus') }} style={{ width: '100%' }}>
+                                <TouchableOpacity onPress={item.onPress} style={{ width: '100%' }}>
                                     <Image
                                         source={item.image1}
                                         resizeMode="contain"

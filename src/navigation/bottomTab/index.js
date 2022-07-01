@@ -8,6 +8,9 @@ import ChatScreen1 from '../../screens/homes/chatscreen1';
 import Notification from '../../screens/homes/Notifications';
 import settings from '../../screens/homes/settings';
 import TooltipScreen from '../../screens/homes/ToolTipScreen';
+import Home11 from '../../screens/homes/home11';
+import HomeScreensix from '../../screens/homes/home6';
+import Account from '../../screens/homes/account';
 
 
 const Tab = createBottomTabNavigator();
@@ -44,6 +47,26 @@ const MyTabs = props => {
         component={profile}
         options={{ headerShown: false }}
       />
+      <Tab.Screen
+        name="home11"
+        component={Home11}
+        options={{ headerShown: false }}
+      />
+      <Tab.Screen
+        name="homescreensix"
+        component={HomeScreensix}
+        options={{ headerShown: false }}
+      />
+
+      <Tab.Screen
+        name="account"
+        component={Account}
+        options={{ headerShown: false }}
+      />
+
+
+
+
 
     </Tab.Navigator>
 

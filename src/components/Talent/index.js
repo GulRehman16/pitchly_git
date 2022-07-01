@@ -16,8 +16,11 @@ const Talent = ({ feture, navigation }) => {
 
       singleImg: Images.Pictures.talent,
       checksingle: 'false',
-      feture: feture ? false : true,
-      Press: () => { navigation.navigate('login') }
+      // feture: feture ? false : true,
+      feture: true,
+
+      Press: () => { navigation.navigate('login') },
+
     },
     {
       profileImg: Images.Pictures.statusImg3,
@@ -29,8 +32,11 @@ const Talent = ({ feture, navigation }) => {
 
       singleImg: Images.Pictures.talent,
       checksingle: 'false',
-      feture: feture ? false : true,
-      Press: () => { navigation.navigate('login') }
+
+      Press: () => { navigation.navigate('login') },
+      // feture: feture ? false : true,
+      feture: false,
+
     },
   ];
 
@@ -42,6 +48,7 @@ const Talent = ({ feture, navigation }) => {
           return (
             <View style={{ marginTop: 10 }}>
               <PostBox
+                heart={true}
                 profileTitle={item.profileTitle}
                 postTime={item.postTime}
                 boxTitle={item.boxTitle}
@@ -53,9 +60,14 @@ const Talent = ({ feture, navigation }) => {
                 gridImg4={item.gridImg4}
                 singleImg={item.singleImg}
                 checksingle={item.checksingle}
-                feture={item.feture}
                 price={''}
                 Press={item.Press}
+                GetFeture={item.feture}
+                feture={feture ? true : false}
+
+
+              // GetFeture={item.feture}
+              // feture={feture ? true : false}
 
               />
             </View>

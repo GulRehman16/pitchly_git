@@ -9,6 +9,7 @@ import {
   TouchableHighlight,
   ImageBackground,
   TouchableOpacity,
+  statusBarStyle, statusBarTransition, StatusBar, hidden
 } from 'react-native';
 import React, { useState } from 'react';
 import { Box, Header, StatusView } from '../../../components';
@@ -18,7 +19,7 @@ import Swipeable from 'react-native-swipeable';
 import { Item } from 'native-base';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import { TextInput } from 'react-native-gesture-handler';
-const ChatScreen1 = ({ navigation }) => {
+const ChatScreen1 = ({ navigation, }) => {
   const [data, setData] = useState({
     DataBox: [
       {
@@ -206,32 +207,39 @@ const ChatScreen1 = ({ navigation }) => {
 
   return (
     <SafeAreaView style={styles.Container}>
+      <StatusBar
+        animated={true}
+        backgroundColor="#000"
+        barStyle={statusBarStyle}
+        showHideTransition={statusBarTransition}
+        hidden={hidden} />
       <ImageBackground
         style={styles.imageContainer}
         source={Images.Pictures.appBg}>
-        <ScrollView
-          keyboardShouldPersistTaps="handled"
-          showsVerticalScrollIndicator={false}
-          contentContainerStyle={{ flexGrow: 1 }}>
-          <View style={styles.Body}>
-            <Text style={styles.chat}>Chat</Text>
-            <View
-              style={{
-                width: '95%',
-                borderWidth: 1,
-                backgroundColor: 'white',
-                height: 45,
-                borderRadius: 10,
-                justifyContent: 'center',
-                alignItems: 'center',
-                flexDirection: 'row',
-              }}>
-              <AntDesign color="grey" size={18} name="search1" />
-              <TextInput
-                style={{ width: '85%', height: '100%' }}
-                placeholder="Search chat here"
-              />
-            </View>
+
+        <View style={styles.Body}>
+          <Text style={styles.chat}>Chat</Text>
+          <View
+            style={{
+              width: '95%',
+              borderWidth: 1,
+              backgroundColor: '#fff',
+              height: 45,
+              borderRadius: 10,
+              justifyContent: 'center',
+              alignItems: 'center',
+              flexDirection: 'row',
+            }}>
+            <AntDesign color="grey" size={18} name="search1" />
+            <TextInput
+              style={{ width: '85%', height: '100%' }}
+              placeholder="Search chat here"
+            />
+          </View>
+          <ScrollView
+            keyboardShouldPersistTaps="handled"
+            showsVerticalScrollIndicator={false}
+            contentContainerStyle={{ flexGrow: 1 }}>
             <View style={{ marginBottom: 10 }}>
               <Text style={styles.message}>Quick Message</Text>
             </View>
@@ -279,8 +287,10 @@ const ChatScreen1 = ({ navigation }) => {
                 );
               }}
             />
-          </View>
-        </ScrollView>
+          </ScrollView>
+
+        </View>
+
       </ImageBackground>
     </SafeAreaView>
   );

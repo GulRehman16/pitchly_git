@@ -10,7 +10,7 @@ import {
   ScrollView,
   TextInput,
   TouchableOpacity,
-
+  FlatList,
 } from 'react-native';
 import { Icon } from 'native-base';
 import { Images } from '../../../constants';
@@ -93,11 +93,7 @@ const Comment = ({ image, name, time, Radius, height, typesomething }) => {
   let colorScheme = Appearance.getColorScheme();
   console.log(colorScheme);
   return (
-    <ScrollView
-      style={{
-        width: '100%',
-        height: '100%',
-      }}>
+    <View style={styles.imageContainer}>
       <View style={{ width: '90%' }}>
         {messages.map((message, i) => {
           return (
@@ -120,7 +116,8 @@ const Comment = ({ image, name, time, Radius, height, typesomething }) => {
                   flexDirection: 'row',
                   alignItems: 'center',
                   marginTop: 10,
-                  width: '95%', alignSelf: 'center'
+                  width: '95%',
+                  alignSelf: 'center',
                 }}>
                 <Avatar rounded size={50} source={image} />
                 <View>
@@ -152,6 +149,7 @@ const Comment = ({ image, name, time, Radius, height, typesomething }) => {
           );
         })}
       </View>
+
       <View
         style={{
           width: '100%',
@@ -159,17 +157,16 @@ const Comment = ({ image, name, time, Radius, height, typesomething }) => {
           flexDirection: 'row',
           alignItems: 'center',
           justifyContent: 'space-between',
-          elevation: 2,
+          elevation: 1,
           borderRadius: Radius || 50,
           paddingLeft: 5,
-          borderWidth: 1,
+          // borderWidth: 1,
           borderColor: '#eee',
-          backgroundColor: '#fff',
-          //   position: 'absolute',
+
+          // position: 'absolute',
           // bottom: 0,
           // marginTop: 15,
           alignSelf: 'center',
-          marginTop: 20
         }}>
         <View
           style={{
@@ -179,7 +176,6 @@ const Comment = ({ image, name, time, Radius, height, typesomething }) => {
             flexDirection: 'row',
             height: 60,
             marginLeft: 15,
-
           }}>
           <TextInput
             placeholderTextColor={(colorScheme = 'dark' ? 'grey' : 'grey')}
@@ -205,8 +201,6 @@ const Comment = ({ image, name, time, Radius, height, typesomething }) => {
             justifyContent: 'flex-end',
             paddingRight: 10,
           }}>
-
-
           <TouchableOpacity
             disabled={message.length <= 0}
             activeOpacity={0.7}
@@ -219,14 +213,14 @@ const Comment = ({ image, name, time, Radius, height, typesomething }) => {
           </TouchableOpacity>
         </View>
       </View>
-    </ScrollView>
+    </View>
   );
 };
 export { Comment };
 const styles = StyleSheet.create({
   imageContainer: {
     flex: 1,
-    justifyContent: 'center',
+    // justifyContent: 'center',
   },
   screenContainer: {
     flex: 1,

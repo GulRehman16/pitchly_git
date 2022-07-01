@@ -14,6 +14,7 @@ import {
   onPress,
   borderRadius,
   hiddinText,
+  hidden, statusBarStyle, statusBarTransition
 } from 'react-native';
 import { AppButton, FormInput, Header } from '../../../components';
 import { Images } from '../../../constants';
@@ -40,7 +41,12 @@ const AddServices = props => {
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ flexGrow: 1 }}>
-        <StatusBar backgroundColor={'transparent'} translucent={true} />
+        <StatusBar
+          animated={true}
+          backgroundColor="#000"
+          barStyle={statusBarStyle}
+          showHideTransition={statusBarTransition}
+          hidden={hidden} />
         <View style={{}}>
           <View style={styles.screenHeader}>
             <Header
@@ -59,7 +65,7 @@ const AddServices = props => {
                   style={{
                     width: '90%',
                     alignSelf: 'center',
-                    marginVertical: 20,
+                    marginVertical: 10,
                   }}>
                   <View style={styles.Input}>
                     <FormInput placeHolder="Service Name" />
@@ -83,10 +89,10 @@ const AddServices = props => {
                     />
                   </View>
                   <View style={styles.Input}>
-                    <FormInput placeHolderColor="#000" placeHolder="State" />
+                    <FormInput placeHolderColor="#grey" placeHolder="State" />
                   </View>
                   <View style={styles.Input}>
-                    <FormInput placeHolderColor="#000" placeHolder="City" />
+                    <FormInput placeHolderColor="grey" placeHolder="City" />
                   </View>
                 </View>
                 <View
@@ -121,7 +127,7 @@ const AddServices = props => {
                 <View
                   style={{
                     marginTop: -12,
-                    marginVertical: 10,
+                    // marginVertical: 10,
                     flexDirection: 'row',
                     width: '90%',
                     alignItems: 'center',
@@ -154,27 +160,27 @@ const AddServices = props => {
                     Upload Photo & Video<Text styl={{ color: 'red' }}>*</Text>
                   </Text>
                 </View>
-                <View
-                  style={{
-                    width: '80%', alignSelf: 'center', marginBottom: 100, marginVertical: 10
-                  }}>
-                  <AppButton
-                    LinearColor1={'#5DF7B8'}
-                    LinearColor2={'#3109FB'}
-                    color={'white'}
-                    borderWidth={0.5}
-                    borderColor={'#707070'}
-                    backgroundColor={'#FFFFFF'}
-                    label="Post Now"
-                    onPress={() =>
-                      props.navigation.replace('MyTabs', { screen: 'home' })
-                    }
-                  />
-                </View>
               </View>
-
+            </View>
+            <View
+              style={{
+                width: '80%', alignSelf: 'center', marginBottom: 100, marginVertical: 10
+              }}>
+              <AppButton
+                LinearColor1={'#5DF7B8'}
+                LinearColor2={'#3109FB'}
+                color={'white'}
+                borderWidth={0.5}
+                borderColor={'#707070'}
+                backgroundColor={'#FFFFFF'}
+                label="Post Now"
+                onPress={() =>
+                  props.navigation.replace('MyTabs', { screen: 'home' })
+                }
+              />
             </View>
           </View>
+
         </View>
       </ScrollView>
     </ImageBackground>
@@ -215,7 +221,7 @@ const styles = StyleSheet.create({
   },
   whitebox: {
     width: '90%',
-    height: '80%',
+    // height: '80%',
     borderRadius: 10,
     backgroundColor: '#fff',
     alignSelf: 'center',

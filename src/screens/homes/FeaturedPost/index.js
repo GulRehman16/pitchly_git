@@ -7,7 +7,7 @@ import {
     ScrollView,
     StatusBar,
     Switch,
-    FlatList
+    FlatList, hidden, statusBarStyle, statusBarTransition,
 } from 'react-native';
 import React, { useState } from 'react';
 import { Images } from '../../../constants';
@@ -21,7 +21,12 @@ const FeaturedPost = (props) => {
             <ScrollView
                 showsVerticalScrollIndicator={false}
                 contentContainerStyle={{ flexGrow: 1 }}>
-                <StatusBar backgroundColor={'transparent'} translucent={true} />
+                <StatusBar
+                    animated={true}
+                    backgroundColor="#000"
+                    barStyle={statusBarStyle}
+                    showHideTransition={statusBarTransition}
+                    hidden={hidden} />
 
                 <View style={{}}>
                     <View style={styles.screenHeader}>
@@ -72,7 +77,7 @@ const styles = StyleSheet.create({
     screenHeader: {
         width: '90%',
         height: 80,
-        marginTop: 20,
+        // marginTop: 10,
         alignSelf: 'center',
         justifyContent: 'center',
         alignItems: 'center',

@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View} from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 
 const Policies = ({
@@ -10,7 +10,7 @@ const Policies = ({
   privacyPolicy,
 }) => {
   return (
-    <View style={{width: '100%'}}>
+    <View style={{ width: '100%' }}>
       {termAndCondition && (
         <Text
           style={{
@@ -18,6 +18,7 @@ const Policies = ({
             fontWeight: fontWeight || 'normal',
             color: color || '#000000',
             letterSpacing: 0.5,
+            marginTop: 15,
           }}>
           {text}
         </Text>
@@ -28,6 +29,7 @@ const Policies = ({
             fontSize: fontSize || 14,
             fontWeight: fontWeight || 'normal',
             color: color || '#000000',
+
           }}>
           {text}
         </Text>
@@ -36,6 +38,6 @@ const Policies = ({
   );
 };
 
-export {Policies};
+export { Policies };
 
 const styles = StyleSheet.create({});

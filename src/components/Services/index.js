@@ -6,6 +6,7 @@ import {
   FlatList,
   Dimensions,
   TouchableOpacity,
+
 } from 'react-native';
 import { Images, Themes } from '../../constants';
 import { PostBox } from '../../components';
@@ -22,6 +23,7 @@ const Services = ({ feture }) => {
       singleImg: Images.Pictures.postImg1,
       checksingle: 'false',
       feture: feture ? false : true,
+      feture: true,
     },
     {
       profileImg: Images.Pictures.statusImg3,
@@ -33,7 +35,8 @@ const Services = ({ feture }) => {
       price: '$ 10.00',
       singleImg: Images.Pictures.postImg1,
       checksingle: 'false',
-      feture: feture == true ? false : true,
+      feture: feture ? false : true,
+      feture: false,
     },
   ];
   console.log('service.feture', Service.feture);
@@ -45,6 +48,7 @@ const Services = ({ feture }) => {
           return (
             <View style={{ marginTop: 10 }}>
               <PostBox
+                staricon={true}
                 profileTitle={item.profileTitle}
                 postTime={item.postTime}
                 boxTitle={item.boxTitle}
@@ -52,7 +56,8 @@ const Services = ({ feture }) => {
                 price={item.price}
                 singleImg={item.singleImg}
                 checksingle={item.checksingle}
-                feture={item.feture}
+                GetFeture={item.feture}
+                feture={feture ? true : false}
                 ImgPress={() =>
                   item.ImgPress.navigate('Homes', {
                     screen: 'productdetails',

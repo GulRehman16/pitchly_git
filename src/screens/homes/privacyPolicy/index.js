@@ -6,6 +6,7 @@ import {
   Text,
   TouchableOpacity,
   ImageBackground,
+  hidden, statusBarStyle, statusBarTransition,
   View,
 } from 'react-native';
 import { Images } from '../../../constants';
@@ -25,7 +26,12 @@ const PrivacyPolicy = props => {
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ flexGrow: 1 }}>
-        <StatusBar backgroundColor={'transparent'} translucent={true} />
+        <StatusBar
+          animated={true}
+          backgroundColor="#000"
+          barStyle={statusBarStyle}
+          showHideTransition={statusBarTransition}
+          hidden={hidden} />
         <View style={styles.screenHeader}>
           <Header
 
@@ -64,8 +70,8 @@ const styles = StyleSheet.create({
 
   screenHeader: {
     width: '90%',
-    height: 100,
-    marginTop: 30,
+    height: 80,
+    // marginTop: 10,
     alignSelf: 'center',
     justifyContent: 'center',
     alignItems: 'center',
@@ -90,5 +96,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     alignSelf: 'center',
     paddingBottom: 60,
+    elevation: 4,
+    borderRadius: 10
   },
 });

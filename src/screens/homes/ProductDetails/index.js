@@ -1,23 +1,27 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, statusBarStyle, StatusBar, hidden, statusBarTransition } from 'react-native';
 import React from 'react';
 import { AppButton, Box, Header, Row, Post } from '../../../components';
 import Headerchat from '../../../components/Headerchat';
 import { Images } from '../../../constants';
 import { ScrollView } from 'react-native-gesture-handler';
 import { Homes } from '../../../navigation/stack';
-const Productdetails = props => {
+const Productdetails = ({ navigation }) => {
   return (
     <View>
       <ScrollView>
         <View style={{ marginLeft: 10, marginTop: 10 }}>
+          <StatusBar
+            animated={true}
+            backgroundColor="#000"
+            barStyle={statusBarStyle}
+            showHideTransition={statusBarTransition}
+            hidden={hidden} />
           <View style={styles.screenHeader}>
             <Header
               BAckButton={true}
               hiddinText
               text="Featured Post"
-              onPress={() => {
-                props.navigation.goBack();
-              }}
+              onPress={() => navigation.replace("MyTabs", { screen: "profile" })}
             />
           </View>
         </View>
@@ -34,7 +38,7 @@ const Productdetails = props => {
             Date="02/20/2021"
             Duration={true}
             Press1={() => {
-              props.navigation.naviagte('Homes', { screen: 'pictureslider' });
+              navigation.naviagte('Homes', { screen: 'pictureslider' });
             }}
           />
           <View style={{ width: '60%', alignSelf: 'center' }}>
@@ -48,7 +52,7 @@ const Productdetails = props => {
                 backgroundColor={'#FFFFFF'}
                 label="Renew"
                 onPress={() => {
-                  props.navigation.navigate('getfeatured');
+                  navigation.navigate('getfeatured');
                 }}
               />
             </View>

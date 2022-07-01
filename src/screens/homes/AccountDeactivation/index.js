@@ -9,7 +9,8 @@ import {
     StatusBar,
     Switch,
     FlatList,
-    TouchableOpacity
+    TouchableOpacity,
+    hidden, statusBarStyle, statusBarTransition
 } from 'react-native'
 import React, { useState } from 'react'
 import { Images } from '../../../constants'
@@ -47,7 +48,12 @@ const AccountDeactivation = (props) => {
             <ScrollView
                 showsVerticalScrollIndicator={false}
                 contentContainerStyle={{ flexGrow: 1 }}>
-                <StatusBar backgroundColor={'transparent'} translucent={true} />
+                <StatusBar
+                    animated={true}
+                    backgroundColor="#000"
+                    barStyle={statusBarStyle}
+                    showHideTransition={statusBarTransition}
+                    hidden={hidden} />
                 <View style={{}}>
                     <View style={styles.screenHeader}>
                         <Header
@@ -75,7 +81,9 @@ const AccountDeactivation = (props) => {
                                             props.navigation.navigate('deleteaccount',
                                                 {
                                                     text1: 'Deactivate Account',
-                                                    text2: `Are you sure to Deactivate your \n  your account`
+                                                    text2: `Are you sure to Deactivate your \n  your account`,
+
+
                                                 }
                                             )
                                         }}>
@@ -100,8 +108,8 @@ const AccountDeactivation = (props) => {
                                         <TouchableOpacity onPress={() => {
                                             props.navigation.navigate('deleteaccount', {
                                                 text1: 'Delete Account',
-
-                                                text2: `Are you sure to Deactivate your \n account`
+                                                text2: `Are you sure to Deactivate your \n account`,
+                                                // Changetext: 'Delete Account'
                                             })
                                         }}>
                                             <Text style={{
@@ -146,7 +154,7 @@ const styles = StyleSheet.create({
     screenHeader: {
         width: '90%',
         height: 80,
-        marginTop: 10,
+        // marginTop: 10,
         alignSelf: 'center',
         justifyContent: 'center',
         alignItems: 'center',

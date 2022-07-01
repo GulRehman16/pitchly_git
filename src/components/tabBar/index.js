@@ -7,17 +7,17 @@ import LinearGradient from 'react-native-linear-gradient';
 
 
 const TabBar = props => {
-  const {state} = props;
+  const { state } = props;
   const tabs = [
-    {text: 'HOME', navTo: 'home', img: Images.Logos.homeIcon},
-    {text: 'CHAT', navTo: 'ChatScreen1', img: Images.Logos.msgIcon},
-    {text: 'Upload', navTo: 'TooltipScreen', img: Images.Logos.addIcon},
+    { text: 'HOME', navTo: 'home', img: Images.Logos.homeIcon },
+    { text: 'CHAT', navTo: 'ChatScreen1', img: Images.Logos.msgIcon },
+    { text: 'Upload', navTo: 'TooltipScreen', img: Images.Logos.addIcon },
     {
       text: 'NOTIFICATION',
       navTo: 'Notification',
       img: Images.Logos.notificationIcon,
     },
-    {text: 'ACCOUNT', navTo: 'profile', img: Images.Logos.userIcon},
+    { text: 'ACCOUNT', navTo: 'profile', img: Images.Logos.userIcon },
   ];
   const [visible, setVisible] = useState({
     visibles: false,
@@ -50,21 +50,21 @@ const TabBar = props => {
                   props.navigation.navigate(item.navTo),
                     i === 2
                       ? setVisible({
-                          ...visible,
-                          visibles: true,
-                          invisibles: false,
-                        })
+                        ...visible,
+                        visibles: true,
+                        invisibles: false,
+                      })
                       : setVisible({
-                          ...visible,
-                          visibles: false,
-                          invisibles: true,
-                        });
+                        ...visible,
+                        visibles: false,
+                        invisibles: true,
+                      });
                 }}
-                style={{alignItems: 'center', justifyContent: 'center'}}
+                style={{ alignItems: 'center', justifyContent: 'center' }}
                 key={i}>
                 <LinearGradient
-                  start={{x: 1, y: 0.0}}
-                  end={{x: 1, y: 1.9}}
+                  start={{ x: 1, y: 0.0 }}
+                  end={{ x: 1, y: 1.9 }}
                   colors={
                     state.index === i
                       ? ['#3109FB', '#5DF7B8']
@@ -113,7 +113,7 @@ const TabBar = props => {
   );
 };
 
-export {TabBar};
+export { TabBar };
 
 const styles = StyleSheet.create({
   tabBarContainer: {
@@ -121,6 +121,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 80,
     borderTopRightRadius: 20,
+    justifyContent: 'center',
     backgroundColor: '#ffffff',
     elevation: 5,
   },

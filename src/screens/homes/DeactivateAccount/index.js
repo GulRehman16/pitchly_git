@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import {
     StyleSheet,
@@ -11,14 +11,15 @@ import {
     ScrollView,
     TouchableOpacity,
     TextInput,
-    BackHandler
+    BackHandler, hidden, statusBarStyle, statusBarTransition
 } from 'react-native';
 import { Images } from '../../../constants';
 import { AppButton, Header } from '../../../components';
 import { useRoute } from '@react-navigation/native';
-const height = Dimensions.get('window').height / 2.5;
+const height = Dimensions.get('window').height /
+    2.5;
 const width = Dimensions.get('window').width;
-const DeactivateAccount = ({ navigation }) => {
+const DeactivateAccount = ({ navigation, route }) => {
 
     // useEffect(() => {
     //     setTimeout(() => {
@@ -34,7 +35,11 @@ const DeactivateAccount = ({ navigation }) => {
     //     };
     // }, []);
 
-    const route = useRoute();
+    // const [change, setchange] = useState
+    const { changetext, text1 } = route.params;
+    console.log(text1)
+    // console.log(changetext)
+    // const route = useRoute();
     return (
         <ImageBackground
             style={styles.imageContainer}
@@ -42,7 +47,12 @@ const DeactivateAccount = ({ navigation }) => {
             <ScrollView
                 showsVerticalScrollIndicator={false}
                 contentContainerStyle={{ flexGrow: 1 }}>
-                <StatusBar backgroundColor={'transparent'} translucent={true} />
+                <StatusBar
+                    animated={true}
+                    backgroundColor="#000"
+                    barStyle={statusBarStyle}
+                    showHideTransition={statusBarTransition}
+                    hidden={hidden} />
                 <View style={styles.screenHeader}>
                     <Header BAckButton
                         hiddinText
@@ -65,7 +75,8 @@ const DeactivateAccount = ({ navigation }) => {
                         <View style={styles.texts}>
 
                             <Text style={styles.headerText1}>
-                                Deactivate Account
+                                {text1}
+
                             </Text>
                             <Text style={styles.headerText2}>
                                 Enter your password
@@ -92,7 +103,10 @@ const DeactivateAccount = ({ navigation }) => {
                                     borderColor={'#707070'}
                                     backgroundColor={'#FFFFFF'}
                                     label="Confirm"
-                                    onPress={() => navigation.replace('Auth', { screen: 'login' })}
+                                    onPress={() => navigation.replace('Auth', { screen: 'login' },
+
+                                    )}
+
                                 />
                             </View>
                         </View>
@@ -112,7 +126,7 @@ const styles = StyleSheet.create({
     screenHeader: {
         width: '90%',
         height: 50,
-        marginTop: 30,
+        marginTop: 50,
         alignSelf: 'center',
         justifyContent: 'center',
         alignItems: 'center',

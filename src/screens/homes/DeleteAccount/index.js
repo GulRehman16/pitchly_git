@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useEffect } from 'react';
 import {
     StyleSheet,
@@ -10,6 +10,7 @@ import {
     Dimensions,
     ScrollView,
     TouchableOpacity,
+    hidden, statusBarStyle, statusBarTransition
 } from 'react-native';
 import { Images } from '../../../constants';
 import { AppButton, Header } from '../../../components';
@@ -17,7 +18,7 @@ const height = Dimensions.get('window').height / 2.5;
 const width = Dimensions.get('window').width;
 import { useRoute } from '@react-navigation/native';
 
-const DeleteAccount = ({ route, navigation }) => {
+const DeleteAccount = ({ route, navigation, Changetext }) => {
     // useEffect(() => {
     //   setTimeout(() => {
     //     navigation.replace('mainAuth');
@@ -25,13 +26,21 @@ const DeleteAccount = ({ route, navigation }) => {
     // }, []);
 
     const { text1, text2, Image1, onPress } = route.params;
+    // const [chagaetext, setChangetext] = useState(
+    //     "Delete Account"
 
+    // )
     return (
 
         <ScrollView
             showsVerticalScrollIndicator={false}
             contentContainerStyle={{ flexGrow: 1 }}>
-            <StatusBar backgroundColor={'transparent'} translucent={true} />
+            <StatusBar
+                animated={true}
+                backgroundColor="#000"
+                barStyle={statusBarStyle}
+                showHideTransition={statusBarTransition}
+                hidden={hidden} />
             <View style={styles.screenHeader}>
                 <Header BAckButton
                     hiddinText
@@ -70,7 +79,9 @@ const DeleteAccount = ({ route, navigation }) => {
                             borderColor={'#707070'}
                             borderWidth={0.5}
                             label="No"
-                            onPress={() => navigation.navigate('Accountdeactivation')}
+                            onPress={() => navigation.navigate('Accountdeactivation',
+
+                            )}
                         />
                     </View>
                     <View style={styles.authButton}>
@@ -82,7 +93,13 @@ const DeleteAccount = ({ route, navigation }) => {
                             borderColor={'#707070'}
                             backgroundColor={'#FFFFFF'}
                             label="Yes"
-                            onPress={() => navigation.navigate('deactivateaccount')}
+                            onPress={() => navigation.navigate('deactivateaccount',
+
+                                { text1 }
+
+
+                            )}
+
                         />
                     </View>
                 </View>
@@ -110,8 +127,8 @@ const styles = StyleSheet.create({
     },
     screenHeader: {
         width: '90%',
-        height: 50,
-        marginTop: 30,
+        height: 80,
+        // marginTop: 50,
         alignSelf: 'center',
         justifyContent: 'center',
         alignItems: 'center',

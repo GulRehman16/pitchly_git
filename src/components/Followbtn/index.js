@@ -62,13 +62,14 @@ const Followbtn = ({
               setState(!state);
             }}
             style={{
-              borderWidth: borderWidth,
-              width: width || '20%',
-              height: height || 30,
+              borderWidth: borderWidth || 1,
+              borderColor: 'grey',
+              width: width || '28%',
+              height: height || 32,
               alignSelf: 'center',
-              backgroundColor: colorState === true ? color1 : color2,
-              borderRadius: 3,
-              borderColor: 'black',
+              backgroundColor: colorState === true ? color2 : color1,
+              borderRadius: 10,
+              // borderColor: 'black',
               justifyContent: 'center',
             }}>
             <LinearGradient
@@ -83,7 +84,7 @@ const Followbtn = ({
                 height: '100%',
                 alignItems: 'center',
                 justifyContent: 'center',
-                // borderRadius: 10
+                borderRadius: 10
               }}>
               <Text
                 style={{
@@ -107,7 +108,7 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
   txt1: {
-    marginVertical: 10,
+    marginVertical: 3,
     fontWeight: 'bold',
     color: '#000',
     fontSize: 16,

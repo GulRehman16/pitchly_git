@@ -14,6 +14,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import { Tooltip } from 'react-native-elements';
 import { useNavigation } from '@react-navigation/native';
 import { AppButton } from '../../components'
+import { Icon } from 'native-base';
 
 const PostBox = ({
   profileImg,
@@ -26,6 +27,8 @@ const PostBox = ({
   gridImg2,
   gridImg3,
   gridImg4,
+  staricon,
+  heart,
   singleImg,
   Video,
   price,
@@ -34,7 +37,11 @@ const PostBox = ({
   feture,
   GetFeture,
   press,
-  Press1
+  Press1,
+  profileonpress,
+  ImgPress1,
+
+
 }) => {
   const [Grid, setGrid] = useState(checksingle);
   console.log('Grid', Grid);
@@ -53,7 +60,7 @@ const PostBox = ({
             justifyContent: 'space-between',
           }}>
           <View style={{ flexDirection: 'row' }}>
-            <TouchableOpacity onPress={() => navigation.navigate("Homes", { screen: 'talentscreen' })}
+            <TouchableOpacity onPress={() => navigation.navigate("Homes", { screen: 'account' })}
               style={{ width: 40, height: 40 }}>
               <Image
                 source={Images.Pictures.profile}
@@ -139,10 +146,15 @@ const PostBox = ({
                   width: '100%',
                   height: '100%',
                 }}>
-                <TouchableOpacity onPress={() => navigation.navigate("Homes", { screen: 'talentscreen' },
+                <TouchableOpacity
+                  onPress={() => navigation.navigate("Homes", {
+                    screen: 'talentscreen', pararms: {
+                      text1: false,
+                    }
+                  },
 
-
-                )}
+                  )}
+                  // onPress={() => navigation.navigate("Homes", { screen: 'talentscreen' })}
                   style={{ width: '45%', height: '100%' }}>
                   <Image
                     source={gridImg}
@@ -243,7 +255,11 @@ const PostBox = ({
                 resizeMode="stretch">
                 <TouchableOpacity
                   // onPress={Press}
-                  onPress={() => navigation.navigate("Homes", { screen: 'talentscreen' })}
+                  onPress={() => navigation.navigate("Homes", { screen: 'talentscreen', pararms: { text2: 'kfskfhks' } },
+
+
+
+                  )}
                   // title="Go to notifications"
                   style={{
                     width: 50, height: 50, borderRadius: 10, borderWidth: 35,
@@ -308,9 +324,11 @@ const PostBox = ({
                   borderColor={GetFeture === true ? '#707070' : 'black'}
                   backgroundColor={'#FFFFFF'}
                   label={GetFeture === true ? 'Get it Featured' : 'Featured'}
-                // onPress={() =>
-                //   navigation.replace('MyTabs', {screen: 'home'})
-                // }
+                  onPress={() =>
+                    GetFeture === true ? navigation.replace('Homes', { screen: 'getfeatured' }) : navigation.replace('Homes', { screen: 'productdetails' })
+                    // navigation.replace('MyTabs', { screen: 'profile' })
+
+                  }
                 />
               </View>
             )}
@@ -374,20 +392,43 @@ const PostBox = ({
                   />
                   <Text style={{ color: 'black', paddingLeft: 5 }}>2.4K</Text>
                 </View>
+                {staricon && (
+                  <View
+                    style={{
+                      marginLeft: 10,
+                      flexDirection: 'row',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                    }}>
+                    <Image
+                      source={Images.Icons.Star}
+                      style={{ width: 19.07, height: 18.74 }}
+                    />
+                    <Text style={{ color: 'black', paddingLeft: 5 }}>4.2K</Text>
+                  </View>
 
-                <View
+                )}
+
+                {heart && (<View
                   style={{
                     marginLeft: 10,
                     flexDirection: 'row',
                     alignItems: 'center',
                     justifyContent: 'center',
                   }}>
-                  <Image
-                    source={Images.Icons.starIcon}
-                    style={{ width: 19.07, height: 18.74 }}
+                  <Icon
+                    type="AntDesign"
+                    name="heart"
+                    style={{
+                      color: '#4059E4',
+                      fontSize: 20,
+                    }}
                   />
                   <Text style={{ color: 'black', paddingLeft: 5 }}>4.2K</Text>
                 </View>
+
+                )}
+
               </View>
               <View
                 style={{

@@ -30,7 +30,7 @@ export default function Headerchat({
         flexDirection: 'row',
         // borderWidth: 1,
         // backgroundColor: 'red',
-        width: '100%',
+        width: '95%',
         height: 60,
         alignItems: 'center',
         marginTop: 20
@@ -90,7 +90,7 @@ export default function Headerchat({
               flex: 1,
               //   alignItems: 'center',
               justifyContent: 'center',
-              // marginLeft: 70,
+              marginLeft: -24,
               marginBottom: 15,
               // onPress={()=}
             }}>

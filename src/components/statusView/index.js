@@ -1,7 +1,7 @@
-import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import React from 'react';
 
-import {Images} from '../../constants';
+import { Images } from '../../constants';
 
 const StatusView = ({
   borderRadius,
@@ -16,7 +16,7 @@ const StatusView = ({
   text,
 }) => {
   return (
-    <View style={{alignItems: 'center', justifyContent: 'center'}}>
+    <View style={{ alignItems: 'center', justifyContent: 'center' }}>
       <TouchableOpacity
         onPress={onPress}
         activeOpacity={0.7}
@@ -29,13 +29,13 @@ const StatusView = ({
           alignItems: 'center',
           justifyContent: 'center',
         }}>
-        <Image source={imgName} style={{width: imgWidth, height: imgHeight}} />
+        <Image source={imgName} style={{ width: imgWidth, height: imgHeight }} />
       </TouchableOpacity>
-      <Text style={{marginTop: 5, color: '#4B4B4B', fontSize: 14}}>{text}</Text>
+      <Text style={{ marginTop: 5, color: '#4B4B4B', fontSize: 14 }}>{text}</Text>
     </View>
   );
 };
 
-export {StatusView};
+export { StatusView };
 
 const styles = StyleSheet.create({});

@@ -5,7 +5,8 @@ import {
     ImageBackground,
     TouchableOpacity,
     TextInput,
-    ScrollView
+    ScrollView,
+    StatusBar, statusBarStyle, statusBarTransition, hidden
 } from 'react-native';
 import React, { useState } from 'react';
 import { Icon } from 'native-base';
@@ -18,17 +19,23 @@ const Viewstatus = (props) => {
         <ImageBackground
             style={styles.imageContainer}
             source={Images.Pictures.bgstatus}>
+            <StatusBar
+                animated={true}
+                backgroundColor="#000"
+                barStyle={statusBarStyle}
+                showHideTransition={statusBarTransition}
+                hidden={hidden} />
             <ScrollView
                 keyboardShouldPersistTaps="handled"
                 showsVerticalScrollIndicator={false}
                 contentContainerStyle={{ flexGrow: 1 }}>
+
 
                 <View style={styles.screenHeader}>
 
                     <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => {
                         props.navigation.goBack();
                     }}>
-
                         <Icon
                             type="Feather"
                             name="chevron-left"
@@ -58,7 +65,7 @@ const Viewstatus = (props) => {
 
                 <View style={styles.inputcontainer}>
                     <TextInput
-                        placeholder="Type a Status"
+                        placeholder="Highlight"
                         onChangeText={text => setstatus(text)}
                         style={{ width: '75%' }}
                     />
@@ -116,7 +123,7 @@ const styles = StyleSheet.create({
     screenHeader: {
         width: '100%',
         height: 30,
-        marginTop: 20,
+        marginTop: 50,
         alignSelf: 'center',
         justifyContent: 'center',
         // alignItems: 'center',

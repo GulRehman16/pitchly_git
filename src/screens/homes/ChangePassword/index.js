@@ -1,7 +1,7 @@
 import {
     StyleSheet, Text, View, ImageBackground,
     Image,
-    ScrollView, StatusBar, Switch, TextInput
+    ScrollView, StatusBar, Switch, TextInput, hidden, statusBarStyle, statusBarTransition
 } from 'react-native'
 import React, { useState } from 'react'
 import { Images } from '../../../constants'
@@ -18,7 +18,12 @@ const ChangePassword = (props) => {
             <ScrollView
                 showsVerticalScrollIndicator={false}
                 contentContainerStyle={{ flexGrow: 1 }}>
-                <StatusBar backgroundColor={'transparent'} translucent={true} />
+                <StatusBar
+                    animated={true}
+                    backgroundColor="#000"
+                    barStyle={statusBarStyle}
+                    showHideTransition={statusBarTransition}
+                    hidden={hidden} />
                 <View style={{}}>
                     <View style={styles.screenHeader}>
                         <Header

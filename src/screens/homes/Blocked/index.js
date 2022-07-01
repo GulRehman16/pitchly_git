@@ -8,8 +8,7 @@ import {
     StatusBar,
     Switch,
     FlatList,
-    txt1,
-    txt2,
+    hidden, statusBarStyle, statusBarTransition
 } from 'react-native'
 import React, { useState } from 'react'
 import { Images } from '../../../constants'
@@ -67,7 +66,12 @@ const Blocked = (props) => {
             <ScrollView
                 showsVerticalScrollIndicator={false}
                 contentContainerStyle={{ flexGrow: 1 }}>
-                <StatusBar backgroundColor={'transparent'} translucent={true} />
+                <StatusBar
+                    animated={true}
+                    backgroundColor="#000"
+                    barStyle={statusBarStyle}
+                    showHideTransition={statusBarTransition}
+                    hidden={hidden} />
                 <View style={{}}>
                     <View style={styles.screenHeader}>
                         <Header
@@ -89,7 +93,7 @@ const Blocked = (props) => {
                                             <>
                                                 <View style={{}}>
                                                     <Followbtn userprofile
-                                                        borderWidth={0.75}
+                                                        // borderWidth={1}
                                                         color1="#eee"
                                                         color2="#eee"
                                                         color3="#000"

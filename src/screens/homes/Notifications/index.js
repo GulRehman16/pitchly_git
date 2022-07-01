@@ -8,6 +8,7 @@ import {
   Image,
   FlatList,
   ImageBackground,
+  statusBarStyle, statusBarTransition, hidden, StatusBar
 } from 'react-native';
 import React, { useState } from 'react';
 import { Box, Header, Row, Tip } from '../../../components'
@@ -92,6 +93,12 @@ const Notifications = ({ route, navigation }) => {
         keyboardShouldPersistTaps="handled"
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ flexGrow: 1 }}>
+        <StatusBar
+          animated={true}
+          backgroundColor="#000"
+          barStyle={statusBarStyle}
+          showHideTransition={statusBarTransition}
+          hidden={hidden} />
         <View>
           <View style={styles.screenHeader}>
             <Header
@@ -255,7 +262,7 @@ const styles = StyleSheet.create({
   screenHeader: {
     width: '90%',
     height: 80,
-    marginTop: 50,
+    marginTop: 10,
     alignSelf: 'center',
     justifyContent: 'center',
     alignItems: 'center',

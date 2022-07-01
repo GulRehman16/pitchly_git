@@ -1,13 +1,19 @@
 import React, { useEffect } from 'react';
-import { StyleSheet, Text, View, FlatList, Dimensions, TouchableOpacity, Image } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  FlatList,
+  Dimensions,
+  TouchableOpacity,
+  Image,
+} from 'react-native';
 import { Images, Themes } from '../../constants';
 import LinearGradient from 'react-native-linear-gradient';
 import { PostBox, SuggestFriends } from '../../components';
 import { useNavigation } from '@react-navigation/native';
 
-const AllMixed = ({ props }) => {
-
-
+const AllMixed = ({ props, feture, SuggestFriend }) => {
   const navigation = useNavigation();
   const statusData2 = [
     {
@@ -48,7 +54,6 @@ const AllMixed = ({ props }) => {
       height: 61,
       text: 'Bella',
       // Press: () => { navigation.navigate('') }
-
     },
     {
       id: 4,
@@ -61,7 +66,6 @@ const AllMixed = ({ props }) => {
       width: 61,
       height: 61,
       text: 'Saher',
-
     },
   ];
   const All = [
@@ -81,7 +85,7 @@ const AllMixed = ({ props }) => {
       gridImg4: Images.Pictures.productcackImg5,
       checksingle: false,
       checkfollow: false,
-      // feture: feture ? false : true,
+      feture: true,
       // onPress: () => props.navigation.replace('MyTabs', { screen: 'home' })
     },
 
@@ -96,11 +100,10 @@ const AllMixed = ({ props }) => {
       singleImg: Images.Pictures.talent,
       checksingle: true,
       checkfollow: true,
-      // feture: feture ? false : true,
+      feture: false,
       // Press: () => navigation.navigate('Homes', { screen: 'profile' })
     },
     {
-
       id: 3,
       profileImg: Images.Pictures.statusImg1,
       profileTitle: 'Veni Paul',
@@ -116,13 +119,12 @@ const AllMixed = ({ props }) => {
       gridImg4: Images.Pictures.productcackImg5,
       checksingle: false,
       checkfollow: false,
-      // feture: feture ? false : true,
+      feture: false,
 
       // Press: () => navigation.navigate('Homes', { screen: 'profile' })
       // Press: () => navigation.navigate("Homes", { screen: 'Notifications' })
     },
     {
-
       id: 4,
       profileImg: Images.Pictures.talent,
       profileTitle: 'Veni Paul',
@@ -134,8 +136,9 @@ const AllMixed = ({ props }) => {
       singleImg: Images.Pictures.postImg1,
       checksingle: true,
       checkfollow: false,
-      // feture: feture ? false : true,
-      Press1: () => props.navigation.navigate('Homes', { screen: 'profile' })
+      feture: true,
+
+      Press1: () => props.navigation.navigate('Homes', { screen: 'profile' }),
 
       //   ImgPress: navigation.navigate('Homes', {screen: 'productdetails'}),
     },
@@ -147,9 +150,9 @@ const AllMixed = ({ props }) => {
         data={All}
         renderItem={({ item }) => {
           return (
-            <View style={{ marginTop: 10, }}>
-
+            <View style={{ marginTop: 10 }}>
               <PostBox
+                staricon={true}
                 keyExtractor={item => item.id}
                 profileTitle={item.profileTitle}
                 postTime={item.postTime}
@@ -164,51 +167,57 @@ const AllMixed = ({ props }) => {
                 checksingle={item.checksingle}
                 price={item.price}
                 Press={item.Press1}
-              // feture={item.feture}
-              // Press={item.onPress}
-
+                GetFeture={item.feture}
+                feture={feture ? true : false}
+              //   ImgPress1={item.onPress}
               />
               {item.checkfollow == true ? (
                 <View>
-                  <Text
-                    style={{
-                      color: 'grey',
-                      fontSize: 15,
-                      marginTop: 10,
-                      marginLeft: 10,
-                    }}>
-                    Sugguest For you
-                  </Text>
-                  <View
-                    style={{
-                      width: '100%',
-                      alignSelf: 'center',
-                      justifyContent: 'center',
-                      flexDirection: 'row',
-                      marginTop: 10,
-                    }}>
-                    <FlatList
-                      horizontal={true}
-                      showsHorizontalScrollIndicator={false}
-                      data={statusData2}
-                      renderItem={({ item }) => {
-                        return (
-                          <View style={{ marginLeft: 10 }}>
-                            <SuggestFriends
-                              imgName={item.imgName}
-                              width={item.width}
-                              height={item.height}
-                              imgWidth={item.imgWidth}
-                              imgHeight={item.imgHeight}
-                              text={item.text}
-                              Press={item.Press}
-                              keyExtractor={item => item.id}
-                            />
-                          </View>
-                        );
-                      }}
-                    />
-                  </View>
+
+                  {SuggestFriend == true ? (
+                    <View>
+                      <Text
+                        style={{
+                          color: 'grey',
+                          fontSize: 15,
+                          marginTop: 10,
+                          marginLeft: 10,
+                        }}>
+                        Sugguest For you
+                      </Text>
+                      <View
+                        style={{
+                          width: '100%',
+                          alignSelf: 'center',
+                          justifyContent: 'center',
+                          flexDirection: 'row',
+                          marginTop: 10,
+                        }}>
+                        <FlatList
+                          horizontal={true}
+                          showsHorizontalScrollIndicator={false}
+                          data={statusData2}
+                          renderItem={({ item }) => {
+                            return (
+                              <View style={{ marginLeft: 10 }}>
+                                <SuggestFriends
+                                  imgName={item.imgName}
+                                  width={item.width}
+                                  height={item.height}
+                                  imgWidth={item.imgWidth}
+                                  imgHeight={item.imgHeight}
+                                  text={item.text}
+                                  Press={item.Press}
+                                  keyExtractor={item => item.id}
+                                />
+                              </View>
+
+                            );
+                          }}
+                        />
+                      </View>
+                    </View>
+                  ) : null}
                 </View>
               ) : null}
             </View>

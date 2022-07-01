@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   ImageBackground,
   View,
+  hidden, statusBarStyle, statusBarTransition
 } from 'react-native';
 import { Images } from '../../../constants';
 import { FormInput, AppButton, Header } from '../../../components';
@@ -29,7 +30,12 @@ const ContactUs = props => {
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ flexGrow: 1 }}>
-        <StatusBar backgroundColor={'transparent'} translucent={true} />
+        <StatusBar
+          animated={true}
+          backgroundColor="#000"
+          barStyle={statusBarStyle}
+          showHideTransition={statusBarTransition}
+          hidden={hidden} />
         <View style={styles.screenHeader}>
           <Header
             BAckButton

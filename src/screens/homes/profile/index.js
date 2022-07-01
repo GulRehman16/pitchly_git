@@ -10,6 +10,7 @@ import {
   Image,
   FlatList,
   TouchableOpacity,
+  statusBarStyle, hidden, statusBarTransition
 } from 'react-native';
 import { Header, Highlight, AllMixed, HomeHeader, Product, Services, Talent, UserData } from '../../../components';
 import { Images } from '../../../constants';
@@ -27,6 +28,7 @@ const Profile = props => {
       width: 61,
       height: 61,
       text: 'Highlight',
+      onPress: () => props.navigation.navigate("Homes", { screen: 'storyreplay' })
     },
     {
       imgName: Images.Pictures.Friendship,
@@ -38,6 +40,7 @@ const Profile = props => {
       width: 61,
       height: 61,
       text: ' Friendship',
+      onPress: () => props.navigation.navigate("Homes", { screen: 'storyreplay' })
     },
     {
       imgName: Images.Pictures.statusImg3,
@@ -49,6 +52,7 @@ const Profile = props => {
       width: 61,
       height: 61,
       text: 'Food',
+      onPress: () => props.navigation.navigate("Homes", { screen: 'storyreplay', })
     },
   ];
   const [img, setImg] = useState(Images.Logos.plusIcon);
@@ -63,7 +67,12 @@ const Profile = props => {
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ flexGrow: 1 }}>
-        <StatusBar backgroundColor={'transparent'} translucent={true} />
+        <StatusBar
+          animated={true}
+          backgroundColor="#000"
+          barStyle={statusBarStyle}
+          showHideTransition={statusBarTransition}
+          hidden={hidden} />
         <View style={{}}>
           <View style={styles.screenHeader}>
             <Header
@@ -80,6 +89,8 @@ const Profile = props => {
           </View>
           <View style={styles.screenBody}>
             <UserData
+              marginTop={10}
+              marginLeft={20}
               editoption={true}
               Bio
               // editicon
@@ -120,7 +131,7 @@ const Profile = props => {
                         imgWidth={item.imgWidth}
                         imgHeight={item.imgHeight}
                         text={item.text}
-
+                        onPress={item.onPress}
                       />
                     </View>
                   );
@@ -230,13 +241,11 @@ const Profile = props => {
               </LinearGradient>
             </View>
             <View style={{ width: '90%', alignSelf: 'center' }}>
-              {check.value === 'PITCHLY FEED' && <AllMixed feture={false} />}
+              {check.value === 'PITCHLY FEED' && <AllMixed SuggestFriend={true} feture={false} />}
               {check.value === 'TALENT FEED' && <Talent feture={false} />}
               {check.value === 'SERVICES FEED' && <Services feture={false} />}
               {check.value === 'PRODUCTS FEED' && <Product feture={false} />}
-
             </View>
-
             <View></View>
           </View>
         </View>
@@ -256,7 +265,7 @@ const styles = StyleSheet.create({
   screenHeader: {
     width: '90%',
     height: 80,
-    marginTop: 20,
+    marginTop: 10,
     alignSelf: 'center',
     justifyContent: 'center',
     alignItems: 'center',

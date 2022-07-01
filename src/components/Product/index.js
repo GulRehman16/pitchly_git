@@ -18,7 +18,7 @@ const Product = ({ feture }) => {
       gridImg3: Images.Pictures.productcackImg4,
       gridImg4: Images.Pictures.productcackImg5,
       checksingle: false,
-      feture: feture ? false : true,
+      feture: false,
     },
     {
       profileImg: Images.Pictures.statusImg1,
@@ -34,7 +34,7 @@ const Product = ({ feture }) => {
       gridImg3: Images.Pictures.productcackImg4,
       gridImg4: Images.Pictures.productcackImg5,
       checksingle: false,
-      feture: feture ? false : true,
+      feture: false,
     },
   ];
 
@@ -46,6 +46,7 @@ const Product = ({ feture }) => {
           return (
             <View style={{ marginTop: 10 }}>
               <PostBox
+                staricon={true}
                 profileTitle={item.profileTitle}
                 postTime={item.postTime}
                 boxTitle={item.boxTitle}
@@ -58,6 +59,7 @@ const Product = ({ feture }) => {
                 price={item.price}
                 checksingle={item.checksingle}
                 feture={item.feture}
+                GetFeture={item.feture}
               />
             </View>
           );

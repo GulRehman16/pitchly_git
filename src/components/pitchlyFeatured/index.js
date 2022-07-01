@@ -14,7 +14,10 @@ import { StatusView } from '../statusView';
 import LinearGradient from 'react-native-linear-gradient';
 import { Icon } from 'native-base';
 
-const PitchlyFeatured = ({ onPress1, onPress2 }) => {
+const PitchlyFeatured = ({ onPress1, onPress2, onPress, navigation }) => {
+
+  const [visible, setVisible] = useState(false);
+
   const [data, setData] = useState({
     statusData: [
       {
@@ -109,6 +112,7 @@ const PitchlyFeatured = ({ onPress1, onPress2 }) => {
       },
       {
         imgName: Images.Pictures.item5,
+
         imgWidth: '100%',
         imgHeight: '100%',
         borderRadius: 19,
@@ -173,6 +177,7 @@ const PitchlyFeatured = ({ onPress1, onPress2 }) => {
               return (
                 <View style={{ marginTop: 5 }}>
                   <TouchableOpacity
+                    onPress={item.onPress}
                     activeOpacity={0.9}
                     style={{
                       width: 78,

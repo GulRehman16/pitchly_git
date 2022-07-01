@@ -8,9 +8,7 @@ import {
     StatusBar,
     Switch,
     FlatList,
-    txt1,
-    txt2,
-    txt3
+    statusBarStyle, statusBarTransition, hidden
 
 } from 'react-native'
 import React, { useState } from 'react'
@@ -50,7 +48,12 @@ const GetFeaturedPost = ({ navigation }) => {
             <ScrollView
                 showsVerticalScrollIndicator={false}
                 contentContainerStyle={{ flexGrow: 1 }}>
-                <StatusBar backgroundColor={'transparent'} translucent={true} />
+                <StatusBar
+                    animated={true}
+                    backgroundColor="#000"
+                    barStyle={statusBarStyle}
+                    showHideTransition={statusBarTransition}
+                    hidden={hidden} />
                 <View style={{}}>
                     <View style={styles.screenHeader}>
                         <Header
@@ -149,7 +152,7 @@ const styles = StyleSheet.create({
     screenHeader: {
         width: '90%',
         height: 80,
-        marginTop: 20,
+        // marginTop: 10,
         alignSelf: 'center',
         justifyContent: 'center',
         alignItems: 'center',

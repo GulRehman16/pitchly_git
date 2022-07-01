@@ -9,6 +9,7 @@ import {
   ImageBackground,
   View,
   FlatList,
+  hidden, statusBarStyle, statusBarTransition
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import { Images } from '../../../constants';
@@ -298,7 +299,12 @@ const HomeScreensix = (props) => {
         <ScrollView
           showsVerticalScrollIndicator={false}
           contentContainerStyle={{ flexGrow: 1 }}>
-          <StatusBar backgroundColor={'transparent'} translucent={true} />
+          <StatusBar
+            animated={true}
+            backgroundColor="#000"
+            barStyle={statusBarStyle}
+            showHideTransition={statusBarTransition}
+            hidden={hidden} />
           <View style={styles.body}>
             <View style={styles.screenHeader}>
               <HomeHeader

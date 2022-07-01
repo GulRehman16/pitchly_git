@@ -54,6 +54,8 @@ import Viewstatus from '../../screens/homes/viewstatus';
 import SavedPost from '../../screens/homes/savedPost';
 import StorieCreate from '../../screens/homes/Storiecreate';
 import Account from '../../screens/homes/account';
+import StorieView from '../../screens/homes/storieview';
+import Storyreplay from '../../screens/homes/storyReplay';
 
 
 // import AddTelent from '../../screens/homes/AddTelent'
@@ -357,6 +359,16 @@ export const Homes = () => {
       <Stack.Screen
         name="searchscreen"
         component={SearchScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="storieview"
+        component={StorieView}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="storyreplay"
+        component={Storyreplay}
         options={{ headerShown: false }}
       />
 

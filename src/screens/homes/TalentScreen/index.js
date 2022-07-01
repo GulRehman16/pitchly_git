@@ -12,19 +12,21 @@ import {
     TouchableOpacity,
     Image,
     Press,
-    singleImg
+    singleImg,
+    statusBarStyle, statusBarTransition, hidden
 } from 'react-native';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Icon } from 'native-base';
-
-import { useState, useEffect } from 'react';
 import Headerchat from '../../../components/Headerchat';
 import ImagePicker from 'react-native-image-crop-picker';
-import { Comment, PostBox } from '../../../components';
-
+import { Comment, PostBox, Post } from '../../../components';
 import { Images } from '../../../constants';
+import { useRoute } from '@react-navigation/native';
 // import { Homes } from '../../../navigation/stack';
-const TalentScreen = props => {
+const TalentScreen = ({ navigation }) => {
+
+
+    const route = useRoute();
     const [messages, setMessages] = useState([]);
     const [message, setMessage] = useState('');
     const [orientation, setOrientation] = useState(true);
@@ -130,12 +132,19 @@ const TalentScreen = props => {
     let colorScheme = Appearance.getColorScheme();
     console.log(colorScheme);
 
+
+
     return (
         <ImageBackground
             style={styles.imageContainer}
             source={Images.Pictures.appBg}>
             <SafeAreaView style={styles.screenContainer}>
-                <StatusBar backgroundColor={'transparent'} translucent={true} />
+                <StatusBar
+                    animated={true}
+                    backgroundColor="#000"
+                    barStyle={statusBarStyle}
+                    showHideTransition={statusBarTransition}
+                    hidden={hidden} />
                 <View
                     style={{
                         width: '100%',
@@ -157,17 +166,19 @@ const TalentScreen = props => {
                                 scrollViewRef.scrollToEnd({ animated: true })
                             }>
                             <View>
-                                <View style={{
-                                    width: '95%', alignSelf: 'center',
-                                }}>
-                                    < Headerchat
+                                <View
+                                    style={{
+                                        width: '95%',
+                                        alignSelf: 'center',
+                                    }}>
+                                    <Headerchat
                                         image={Images.Pictures.statusImg2}
                                         name={'Veni'}
                                         marginTop={20}
                                         Press={() => {
-                                            props.navigation.goBack()
+                                            navigation.goBack();
                                         }}
-                                        imgpress={() => props.navigation.navigate('account')}
+                                        imgpress={() => navigation.navigate('account')}
                                     />
                                 </View>
 
@@ -181,21 +192,24 @@ const TalentScreen = props => {
                                         borderRadius: 20,
                                         // marginTop: 10,
                                     }}>
-
                                     <ImageBackground
                                         source={Images.Pictures.homeMainBg}
                                         style={{ width: '100%', height: '100%' }}
                                         resizeMode="stretch">
-
-                                        <View style={{ width: '100%', alignSelf: 'center', }}>
-
+                                        <View
+                                            style={{
+                                                width: '100%',
+                                                alignSelf: 'center',
+                                                borderTopLeftRadius: 15,
+                                                borderTopRightRadius: 15,
+                                            }}>
                                             <View style={{ marginVertical: 30 }}>
                                                 <View
                                                     style={{
                                                         width: '90%',
                                                         // height: '100%',
                                                         alignSelf: 'center',
-                                                        justifyContent: 'space-between'
+                                                        justifyContent: 'space-between',
                                                     }}>
                                                     <View
                                                         style={{
@@ -218,9 +232,10 @@ const TalentScreen = props => {
                                                                     source={Images.Logos.msgColorIcon}
                                                                     style={{ width: 19.07, height: 18.74 }}
                                                                 />
-                                                                <Text style={{ color: 'black', paddingLeft: 5 }}>120</Text>
+                                                                <Text style={{ color: 'black', paddingLeft: 5 }}>
+                                                                    120
+                                                                </Text>
                                                             </View>
-
                                                             <View
                                                                 style={{
                                                                     marginLeft: 10,
@@ -232,9 +247,10 @@ const TalentScreen = props => {
                                                                     source={Images.Logos.shareIcon}
                                                                     style={{ width: 19.07, height: 18.74 }}
                                                                 />
-                                                                <Text style={{ color: 'black', paddingLeft: 5 }}>2.4K</Text>
+                                                                <Text style={{ color: 'black', paddingLeft: 5 }}>
+                                                                    2.4K
+                                                                </Text>
                                                             </View>
-
                                                             <View
                                                                 style={{
                                                                     marginLeft: 10,
@@ -242,13 +258,14 @@ const TalentScreen = props => {
                                                                     alignItems: 'center',
                                                                     justifyContent: 'center',
                                                                 }}>
-                                                                <Image
-                                                                    source={Images.Icons.starIcon}
-                                                                    style={{ width: 19.07, height: 18.74 }}
-                                                                />
-                                                                <Text style={{ color: 'black', paddingLeft: 5 }}>4.2K</Text>
-                                                            </View>
 
+
+
+
+                                                                <Text style={{ color: 'black', paddingLeft: 5 }}>
+                                                                    4.2K
+                                                                </Text>
+                                                            </View>
                                                         </View>
                                                         <View
                                                             style={{
@@ -260,51 +277,77 @@ const TalentScreen = props => {
                                                                 style={{ width: 14, height: 17 }}
                                                             />
                                                         </View>
+
                                                     </View>
                                                 </View>
                                             </View>
-
                                         </View>
-
                                     </ImageBackground>
-
                                 </View>
                                 <View style={{ height: '100%' }}>
-
                                     <View
-
                                         style={{
-                                            width: '90%', height: 202,
-                                            marginVertical: 30,
-                                            borderRadius: 20, alignSelf: 'center'
-                                        }}
-                                    >
-
+                                            width: '90%',
+                                            height: 202,
+                                            marginVertical: 10,
+                                            borderRadius: 20,
+                                            alignSelf: 'center',
+                                        }}>
                                         <ImageBackground
                                             source={Images.Icons.post}
-                                            style={{ width: '100%', height: '100%', alignItems: 'center', justifyContent: 'center' }}
+                                            style={{
+                                                width: '100%',
+                                                height: '100%',
+                                                alignItems: 'center',
+                                                justifyContent: 'center',
+                                            }}
                                             resizeMode="stretch">
-
-
-
                                             <TouchableOpacity
-                                                onPress={() => { props.navigation.navigate("Homes", { screen: 'pictureslider' }) }}
+                                                onPress={() => {
+                                                    props.navigation.navigate('Homes', {
+                                                        screen: 'pictureslider',
+                                                    });
+                                                }}
                                                 style={{
-                                                    width: 50, height: 50, borderRadius: 10, borderWidth: 35,
+                                                    width: 50,
+                                                    height: 50,
+                                                    borderRadius: 10,
+                                                    borderWidth: 35,
                                                     backgroundColor: '#eee',
-                                                    justifyContent: 'center', alignSelf: 'center',
-                                                    opacity: 0.45
-
+                                                    justifyContent: 'center',
+                                                    alignSelf: 'center',
+                                                    opacity: 0.45,
                                                 }}>
-                                                <Image source={Images.Icons.play}
-                                                    resizeMode="contain" style={{ alignSelf: 'center' }}
+                                                <Image
+                                                    source={Images.Icons.play}
+                                                    resizeMode="contain"
+                                                    style={{ alignSelf: 'center' }}
                                                 />
                                             </TouchableOpacity>
-
                                         </ImageBackground>
                                     </View>
-                                    <View style={{ height: '100%', }}>
-                                        <Comment name="vani"
+
+                                    <View style={{ width: '90%', alignSelf: 'center', borderBottomWidth: 1, paddingVertical: 10, borderColor: '#aaa' }}>
+                                        <Text style={styles.boldtext}>Talent Name</Text>
+                                        <Text style={styles.texts}>
+                                            {
+                                                'Lorem ipsum dolor sit amet, consetetur sadipscing elitraliquyam erat,Lorem ipsum dolor sit amet, '
+                                            }
+                                        </Text>
+                                        <Text style={styles.boldtext}>City</Text>
+                                        <Text style={styles.texts}>
+                                            {'Lorem ipsum dolor sit amet,'}
+                                        </Text>
+                                        <Text style={styles.boldtext}>State</Text>
+                                        <Text style={styles.texts}>
+                                            {'Lorem ipsum dolor sit amet,'}
+                                        </Text>
+                                        <Text style={styles.boldtext}>Comments</Text>
+                                    </View>
+
+                                    <View style={{ height: '100%' }}>
+                                        <Comment
+                                            name="vani"
                                             typesomething="Write a comment"
                                             time="2:00"
                                             Radius={2}
@@ -312,20 +355,17 @@ const TalentScreen = props => {
                                             image={Images.Icons.post}
                                         />
                                     </View>
-
                                 </View>
                             </View>
                         </ScrollView>
                     </View>
-
-
                 </View>
-            </SafeAreaView >
-        </ImageBackground >
+            </SafeAreaView>
+        </ImageBackground>
     );
 };
 
-export default TalentScreen
+export default TalentScreen;
 
 const styles = StyleSheet.create({
     imageContainer: {
@@ -339,8 +379,15 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         elevation: 2,
         backgroundColor: 'white',
-        alignSelf: 'center'
+        alignSelf: 'center',
+    },
+    boldtext: {
+        color: '#000',
+        fontWeight: 'bold',
+        marginVertical: 2,
+    },
+    texts: {
+        color: '#000',
+        fontSize: 14,
     },
 });
-
-

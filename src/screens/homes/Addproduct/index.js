@@ -14,6 +14,7 @@ import {
   onPress,
   borderRadius,
   hiddinText,
+  hidden, statusBarStyle, statusBarTransition
 } from 'react-native';
 import { AppButton, FormInput, Header } from '../../../components';
 import { Images } from '../../../constants';
@@ -61,7 +62,12 @@ const Addproduct = props => {
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ flexGrow: 1 }}>
-        <StatusBar backgroundColor={'transparent'} translucent={true} />
+        <StatusBar
+          animated={true}
+          backgroundColor="#000"
+          barStyle={statusBarStyle}
+          showHideTransition={statusBarTransition}
+          hidden={hidden} />
         <View style={{}}>
           <View style={styles.screenHeader}>
             <Header
@@ -93,14 +99,14 @@ const Addproduct = props => {
                     />
                   </View>
                   <View style={{ marginVertical: 5 }}>
-                    <FormInput placeHolderColor="#000" placeHolder="130" />
+                    <FormInput placeHolderColor="grey" placeHolder="130" />
                   </View>
 
                   <View style={{ marginVertical: 5 }}>
-                    <FormInput placeHolderColor="#000" placeHolder="State" />
+                    <FormInput placeHolderColor="grey" placeHolder="State" />
                   </View>
                   <View style={{ marginVertical: 5 }}>
-                    <FormInput placeHolderColor="#000" placeHolder="City" />
+                    <FormInput placeHolderColor="grey" placeHolder="City" />
                   </View>
                 </View>
 

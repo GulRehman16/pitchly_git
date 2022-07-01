@@ -14,13 +14,17 @@ import LinearGradient from 'react-native-linear-gradient';
 import { Images } from '../../constants';
 import { Followbtn } from '../Followbtn';
 import { Tooltip } from 'react-native-elements';
-import { Tip } from '../tooltip';
+import { OverlayScreen } from '../overlay';
+import { Overlay } from 'react-native-elements'
+
 
 const UserData = ({
   navigation,
   Image1,
   BoldText,
   LighterText,
+  marginTop,
+  marginLeft,
   User,
   Bio,
   UserName,
@@ -35,183 +39,212 @@ const UserData = ({
   pressme,
   onPress1,
   onPress2,
-  threebtn, Bios1, Contact1, Email1, Location1, editoption, premiumicon
+  threebtn, Bios1, Contact1, Email1, Location1, editoption, premiumicon,
+  press1, press2
 }) => {
   const [state, setState] = useState('follow');
   const [colorState, setColorsate] = useState(true);
+  const [visible, setVisible] = useState(false);
 
+
+  const toggleOverlay = () => {
+    setVisible(!visible);
+  };
   const Click = () => {
     setState('Unfollow');
     setColorsate('#000');
   };
 
+
   return (
-    <View>
-      {Bio && (
-        <View>
-          <View style={styles.bioBox}>
-            <View style={styles.profilerow}>
-              <View style={{ flexDirection: 'row', width: '90%' }}>
-                <View style={styles.Profilepic}>
-                  <Image
-                    source={Image1}
-                    resizeMode="contain"
-                    style={{ width: '100%', height: '100%', borderRadius: 100 }}
-                  />
-                </View>
-                <View style={styles.userInfo}>
+    <>
+      <View>
+        {Bio && (
+          <View>
+            <View style={styles.bioBox}>
+              <View style={styles.profilerow}>
+                <View style={{ flexDirection: 'row', width: '90%' }}>
+                  <View style={{ width: 70, height: 70 }}>
+                    <Image
+                      source={Image1}
+                      resizeMode="contain"
+                      style={{ width: '100%', height: '100%', borderRadius: 100 }}
+                    />
+                  </View>
+                  <View style={styles.userInfo}>
 
-                  <View>
-                    <View style={{ flexDirection: 'row' }}>
-                      <View>
-                        <Text style={styles.UserName}>{UserName}</Text>
-                        <Text style={styles.UserEmail}>{UserEmail}</Text>
-                      </View>
-                      {premiumicon && (
-
-                        <View style={{ alignSelf: 'flex-end' }}>
-
-
-                          <Tooltip
-                            containerStyle={{
-                              width: 120,
-                              height: 80,
-                              shadowColor: '#000',
-                              shadowOffset: {
-                                width: 0,
-                                height: 3,
-                              },
-                              shadowOpacity: 0.27,
-                              shadowRadius: 4.65,
-
-                              elevation: 6,
-                              flexDirection: 'row',
-                            }}
-                            backgroundColor="#fff"
-                            withPointer={true}
-                            popover={
-                              <View style={{ width: 280, height: 140, backgroundColor: '#fff', elevation: 5, borderRadius: 10 }}>
-                                <Text style={{ marginVertical: 2, padding: 5, color: '#000', fontWeight: 'bold' }}>Premium Account</Text>
-                                <Text style={{ marginVertical: 2, padding: 6, color: '#000' }}>Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-                                  sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-                                  sed diam voluptua.</Text>
-
-                              </View>
-                            }>
-                            <View
-                              activeOpacity={0.8}
-
-                              style={{}}>
-                              <View style={styles.premiumicon}>
-                                <Image source={Images.Icons.premium}
-                                  resizeMode="contain" style={{ width: '100%', height: '100%' }} />
-                              </View>
-                            </View>
-
-                          </Tooltip>
-
+                    <View>
+                      <View style={{ flexDirection: 'row', marginTop: 10, marginLeft: -10 }}>
+                        <View>
+                          <Text style={styles.UserName}>{UserName}</Text>
+                          <Text style={{ fontSize: 12 }}>{UserEmail}</Text>
                         </View>
+                        {premiumicon && (
+
+                          <View style={{ alignSelf: 'flex-end' }}>
 
 
-                      )}
-                    </View>
-                    <View style={styles.followerText}>
-                      <View style={{ margin: 10 }}>
-                        <Text style={styles.UserPostNumber}>{Post}</Text>
-                        <Text style={styles.UserPost}>Post</Text>
+                            <Tooltip
+                              containerStyle={{
+                                width: 120,
+                                height: 80,
+                                shadowColor: '#000',
+                                shadowOffset: {
+                                  width: 0,
+                                  height: 3,
+                                },
+                                shadowOpacity: 0.27,
+                                shadowRadius: 4.65,
+
+                                elevation: 6,
+                                flexDirection: 'row',
+                              }}
+                              backgroundColor="#fff"
+                              withPointer={true}
+                              popover={
+                                <View style={{ width: 280, height: 140, backgroundColor: '#fff', elevation: 5, borderRadius: 10 }}>
+                                  <Text style={{ marginVertical: 2, padding: 5, color: '#000', fontWeight: 'bold' }}>Premium Account</Text>
+                                  <Text style={{ marginVertical: 2, padding: 6, color: '#000' }}>Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+                                    sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+                                    sed diam voluptua.</Text>
+
+                                </View>
+                              }>
+                              <View
+                                activeOpacity={0.8}
+
+                                style={{}}>
+                                <View style={styles.premiumicon}>
+                                  <Image source={Images.Icons.premium}
+                                    resizeMode="contain" style={{ width: '100%', height: '100%' }} />
+                                </View>
+                              </View>
+
+                            </Tooltip>
+
+                          </View>
+
+
+                        )}
                       </View>
-                      <TouchableOpacity onPress={onPress1} style={{ margin: 10 }}>
-                        <Text style={styles.UserPostNumber}>{Followers}</Text>
-                        <Text style={styles.UserPost}>Followers</Text>
-                      </TouchableOpacity>
-                      <TouchableOpacity onPress={onPress2} style={{ margin: 10 }}>
-                        <Text style={styles.UserPostNumber}>{Following}</Text>
-                        <Text style={styles.UserPost}>Following</Text>
-                      </TouchableOpacity>
+                      <View style={styles.followerText}>
+                        <View style={{ marginTop: marginTop || -10 }}>
+                          <Text style={styles.UserPostNumber}>{Post}</Text>
+                          <Text style={styles.UserPost}>Post</Text>
+                        </View>
+                        <TouchableOpacity onPress={onPress1} style={{ marginLeft: marginLeft || 12, marginTop: marginTop || -10 }}>
+                          <Text style={styles.UserPostNumber}>{Followers}</Text>
+                          <Text style={styles.UserPost}>Followers</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={onPress2} style={{ marginLeft: marginLeft || 12, marginTop: marginTop || -10 }}>
+                          <Text style={styles.UserPostNumber}>{Following}</Text>
+                          <Text style={styles.UserPost}>Following</Text>
+                        </TouchableOpacity>
+                      </View>
                     </View>
                   </View>
+
                 </View>
 
+
+                {editoption && (
+
+                  <TouchableOpacity
+                    activeOpacity={0.8}
+                    onPress={pressme}
+                    style={{ width: '10%' }}>
+                    <LinearGradient
+                      start={{ x: 1, y: 0.0 }}
+                      end={{ x: 1, y: 1.9 }}
+                      colors={['#5DF7B8', '#3109FB']}
+                      style={{
+                        width: 35,
+                        height: 35,
+                        borderRadius: 10,
+                      }}>
+                      <Icon
+                        type="FontAwesome"
+                        name="edit"
+                        color="#fff"
+                        size={22}
+                        style={{ margin: 4 }}
+                      />
+                    </LinearGradient>
+                  </TouchableOpacity>
+
+                )}
+
+
+              </View>
+              <View style={{ width: '90%', alignSelf: 'center', height: '40%' }}>
+                <View>
+                  <Text style={styles.Bios}>Bio</Text>
+                  <Text style={styles.Descriprion}>{Bios}</Text>
+                </View>
+                <View>
+                  <Text style={styles.Bios}>{Contact1}</Text>
+                  <Text style={styles.Descriprion}>{Contact}</Text>
+                </View>
+                <View>
+                  <Text style={styles.Bios}>{Email1}</Text>
+                  <Text style={styles.Descriprion}>{Email}</Text>
+                </View>
+                <View>
+                  <Text style={styles.Bios}>{Location1}</Text>
+                  <Text style={styles.Descriprion}>{Location}</Text>
+                </View>
               </View>
 
-
-              {editoption && (
-
-                <TouchableOpacity
-                  activeOpacity={0.8}
-                  onPress={pressme}
-                  style={{ width: '10%' }}>
-                  <LinearGradient
-                    start={{ x: 1, y: 0.0 }}
-                    end={{ x: 1, y: 1.9 }}
-                    colors={['#5DF7B8', '#3109FB']}
-                    style={{
-                      width: 35,
-                      height: 35,
-                      borderRadius: 10,
-                    }}>
-                    <Icon
-                      type="FontAwesome"
-                      name="edit"
-                      color="#fff"
-                      size={22}
-                      style={{ margin: 4 }}
+              {threebtn && (
+                <View style={{ flexDirection: 'row', width: '90%', alignSelf: 'center', justifyContent: 'space-around' }}>
+                  <View style={{ width: '31%', top: -5, backgroundColor: '#fff', borderRadius: 10, height: 35, justifyContent: 'center' }}>
+                    <Followbtn
+                      borderWidth={0.75}
+                      width='100%'
+                      color1="#eee"
+                      color2="#eee"
+                      color3="#000"
+                      color4="#000"
+                      User
+                      follow="follow"
+                      unfollow="Unfollow"
                     />
-                  </LinearGradient>
-                </TouchableOpacity>
+                  </View>
+                  <TouchableOpacity onPress={press1} style={{ borderWidth: 1, width: '31%', height: 30, borderRadius: 5, justifyContent: 'center' }}>
+                    <Text style={{ textAlign: 'center', color: '#000' }}>Message</Text>
+                  </TouchableOpacity>
 
+
+                  <View>
+
+
+                  </View>
+                  <TouchableOpacity onPress={toggleOverlay} style={{ borderWidth: 1, width: '31%', height: 30, borderRadius: 5, justifyContent: 'center' }}>
+                    <Text style={{ textAlign: 'center', color: '#000' }}>Contact</Text>
+                    <Overlay isVisible={visible} onBackdropPress={toggleOverlay}>
+                      <View style={{ width: 280, height: 267, borderRadius: 20 }}>
+                        <Text style={styles.headertext}>Contact</Text>
+                        <View style={styles.contentView}>
+                          <Text style={styles.headertext1}>Call</Text>
+                          <Text style={styles.lighterText}>+12345697832</Text>
+                          <Text style={styles.headertext1}>Email</Text>
+                          <Text style={styles.lighterText}>user123@mail.com</Text>
+                          <Text style={styles.headertext1}>Location</Text>
+                          <Text style={styles.lighterText}>Lorem ipsum dolor sit.</Text>
+                        </View>
+                      </View>
+                    </Overlay>
+                  </TouchableOpacity>
+                </View>
               )}
-
-
             </View>
-            <View style={{ width: '90%', alignSelf: 'center', height: '40%' }}>
-              <View>
-                <Text style={styles.Bios}>Bios</Text>
-                <Text style={styles.Descriprion}>{Bios}</Text>
-              </View>
-              <View>
-                <Text style={styles.Bios}>{Contact1}</Text>
-                <Text style={styles.Descriprion}>{Contact}</Text>
-              </View>
-              <View>
-                <Text style={styles.Bios}>{Email1}</Text>
-                <Text style={styles.Descriprion}>{Email}</Text>
-              </View>
-              <View>
-                <Text style={styles.Bios}>{Location1}</Text>
-                <Text style={styles.Descriprion}>{Location}</Text>
-              </View>
+            <View>
             </View>
-
-            {threebtn && (
-              <View style={{ flexDirection: 'row', width: '90%', alignSelf: 'center', justifyContent: 'space-around' }}>
-                <View style={{ width: '31%', top: -15 }}>
-                  <Followbtn
-                    borderWidth={0.75}
-                    width='100%'
-                    color1="#eee"
-                    color2="#eee"
-                    color3="#000"
-                    color4="#000"
-                    User
-                    follow="follow"
-                    unfollow="Unfollow"
-                  />
-                </View>
-                <View style={{ borderWidth: 1, width: '31%', height: 30, borderRadius: 5, justifyContent: 'center' }}>
-                  <Text style={{ textAlign: 'center', color: '#000' }}>Message</Text>
-                </View>
-                <View style={{ borderWidth: 1, width: '31%', height: 30, borderRadius: 5, justifyContent: 'center' }}>
-                  <Text style={{ textAlign: 'center', color: '#000' }}>Message</Text>
-                </View>
-              </View>
-            )}
           </View>
+        )}
+      </View>
 
-
-        </View>
-      )}
-    </View>
+    </>
   );
 };
 
@@ -343,10 +376,13 @@ const styles = StyleSheet.create({
     letterSpacing: 1,
   },
   UserEmail: {
-    marginVertical: 2,
+
   },
   followerText: {
+
+
     flexDirection: 'row',
+    marginTop: -10
   },
   UserPostNumber: {
     fontSize: 18,
@@ -355,6 +391,7 @@ const styles = StyleSheet.create({
     letterSpacing: 1,
     textAlign: 'center',
     fontSize: 14,
+
   },
   UserPost: {
     alignSelf: 'center',
@@ -394,7 +431,7 @@ const styles = StyleSheet.create({
     marginLeft: 20,
   },
   UserName: {
-    fontSize: 18,
+    fontSize: 14,
     color: '#000',
     fontWeight: 'bold',
     letterSpacing: 1,
@@ -430,5 +467,44 @@ const styles = StyleSheet.create({
     color: '#000',
     marginVertical: 2,
     letterSpacing: 1,
+  },
+  overlayStyles: {
+    width: '90%',
+    height: 267,
+    // backgroundColor: '#eae',
+    borderRadius: 10,
+    // justifyContent: 'center',
+    // alignItems: 'center',
+  },
+  headertext: {
+    width: '100%',
+    fontWeight: 'bold',
+    fontSize: 16,
+    marginTop: 5,
+    color: '#000', textAlign: 'center',
+    marginVertical: 10
+  },
+  contentView: {
+    width: '80%',
+    alignSelf: 'center',
+    // marginVertical: 5
+
+  },
+  headertext1: {
+    // marginTop: 30,
+    fontWeight: 'bold',
+    fontSize: 14,
+    color: '#000',
+    marginTop: 15,
+    // marginVertical: 5
+
+
+  },
+  lighterText: {
+    // fontWeight: 'bold',
+    fontSize: 14,
+    // marginVertical: 5
+
+
   },
 });

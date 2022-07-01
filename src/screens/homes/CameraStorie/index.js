@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { StyleSheet, View, Text, TouchableOpacity, Image } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity, Image, StatusBar, statusBarStyle, statusBarTransition, hidden } from 'react-native';
 import { Dimensions } from 'react-native';
 import { Images } from '../../../constants';
 import { RNCamera } from 'react-native-camera';
@@ -47,6 +47,12 @@ const CameraStorie = props => {
   return (
     <View>
       <View style={styles.container}>
+        <StatusBar
+          animated={true}
+          backgroundColor="#000"
+          barStyle={statusBarStyle}
+          showHideTransition={statusBarTransition}
+          hidden={hidden} />
         <RNCamera
           style={styles.preview}
           type={RNCamera.Constants.Type.back}

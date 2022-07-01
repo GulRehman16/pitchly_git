@@ -4,6 +4,7 @@ import {
   View,
   ImageBackground,
   TouchableOpacity,
+  StatusBar, hidden, statusBarStyle, statusBarTransition
 } from 'react-native';
 import React from 'react';
 import { TextInput } from 'react-native-gesture-handler';
@@ -12,10 +13,14 @@ import { useState } from 'react';
 export default function StorieCreate(props) {
   const [status, setstatus] = useState('Type A Status');
   const [image, setimage] = useState('');
-
   return (
-
     <ImageBackground source={{ uri: image }} style={styles.container1}>
+      <StatusBar
+        animated={true}
+        backgroundColor="#000"
+        barStyle={statusBarStyle}
+        showHideTransition={statusBarTransition}
+        hidden={hidden} />
       <View style={{ width: '90%', marginTop: 50, alignSelf: 'center' }}>
         <TouchableOpacity onPress={() => props.navigation.goBack()}>
           <Icon

@@ -14,6 +14,7 @@ import {
   onPress,
   borderRadius,
   hiddinText,
+  hidden, statusBarTransition, statusBarStyle
 } from 'react-native';
 import { AppButton, FormInput, Header } from '../../../components';
 import { Images } from '../../../constants';
@@ -41,7 +42,12 @@ const AddPost = props => {
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ flexGrow: 1 }}>
-        <StatusBar backgroundColor={'transparent'} translucent={true} />
+        <StatusBar
+          animated={true}
+          backgroundColor="#000"
+          barStyle={statusBarStyle}
+          showHideTransition={statusBarTransition}
+          hidden={hidden} />
         <View style={{}}>
           <View style={styles.screenHeader}>
             <Header

@@ -4,6 +4,7 @@ import { Overlay } from 'react-native-elements'
 import Tooltip from 'react-native-walkthrough-tooltip';
 
 
+
 const OverlayScreen = ({ popup1, popup2, borderRadius }) => {
 
     const [visible, setVisible] = useState(true);
@@ -97,13 +98,13 @@ const styles = StyleSheet.create({
     },
     headertext1: {
         fontWeight: 'bold',
-        fontSize: 20,
+        fontSize: 16,
         color: '#000',
         marginTop: 5
     },
     lighterText: {
         // fontWeight: 'bold',
-        fontSize: 20,
+        fontSize: 10,
 
     },
 })

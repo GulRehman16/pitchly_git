@@ -33,6 +33,7 @@ import Headerchat from '../../../components/Headerchat';
 import ImagePicker from 'react-native-image-crop-picker';
 import LinearGradient from 'react-native-linear-gradient';
 
+import { Avatar } from 'react-native-elements';
 const ChatScreen = props => {
   const [messages, setMessages] = useState([]);
   const [message, setMessage] = useState('');
@@ -188,6 +189,12 @@ const ChatScreen = props => {
   let colorScheme = Appearance.getColorScheme();
   console.log(colorScheme);
 
+  const [isVisible, setIsVisible] = React.useState(null);
+  const [show, setshow] = React.useState(true);
+  const [emoji, setemoji] = React.useState({
+    value: null,
+  });
+  console.log(emoji, 'emoji');
   return (
     <ImageBackground
       style={styles.imageContainer}
@@ -220,10 +227,12 @@ const ChatScreen = props => {
                     image={Images.Pictures.statusImg2}
                     name={'Veni'}
                     time={'offline 45 min ago'}
-                    Press={() => { props.navigation.goBack() }}
+                    Press={() => {
+                      props.navigation.goBack();
+                    }}
                     icon={true}
                     onPress={() => {
-                      props.navigation.navigate("chatdetails");
+                      props.navigation.navigate('chatdetails');
                     }}
                   />
                 </View>
@@ -235,12 +244,117 @@ const ChatScreen = props => {
                 {messages.map((message, i) => {
                   return (
                     <>
+                      {isVisible === i ? (
+                        show === true ? (
+                          <View
+                            key={i}
+                            style={{
+                              width: '50%',
+                              height: '10%',
+                              marginLeft: 10,
+                              justifyContent: 'space-evenly',
+                              backgroundColor: 'white',
+                              flexDirection:
+                                message?.user?._id == 1 ? 'row' : 'row-reverse',
+                              marginVertical: 10,
+                              alignItems: 'center',
+                              elevation: 3,
+                              alignSelf:
+                                message?.user?._id == 1
+                                  ? 'flex-start'
+                                  : 'flex-end',
+                              borderRadius: 10,
+                            }}>
+                            <TouchableOpacity
+                              onPress={() => {
+                                setemoji({
+                                  ...emoji,
+                                  value: Images.Pictures.ic_like_fill,
+                                });
+                              }}>
+                              <Avatar
+                                style={{ flexDirection: 'row-reverse' }}
+                                rounded
+                                source={Images.Pictures.like}
+                                size={18}
+                              />
+                            </TouchableOpacity>
+                            <TouchableOpacity
+                              onPress={() => {
+                                setemoji({
+                                  ...emoji,
+                                  value: Images.Pictures.love2,
+                                }),
+                                  setshow(false);
+                              }}>
+                              <Avatar
+                                rounded
+                                source={Images.Pictures.love}
+                                size={18}
+                              />
+                            </TouchableOpacity>
+                            <TouchableOpacity
+                              onPress={() => {
+                                setemoji({
+                                  ...emoji,
+                                  value: Images.Pictures.haha2,
+                                }),
+                                  setshow(false);
+                              }}>
+                              <Avatar
+                                rounded
+                                source={Images.Pictures.haha}
+                                size={18}
+                              />
+                            </TouchableOpacity>
+                            <TouchableOpacity
+                              onPress={() => {
+                                setemoji({
+                                  ...emoji,
+                                  value: Images.Pictures.wow2,
+                                }),
+                                  setshow(false);
+                              }}>
+                              <Avatar
+                                rounded
+                                source={Images.Pictures.wow}
+                                size={18}
+                              />
+                            </TouchableOpacity>
+                            <TouchableOpacity
+                              onPress={() => {
+                                setemoji({
+                                  ...emoji,
+                                  value: Images.Pictures.sad2,
+                                }),
+                                  setshow(false);
+                              }}>
+                              <Avatar
+                                rounded
+                                source={Images.Pictures.sad}
+                                size={18}
+                              />
+                            </TouchableOpacity>
+                            <TouchableOpacity
+                              onPress={() => {
+                                setemoji({
+                                  ...emoji,
+                                  value: Images.Pictures.angry2,
+                                }),
+                                  setshow(false);
+                              }}>
+                              <Avatar
+                                rounded
+                                source={Images.Pictures.angry}
+                                size={18}
+                              />
+                            </TouchableOpacity>
+                          </View>
+                        ) : null
+                      ) : null}
                       <View
                         style={{
-                          width: '70%',
-                          backgroundColor:
-                            message?.user?._id == 1 ? '#E4E4E4' : '#4059E4',
-                          borderRadius: 20,
+                          flexDirection: 'row',
                           flexDirection:
                             message?.user?._id == 1 ? 'row' : 'row-reverse',
                           marginVertical: 10,
@@ -248,30 +362,42 @@ const ChatScreen = props => {
                           alignSelf:
                             message?.user?._id == 1 ? 'flex-start' : 'flex-end',
                         }}>
-                        <View
+                        <TouchableOpacity
+                          onLongPress={() => {
+                            setIsVisible(i);
+                            setemoji({ ...emoji, value: null });
+                            setshow(true);
+                          }}
                           style={{
-                            minHeight: 50,
-                            paddingVertical: 15,
-                            overflow: 'hidden',
-
-                            // height: '90%',
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                            borderRadius: 25,
-                            paddingHorizontal: 10,
-                            minWidth: 80,
-                            // backgroundColor: 'pink'
+                            width: '70%',
+                            backgroundColor:
+                              message?.user?._id == 1 ? '#E4E4E4' : '#4059E4',
+                            borderRadius: 20,
                           }}>
-                          <Text
+                          <View
                             style={{
-                              color:
-                                message?.user?._id == 1 ? 'black' : 'white',
+                              minHeight: 50,
+                              paddingVertical: 15,
+                              overflow: 'hidden',
+
+                              // height: '90%',
+                              justifyContent: 'center',
+                              alignItems: 'center',
+                              borderRadius: 25,
+                              paddingHorizontal: 10,
+                              minWidth: 80,
+                              // backgroundColor: 'pink',
                             }}>
-                            {' '}
-                            {message?.text}{' '}
-                          </Text>
-                        </View>
-                        <View
+                            <Text
+                              style={{
+                                color:
+                                  message?.user?._id == 1 ? 'black' : 'white',
+                              }}>
+                              {' '}
+                              {message?.text}{' '}
+                            </Text>
+                          </View>
+                          {/* <View
                           style={{
                             // backgroundColor: 'green',
                             alignSelf: 'center',
@@ -280,7 +406,32 @@ const ChatScreen = props => {
                             marginLeft: 5,
                             marginRight: 5,
                             justifyContent: 'space-between',
-                          }}></View>
+                          }}></View> */}
+                        </TouchableOpacity>
+
+                        <View
+                          style={{
+                            alignSelf: 'center',
+                            position: 'relative',
+                            right: 10,
+                          }}>
+                          <Avatar
+                            rounded
+                            source={isVisible === i && emoji.value}
+                            size={20}
+                          />
+                        </View>
+
+                        <TouchableOpacity style={{ marginTop: 15, height: 30 }}>
+                          <Icon
+                            name="dots-three-vertical"
+                            type="Entypo"
+                            size={10}
+                            style={{
+                              color: 'grey',
+                            }}
+                          />
+                        </TouchableOpacity>
                       </View>
                     </>
                   );
@@ -465,3 +616,22 @@ const styles = StyleSheet.create({
 });
 
 export default ChatScreen;
+
+
+
+
+
+
+
+// <View style={{ width: '95%', alignSelf: 'center' }}>
+// <Headerchat
+//   image={Images.Pictures.statusImg2}
+//   name={'Veni'}
+//   time={'offline 45 min ago'}
+//   Press={() => { props.navigation.goBack() }}
+//   icon={true}
+//   onPress={() => {
+//     props.navigation.navigate("chatdetails");
+//   }}
+// />
+// </View>

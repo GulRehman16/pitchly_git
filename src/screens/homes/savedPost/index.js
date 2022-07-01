@@ -9,6 +9,7 @@ import {
     ImageBackground,
     View,
     FlatList,
+    hidden, statusBarStyle, statusBarTransition
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import { Images } from '../../../constants';
@@ -291,7 +292,12 @@ const SavedPost = (props) => {
                 <ScrollView
                     showsVerticalScrollIndicator={false}
                     contentContainerStyle={{ flexGrow: 1 }}>
-                    <StatusBar backgroundColor={'transparent'} translucent={true} />
+                    <StatusBar
+                        animated={true}
+                        backgroundColor="#000"
+                        barStyle={statusBarStyle}
+                        showHideTransition={statusBarTransition}
+                        hidden={hidden} />
                     <View style={styles.screenHeader}>
                         <HomeHeader
                             homeHeader2={true}
@@ -428,7 +434,7 @@ const styles = StyleSheet.create({
     body: { width: '90%', height: '100%', alignSelf: 'center', paddingBottom: 60 },
     statusBoxView: {
         width: '110%',
-        marginTop: 20,
+        // marginTop: 20,
         marginLeft: -10,
         flexDirection: 'row',
     },
@@ -436,7 +442,8 @@ const styles = StyleSheet.create({
     screenHeader: {
         width: '90%',
         height: 80,
-        marginTop: 20, alignSelf: 'center',
+        // marginTop: 20,
+        alignSelf: 'center',
         justifyContent: 'center',
         alignItems: 'center',
     },

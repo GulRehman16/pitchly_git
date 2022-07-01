@@ -10,6 +10,7 @@ import {
   FlatList,
   txt1,
   txt2,
+  hidden, statusBarStyle, statusBarTransition
 } from 'react-native';
 import React, { useState } from 'react';
 import { Images } from '../../../constants';
@@ -19,8 +20,9 @@ import { Icon } from 'react-native-elements';
 
 const GetFeatured = ({ route, navigation }) => {
 
-  // const { onPress1 } = route.params;
+  // const { back } = route.params;
   // const route = useRoute();
+
 
   const data = [
     {
@@ -48,17 +50,19 @@ const GetFeatured = ({ route, navigation }) => {
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ flexGrow: 1 }}>
-        <StatusBar backgroundColor={'transparent'} translucent={true} />
+        <StatusBar
+          animated={true}
+          backgroundColor="#000"
+          barStyle={statusBarStyle}
+          showHideTransition={statusBarTransition}
+          hidden={hidden} />
         <View style={{}}>
           <View style={styles.screenHeader}>
             <Header
               BAckButton
               hiddinText
               text="Get it Featured"
-
-              onPress={() => navigation.navigate("settings")}
-
-
+              onPress={() => navigation.replace("MyTabs", { screen: "profile" })}
             />
           </View>
           <View style={styles.screenBody}>
@@ -134,7 +138,7 @@ const styles = StyleSheet.create({
   screenHeader: {
     width: '90%',
     height: 80,
-    marginTop: 20,
+    // marginTop: 10,
     alignSelf: 'center',
     justifyContent: 'center',
     alignItems: 'center',

@@ -30,13 +30,15 @@ const Header = ({
   onPress,
   HeaderText,
   BAckButton,
+  headertext2,
   hiddinText1,
   header2,
   text1,
   press,
   barICon,
   onPress1,
-  onPress2
+  onPress2,
+  dots
 
 }) => {
   return (
@@ -66,6 +68,9 @@ const Header = ({
                     </TouchableOpacity>
                   )}
                 </View>
+
+
+
                 {barICon && (
                   <TouchableOpacity activeOpacity={0.8} onPress={onPress}>
                     <LinearGradient
@@ -82,7 +87,7 @@ const Header = ({
                       <Icon
                         type="Ionicons"
                         name="reorder-three"
-                        style={{ color: 'white', fontSize: 24 }}
+                        style={{ color: 'white', fontSize: 24, }}
                       />
                     </LinearGradient>
                   </TouchableOpacity>
@@ -107,9 +112,6 @@ const Header = ({
                     name="left"
                     style={{ color: 'white', fontSize: 24 }}
                   />
-
-
-
                 </LinearGradient>
               </TouchableOpacity>
             )}
@@ -140,9 +142,9 @@ const Header = ({
 
           </View>
           {header2 && (
-            <View style={{ width: '90%', alignSelf: 'center', flexDirection: 'row', justifyContent: 'space-between' }}>
+            <View style={{ width: '100%', alignSelf: 'center', flexDirection: 'row', justifyContent: 'space-between' }}>
 
-              <TouchableOpacity activeOpacity={0.8} onPress={onPress1}>
+              <TouchableOpacity style={{ flexDirection: 'row' }} activeOpacity={0.8} onPress={onPress1}>
                 <LinearGradient
                   start={{ x: 1, y: 0.0 }}
                   end={{ x: 1, y: 1.9 }}
@@ -159,8 +161,18 @@ const Header = ({
                     name="left"
                     style={{ color: 'white', fontSize: 24 }}
                   />
+
                 </LinearGradient>
+                {headertext2 && (
+                  <Text style={{
+                    justifyContent: 'center', textAlign: 'center',
+                    color: '#000', fontSize: 22, marginLeft: 5
+                  }}>Details</Text>
+
+                )}
+
               </TouchableOpacity>
+
               <TouchableOpacity activeOpacity={0.8} onPress={onPress2}
                 style={{ alignSelf: 'flex-end', }}>
                 <Icon1

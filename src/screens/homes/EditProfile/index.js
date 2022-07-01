@@ -9,6 +9,7 @@ import {
     ScrollView,
     Image,
     Switch,
+    statusBarStyle, statusBarTransition, hidden
 } from 'react-native';
 
 import { AppButton, FormInput, Header } from '../../../components';
@@ -26,7 +27,12 @@ const EditProfile = ({ onSwitch, navigation }) => {
             <ScrollView
                 showsVerticalScrollIndicator={false}
                 contentContainerStyle={{ flexGrow: 1 }}>
-                <StatusBar backgroundColor={'transparent'} translucent={true} />
+                <StatusBar
+                    animated={true}
+                    backgroundColor="#000"
+                    barStyle={statusBarStyle}
+                    showHideTransition={statusBarTransition}
+                    hidden={hidden} />
                 <View style={{}}>
                     <View style={styles.screenHeader}>
                         <Header
@@ -71,7 +77,7 @@ const EditProfile = ({ onSwitch, navigation }) => {
                                      Eos Et Accusam Et Justo."
                                     />
 
-                                    <Text style={styles.UserName}>Hide</Text>
+                                    <Text style={styles.UserName}>Email</Text>
                                     <View style={styles.profilerow}>
                                         <View style={{ width: '85%' }}>
                                             <FormInput
@@ -79,20 +85,25 @@ const EditProfile = ({ onSwitch, navigation }) => {
                                                 placeHolder="123456789"
                                             />
                                         </View>
-                                        <Switch
-                                            disabled={false}
-                                            value={isEnabled}
-                                            onValueChange={toggleSwitch}
-                                            onChange={onSwitch}
-                                            trackColor={{
-                                                true: '#3109FB',
-                                                false: '#C2C2C2',
-                                            }}
-                                            thumbColor={'#FFFFFF'}
-                                            size="lg"
-                                        />
+                                        <View>
+                                            <Switch
+                                                disabled={false}
+                                                value={isEnabled}
+                                                onValueChange={toggleSwitch}
+                                                onChange={onSwitch}
+                                                trackColor={{
+                                                    true: '#3109FB',
+                                                    false: '#C2C2C2',
+                                                }}
+                                                thumbColor={'#FFFFFF'}
+                                                size="lg"
+                                            />
+                                            <Text style={{ fontSize: 10, textAlign: 'center' }}>
+                                                {isEnabled === true ? 'Unhide' : 'Hide'}
+                                            </Text>
+                                        </View>
                                     </View>
-                                    <Text style={styles.UserName}>Unhide</Text>
+                                    <Text style={styles.UserName}>Contact No.</Text>
                                     <View style={styles.profilerow}>
                                         <View style={{ width: '85%' }}>
                                             <FormInput
@@ -100,18 +111,23 @@ const EditProfile = ({ onSwitch, navigation }) => {
                                                 placeHolder="123456789"
                                             />
                                         </View>
-                                        <Switch
-                                            disabled={false}
-                                            value={isEnabled}
-                                            onValueChange={toggleSwitch}
-                                            onChange={onSwitch}
-                                            trackColor={{
-                                                true: '#3109FB',
-                                                false: '#C2C2C2',
-                                            }}
-                                            thumbColor={'#FFFFFF'}
-                                            size="lg"
-                                        />
+                                        <View>
+                                            <Switch
+                                                disabled={false}
+                                                value={isEnabled}
+                                                onValueChange={toggleSwitch}
+                                                onChange={onSwitch}
+                                                trackColor={{
+                                                    true: '#3109FB',
+                                                    false: '#C2C2C2',
+                                                }}
+                                                thumbColor={'#FFFFFF'}
+                                                size="lg"
+                                            />
+                                            <Text style={{ fontSize: 10, textAlign: 'center' }}>
+                                                {isEnabled === true ? 'Unhide' : 'Hide'}
+                                            </Text>
+                                        </View>
                                     </View>
                                     <Text style={styles.UserName}>State</Text>
                                     <FormInput placeHolder="Lorem ipsome" />

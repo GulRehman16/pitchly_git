@@ -2,6 +2,7 @@ const Images = {
   Pictures: {
 
     loginBG: require('../../assets/images/joker.jpg'),
+    bgballon: require('../../assets/images/bgballon.png'),
     homeBg: require('../../assets/images/homeBg.png'),
     homeMainBg: require('../../assets/images/homeMainBg.jpg'),
     appBg: require('../../assets/images/Bg.png'),
@@ -35,7 +36,19 @@ const Images = {
     Devil: require('../../assets/images/Devil.png'),
     Faram: require('../../assets/images/Faram.png'),
     Friendship1: require('../../assets/images/Friendship1.png'),
-    // bgstatus: require('../../assets/images/bgstatus.png')
+    bgstatus: require('../../assets/images/bgstatus.png'),
+    angry2: require('../../assets/images/angry2.png'),
+    angry: require('../../assets/images/angry.gif'),
+    haha2: require('../../assets/images/haha2.png'),
+    haha: require('../../assets/images/haha.gif'),
+    like: require('../../assets/images/like.gif'),
+    ic_like_fill: require('../../assets/images/ic_like_fill.png'),
+    love2: require('../../assets/images/love2.png'),
+    love: require('../../assets/images/love.gif'),
+    sad2: require('../../assets/images/sad2.png'),
+    sad: require('../../assets/images/sad.gif'),
+    wow2: require('../../assets/images/wow2.png'),
+    wow: require('../../assets/images/wow.gif'),
   },
   Logos: {
     plusIcon: require('../../assets/images/plusIcon.png'),
@@ -53,6 +66,7 @@ const Images = {
     favoriteIcon: require('../../assets/images/favoriteIcon.png'),
     msgColorIcon: require('../../assets/images/msgColorIcon.png'),
   },
+
   Icons: {
     Star: require('../../assets/images/starIcon.png'),
     Document: require('../../assets/images/document.png'),
