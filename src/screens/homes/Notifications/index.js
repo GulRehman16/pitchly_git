@@ -167,10 +167,12 @@ const Notifications = ({ route, navigation }) => {
                             <Text>{item.Nowtext}</Text>
                           </View>
                         </View>
-                        <Tip tooltip1 tooltipdata1 onPress={true} DoteIcon={
-                          <Text>
-                            {item.Icon1}
-                          </Text>} />
+                        <View style={{ marginTop: -30 }}>
+                          <Tip tooltip1 tooltipdata1 content1 onPress={true} DoteIcon={
+                            <Text>
+                              {item.Icon1}
+                            </Text>} />
+                        </View>
                       </View>
                     </View>
 

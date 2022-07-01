@@ -9,6 +9,8 @@ import Account from './src/screens/homes/account';
 import Profile from './src/screens/homes/profile';
 import Picview from './src/screens/homes/picView';
 import StorieView from './src/screens/homes/storieview';
+import { Provider } from 'react-redux';
+import store from './Redux/store';
 
 const App = props => {
   // return <Profile />
@@ -17,7 +19,12 @@ const App = props => {
 
 
 
-  return <MyStack {...props} />
+  return (
+    <Provider store={store}>
+      <MyStack {...props} />
+    </Provider>
+  )
+
 
   // return <CameraStorie />;
 };

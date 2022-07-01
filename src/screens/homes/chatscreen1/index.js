@@ -271,7 +271,7 @@ const ChatScreen1 = ({ navigation, }) => {
               data={data.DataBox}
               renderItem={({ item }) => {
                 return (
-                  <View>
+                  <View style={{}}>
                     <Box
                       SwipeableText
                       Image1={item.Imgbox}
@@ -306,6 +306,7 @@ const styles = StyleSheet.create({
     width: '90%',
     // height: '100%',
     alignSelf: 'center',
+    paddingBottom: 30
   },
   chat: {
     marginTop: 25,
@@ -361,7 +362,7 @@ const styles = StyleSheet.create({
   btn: {
     width: 60,
     // padding: 2,
-    backgroundColor: 'red',
+    // backgroundColor: 'red',
     textAlign: 'center',
   },
 });

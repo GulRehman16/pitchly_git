@@ -64,6 +64,7 @@ const Talent = ({ feture, navigation }) => {
                 Press={item.Press}
                 GetFeture={item.feture}
                 feture={feture ? true : false}
+                star={true}
 
 
               // GetFeture={item.feture}

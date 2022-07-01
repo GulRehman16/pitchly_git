@@ -22,8 +22,13 @@ import ImagePicker from 'react-native-image-crop-picker';
 import { Comment, PostBox, Post } from '../../../components';
 import { Images } from '../../../constants';
 import { useRoute } from '@react-navigation/native';
+import { useSelector } from 'react-redux';
 // import { Homes } from '../../../navigation/stack';
 const TalentScreen = ({ navigation }) => {
+
+    const location = useSelector(state => state.locationReducer.location.data);
+    // console.log('redux location============', location);
+
 
 
     const route = useRoute();
@@ -258,9 +263,10 @@ const TalentScreen = ({ navigation }) => {
                                                                     alignItems: 'center',
                                                                     justifyContent: 'center',
                                                                 }}>
-
-
-
+                                                                <Image
+                                                                    source={location}
+                                                                    style={{ width: 19.07, height: 18.74 }}
+                                                                />
 
                                                                 <Text style={{ color: 'black', paddingLeft: 5 }}>
                                                                     4.2K
@@ -304,7 +310,7 @@ const TalentScreen = ({ navigation }) => {
                                             resizeMode="stretch">
                                             <TouchableOpacity
                                                 onPress={() => {
-                                                    props.navigation.navigate('Homes', {
+                                                    navigation.navigate('Homes', {
                                                         screen: 'pictureslider',
                                                     });
                                                 }}

@@ -44,7 +44,7 @@ const Box = ({
   };
 
   const renderItem = data => (
-    <TouchableOpacity activeOpacity={0.8} onPress={onPress}>
+    <TouchableOpacity activeOpacity={0.8} onPress={onPress} style={{}}>
       <View style={styles.rowFront}>
         <View style={{ marginLeft: 10, marginTop: 5 }}>
           <Avatar rounded size={'medium'} source={Image1} />
@@ -82,12 +82,24 @@ const Box = ({
   const renderHiddenItem = () => (
     <View
       style={{
+
         backgroundColor: 'red',
         width: '100%',
         alignItems: 'flex-end',
         justifyContent: 'center',
         height: 80,
         borderRadius: 16,
+
+        // borderWidth: 1,
+        backgroundColor: 'red',
+        width: '24%',
+        flex: 1,
+        elevation: 1,
+        height: 90,
+        borderTopRightRadius: 10,
+        borderBottomRightRadius: 10,
+        alignSelf: 'flex-end',
+
         marginTop: 10,
       }}>
       <Icon
@@ -95,10 +107,15 @@ const Box = ({
         type="FontAwesome5"
         style={{
           color: 'white',
+
           marginRight: 20,
           alignself: 'center',
           marginTop: 20,
           flex: 1,
+          marginRight: 24,
+          marginLeft: 34,
+          alignSelf: 'center'
+
         }}
       />
     </View>
@@ -128,6 +145,7 @@ export { Box };
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+
   },
   backTextWhite: {
     color: 'white',
@@ -179,7 +197,7 @@ const styles = StyleSheet.create({
     right: 30,
   },
   vani: {
-    color: 'grey',
+    color: '#000',
     fontSize: 20,
     fontWeight: '700',
   },

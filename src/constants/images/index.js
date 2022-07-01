@@ -71,6 +71,7 @@ const Images = {
     Star: require('../../assets/images/starIcon.png'),
     Document: require('../../assets/images/document.png'),
     Logout: require('../../assets/images/logout.png'),
+    heart: require('../../assets/images/heart.png'),
     Account: require('../../assets/images/account.png'),
     arrowforward: require('../../assets/images/arrow-forward.png'),
     Save: require('../../assets/images/save.png'),

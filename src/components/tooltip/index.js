@@ -10,6 +10,7 @@ import { Images } from '../../constants';
 const Tip = ({
   tooltipdata1,
   tooltipdata2,
+  tooltipdata3,
   Image1, Image2,
   Image3, Image4,
   Text1, Text2, Text3, Text4,
@@ -21,8 +22,8 @@ const Tip = ({
   Toppint,
   bottompoint,
   marginBottom,
-  marginVertical,
-  Icon1, borderRadius, img1, headingtext
+  marginVertical, content1, content2,
+  Icon1, borderRadius, img1, headingtext, toolwidth
 }) => {
   const [showTip, setShowTip] = useState(false)
   return (
@@ -30,172 +31,287 @@ const Tip = ({
       {tooltipdata1 && (
         <View>
           <Tooltip
-            style={{ backgroundColor: 'pink' }}
+            // style={{ backgroundColor: 'pink', windth: 150 }}
             isVisible={showTip}
             accessible={false}
             showChildInTooltip={false}
+            childrenWrapperStyle={{ width: 100 }}
+            arrowStyle={{ left: 90 }}
+            contentStyle={{ width: toolwidth || 90, height: 100 }}
+            // arrowStyle={{ color: '#fff' }}
             content={
-              <View sty={{}}>
-                <Text>
-                  Remove Notification {'\n'}
-                  Turn off notificationIcon about {'\n'}
-                  Vani's updates
-                </Text>
-              </View>}
+              <View>
+                {content1 && (
+                  <Text style={{ color: '#000' }}>
+                    Remove Notification {'\n'}
+                    Turn off notificationIcon about {'\n'}
+                    Vani's updates
+                  </Text>
+
+
+                )}
+                <View>
+                  {content2 && (
+                    <View >
+                      <View style={{ flexDirection: 'row', width: 150 }}>
+                        <Icon
+                          name="mail-forward"
+                          type="FontAwesome"
+                          style={{ color: '#4059E4', marginRight: 10, fontSize: 16, top: 4, }}
+                        />
+                        <Text>
+                          forward
+                        </Text>
+                      </View>
+                      <View style={{ flexDirection: 'row', width: 150, marginVertical: 6 }}>
+                        <Icon
+                          name="reply"
+                          type="FontAwesome"
+                          style={{ color: '#4059E4', marginRight: 10, fontSize: 16 }}
+                        />
+                        <Text>
+                          Reoly
+                        </Text>
+
+                      </View>
+                      <View style={{ flexDirection: 'row', width: 150 }}>
+                        <Icon
+                          name="copy"
+                          type="FontAwesome"
+                          style={{ color: '#4059E4', marginRight: 10, fontSize: 16 }}
+                        />
+                        <Text>
+                          Copy
+                        </Text>
+                      </View>
+                    </View>
+
+
+                  )}
+
+                </View>
+
+              </View>
+
+            }
             onClose={() => { setShowTip(false) }}
             placement="left" >
             <TouchableOpacity onPress={() => setShowTip(true)} >
               <Icon name="dots-three-vertical" type="Entypo"
-                size={22}
+                style={{ color: '#000', fontSize: 18, top: 8 }}
               />
             </TouchableOpacity>
           </Tooltip>
-        </View>
+        </View >
       )}
-      {tooltipdata2 && (
-        <View style={styles.TooltipContainer}>
-          <View
-            style={{
-              // borderWidth: 1,
-              width: '100%',
-              height: 150,
-              justifyContent: 'space-evenly',
-              // marginVertical: 75,
-              backgroundColor: '#fff',
-              borderRadius: 16,
-              alignItems: 'center',
-              // marginBottom: marginBottom || 50,
-              marginVertical: marginVertical || 30
+      {
+        tooltipdata2 && (
+          <View style={styles.TooltipContainer}>
+            <View
+              style={{
+                // borderWidth: 1,
+                width: '100%',
+                height: 150,
+                justifyContent: 'space-evenly',
+                // marginVertical: 75,
+                backgroundColor: '#fff',
+                borderRadius: 16,
+                alignItems: 'center',
+                // marginBottom: marginBottom || 50,
+                marginVertical: marginVertical || 30
 
-            }}>
-            {Toppint && (
-              <View
-                style={{
-                  width: 0,
-                  height: 0,
-                  borderLeftWidth: 40,
-                  borderRightWidth: 40,
-                  borderTopWidth: 40,
-                  borderStyle: 'solid',
-                  backgroundColor: 'transparent',
-                  borderLeftColor: 'transparent',
-                  borderRightColor: 'transparent',
-                  borderTopColor: '#fff',
-                  position: 'absolute',
-                  bottom: -25,
-                }}></View>
-
-            )}
-            <View>
-              {bottompoint && (
+              }}>
+              {Toppint && (
                 <View
                   style={{
                     width: 0,
                     height: 0,
                     borderLeftWidth: 40,
                     borderRightWidth: 40,
-                    borderBottomWidth: 40,
+                    borderTopWidth: 40,
                     borderStyle: 'solid',
                     backgroundColor: 'transparent',
                     borderLeftColor: 'transparent',
                     borderRightColor: 'transparent',
-                    borderBottomColor: '#fff',
+                    borderTopColor: '#fff',
                     position: 'absolute',
-                    bottom: 0,
-                    left: 100
-
-                  }}>
-                </View>
+                    bottom: -25,
+                  }}></View>
 
               )}
-
-            </View>
-            <Text
-              style={{
-                fontSize: 24,
-                fontWeight: 'bold',
-                color: 'black',
-              }}>
-              {headingtext}
-            </Text>
-            <View style={styles.TooltipContainerMain}>
-
               <View>
-              </View>
-              <TouchableOpacity
-                onPress={onPress1}
-                style={styles.box}>
+                {bottompoint && (
+                  <View
+                    style={{
+                      width: 0,
+                      height: 0,
+                      borderLeftWidth: 40,
+                      borderRightWidth: 40,
+                      borderBottomWidth: 40,
+                      borderStyle: 'solid',
+                      backgroundColor: 'transparent',
+                      borderLeftColor: 'transparent',
+                      borderRightColor: 'transparent',
+                      borderBottomColor: '#fff',
+                      position: 'absolute',
+                      bottom: 0,
+                      left: 100
 
-                {Icon1 && (
-                  <View style={{ alignSelf: 'center' }}>
-                    <LinearGradient
-                      start={{ x: 1, y: 0.0 }}
-                      end={{ x: 1, y: 1.9 }}
-                      colors={['#5DF7B8', '#3109FB']}
-                      style={{
-                        width: 35,
-                        height: 35,
-                        borderRadius: borderRadius || 5,
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                      }}>
-                      <Icon
-                        type="AntDesign"
-                        name="search1"
-                        style={{ color: 'white', fontSize: 24 }}
-                      />
-                    </LinearGradient>
+                    }}>
                   </View>
 
                 )}
-                {img1 && (
 
+              </View>
+              <Text
+                style={{
+                  fontSize: 24,
+                  fontWeight: 'bold',
+                  color: 'black',
+                }}>
+                {headingtext}
+              </Text>
+              <View style={styles.TooltipContainerMain}>
+
+                <View>
+                </View>
+                <TouchableOpacity
+                  onPress={onPress1}
+                  style={styles.box}>
+
+                  {Icon1 && (
+                    <View style={{ alignSelf: 'center' }}>
+                      <LinearGradient
+                        start={{ x: 1, y: 0.0 }}
+                        end={{ x: 1, y: 1.9 }}
+                        colors={['#5DF7B8', '#3109FB']}
+                        style={{
+                          width: 35,
+                          height: 35,
+                          borderRadius: borderRadius || 5,
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                        }}>
+                        <Icon
+                          type="AntDesign"
+                          name="search1"
+                          style={{ color: 'white', fontSize: 24 }}
+                        />
+                      </LinearGradient>
+                    </View>
+
+                  )}
+                  {img1 && (
+
+                    <Image
+                      source={Image1}
+                      resizeMode="contain"
+                      style={{ width: 40, height: 40 }}
+                    />
+
+                  )}
+
+                  <Text style={styles.texts}>{Text1}</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  onPress={onPress2}
+                  style={styles.box}>
                   <Image
-                    source={Image1}
+                    source={Image2}
                     resizeMode="contain"
                     style={{ width: 40, height: 40 }}
                   />
+                  <Text style={styles.texts}>{Text2}</Text>
+                </TouchableOpacity>
 
-                )}
-
-                <Text style={styles.texts}>{Text1}</Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                onPress={onPress2}
-                style={styles.box}>
-                <Image
-                  source={Image2}
-                  resizeMode="contain"
-                  style={{ width: 40, height: 40 }}
-                />
-                <Text style={styles.texts}>{Text2}</Text>
-              </TouchableOpacity>
-
-              <TouchableOpacity
-                onPress={onPress3}
-                style={styles.box}>
-                <Image
-                  source={Image3}
-                  resizeMode="contain"
-                  style={{ width: 40, height: 40 }}
-                />
-                <Text style={styles.texts}>{Text3}</Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                onPress={onPress4}
-                style={styles.box}>
-                <Image
-                  source={Image4}
-                  resizeMode="contain"
-                  style={{ width: 40, height: 40 }}
-                />
-                <Text style={styles.texts}>{Text4}</Text>
-              </TouchableOpacity>
+                <TouchableOpacity
+                  onPress={onPress3}
+                  style={styles.box}>
+                  <Image
+                    source={Image3}
+                    resizeMode="contain"
+                    style={{ width: 40, height: 40 }}
+                  />
+                  <Text style={styles.texts}>{Text3}</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  onPress={onPress4}
+                  style={styles.box}>
+                  <Image
+                    source={Image4}
+                    resizeMode="contain"
+                    style={{ width: 40, height: 40 }}
+                  />
+                  <Text style={styles.texts}>{Text4}</Text>
+                </TouchableOpacity>
+              </View>
             </View>
           </View>
-        </View>
+
+        )
+      }
+
+      {tooltipdata3 && (
+        <Tooltip
+          // style={{ backgroundColor: 'pink', windth: 150 }}
+          isVisible={showTip}
+          accessible={false}
+          showChildInTooltip={false}
+          childrenWrapperStyle={{ width: 140 }}
+          arrowStyle={{ left: 100 }}
+          contentStyle={{ width: toolwidth || 102, height: 70 }}
+          // arrowStyle={{ color: '#fff' }}
+          content={
+            <View>
+              {content1 && (
+                <View>
+                  <Text style={{ marginVertical: 5 }}>Report Post</Text>
+                  <Text style={{}}>Block person</Text>
+                </View>
+              )}
+            </View>
+          }
+          onClose={() => { setShowTip(false) }}
+          placement="left" >
+          <TouchableOpacity onPress={() => setShowTip(true)} >
+            <View style={{ width: 20, height: 20 }}>
+              <Image
+                source={Images.Logos.globe}
+                style={{ width: '100%', height: '100%' }}
+              />
+            </View>
+          </TouchableOpacity>
+        </Tooltip>
+
+
+        //   <Tooltip
+        //   // style={{ backgroundColor: 'pink', windth: 150 }}
+        //   isVisible={showTip}
+        //   accessible={false}
+        //   showChildInTooltip={false}
+        //   childrenWrapperStyle={{ width: 100 }}
+        //   arrowStyle={{ left: 90 }}
+        //   contentStyle={{ width: toolwidth || 90, height: 100 }}
+        //   // arrowStyle={{ color: '#fff' }}
+        //   backgroundColor="#fff"
+        //   withPointer={true}
+        //   content={
+        //     <View>
+        //       <Text style={{ marginVertical: 5 }}>Report Post</Text>
+        //       <Text style={{ marginVertical: 5 }}>Block person</Text>
+        //     </View>
+        //   }>
+        //   <View style={{ width: 20, height: 20 }}>
+        //     <Image
+        //       source={Images.Logos.globe}
+        //       style={{ width: '100%', height: '100%' }}
+        //     />
+        //   </View>
+        // </Tooltip>
+
 
       )}
+
 
     </>
 
@@ -212,6 +328,13 @@ const styles = StyleSheet.create({
   },
   TooltipContainer: {
     width: '100%',
+
+  },
+  TooltipContainer1: {
+    width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+
 
   },
   box: {

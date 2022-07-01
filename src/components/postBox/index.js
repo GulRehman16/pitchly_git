@@ -13,8 +13,11 @@ import { Images } from '../../constants';
 import LinearGradient from 'react-native-linear-gradient';
 import { Tooltip } from 'react-native-elements';
 import { useNavigation } from '@react-navigation/native';
-import { AppButton } from '../../components'
+import { AppButton, Tip } from '../../components'
 import { Icon } from 'native-base';
+import { useDispatch } from 'react-redux';
+import { addlocation } from '../../../Redux/Actions';
+
 
 const PostBox = ({
   profileImg,
@@ -40,6 +43,7 @@ const PostBox = ({
   Press1,
   profileonpress,
   ImgPress1,
+  star,
 
 
 }) => {
@@ -47,6 +51,9 @@ const PostBox = ({
   console.log('Grid', Grid);
 
   const navigation = useNavigation();
+
+  const Dispatch = useDispatch();
+  const [icon, setIcon] = useState(star === true ? Images.Icons.heart : Images.Icons.Star)
 
   return (
     <View style={styles.container}>
@@ -75,37 +82,11 @@ const PostBox = ({
             </View>
           </View>
 
-          <Tooltip
-            containerStyle={{
-              width: 120,
-              height: 80,
-              shadowColor: '#000',
-              shadowOffset: {
-                width: 0,
-                height: 3,
-              },
-              shadowOpacity: 0.27,
-              shadowRadius: 4.65,
-
-              elevation: 6,
-              flexDirection: 'row',
-            }}
-            backgroundColor="#fff"
-            withPointer={true}
-            popover={
-              <View>
-                <Text style={{ marginVertical: 5 }}>Report Post</Text>
-                <Text style={{ marginVertical: 5 }}>Block person</Text>
-              </View>
-            }>
-            <View style={{ width: 20, height: 20 }}>
-              <Image
-                source={Images.Logos.globe}
-                style={{ width: '100%', height: '100%' }}
-              />
-            </View>
-          </Tooltip>
         </View>
+        <View style={{ alignSelf: 'flex-end', marginTop: -35, marginRight: 5 }}>
+          <Tip tooltipdata3={true} content1={true} />
+        </View>
+
 
         <View style={{ width: '100%', marginTop: 20 }}>
           <Text style={{ fontSize: 14, fontWeight: 'bold', color: 'black' }}>
@@ -255,11 +236,15 @@ const PostBox = ({
                 resizeMode="stretch">
                 <TouchableOpacity
                   // onPress={Press}
-                  onPress={() => navigation.navigate("Homes", { screen: 'talentscreen', pararms: { text2: 'kfskfhks' } },
-
-
-
-                  )}
+                  onPress={() =>
+                    navigation.navigate(
+                      'Homes',
+                      {
+                        screen: 'talentscreen',
+                      },
+                      Dispatch(addlocation(icon)),
+                    )
+                  }
                   // title="Go to notifications"
                   style={{
                     width: 50, height: 50, borderRadius: 10, borderWidth: 35,
@@ -327,7 +312,6 @@ const PostBox = ({
                   onPress={() =>
                     GetFeture === true ? navigation.replace('Homes', { screen: 'getfeatured' }) : navigation.replace('Homes', { screen: 'productdetails' })
                     // navigation.replace('MyTabs', { screen: 'profile' })
-
                   }
                 />
               </View>

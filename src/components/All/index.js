@@ -74,7 +74,7 @@ const AllMixed = ({ props, feture, SuggestFriend }) => {
       profileImg: Images.Pictures.statusImg1,
       profileTitle: 'Veni Paul',
       postTime: '1 hour ago',
-      boxTitle: 'Talent Name',
+      boxTitle: 'Product Name',
       boxDetail:
         ' Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diamnonumy eirmod tempor...',
       price: '$ 120.00',
@@ -108,7 +108,7 @@ const AllMixed = ({ props, feture, SuggestFriend }) => {
       profileImg: Images.Pictures.statusImg1,
       profileTitle: 'Veni Paul',
       postTime: '1 hour ago',
-      boxTitle: 'Talent Name',
+      boxTitle: 'Product Name',
       boxDetail:
         ' Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diamnonumy eirmod tempor...',
       price: '$ 120.00',
@@ -129,7 +129,7 @@ const AllMixed = ({ props, feture, SuggestFriend }) => {
       profileImg: Images.Pictures.talent,
       profileTitle: 'Veni Paul',
       postTime: '1 hour ago',
-      boxTitle: 'Talent Name',
+      boxTitle: 'Service Name',
       boxDetail:
         ' Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diamnonumy eirmod tempor...',
       price: '$ 10.00',
@@ -152,7 +152,7 @@ const AllMixed = ({ props, feture, SuggestFriend }) => {
           return (
             <View style={{ marginTop: 10 }}>
               <PostBox
-                staricon={true}
+                star={true}
                 keyExtractor={item => item.id}
                 profileTitle={item.profileTitle}
                 postTime={item.postTime}

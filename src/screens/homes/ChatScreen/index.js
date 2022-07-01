@@ -11,6 +11,7 @@ import {
   ScrollView,
   TextInput,
   TouchableOpacity,
+  statusBarStyle, statusBarTransition, hidden
 } from 'react-native';
 
 // import {
@@ -30,6 +31,7 @@ import { Icon } from 'native-base';
 import { Images } from '../../../constants';
 import { useState, useEffect } from 'react';
 import Headerchat from '../../../components/Headerchat';
+import { Tip } from '../../../components';
 import ImagePicker from 'react-native-image-crop-picker';
 import LinearGradient from 'react-native-linear-gradient';
 
@@ -200,12 +202,18 @@ const ChatScreen = props => {
       style={styles.imageContainer}
       source={Images.Pictures.appBg}>
       <SafeAreaView style={styles.screenContainer}>
-        <StatusBar backgroundColor={'transparent'} translucent={true} />
+        <StatusBar
+          animated={true}
+          backgroundColor="#000"
+          barStyle={statusBarStyle}
+          showHideTransition={statusBarTransition}
+          hidden={hidden} />
         <View
           style={{
             width: '100%',
             alignSelf: 'center',
-            paddingTop: 20,
+            // paddingTop: 20,
+            marginTop: 20,
             height: '100%',
           }}>
           <View
@@ -423,14 +431,10 @@ const ChatScreen = props => {
                         </View>
 
                         <TouchableOpacity style={{ marginTop: 15, height: 30 }}>
-                          <Icon
-                            name="dots-three-vertical"
-                            type="Entypo"
-                            size={10}
-                            style={{
-                              color: 'grey',
-                            }}
-                          />
+                          <Tip tooltip1 tooltipdata1 content2 onPress={true} DoteIcon={
+                            <Text>
+                              Icon1
+                            </Text>} />
                         </TouchableOpacity>
                       </View>
                     </>
@@ -619,9 +623,18 @@ export default ChatScreen;
 
 
 
-
-
-
+// <View style={{ width: '95%', alignSelf: 'center' }}>
+// <Headerchat
+//   image={Images.Pictures.statusImg2}
+//   name={'Veni'}
+//   time={'offline 45 min ago'}
+//   Press={() => { props.navigation.goBack() }}
+//   icon={true}
+//   onPress={() => {
+//     props.navigation.navigate("chatdetails");
+//   }}
+// />
+// </View>
 
 // <View style={{ width: '95%', alignSelf: 'center' }}>
 // <Headerchat
