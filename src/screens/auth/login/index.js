@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import {
   ScrollView,
   StatusBar,
@@ -7,10 +7,12 @@ import {
   TouchableOpacity,
   ImageBackground,
   View,
-  hidden, statusBarStyle, statusBarTransition
+  hidden,
+  statusBarStyle,
+  statusBarTransition,
 } from 'react-native';
-import { Images } from '../../../constants';
-import { FormInput, AppButton, Header, CheckBox } from '../../../components';
+import {Images} from '../../../constants';
+import {FormInput, AppButton, Header, CheckBox} from '../../../components';
 
 const Login = props => {
   const [state, setState] = useState({
@@ -25,21 +27,22 @@ const Login = props => {
       source={Images.Pictures.appBg}>
       <ScrollView
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={{ flexGrow: 1 }}>
+        contentContainerStyle={{flexGrow: 1}}>
         <StatusBar
           animated={true}
           backgroundColor="#000"
           barStyle={statusBarStyle}
           showHideTransition={statusBarTransition}
-          hidden={hidden} />
+          hidden={hidden}
+        />
         <View style={styles.screenHeader}>
           <Header
             visibleText
             BAckButton
             text="Sign In"
-          // onPress={() => {
-          //   props.navigation.goBack();
-          // }}
+            onPress={() => {
+              props.navigation.goBack();
+            }}
           />
         </View>
         <View style={styles.screenBody}>
@@ -57,13 +60,13 @@ const Login = props => {
               }}>
               <FormInput
                 value={state.email}
-                onChangeText={value => setState({ ...state, email: value })}
+                onChangeText={value => setState({...state, email: value})}
                 iconL
                 iconLName="mail"
                 iconLType="AntDesign"
                 placeHolder="Enter your Email"
-                onFocus={() => setState({ ...state, focus: 'email' })}
-                onBlur={() => setState({ ...state, focus: '' })}
+                onFocus={() => setState({...state, focus: 'email'})}
+                onBlur={() => setState({...state, focus: ''})}
               />
             </View>
             <Text style={styles.inputLabelName}>Password</Text>
@@ -76,7 +79,7 @@ const Login = props => {
               }}>
               <FormInput
                 value={state.password}
-                onChangeText={value => setState({ ...state, password: value })}
+                onChangeText={value => setState({...state, password: value})}
                 iconL
                 secureText={state.secureText}
                 iconLName="lock"
@@ -85,11 +88,11 @@ const Login = props => {
                 iconRName={state.secureText ? 'eye-with-line' : 'eye'}
                 iconRType="Entypo"
                 onPressR={() =>
-                  setState({ ...state, secureText: !state.secureText })
+                  setState({...state, secureText: !state.secureText})
                 }
                 placeHolder="**********"
-                onFocus={() => setState({ ...state, focus: 'password' })}
-                onBlur={() => setState({ ...state, focus: '' })}
+                onFocus={() => setState({...state, focus: 'password'})}
+                onBlur={() => setState({...state, focus: ''})}
               />
             </View>
             <View
@@ -105,13 +108,13 @@ const Login = props => {
                 <CheckBox
                   square
                   alignItem={'flex-start'}
-                  onPress={() => setState({ checked: !state.checked })}
+                  onPress={() => setState({checked: !state.checked})}
                   checked={state.checked}
                   text={'Remember me'}
                 />
               </View>
               <TouchableOpacity
-                style={{ marginTop: 5 }}
+                style={{marginTop: 5}}
                 onPress={() => {
                   props.navigation.navigate('forgetPassword');
                 }}>
@@ -124,7 +127,7 @@ const Login = props => {
               </TouchableOpacity>
             </View>
 
-            <View style={{ paddingVertical: 40, width: '100%' }}>
+            <View style={{paddingVertical: 40, width: '100%'}}>
               <AppButton
                 LinearColor1={'#5DF7B8'}
                 LinearColor2={'#3109FB'}
@@ -134,12 +137,12 @@ const Login = props => {
                 backgroundColor={'#FFFFFF'}
                 label="Sign In"
                 onPress={() =>
-                  props.navigation.replace('MyTabs', { screen: 'home' })
+                  props.navigation.replace('MyTabs', {screen: 'home'})
                 }
               />
             </View>
           </View>
-          <View style={{ marginTop: -30, marginBottom: 60 }}>
+          <View style={{marginTop: -30, marginBottom: 60}}>
             <View style={styles.footerBtn}>
               <Text style={styles.footerText1}>Create an account</Text>
               <TouchableOpacity
@@ -214,7 +217,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  inputLabelName: { alignSelf: 'flex-start', color: '#000000', fontSize: 14 },
+  inputLabelName: {alignSelf: 'flex-start', color: '#000000', fontSize: 14},
   footerBtn: {
     height: 40,
     width: '90%',
@@ -223,7 +226,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  footerText1: { color: 'black', fontSize: 16, fontWeight: '500' },
+  footerText1: {color: 'black', fontSize: 16, fontWeight: '500'},
   footerText2: {
     fontSize: 16,
     color: '#4059E4',

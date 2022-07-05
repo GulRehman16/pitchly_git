@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, {useEffect} from 'react';
 import {
   StyleSheet,
   Text,
@@ -8,12 +8,12 @@ import {
   TouchableOpacity,
   Image,
 } from 'react-native';
-import { Images, Themes } from '../../constants';
+import {Images, Themes} from '../../constants';
 import LinearGradient from 'react-native-linear-gradient';
-import { PostBox, SuggestFriends } from '../../components';
-import { useNavigation } from '@react-navigation/native';
+import {PostBox, SuggestFriends} from '../../components';
+import {useNavigation} from '@react-navigation/native';
 
-const AllMixed = ({ props, feture, SuggestFriend }) => {
+const AllMixed = ({props, feture, SuggestFriend}) => {
   const navigation = useNavigation();
   const statusData2 = [
     {
@@ -101,6 +101,7 @@ const AllMixed = ({ props, feture, SuggestFriend }) => {
       checksingle: true,
       checkfollow: true,
       feture: false,
+      heart: true,
       // Press: () => navigation.navigate('Homes', { screen: 'profile' })
     },
     {
@@ -138,7 +139,7 @@ const AllMixed = ({ props, feture, SuggestFriend }) => {
       checkfollow: false,
       feture: true,
 
-      Press1: () => props.navigation.navigate('Homes', { screen: 'profile' }),
+      Press1: () => props.navigation.navigate('Homes', {screen: 'profile'}),
 
       //   ImgPress: navigation.navigate('Homes', {screen: 'productdetails'}),
     },
@@ -148,11 +149,12 @@ const AllMixed = ({ props, feture, SuggestFriend }) => {
     <View>
       <FlatList
         data={All}
-        renderItem={({ item }) => {
+        renderItem={({item}) => {
           return (
-            <View style={{ marginTop: 10 }}>
+            <View style={{marginTop: 10}}>
               <PostBox
                 star={true}
+                heart={item.heart}
                 keyExtractor={item => item.id}
                 profileTitle={item.profileTitle}
                 postTime={item.postTime}
@@ -169,11 +171,10 @@ const AllMixed = ({ props, feture, SuggestFriend }) => {
                 Press={item.Press1}
                 GetFeture={item.feture}
                 feture={feture ? true : false}
-              //   ImgPress1={item.onPress}
+                //   ImgPress1={item.onPress}
               />
               {item.checkfollow == true ? (
                 <View>
-
                   {SuggestFriend == true ? (
                     <View>
                       <Text
@@ -197,9 +198,9 @@ const AllMixed = ({ props, feture, SuggestFriend }) => {
                           horizontal={true}
                           showsHorizontalScrollIndicator={false}
                           data={statusData2}
-                          renderItem={({ item }) => {
+                          renderItem={({item}) => {
                             return (
-                              <View style={{ marginLeft: 10 }}>
+                              <View style={{marginLeft: 10}}>
                                 <SuggestFriends
                                   imgName={item.imgName}
                                   width={item.width}
@@ -211,7 +212,6 @@ const AllMixed = ({ props, feture, SuggestFriend }) => {
                                   keyExtractor={item => item.id}
                                 />
                               </View>
-
                             );
                           }}
                         />
@@ -227,4 +227,4 @@ const AllMixed = ({ props, feture, SuggestFriend }) => {
     </View>
   );
 };
-export { AllMixed };
+export {AllMixed};

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 
 import {
   StyleSheet,
@@ -9,15 +9,14 @@ import {
   Image,
   Dimensions,
 } from 'react-native';
-import { Images } from '../../constants';
+import {Images} from '../../constants';
 import LinearGradient from 'react-native-linear-gradient';
-import { Tooltip } from 'react-native-elements';
-import { useNavigation } from '@react-navigation/native';
-import { AppButton, Tip } from '../../components'
-import { Icon } from 'native-base';
-import { useDispatch } from 'react-redux';
-import { addlocation } from '../../../Redux/Actions';
-
+import {Tooltip} from 'react-native-elements';
+import {useNavigation} from '@react-navigation/native';
+import {AppButton, Tip} from '../../components';
+import {Icon} from 'native-base';
+import {useDispatch} from 'react-redux';
+import {addlocation} from '../../../Redux/Actions';
 
 const PostBox = ({
   profileImg,
@@ -44,8 +43,6 @@ const PostBox = ({
   profileonpress,
   ImgPress1,
   star,
-
-
 }) => {
   const [Grid, setGrid] = useState(checksingle);
   console.log('Grid', Grid);
@@ -53,11 +50,13 @@ const PostBox = ({
   const navigation = useNavigation();
 
   const Dispatch = useDispatch();
-  const [icon, setIcon] = useState(star === true ? Images.Icons.heart : Images.Icons.Star)
+  const [icon, setIcon] = useState(
+    star === true ? Images.Icons.heart : Images.Icons.Star,
+  );
 
   return (
     <View style={styles.container}>
-      <View style={{ width: '95%', alignSelf: 'center', height: '100%' }}>
+      <View style={{width: '95%', alignSelf: 'center', height: '100%'}}>
         <View
           style={{
             alignItems: 'center',
@@ -66,30 +65,29 @@ const PostBox = ({
             marginTop: 15,
             justifyContent: 'space-between',
           }}>
-          <View style={{ flexDirection: 'row' }}>
-            <TouchableOpacity onPress={() => navigation.navigate("Homes", { screen: 'account' })}
-              style={{ width: 40, height: 40 }}>
+          <View style={{flexDirection: 'row'}}>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('Homes', {screen: 'account'})}
+              style={{width: 40, height: 40}}>
               <Image
                 source={Images.Pictures.profile}
-                style={{ width: '100%', height: '100%' }}
+                style={{width: '100%', height: '100%'}}
               />
             </TouchableOpacity>
-            <View style={{ marginLeft: 5 }}>
-              <Text style={{ color: '#4B4B4B', fontSize: 16, fontWeight: '400' }}>
+            <View style={{marginLeft: 5}}>
+              <Text style={{color: '#4B4B4B', fontSize: 16, fontWeight: '400'}}>
                 {profileTitle}
               </Text>
-              <Text style={{ color: '#4B4B4B', fontSize: 10 }}>{postTime}</Text>
+              <Text style={{color: '#4B4B4B', fontSize: 10}}>{postTime}</Text>
             </View>
           </View>
-
         </View>
-        <View style={{ alignSelf: 'flex-end', marginTop: -35, marginRight: 5 }}>
+        <View style={{alignSelf: 'flex-end', marginTop: -35, marginRight: 5}}>
           <Tip tooltipdata3={true} content1={true} />
         </View>
 
-
-        <View style={{ width: '100%', marginTop: 20 }}>
-          <Text style={{ fontSize: 14, fontWeight: 'bold', color: 'black' }}>
+        <View style={{width: '100%', marginTop: 20}}>
+          <Text style={{fontSize: 14, fontWeight: 'bold', color: 'black'}}>
             {boxTitle}
           </Text>
           <View
@@ -106,7 +104,7 @@ const PostBox = ({
               {boxDetail}
               {/* Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
               nonumy eirmod tempor... */}
-              <Text style={{ color: '#4A91D5' }}> see more</Text>
+              <Text style={{color: '#4A91D5'}}> see more</Text>
             </Text>
           </View>
         </View>
@@ -128,19 +126,20 @@ const PostBox = ({
                   height: '100%',
                 }}>
                 <TouchableOpacity
-                  onPress={() => navigation.navigate("Homes", {
-                    screen: 'talentscreen', pararms: {
-                      text1: false,
-                    }
-                  },
-
-                  )}
+                  onPress={() =>
+                    navigation.navigate('Homes', {
+                      screen: 'talentscreen',
+                      pararms: {
+                        text1: false,
+                      },
+                    })
+                  }
                   // onPress={() => navigation.navigate("Homes", { screen: 'talentscreen' })}
-                  style={{ width: '45%', height: '100%' }}>
+                  style={{width: '45%', height: '100%'}}>
                   <Image
                     source={gridImg}
-                    style={{ width: '100%', height: '100%', borderRadius: 10 }}
-                  // resizeMode="contain"
+                    style={{width: '100%', height: '100%', borderRadius: 10}}
+                    // resizeMode="contain"
                   />
                 </TouchableOpacity>
                 <View
@@ -170,7 +169,6 @@ const PostBox = ({
                       alignItems: 'center',
                     }}>
                     <View
-
                       style={{
                         width: '45%',
                         height: '100%',
@@ -179,7 +177,7 @@ const PostBox = ({
                       }}>
                       <Image
                         source={gridImg1}
-                        style={{ width: '100%', height: '45%', borderRadius: 10 }}
+                        style={{width: '100%', height: '45%', borderRadius: 10}}
                       />
                       <Image
                         source={gridImg4}
@@ -200,7 +198,7 @@ const PostBox = ({
                       }}>
                       <Image
                         source={gridImg2}
-                        style={{ width: '100%', height: '45%', borderRadius: 10 }}
+                        style={{width: '100%', height: '45%', borderRadius: 10}}
                       />
                       <Image
                         source={gridImg3}
@@ -232,7 +230,12 @@ const PostBox = ({
             <View>
               <ImageBackground
                 source={singleImg}
-                style={{ width: '100%', height: '100%', justifyContent: 'center', alignItems: 'center' }}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}
                 resizeMode="stretch">
                 <TouchableOpacity
                   // onPress={Press}
@@ -247,13 +250,19 @@ const PostBox = ({
                   }
                   // title="Go to notifications"
                   style={{
-                    width: 50, height: 50, borderRadius: 10, borderWidth: 35,
+                    width: 50,
+                    height: 50,
+                    borderRadius: 10,
+                    borderWidth: 35,
                     backgroundColor: '#eee',
-                    justifyContent: 'center', alignSelf: 'center',
-                    opacity: 0.45
+                    justifyContent: 'center',
+                    alignSelf: 'center',
+                    opacity: 0.45,
                   }}>
-                  <Image source={Images.Icons.play}
-                    resizeMode="contain" style={{ alignSelf: 'center' }}
+                  <Image
+                    source={Images.Icons.play}
+                    resizeMode="contain"
+                    style={{alignSelf: 'center'}}
                   />
                 </TouchableOpacity>
               </ImageBackground>
@@ -290,7 +299,6 @@ const PostBox = ({
             }}>
             {feture === true ? null : (
               <View
-
                 style={{
                   width: '50%',
                   height: '100%',
@@ -309,8 +317,13 @@ const PostBox = ({
                   borderColor={GetFeture === true ? '#707070' : 'black'}
                   backgroundColor={'#FFFFFF'}
                   label={GetFeture === true ? 'Get it Featured' : 'Featured'}
-                  onPress={() =>
-                    GetFeture === true ? navigation.replace('Homes', { screen: 'getfeatured' }) : navigation.replace('Homes', { screen: 'productdetails' })
+                  onPress={
+                    () =>
+                      GetFeture === true
+                        ? navigation.replace('Homes', {screen: 'getfeatured'})
+                        : navigation.replace('Homes', {
+                            screen: 'productdetails',
+                          })
                     // navigation.replace('MyTabs', { screen: 'profile' })
                   }
                 />
@@ -320,8 +333,8 @@ const PostBox = ({
         </View>
 
         <LinearGradient
-          start={{ x: 1.5, y: 1.0 }}
-          end={{ x: 1.5, y: 2.5 }}
+          start={{x: 1.5, y: 1.0}}
+          end={{x: 1.5, y: 2.5}}
           colors={['#28A9F61A', '#4C9BD2']}
           style={{
             width: '105%',
@@ -358,9 +371,9 @@ const PostBox = ({
                   }}>
                   <Image
                     source={Images.Logos.msgColorIcon}
-                    style={{ width: 19.07, height: 18.74 }}
+                    style={{width: 19.07, height: 18.74}}
                   />
-                  <Text style={{ color: 'black', paddingLeft: 5 }}>120</Text>
+                  <Text style={{color: 'black', paddingLeft: 5}}>120</Text>
                 </View>
 
                 <View
@@ -372,9 +385,9 @@ const PostBox = ({
                   }}>
                   <Image
                     source={Images.Logos.shareIcon}
-                    style={{ width: 19.07, height: 18.74 }}
+                    style={{width: 19.07, height: 18.74}}
                   />
-                  <Text style={{ color: 'black', paddingLeft: 5 }}>2.4K</Text>
+                  <Text style={{color: 'black', paddingLeft: 5}}>2.4K</Text>
                 </View>
                 {staricon && (
                   <View
@@ -386,33 +399,41 @@ const PostBox = ({
                     }}>
                     <Image
                       source={Images.Icons.Star}
-                      style={{ width: 19.07, height: 18.74 }}
+                      style={{width: 19.07, height: 18.74}}
                     />
-                    <Text style={{ color: 'black', paddingLeft: 5 }}>4.2K</Text>
+                    <Text style={{color: 'black', paddingLeft: 5}}>4.2K</Text>
                   </View>
-
                 )}
 
-                {heart && (<View
+                <View
                   style={{
                     marginLeft: 10,
                     flexDirection: 'row',
                     alignItems: 'center',
                     justifyContent: 'center',
                   }}>
-                  <Icon
-                    type="AntDesign"
-                    name="heart"
-                    style={{
-                      color: '#4059E4',
-                      fontSize: 20,
-                    }}
-                  />
-                  <Text style={{ color: 'black', paddingLeft: 5 }}>4.2K</Text>
+                  {heart === true ? (
+                    <Icon
+                      type="AntDesign"
+                      name="heart"
+                      style={{
+                        color: '#4059E4',
+                        fontSize: 20,
+                      }}
+                    />
+                  ) : (
+                    <Icon
+                      type="AntDesign"
+                      name="star"
+                      style={{
+                        color: '#4059E4',
+                        fontSize: 20,
+                      }}
+                    />
+                  )}
+
+                  <Text style={{color: 'black', paddingLeft: 5}}>4.2K</Text>
                 </View>
-
-                )}
-
               </View>
               <View
                 style={{
@@ -421,18 +442,18 @@ const PostBox = ({
                 }}>
                 <Image
                   source={Images.Logos.favoriteIcon}
-                  style={{ width: 14, height: 17 }}
+                  style={{width: 14, height: 17}}
                 />
               </View>
             </View>
           </View>
         </LinearGradient>
       </View>
-    </View >
+    </View>
   );
 };
 
-export { PostBox };
+export {PostBox};
 
 const styles = StyleSheet.create({
   postToolDrop: {
@@ -507,7 +528,7 @@ const styles = StyleSheet.create({
     elevation: 5,
     shadowOffset: 40,
   },
-  postHeader: { width: '90%', height: '100%', alignSelf: 'center' },
+  postHeader: {width: '90%', height: '100%', alignSelf: 'center'},
   postHeaderContentLeft: {
     width: '100%',
     flexDirection: 'row',

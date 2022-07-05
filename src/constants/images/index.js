@@ -1,6 +1,5 @@
 const Images = {
   Pictures: {
-
     loginBG: require('../../assets/images/joker.jpg'),
     bgballon: require('../../assets/images/bgballon.png'),
     homeBg: require('../../assets/images/homeBg.png'),
@@ -96,7 +95,8 @@ const Images = {
     play: require('../../assets/images/play.png'),
     starIcon: require('../../assets/images/shareIcon.png'),
     search: require('../../assets/images/search.png'),
+    Photoicon: require('../../assets/images/Photoicon.png'),
   },
 };
 
-export { Images };
+export {Images};

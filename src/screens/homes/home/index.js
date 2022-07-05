@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import {
   ScrollView,
   StatusBar,
@@ -9,17 +9,27 @@ import {
   ImageBackground,
   View,
   FlatList,
-  statusBarStyle, statusBarTransition, hidden
+  statusBarStyle,
+  statusBarTransition,
+  hidden,
 } from 'react-native';
-import { Images } from '../../../constants';
+import {Images} from '../../../constants';
 import {
   StatusView,
   PitchlyFeatured,
-  AllMixed, HomeHeader, Product, Services, Talent, onPress1, onPress2
+  AllMixed,
+  HomeHeader,
+  Product,
+  Services,
+  Talent,
+  onPress1,
+  onPress2,
 } from '../../../components';
 import LinearGradient from 'react-native-linear-gradient';
-import { Icon } from 'native-base';
-const Home = ({ feture, navigation }) => {
+import {Icon} from 'native-base';
+import Carousel from 'react-native-snap-carousel';
+import {Button} from 'react-native-elements';
+const Home = ({feture, navigation}) => {
   const [data, setData] = useState({
     postDataAll: [
       {
@@ -62,7 +72,7 @@ const Home = ({ feture, navigation }) => {
         width: 61,
         height: 61,
         text: 'John',
-        onPress: () => navigation.navigate("Homes", { screen: "storieview" })
+        onPress: () => navigation.navigate('Homes', {screen: 'storieview'}),
       },
       {
         imgName: Images.Pictures.statusImg2,
@@ -74,7 +84,7 @@ const Home = ({ feture, navigation }) => {
         width: 61,
         height: 61,
         text: 'Veni',
-        onPress: () => navigation.navigate("Homes", { screen: "storieview" })
+        onPress: () => navigation.navigate('Homes', {screen: 'storieview'}),
       },
       {
         imgName: Images.Pictures.statusImg3,
@@ -97,7 +107,7 @@ const Home = ({ feture, navigation }) => {
         width: 61,
         height: 61,
         text: 'Saher',
-        onPress: () => navigation.navigate("Homes", { screen: "storieview" })
+        onPress: () => navigation.navigate('Homes', {screen: 'storieview'}),
       },
       {
         imgName: Images.Pictures.statusImg5,
@@ -109,7 +119,7 @@ const Home = ({ feture, navigation }) => {
         width: 61,
         height: 61,
         text: 'Bella',
-        onPress: () => navigation.navigate("Homes", { screen: "storieview" })
+        onPress: () => navigation.navigate('Homes', {screen: 'storieview'}),
       },
       {
         imgName: Images.Pictures.statusImg1,
@@ -121,8 +131,7 @@ const Home = ({ feture, navigation }) => {
         width: 61,
         height: 61,
         text: 'John',
-        onPress: () => navigation.navigate("Homes", { screen: "storieview" })
-
+        onPress: () => navigation.navigate('Homes', {screen: 'storieview'}),
       },
       {
         imgName: Images.Pictures.statusImg2,
@@ -134,7 +143,7 @@ const Home = ({ feture, navigation }) => {
         width: 61,
         height: 61,
         text: 'Veni',
-        onPress: () => navigation.navigate("Homes", { screen: "storieview" })
+        onPress: () => navigation.navigate('Homes', {screen: 'storieview'}),
       },
       {
         imgName: Images.Pictures.statusImg3,
@@ -146,7 +155,7 @@ const Home = ({ feture, navigation }) => {
         width: 61,
         height: 61,
         text: 'Bella',
-        onPress: () => navigation.navigate("Homes", { screen: "storieview" })
+        onPress: () => navigation.navigate('Homes', {screen: 'storieview'}),
       },
       {
         imgName: Images.Pictures.statusImg4,
@@ -158,7 +167,7 @@ const Home = ({ feture, navigation }) => {
         width: 61,
         height: 61,
         text: 'Saher',
-        onPress: () => navigation.navigate("Homes", { screen: "storieview" })
+        onPress: () => navigation.navigate('Homes', {screen: 'storieview'}),
       },
       {
         imgName: Images.Pictures.statusImg5,
@@ -170,13 +179,13 @@ const Home = ({ feture, navigation }) => {
         width: 61,
         height: 61,
         text: 'Bella',
-        onPress: () => navigation.navigate("Homes", { screen: "storieview" })
+        onPress: () => navigation.navigate('Homes', {screen: 'storieview'}),
       },
     ],
     statusData3: [
       {
         imgName: Images.Pictures.productcackImg1,
-        imgWidth: 59,
+        imgWidth: 80,
         imgHeight: 59,
         borderRadius: 19,
         borderColor: '#3729F2',
@@ -184,7 +193,7 @@ const Home = ({ feture, navigation }) => {
         width: 61,
         height: 61,
         text: 'John',
-        onPress: () => navigation.navigate("Homes", { screen: "talentscreen" })
+        onPress: () => navigation.navigate('Homes', {screen: 'talentscreen'}),
       },
       {
         imgName: Images.Pictures.productcackImg2,
@@ -196,7 +205,7 @@ const Home = ({ feture, navigation }) => {
         width: 61,
         height: 61,
         text: 'Veni',
-        onPress: () => navigation.navigate("Homes", { screen: "talentscreen" })
+        onPress: () => navigation.navigate('Homes', {screen: 'talentscreen'}),
       },
       {
         imgName: Images.Pictures.productcackImg3,
@@ -208,7 +217,7 @@ const Home = ({ feture, navigation }) => {
         width: 61,
         height: 61,
         text: 'Bella',
-        onPress: () => navigation.navigate("Homes", { screen: "talentscreen" })
+        onPress: () => navigation.navigate('Homes', {screen: 'talentscreen'}),
       },
       {
         imgName: Images.Pictures.productcackImg5,
@@ -220,7 +229,7 @@ const Home = ({ feture, navigation }) => {
         width: 61,
         height: 61,
         text: 'Saher',
-        onPress: () => navigation.navigate("Homes", { screen: "talentscreen" })
+        onPress: () => navigation.navigate('Homes', {screen: 'talentscreen'}),
       },
       {
         imgName: Images.Pictures.productcackImg3,
@@ -232,7 +241,7 @@ const Home = ({ feture, navigation }) => {
         width: 61,
         height: 61,
         text: 'Bella',
-        onPress: () => navigation.navigate("Homes", { screen: "talentscreen" })
+        onPress: () => navigation.navigate('Homes', {screen: 'talentscreen'}),
       },
       {
         imgName: Images.Pictures.productcackImg5,
@@ -244,12 +253,9 @@ const Home = ({ feture, navigation }) => {
         width: 61,
         height: 61,
         text: 'Saher',
-        onPress: () => navigation.navigate("Homes", { screen: "talentscreen" })
+        onPress: () => navigation.navigate('Homes', {screen: 'talentscreen'}),
       },
-
-
     ],
-
 
     statusData2: [
       {
@@ -262,7 +268,9 @@ const Home = ({ feture, navigation }) => {
         width: 61,
         height: 61,
         text: 'John',
-        onPress: () => { navigation.navigate('profile') }
+        onPress: () => {
+          navigation.navigate('profile');
+        },
       },
       {
         imgName: Images.Pictures.statusImg2,
@@ -365,10 +373,17 @@ const Home = ({ feture, navigation }) => {
       },
     ],
   });
+  const [num, setnum] = useState(0);
   const [img, setImg] = useState(Images.Logos.plusIcon);
+  const [scrollnum, setScrollnum] = useState(0);
+  const ref = useRef(null);
   const [check, setcheck] = useState({
     value: 'PITCHLY FEED',
   });
+  useEffect(() => {
+    ref.current.scrollToIndex({index: scrollnum, animated: true});
+  }, [scrollnum]);
+
   // const picker = () => {
   //   ImagePicker.openCamera({
   //     width: 300,
@@ -386,24 +401,29 @@ const Home = ({ feture, navigation }) => {
         source={Images.Pictures.homeMainBg}>
         <ScrollView
           showsVerticalScrollIndicator={false}
-          contentContainerStyle={{ flexGrow: 1 }}>
+          contentContainerStyle={{flexGrow: 1}}>
           <StatusBar
             animated={true}
             backgroundColor="#000"
             barStyle={statusBarStyle}
             showHideTransition={statusBarTransition}
-            hidden={hidden} />
+            hidden={hidden}
+          />
           <View style={styles.body}>
             <View style={styles.headerView}>
               <HomeHeader
-                homeHeader1 onPress={() =>
-                  navigation.navigate('Homes', { screen: 'searchscreen' })
-                } />
+                homeHeader1
+                onPress={() =>
+                  navigation.navigate('Homes', {screen: 'searchscreen'})
+                }
+              />
             </View>
             <View style={styles.statusBoxView}>
               <View style={styles.statusAddView}>
                 <TouchableOpacity
-                  onPress={() => navigation.navigate("Homes", { screen: 'camerastorie' })}
+                  onPress={() =>
+                    navigation.navigate('Homes', {screen: 'camerastorie'})
+                  }
                   style={styles.statusAddBox}>
                   <Image source={img} style={styles.statusAddIcon} />
                 </TouchableOpacity>
@@ -413,9 +433,9 @@ const Home = ({ feture, navigation }) => {
                 horizontal={true}
                 showsHorizontalScrollIndicator={false}
                 data={data.statusData}
-                renderItem={({ item }) => {
+                renderItem={({item}) => {
                   return (
-                    <View style={{ paddingLeft: 10 }}>
+                    <View style={{paddingLeft: 10}}>
                       <StatusView
                         imgName={item.imgName}
                         width={item.width}
@@ -432,7 +452,6 @@ const Home = ({ feture, navigation }) => {
             </View>
 
             <View style={styles.pitchlyFeatured}>
-
               <View
                 style={{
                   width: '100%',
@@ -440,25 +459,23 @@ const Home = ({ feture, navigation }) => {
 
                   borderRadius: 19,
                 }}>
-                <ImageBackground style={{ borderRadius: 20 }} source={Images.Pictures.appBg} resizeMode="cover">
-
-                  <View style={{ alignSelf: 'center', width: '90%', height: '90%', alignSelf: 'center', borderRadius: 25 }}>
-                    <View
-                      style={{
-                        width: '100%',
-                        flexDirection: 'row',
-                        justifyContent: 'space-between',
-                        marginTop: 10,
-                      }}>
-                      <Text style={{ fontSize: 12, fontWeight: 'bold', color: '#000' }}>
-                        Pitchly Featured
-                      </Text>
-                      <TouchableOpacity onPress={() => navigation.navigate('MyTabs', { screen: 'home11' })}>
-                        <Text style={{ color: '#3109FB', fontWeight: 'bold' }}>See All</Text>
-                      </TouchableOpacity>
-                    </View>
-
-                    <TouchableOpacity style={{ position: 'absolute', top: '50%', left: -25 }}>
+                <ImageBackground
+                  style={{borderRadius: 20}}
+                  source={Images.Pictures.appBg}
+                  resizeMode="cover">
+                  <View
+                    style={{
+                      alignSelf: 'center',
+                      width: '79%',
+                      height: '90%',
+                      alignSelf: 'center',
+                      borderRadius: 25,
+                    }}>
+                    <TouchableOpacity
+                      onPress={() =>
+                        scrollnum > 0 && setScrollnum(scrollnum - 1)
+                      }
+                      style={{position: 'absolute', top: '50%', left: -25}}>
                       <Icon
                         type="AntDesign"
                         name="left"
@@ -468,40 +485,93 @@ const Home = ({ feture, navigation }) => {
                         }}
                       />
                     </TouchableOpacity>
-                    <View style={{ width: '100%', marginLeft: -10 }}>
+                    <TouchableOpacity
+                      onPress={() => {
+                        console.log(
+                          data.statusData3.length,
+                          'check it ',
+                          scrollnum,
+                          'scroll num',
+                        );
+                        if (scrollnum < data.statusData3.length - 1) {
+                          setScrollnum(scrollnum + 1);
+                        } else {
+                          console.log('baag ');
+                        }
+                      }}
+                      style={{position: 'absolute', top: '50%', right: -15}}>
+                      <Icon
+                        type="AntDesign"
+                        name="right"
+                        style={{
+                          fontSize: 15,
+                          color: 'black',
+                        }}
+                      />
+                    </TouchableOpacity>
+
+                    <View
+                      style={{
+                        width: '100%',
+                        flexDirection: 'row',
+                        justifyContent: 'space-between',
+                        marginTop: 10,
+                      }}>
+                      <Text
+                        style={{
+                          fontSize: 12,
+                          fontWeight: 'bold',
+                          color: '#000',
+                        }}>
+                        Pitchly Featured
+                      </Text>
+                      <TouchableOpacity
+                        onPress={() =>
+                          navigation.navigate('MyTabs', {screen: 'home11'})
+                        }>
+                        <Text style={{color: '#3109FB', fontWeight: 'bold'}}>
+                          See All
+                        </Text>
+                      </TouchableOpacity>
+                    </View>
+                    <View style={{width: '100%', marginLeft: -10}}>
                       <FlatList
+                        ref={ref}
                         horizontal={true}
                         showsHorizontalScrollIndicator={false}
+                        initialScrollIndex={scrollnum}
+                        // index={scrollnum}
                         data={data.statusData3}
-                        renderItem={({ item }) => {
+                        renderItem={({item}) => {
                           return (
-                            <View style={{
-                              width: 100,
-                              height: 110,
-                            }}>
+                            <View style={{marginTop: 5}}>
                               <TouchableOpacity
                                 onPress={item.onPress}
                                 activeOpacity={0.9}
                                 style={{
-                                  width: 79,
-                                  height: 110,
+                                  width: 78,
+                                  height: 97,
                                   borderRadius: 15,
-                                  // backgroundColor: 'yellow',
                                   alignItems: 'center',
                                   justifyContent: 'center',
                                   marginLeft: 10,
                                 }}>
                                 <ImageBackground
                                   source={item.imgName}
-                                  resizeMode="contain"
                                   style={{
-                                    width: '100%', height: '100%'
+                                    width: 80,
+                                    height: 90,
                                   }}>
                                   <LinearGradient
                                     activeOpacity={0.9}
-                                    start={{ x: 0, y: 0.0 }}
-                                    end={{ x: 1, y: 1.9 }}
-                                    colors={['#4059E4', '#4059E4', '#4059E4', '#5DF7B8']}
+                                    start={{x: 0, y: 0.0}}
+                                    end={{x: 1, y: 1.9}}
+                                    colors={[
+                                      '#4059E4',
+                                      '#4059E4',
+                                      '#4059E4',
+                                      '#5DF7B8',
+                                    ]}
                                     style={{
                                       width: '100%',
                                       alignSelf: 'center',
@@ -514,7 +584,7 @@ const Home = ({ feture, navigation }) => {
                                       alignItems: 'center',
                                       justifyContent: 'center',
                                     }}>
-                                    <Text style={{ color: 'white', fontSize: 9 }}>
+                                    <Text style={{color: 'white', fontSize: 9}}>
                                       Lorem ipsum
                                     </Text>
                                   </LinearGradient>
@@ -525,27 +595,17 @@ const Home = ({ feture, navigation }) => {
                         }}
                       />
                     </View>
-                    <TouchableOpacity
-                      style={{ position: 'absolute', top: '50%', right: -15 }}>
-                      <Icon
-                        type="AntDesign"
-                        name="right"
-                        style={{
-                          fontSize: 15,
-                          color: 'black',
-                        }}
-                      />
-                    </TouchableOpacity>
-
                   </View>
                 </ImageBackground>
               </View>
-              <TouchableOpacity onPress={() => navigation.navigate('MyTabs', { screen: 'homescreensix' })}>
-
+              <TouchableOpacity
+                onPress={() =>
+                  navigation.navigate('MyTabs', {screen: 'homescreensix'})
+                }>
                 <LinearGradient
                   activeOpacity={0.9}
-                  start={{ x: 0, y: 0.0 }}
-                  end={{ x: 1, y: 1.9 }}
+                  start={{x: 0, y: 0.0}}
+                  end={{x: 1, y: 1.9}}
                   colors={['#5DF7B8', '#3109FB']}
                   style={{
                     width: '99%',
@@ -563,22 +623,19 @@ const Home = ({ feture, navigation }) => {
                   <Icon
                     type="AntDesign"
                     name="arrowleft"
-                    style={{ fontSize: 10, color: 'white', marginRight: 10 }}
+                    style={{fontSize: 10, color: 'white', marginRight: 10}}
                   />
-                  <Text style={{ fontSize: 14, color: 'white' }}>
+                  <Text style={{fontSize: 14, color: 'white'}}>
                     Pitchly Promotions & Discounts
                   </Text>
                   <Icon
                     type="AntDesign"
                     name="arrowright"
-                    style={{ fontSize: 10, color: 'white', marginLeft: 10 }}
+                    style={{fontSize: 10, color: 'white', marginLeft: 10}}
                   />
                 </LinearGradient>
               </TouchableOpacity>
-
             </View>
-
-
 
             <View
               style={{
@@ -596,13 +653,13 @@ const Home = ({ feture, navigation }) => {
                   borderRadius: 5,
                 }}>
                 {/* PRODUCTS FEED */}
-                <Text style={{ color: 'black', fontWeight: 'bold' }}>
+                <Text style={{color: 'black', fontWeight: 'bold'}}>
                   {check.value}
                 </Text>
               </View>
               <LinearGradient
-                start={{ x: 1.5, y: 1.0 }}
-                end={{ x: 1.5, y: 2.5 }}
+                start={{x: 1.5, y: 1.0}}
+                end={{x: 1.5, y: 2.5}}
                 colors={['#28A9F61A', '#4C9BD2']}
                 style={{
                   width: '60%',
@@ -613,7 +670,7 @@ const Home = ({ feture, navigation }) => {
                   flexDirection: 'row',
                 }}>
                 <TouchableOpacity
-                  onPress={() => setcheck({ ...check, value: 'PITCHLY FEED' })}
+                  onPress={() => setcheck({...check, value: 'PITCHLY FEED'})}
                   style={{
                     // backgroundColor: 'red',
                     paddingBottom: check.value == 'PITCHLY FEED' ? 2 : null,
@@ -630,7 +687,7 @@ const Home = ({ feture, navigation }) => {
                   </Text>
                 </TouchableOpacity>
                 <TouchableOpacity
-                  onPress={() => setcheck({ ...check, value: 'TALENT FEED' })}
+                  onPress={() => setcheck({...check, value: 'TALENT FEED'})}
                   style={{
                     // backgroundColor: 'red',
                     paddingBottom: check.value == 'TALENT FEED' ? 2 : null,
@@ -647,7 +704,7 @@ const Home = ({ feture, navigation }) => {
                   </Text>
                 </TouchableOpacity>
                 <TouchableOpacity
-                  onPress={() => setcheck({ ...check, value: 'SERVICES FEED' })}
+                  onPress={() => setcheck({...check, value: 'SERVICES FEED'})}
                   style={{
                     // backgroundColor: 'red',
                     paddingBottom: check.value == 'SERVICES FEED' ? 2 : null,
@@ -665,7 +722,7 @@ const Home = ({ feture, navigation }) => {
                   </Text>
                 </TouchableOpacity>
                 <TouchableOpacity
-                  onPress={() => setcheck({ ...check, value: 'PRODUCTS FEED' })}
+                  onPress={() => setcheck({...check, value: 'PRODUCTS FEED'})}
                   style={{
                     // backgroundColor: 'red',
                     paddingBottom: check.value == 'PRODUCTS FEED' ? 2 : null,
@@ -675,7 +732,8 @@ const Home = ({ feture, navigation }) => {
                   }}>
                   <Text
                     style={{
-                      fontSize: 11, fontWeight: 'bold',
+                      fontSize: 11,
+                      fontWeight: 'bold',
                       color: check.value == 'PRODUCTS FEED' ? 'blue' : 'black',
                     }}>
                     Products
@@ -683,13 +741,15 @@ const Home = ({ feture, navigation }) => {
                 </TouchableOpacity>
               </LinearGradient>
             </View>
-            {check.value === 'PITCHLY FEED' && <AllMixed SuggestFriend={true} feture={true} />}
+            {check.value === 'PITCHLY FEED' && (
+              <AllMixed SuggestFriend={true} feture={true} />
+            )}
             {check.value === 'TALENT FEED' && <Talent feture={true} />}
             {check.value === 'SERVICES FEED' && <Services feture={true} />}
             {check.value === 'PRODUCTS FEED' && <Product feture={true} />}
           </View>
         </ScrollView>
-      </ImageBackground >
+      </ImageBackground>
     </>
   );
 };
@@ -701,7 +761,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
   },
-  body: { width: '90%', height: '100%', alignSelf: 'center', paddingBottom: 60 },
+  body: {width: '90%', height: '100%', alignSelf: 'center', paddingBottom: 60},
   statusBoxView: {
     width: '110%',
     marginTop: 10,
@@ -709,7 +769,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
 
-  headerView: { width: '100%', marginVertical: 15 },
+  headerView: {width: '100%', marginVertical: 15},
   statusAddView: {
     alignItems: 'center',
     justifyContent: 'center',
@@ -724,19 +784,29 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  statusAddIcon: { width: 24.63, height: 24.63 },
+  statusAddIcon: {width: 24.63, height: 24.63},
   pitchlyFeatured: {
     width: '100%',
     marginTop: 15,
     borderRadius: 25,
     // borderWidth: 2
-
   },
   appbg: {
-    borderRadius: 25, marginVertical: 10, top: 5,
-  }
-});
+    borderRadius: 25,
+    marginVertical: 10,
+    top: 5,
+  },
+  wrapper: {
+    width: '100%',
 
+    flexDirection: 'row',
+  },
+  image: {
+    height: '60%',
+    width: '20%',
+    // backgroundColor: 'blue',
+  },
+});
 
 // <PitchlyFeatured
 // // onPress1={() => navigation.navigate('MyTabs', { screen: 'homescreensix' })}

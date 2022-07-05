@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
-import { StyleSheet, Text, View, FlatList, Dimensions } from 'react-native';
-import { Images, Themes } from '../../constants';
+import React, {useEffect} from 'react';
+import {StyleSheet, Text, View, FlatList, Dimensions} from 'react-native';
+import {Images, Themes} from '../../constants';
 import LinearGradient from 'react-native-linear-gradient';
-import { PostBox } from '../../components';
+import {PostBox} from '../../components';
 
-const Talent = ({ feture, navigation }) => {
+const Talent = ({feture, navigation}) => {
   const Talent = [
     {
       profileImg: Images.Pictures.statusImg1,
@@ -19,8 +19,9 @@ const Talent = ({ feture, navigation }) => {
       // feture: feture ? false : true,
       feture: true,
 
-      Press: () => { navigation.navigate('login') },
-
+      Press: () => {
+        navigation.navigate('login');
+      },
     },
     {
       profileImg: Images.Pictures.statusImg3,
@@ -33,10 +34,11 @@ const Talent = ({ feture, navigation }) => {
       singleImg: Images.Pictures.talent,
       checksingle: 'false',
 
-      Press: () => { navigation.navigate('login') },
+      Press: () => {
+        navigation.navigate('login');
+      },
       // feture: feture ? false : true,
       feture: false,
-
     },
   ];
 
@@ -44,9 +46,9 @@ const Talent = ({ feture, navigation }) => {
     <View>
       <FlatList
         data={Talent}
-        renderItem={({ item }) => {
+        renderItem={({item}) => {
           return (
-            <View style={{ marginTop: 10 }}>
+            <View style={{marginTop: 10}}>
               <PostBox
                 heart={true}
                 profileTitle={item.profileTitle}
@@ -66,10 +68,8 @@ const Talent = ({ feture, navigation }) => {
                 feture={feture ? true : false}
                 star={true}
 
-
-              // GetFeture={item.feture}
-              // feture={feture ? true : false}
-
+                // GetFeture={item.feture}
+                // feture={feture ? true : false}
               />
             </View>
           );
@@ -78,4 +78,4 @@ const Talent = ({ feture, navigation }) => {
     </View>
   );
 };
-export { Talent };
+export {Talent};

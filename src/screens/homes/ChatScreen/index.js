@@ -11,7 +11,9 @@ import {
   ScrollView,
   TextInput,
   TouchableOpacity,
-  statusBarStyle, statusBarTransition, hidden
+  statusBarStyle,
+  statusBarTransition,
+  hidden,
 } from 'react-native';
 
 // import {
@@ -27,15 +29,15 @@ import {
 // } from 'react-native-gif-search';
 
 import React from 'react';
-import { Icon } from 'native-base';
-import { Images } from '../../../constants';
-import { useState, useEffect } from 'react';
+import {Icon} from 'native-base';
+import {Images} from '../../../constants';
+import {useState, useEffect} from 'react';
 import Headerchat from '../../../components/Headerchat';
-import { Tip } from '../../../components';
+import {Tip} from '../../../components';
 import ImagePicker from 'react-native-image-crop-picker';
 import LinearGradient from 'react-native-linear-gradient';
 
-import { Avatar } from 'react-native-elements';
+import {Avatar} from 'react-native-elements';
 const ChatScreen = props => {
   const [messages, setMessages] = useState([]);
   const [message, setMessage] = useState('');
@@ -173,7 +175,7 @@ const ChatScreen = props => {
 
     setMessage('');
 
-    scrollViewRef.scrollToEnd({ animated: true });
+    scrollViewRef.scrollToEnd({animated: true});
   };
 
   function formatAMPM(date) {
@@ -207,13 +209,14 @@ const ChatScreen = props => {
           backgroundColor="#000"
           barStyle={statusBarStyle}
           showHideTransition={statusBarTransition}
-          hidden={hidden} />
+          hidden={hidden}
+        />
         <View
           style={{
             width: '100%',
             alignSelf: 'center',
             // paddingTop: 20,
-            marginTop: 20,
+            // marginTop: 20,
             height: '100%',
           }}>
           <View
@@ -224,13 +227,13 @@ const ChatScreen = props => {
             }}>
             <ScrollView
               showsVerticalScrollIndicator={false}
-              contentContainerStyle={{ flexGrow: 1 }}
+              contentContainerStyle={{flexGrow: 1}}
               ref={ref => setRef(ref)}
               onContentSizeChange={() =>
-                scrollViewRef.scrollToEnd({ animated: true })
+                scrollViewRef.scrollToEnd({animated: true})
               }>
               <View>
-                <View style={{ width: '95%', alignSelf: 'center' }}>
+                <View style={{width: '95%', alignSelf: 'center'}}>
                   <Headerchat
                     image={Images.Pictures.statusImg2}
                     name={'Veni'}
@@ -248,7 +251,7 @@ const ChatScreen = props => {
                 {/* <Header text="Live Chat" navigation={props.navigation} /> */}
               </View>
               <View
-                style={{ width: '90%', alignSelf: 'center', paddingBottom: 20 }}>
+                style={{width: '90%', alignSelf: 'center', paddingBottom: 20}}>
                 {messages.map((message, i) => {
                   return (
                     <>
@@ -281,7 +284,7 @@ const ChatScreen = props => {
                                 });
                               }}>
                               <Avatar
-                                style={{ flexDirection: 'row-reverse' }}
+                                style={{flexDirection: 'row-reverse'}}
                                 rounded
                                 source={Images.Pictures.like}
                                 size={18}
@@ -373,7 +376,7 @@ const ChatScreen = props => {
                         <TouchableOpacity
                           onLongPress={() => {
                             setIsVisible(i);
-                            setemoji({ ...emoji, value: null });
+                            setemoji({...emoji, value: null});
                             setshow(true);
                           }}
                           style={{
@@ -430,11 +433,14 @@ const ChatScreen = props => {
                           />
                         </View>
 
-                        <TouchableOpacity style={{ marginTop: 15, height: 30 }}>
-                          <Tip tooltip1 tooltipdata1 content2 onPress={true} DoteIcon={
-                            <Text>
-                              Icon1
-                            </Text>} />
+                        <TouchableOpacity style={{marginTop: 15, height: 30}}>
+                          <Tip
+                            tooltip1
+                            tooltipdata1
+                            content2
+                            onPress={true}
+                            DoteIcon={<Text>Icon1</Text>}
+                          />
                         </TouchableOpacity>
                       </View>
                     </>
@@ -487,10 +493,10 @@ const ChatScreen = props => {
                   />
                 </TouchableOpacity>
               ) : (
-                <View style={{ flexDirection: 'row' }}>
+                <View style={{flexDirection: 'row'}}>
                   <LinearGradient
-                    start={{ x: 1, y: 0.0 }}
-                    end={{ x: 1, y: 1.9 }}
+                    start={{x: 1, y: 0.0}}
+                    end={{x: 1, y: 1.9}}
                     colors={['#5DF7B8', '#3109FB']}
                     style={{
                       // width: '100%',
@@ -508,7 +514,7 @@ const ChatScreen = props => {
                       <Icon
                         name="camerao"
                         type="AntDesign"
-                        style={{ color: '#4059E4', marginLeft: 10 }}
+                        style={{color: '#4059E4', marginLeft: 10}}
                       />
                     </TouchableOpacity>
 
@@ -520,7 +526,7 @@ const ChatScreen = props => {
                       <Icon
                         name="picture-o"
                         type="FontAwesome"
-                        style={{ color: '#4059E4', marginLeft: 10 }}
+                        style={{color: '#4059E4', marginLeft: 10}}
                       />
                     </TouchableOpacity>
 
@@ -574,7 +580,7 @@ const ChatScreen = props => {
                 <Icon
                   name="keyboard-voice"
                   type="MaterialIcons"
-                  style={{ color: '#4059E4', marginRight: 10 }}
+                  style={{color: '#4059E4', marginRight: 10}}
                 />
               </TouchableOpacity>
 
@@ -585,7 +591,7 @@ const ChatScreen = props => {
                 <Icon
                   name="send"
                   type="Feather"
-                  style={{ color: '#4059E4', marginRight: 10 }}
+                  style={{color: '#4059E4', marginRight: 10}}
                 />
               </TouchableOpacity>
             </View>
@@ -620,8 +626,6 @@ const styles = StyleSheet.create({
 });
 
 export default ChatScreen;
-
-
 
 // <View style={{ width: '95%', alignSelf: 'center' }}>
 // <Headerchat

@@ -1,19 +1,28 @@
-
 import React from 'react';
-import { StyleSheet, View, Text, TouchableOpacity, Image, StatusBar, statusBarStyle, statusBarTransition, hidden } from 'react-native';
-import { Dimensions } from 'react-native';
-import { Images } from '../../../constants';
-import { RNCamera } from 'react-native-camera';
+import {
+  StyleSheet,
+  View,
+  Text,
+  TouchableOpacity,
+  Image,
+  StatusBar,
+  statusBarStyle,
+  statusBarTransition,
+  hidden,
+} from 'react-native';
+import {Dimensions} from 'react-native';
+import {Images} from '../../../constants';
+import {RNCamera} from 'react-native-camera';
 import ImagePicker from 'react-native-image-crop-picker';
-import { Icon } from 'native-base';
-import { useState } from 'react';
+import {Icon} from 'native-base';
+import {useState} from 'react';
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
 const CameraStorie = props => {
   // const [Visible, setVisible] = useState(true);
   const [image, setimage] = useState('');
   const takePicture = async camera => {
-    const options = { quality: 0.5, base64: true };
+    const options = {quality: 0.5, base64: true};
     const data = await camera.takePictureAsync(options);
     console.log(data.uri);
     setimage(data.uri);
@@ -28,7 +37,7 @@ const CameraStorie = props => {
       // setimg(image.path);
       console.log(image.path);
       setimage(image.path);
-      props.navigate('Homes', { screen: 'storieCreate' });
+      props.navigate('Homes', {screen: 'storieCreate'});
       //   setVisible(true);
     });
   };
@@ -52,7 +61,8 @@ const CameraStorie = props => {
           backgroundColor="#000"
           barStyle={statusBarStyle}
           showHideTransition={statusBarTransition}
-          hidden={hidden} />
+          hidden={hidden}
+        />
         <RNCamera
           style={styles.preview}
           type={RNCamera.Constants.Type.back}
@@ -69,7 +79,7 @@ const CameraStorie = props => {
             buttonPositive: 'Ok',
             buttonNegative: 'Cancel',
           }}>
-          {({ camera, status, recordAudioPermissionStatus }) => {
+          {({camera, status, recordAudioPermissionStatus}) => {
             if (status !== 'READY') return <PendingView />;
             return (
               <View
@@ -92,7 +102,9 @@ const CameraStorie = props => {
                     marginTop: 30,
                     borderRadius: 10,
                   }}
-                  onPress={() => pickerGallery()}>
+                  onPress={() =>
+                    props.navigation.navigate('Homes', {screen: 'Picview'})
+                  }>
                   <Image
                     source={Images.Pictures.productcackImg1}
                     resizeMode="cover"
@@ -109,13 +121,17 @@ const CameraStorie = props => {
                   <Icon
                     type="MaterialCommunityIcons"
                     name="circle-slice-8"
-                    style={{ color: 'white', fontSize: 100 }}
+                    style={{color: 'white', fontSize: 100}}
                   />
                 </TouchableOpacity>
 
                 <TouchableOpacity
                   // onPress={() => takePicture(camera)}
-                  onPress={() => { props.navigation.navigate("Homes", { screen: 'createstorie' }) }}
+                  onPress={() => {
+                    props.navigation.navigate('Homes', {
+                      screen: 'createstorie',
+                    });
+                  }}
                   style={styles.capture}>
                   <Text
                     style={{
@@ -202,4 +218,3 @@ const styles = StyleSheet.create({
     height: '100%',
   },
 });
-
