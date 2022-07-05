@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -10,10 +10,21 @@ import {
   Image,
   FlatList,
   TouchableOpacity,
-  statusBarStyle, hidden, statusBarTransition
+  statusBarStyle,
+  hidden,
+  statusBarTransition,
 } from 'react-native';
-import { Header, Highlight, AllMixed, HomeHeader, Product, Services, Talent, UserData } from '../../../components';
-import { Images } from '../../../constants';
+import {
+  Header,
+  Highlight,
+  AllMixed,
+  HomeHeader,
+  Product,
+  Services,
+  Talent,
+  UserData,
+} from '../../../components';
+import {Images} from '../../../constants';
 import LinearGradient from 'react-native-linear-gradient';
 
 const Profile = props => {
@@ -28,7 +39,8 @@ const Profile = props => {
       width: 61,
       height: 61,
       text: 'Highlight',
-      onPress: () => props.navigation.navigate("Homes", { screen: 'storyreplay' })
+      onPress: () =>
+        props.navigation.navigate('Homes', {screen: 'storyreplay'}),
     },
     {
       imgName: Images.Pictures.Friendship,
@@ -40,7 +52,8 @@ const Profile = props => {
       width: 61,
       height: 61,
       text: ' Friendship',
-      onPress: () => props.navigation.navigate("Homes", { screen: 'storyreplay' })
+      onPress: () =>
+        props.navigation.navigate('Homes', {screen: 'storyreplay'}),
     },
     {
       imgName: Images.Pictures.statusImg3,
@@ -52,7 +65,8 @@ const Profile = props => {
       width: 61,
       height: 61,
       text: 'Food',
-      onPress: () => props.navigation.navigate("Homes", { screen: 'storyreplay', })
+      onPress: () =>
+        props.navigation.navigate('Homes', {screen: 'storyreplay'}),
     },
   ];
   const [img, setImg] = useState(Images.Logos.plusIcon);
@@ -66,18 +80,19 @@ const Profile = props => {
       source={Images.Pictures.appBg}>
       <ScrollView
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={{ flexGrow: 1 }}>
+        contentContainerStyle={{flexGrow: 1}}>
         <StatusBar
           animated={true}
           backgroundColor="#000"
           barStyle={statusBarStyle}
           showHideTransition={statusBarTransition}
-          hidden={hidden} />
+          hidden={hidden}
+        />
         <View style={{}}>
           <View style={styles.screenHeader}>
             <Header
               onPress={() =>
-                props.navigation.navigate('Homes', { screen: 'settings' })
+                props.navigation.navigate('Homes', {screen: 'settings'})
               }
               HeaderText
               hiddinText1
@@ -101,8 +116,12 @@ const Profile = props => {
               informationtext
               Followers={70}
               Following={52}
-              onPress1={() => props.navigation.navigate('Homes', { screen: 'followers' })}
-              onPress2={() => props.navigation.navigate('Homes', { screen: 'following' })}
+              onPress1={() =>
+                props.navigation.navigate('Homes', {screen: 'followers'})
+              }
+              onPress2={() =>
+                props.navigation.navigate('Homes', {screen: 'following'})
+              }
               Bios="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, 
               sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,"
               Contact1="Contact"
@@ -112,7 +131,7 @@ const Profile = props => {
               Location1="Location"
               Location="lorem ipsome"
               pressme={() => {
-                props.navigation.navigate('Homes', { screen: 'editprofile' });
+                props.navigation.navigate('Homes', {screen: 'editprofile'});
               }}
             />
 
@@ -121,9 +140,9 @@ const Profile = props => {
                 horizontal={true}
                 showsHorizontalScrollIndicator={false}
                 data={statusData}
-                renderItem={({ item }) => {
+                renderItem={({item}) => {
                   return (
-                    <View style={{ paddingLeft: 10 }}>
+                    <View style={{paddingLeft: 10}}>
                       <Highlight
                         imgName={item.imgName}
                         width={item.width}
@@ -139,7 +158,9 @@ const Profile = props => {
               />
               <View style={styles.statusAddView}>
                 <TouchableOpacity
-                  onPress={() => props.navigation.navigate("Homes", { screen: 'Savedstatus' })}
+                  onPress={() =>
+                    props.navigation.navigate('Homes', {screen: 'Savedstatus'})
+                  }
                   style={styles.statusAddBox}>
                   <Image source={img} style={styles.statusAddIcon} />
                 </TouchableOpacity>
@@ -154,10 +175,11 @@ const Profile = props => {
                 marginTop: 20,
                 flexDirection: 'row',
                 alignSelf: 'center',
+                // marginBottom: 20,
               }}>
               <LinearGradient
-                start={{ x: 1.5, y: 1.0 }}
-                end={{ x: 1.5, y: 2.5 }}
+                start={{x: 1.5, y: 1.0}}
+                end={{x: 1.5, y: 2.5}}
                 colors={['#28A9F61A', '#4C9BD2']}
                 style={{
                   width: '100%',
@@ -169,7 +191,7 @@ const Profile = props => {
                   alignSelf: 'center',
                 }}>
                 <TouchableOpacity
-                  onPress={() => setcheck({ ...check, value: 'PITCHLY FEED' })}
+                  onPress={() => setcheck({...check, value: 'PITCHLY FEED'})}
                   style={{
                     // backgroundColor: 'red',
                     paddingBottom: check.value == 'PITCHLY FEED' ? 2 : null,
@@ -186,7 +208,7 @@ const Profile = props => {
                   </Text>
                 </TouchableOpacity>
                 <TouchableOpacity
-                  onPress={() => setcheck({ ...check, value: 'TALENT FEED' })}
+                  onPress={() => setcheck({...check, value: 'TALENT FEED'})}
                   style={{
                     // backgroundColor: 'red',
                     paddingBottom: check.value == 'TALENT FEED' ? 2 : null,
@@ -203,7 +225,7 @@ const Profile = props => {
                   </Text>
                 </TouchableOpacity>
                 <TouchableOpacity
-                  onPress={() => setcheck({ ...check, value: 'SERVICES FEED' })}
+                  onPress={() => setcheck({...check, value: 'SERVICES FEED'})}
                   style={{
                     // backgroundColor: 'red',
                     paddingBottom: check.value == 'SERVICES FEED' ? 2 : null,
@@ -221,7 +243,7 @@ const Profile = props => {
                   </Text>
                 </TouchableOpacity>
                 <TouchableOpacity
-                  onPress={() => setcheck({ ...check, value: 'PRODUCTS FEED' })}
+                  onPress={() => setcheck({...check, value: 'PRODUCTS FEED'})}
                   style={{
                     // backgroundColor: 'red',
                     paddingBottom: check.value == 'PRODUCTS FEED' ? 2 : null,
@@ -240,8 +262,10 @@ const Profile = props => {
                 </TouchableOpacity>
               </LinearGradient>
             </View>
-            <View style={{ width: '90%', alignSelf: 'center' }}>
-              {check.value === 'PITCHLY FEED' && <AllMixed SuggestFriend={true} feture={false} />}
+            <View style={{width: '90%', alignSelf: 'center', marginBottom: 55}}>
+              {check.value === 'PITCHLY FEED' && (
+                <AllMixed SuggestFriend={true} feture={false} />
+              )}
               {check.value === 'TALENT FEED' && <Talent feture={false} />}
               {check.value === 'SERVICES FEED' && <Services feture={false} />}
               {check.value === 'PRODUCTS FEED' && <Product feture={false} />}
@@ -291,7 +315,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  statusAddIcon: { width: 24.63, height: 24.63 },
+  statusAddIcon: {width: 24.63, height: 24.63},
 
   headingText: {
     fontSize: 24,

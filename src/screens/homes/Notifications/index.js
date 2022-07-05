@@ -8,81 +8,77 @@ import {
   Image,
   FlatList,
   ImageBackground,
-  statusBarStyle, statusBarTransition, hidden, StatusBar
+  statusBarStyle,
+  statusBarTransition,
+  hidden,
+  StatusBar,
 } from 'react-native';
-import React, { useState } from 'react';
-import { Box, Header, Row, Tip } from '../../../components'
+import React, {useState} from 'react';
+import {Box, Header, Row, Tip} from '../../../components';
 import Icon from 'react-native-vector-icons/Entypo';
-import { Images } from '../../../constants';
+import {Images} from '../../../constants';
 
-
-
-const Notifications = ({ route, navigation }) => {
-  const [showTip, setShowTip] = useState()
+const Notifications = ({route, navigation}) => {
+  const [showTip, setShowTip] = useState();
   const [data, setData] = useState({
-
     DataBox: [
       {
         Imgbox: Images.Pictures.statusImg5,
         name: 'Vani',
         textmessage: 'Nice Pic❤️❤️',
         messagenumber: '2',
-        Nowtext: "just now",
-
-
+        Nowtext: 'just now',
       },
       {
         Imgbox: Images.Pictures.statusImg5,
         name: 'Vani',
         textmessage: 'Ok let me see...',
         messagenumber: '1',
-        Nowtext: "1 day ago"
+        Nowtext: '1 day ago',
       },
       {
         Imgbox: Images.Pictures.statusImg5,
         name: 'Vani',
         textmessage: 'Ok let me see...',
         messagenumber: '7',
-        Nowtext: "1 day ago"
-
+        Nowtext: '1 day ago',
       },
       {
         Imgbox: Images.Pictures.statusImg5,
         name: 'Vani',
         textmessage: 'Ok let me see...',
         messagenumber: '1',
-        Nowtext: "1 day ago"
+        Nowtext: '1 day ago',
       },
       {
         Imgbox: Images.Pictures.statusImg5,
         name: 'Vani',
         textmessage: 'Ok let me see...',
         messagenumber: '3',
-        Nowtext: "just now"
+        Nowtext: 'just now',
       },
       {
         Imgbox: Images.Pictures.statusImg5,
         name: 'Vani',
         textmessage: 'Ok let me see...',
         messagenumber: '3',
-        Nowtext: "just now"
+        Nowtext: 'just now',
       },
       {
         Imgbox: Images.Pictures.statusImg5,
         name: 'Vani',
         textmessage: 'Ok let me see...',
         messagenumber: '3',
-        Nowtext: "just now"
+        Nowtext: 'just now',
       },
       {
         Imgbox: Images.Pictures.statusImg5,
         name: 'Vani',
         textmessage: 'Ok let me see...',
         messagenumber: '3',
-        Nowtext: "just now"
+        Nowtext: 'just now',
       },
-    ]
-
+    ],
   });
 
   return (
@@ -92,31 +88,29 @@ const Notifications = ({ route, navigation }) => {
       <ScrollView
         keyboardShouldPersistTaps="handled"
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={{ flexGrow: 1 }}>
+        contentContainerStyle={{flexGrow: 1}}>
         <StatusBar
           animated={true}
           backgroundColor="#000"
           barStyle={statusBarStyle}
           showHideTransition={statusBarTransition}
-          hidden={hidden} />
+          hidden={hidden}
+        />
         <View>
           <View style={styles.screenHeader}>
-            <Header
-              HeaderText
-              hiddinText1
-              text1="Notifications"
-            />
-            <View style={{ width: '95%', alignSelf: 'center', marginVertical: 10 }}>
-              <Text style={{ color: '#000', fontWeight: '400', fontSize: 16 }}>Today</Text>
+            <Header HeaderText hiddinText1 text1="Notifications" />
+            <View
+              style={{width: '95%', alignSelf: 'center', marginVertical: 10}}>
+              <Text style={{color: '#000', fontWeight: '400', fontSize: 16}}>
+                Today
+              </Text>
             </View>
-
           </View>
 
           <View style={styles.screenBody}>
-
             <FlatList
               data={data.DataBox}
-              renderItem={({ item }) => {
+              renderItem={({item}) => {
                 return (
                   <View>
                     <View
@@ -136,8 +130,8 @@ const Notifications = ({ route, navigation }) => {
                           justifyContent: 'center',
                           marginVertical: 18,
                         }}>
-                        <View style={{ flexDirection: 'row', width: '80%' }}>
-                          <View style={{ width: 60, height: 60 }}>
+                        <View style={{flexDirection: 'row', width: '80%'}}>
+                          <View style={{width: 60, height: 60}}>
                             <Image
                               source={item.Imgbox}
                               style={{
@@ -149,8 +143,8 @@ const Notifications = ({ route, navigation }) => {
                               resizeMode="contain"
                             />
                           </View>
-                          <View style={{ left: 10, marginTop: 5 }}>
-                            <View style={{ flexDirection: 'row' }}>
+                          <View style={{left: 10, marginTop: 5}}>
+                            <View style={{flexDirection: 'row'}}>
                               <Text
                                 style={{
                                   color: '#000',
@@ -160,46 +154,45 @@ const Notifications = ({ route, navigation }) => {
                                 {item.name}
                               </Text>
                               <Text
-                                style={{ marginLeft: 5, top: 3, color: '#000' }}>
+                                style={{marginLeft: 5, top: 3, color: '#000'}}>
                                 {item.textmessage}
                               </Text>
                             </View>
                             <Text>{item.Nowtext}</Text>
                           </View>
                         </View>
-                        <View style={{ marginTop: -30 }}>
-                          <Tip tooltip1 tooltipdata1 content1 onPress={true} DoteIcon={
-                            <Text>
-                              {item.Icon1}
-                            </Text>} />
+                        <View style={{marginTop: -30}}>
+                          <Tip
+                            tooltip1
+                            tooltipdata1
+                            content1
+                            onPress={true}
+                            DoteIcon={<Text>{item.Icon1}</Text>}
+                          />
                         </View>
                       </View>
                     </View>
-
                   </View>
                 );
-              }
-              }
+              }}
             />
           </View>
-
         </View>
       </ScrollView>
     </ImageBackground>
-  )
-}
+  );
+};
 export default Notifications;
 
 const styles = StyleSheet.create({
-
   Container: {
     flex: 1,
   },
   screenBody: {
     width: '100%',
     height: '100%',
+    marginBottom: 50,
     // alignSelf: 'center'
-
   },
   message: {
     fontWeight: '700',
@@ -273,13 +266,13 @@ const styles = StyleSheet.create({
     backgroundColorL: 'purple',
     width: '88%',
     // height: '100%',
-    alignSelf: 'center'
+    alignSelf: 'center',
   },
   message: {
     fontWeight: '700',
     fontSize: 18,
     color: '#000',
-    marginVertical: 10
+    marginVertical: 10,
   },
   horizental: {
     marginVertical: 10,
@@ -295,31 +288,30 @@ const styles = StyleSheet.create({
     // backgroundColor: 'pink'
   },
   cardbox: {
-
     width: '100%',
     height: 80,
     marginVertical: 10,
     borderRadius: 25,
     backgroundColor: '#fff',
     justifyContent: 'space-evenly',
-    elevation: 4
+    elevation: 4,
   },
   ImgView: {
     justifyContent: 'space-evenly',
-    width: 60, height: 60,
+    width: 60,
+    height: 60,
     borderRadius: 30,
     backgroundColor: 'grey',
-    marginLeft: 20
+    marginLeft: 20,
   },
   vani: {
     color: '#000',
     fontSize: 20,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
   },
   just_now_text: {
     color: 'blue',
-    fontSize: 16
-
+    fontSize: 16,
   },
   btn: {
     width: 60,
@@ -330,14 +322,9 @@ const styles = StyleSheet.create({
   Icon: {
     width: '5%',
     alignSelf: 'center',
-    marginVertical: 10
-  }
-
-})
-
-
-
-
+    marginVertical: 10,
+  },
+});
 
 // <ImageBackground
 //       style={styles.imageContainer}
@@ -349,7 +336,6 @@ const styles = StyleSheet.create({
 //         contentContainerStyle={{ flexGrow: 1 }}>
 //         <View style={styles.Body}>
 //           <View style={{}}>
-
 
 //             <Text style={styles.message}>Notification</Text>
 //           </View>
@@ -465,6 +451,5 @@ const styles = StyleSheet.create({
 //                                   </View>
 //                                 </View>
 //                                 <View style={{
-
 
 //                                 }}></View>

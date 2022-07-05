@@ -22,7 +22,7 @@ import {
 } from '../../../components';
 import {Images} from '../../../constants';
 
-const SignUp = ({props, navigation}) => {
+const SignUp = props => {
   const [state, setState] = useState({
     firsttName: '',
     lastName: '',
@@ -294,7 +294,7 @@ const SignUp = ({props, navigation}) => {
             <Text style={styles.footerText1}>Having trouble</Text>
             <TouchableOpacity
               activeOpacity={0.7}
-              onPress={() => props.navigation.naivgate('contactUs')}>
+              onPress={() => props.navigation.navigate('contactUs')}>
               <Text style={styles.footerText2}>Contact us</Text>
             </TouchableOpacity>
           </View>

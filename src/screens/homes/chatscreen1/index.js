@@ -9,17 +9,20 @@ import {
   TouchableHighlight,
   ImageBackground,
   TouchableOpacity,
-  statusBarStyle, statusBarTransition, StatusBar, hidden
+  statusBarStyle,
+  statusBarTransition,
+  StatusBar,
+  hidden,
 } from 'react-native';
-import React, { useState } from 'react';
-import { Box, Header, StatusView } from '../../../components';
+import React, {useState} from 'react';
+import {Box, Header, StatusView} from '../../../components';
 import Icon from 'react-native-vector-icons/AntDesign';
-import { Images } from '../../../constants';
+import {Images} from '../../../constants';
 import Swipeable from 'react-native-swipeable';
-import { Item } from 'native-base';
+import {Item} from 'native-base';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-import { TextInput } from 'react-native-gesture-handler';
-const ChatScreen1 = ({ navigation, }) => {
+import {TextInput} from 'react-native-gesture-handler';
+const ChatScreen1 = ({navigation}) => {
   const [data, setData] = useState({
     DataBox: [
       {
@@ -212,11 +215,11 @@ const ChatScreen1 = ({ navigation, }) => {
         backgroundColor="#000"
         barStyle={statusBarStyle}
         showHideTransition={statusBarTransition}
-        hidden={hidden} />
+        hidden={hidden}
+      />
       <ImageBackground
         style={styles.imageContainer}
         source={Images.Pictures.appBg}>
-
         <View style={styles.Body}>
           <Text style={styles.chat}>Chat</Text>
           <View
@@ -232,15 +235,15 @@ const ChatScreen1 = ({ navigation, }) => {
             }}>
             <AntDesign color="grey" size={18} name="search1" />
             <TextInput
-              style={{ width: '85%', height: '100%' }}
+              style={{width: '85%', height: '100%'}}
               placeholder="Search chat here"
             />
           </View>
           <ScrollView
             keyboardShouldPersistTaps="handled"
             showsVerticalScrollIndicator={false}
-            contentContainerStyle={{ flexGrow: 1 }}>
-            <View style={{ marginBottom: 10 }}>
+            contentContainerStyle={{flexGrow: 1}}>
+            <View style={{marginBottom: 10}}>
               <Text style={styles.message}>Quick Message</Text>
             </View>
             <View style={styles.statusBoxView}>
@@ -248,9 +251,9 @@ const ChatScreen1 = ({ navigation, }) => {
                 horizontal={true}
                 showsHorizontalScrollIndicator={false}
                 data={statusData}
-                renderItem={({ item }) => {
+                renderItem={({item}) => {
                   return (
-                    <View style={{ paddingLeft: 10 }}>
+                    <View style={{paddingLeft: 10}}>
                       <StatusView
                         imgName={item.imgName}
                         width={item.width}
@@ -267,30 +270,30 @@ const ChatScreen1 = ({ navigation, }) => {
             <View style={{}}>
               <Text style={styles.message}>Message</Text>
             </View>
-            <FlatList
-              data={data.DataBox}
-              renderItem={({ item }) => {
-                return (
-                  <View style={{}}>
-                    <Box
-                      SwipeableText
-                      Image1={item.Imgbox}
-                      name={item.name}
-                      Nowtext={item.Nowtext}
-                      messagenumber={item.messagenumber}
-                      textmessage={item.textmessage}
-                      onPress={() => {
-                        navigation.navigate('Homes', { screen: 'chatscreen' });
-                      }}
-                    />
-                  </View>
-                );
-              }}
-            />
+            <View style={{marginBottom: 120}}>
+              <FlatList
+                data={data.DataBox}
+                renderItem={({item}) => {
+                  return (
+                    <View style={{}}>
+                      <Box
+                        SwipeableText
+                        Image1={item.Imgbox}
+                        name={item.name}
+                        Nowtext={item.Nowtext}
+                        messagenumber={item.messagenumber}
+                        textmessage={item.textmessage}
+                        onPress={() => {
+                          navigation.navigate('Homes', {screen: 'chatscreen'});
+                        }}
+                      />
+                    </View>
+                  );
+                }}
+              />
+            </View>
           </ScrollView>
-
         </View>
-
       </ImageBackground>
     </SafeAreaView>
   );
@@ -306,7 +309,8 @@ const styles = StyleSheet.create({
     width: '90%',
     // height: '100%',
     alignSelf: 'center',
-    paddingBottom: 30
+    paddingBottom: 30,
+    marginBottom: 100,
   },
   chat: {
     marginTop: 25,

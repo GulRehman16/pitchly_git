@@ -101,6 +101,7 @@ const Box = ({
         alignSelf: 'flex-end',
 
         marginTop: 10,
+        
       }}>
       <Icon
         name="trash"

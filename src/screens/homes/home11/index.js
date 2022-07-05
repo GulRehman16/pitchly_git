@@ -327,11 +327,10 @@ const Home11 = props => {
                   borderRadius: 5,
                 }}>
                 <Text
-                  numberOfLines={1}
                   style={{
                     color: 'black',
                     fontWeight: 'bold',
-                    fontSize: 16,
+                    fontSize: 13,
                     letterSpacing: 1,
                   }}>
                   Featured Post
