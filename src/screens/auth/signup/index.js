@@ -21,7 +21,8 @@ import {
   CheckBox,
 } from '../../../components';
 import {Images} from '../../../constants';
-
+import { useDispatch } from 'react-redux';
+import { login } from '../../../../Redux/Actions';
 const SignUp = props => {
   const [state, setState] = useState({
     firsttName: '',
@@ -36,7 +37,7 @@ const SignUp = props => {
     secureText: true,
     secureText2: true,
   });
-
+ const dispatch = useDispatch();
   return (
     <ImageBackground
       style={styles.imageContainer}
@@ -252,7 +253,7 @@ const SignUp = props => {
                 borderColor={'#707070'}
                 backgroundColor={'#FFFFFF'}
                 label="Sign Up"
-                onPress={() => props.navigation.replace('login')}
+                onPress={() => {props.navigation.replace('login'),dispatch(login('Userlogin'))}}
               />
             </View>
           </View>

@@ -6,3 +6,11 @@ export const addlocation = (data) => {
         }
     }
 }
+export const login = (data) => {
+    return {
+        type: 'LOGIN_USER',
+        payload: {
+            data: data
+        }
+    }
+}

@@ -320,8 +320,8 @@ const PostBox = ({
                   onPress={
                     () =>
                       GetFeture === true
-                        ? navigation.replace('Homes', {screen: 'getfeatured'})
-                        : navigation.replace('Homes', {
+                        ? navigation.navigate('Homes', {screen: 'getfeatured'})
+                        : navigation.navigate('Homes', {
                             screen: 'productdetails',
                           })
                     // navigation.replace('MyTabs', { screen: 'profile' })

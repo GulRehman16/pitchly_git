@@ -57,6 +57,7 @@ import Account from '../../screens/homes/account';
 import StorieView from '../../screens/homes/storieview';
 import Storyreplay from '../../screens/homes/storyReplay';
 import Picview from '../../screens/homes/picView';
+import {useSelector} from 'react-redux';
 // import AddTelent from '../../screens/homes/AddTelent'
 
 const Stack = createNativeStackNavigator();
@@ -378,6 +379,7 @@ export const Homes = () => {
 };
 
 const MyStack = () => {
+  // const login = useSelector(state => state.locationReducer.location.data);
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Auth">

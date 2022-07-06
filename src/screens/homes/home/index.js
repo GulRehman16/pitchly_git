@@ -429,6 +429,19 @@ const Home = ({feture, navigation}) => {
                 </TouchableOpacity>
                 <Text>You</Text>
               </View>
+              <View style={styles.statusAddView1}>
+                <TouchableOpacity
+                  onPress={() =>
+                    navigation.navigate('Homes', {screen: 'storyreplay'})
+                  }
+                  style={styles.statusAddBox}>
+                  <Image
+                    source={Images.Pictures.statusImg3}
+                    style={styles.statusAddIcon1}
+                  />
+                </TouchableOpacity>
+                <Text>You</Text>
+              </View>
               <FlatList
                 horizontal={true}
                 showsHorizontalScrollIndicator={false}
@@ -775,6 +788,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginLeft: 5,
   },
+  statusAddView1: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginLeft: 10,
+  },
   statusAddBox: {
     width: 65,
     height: 65,
@@ -785,6 +803,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   statusAddIcon: {width: 24.63, height: 24.63},
+  statusAddIcon1: {width: 60, height: 60, borderRadius: 10},
   pitchlyFeatured: {
     width: '100%',
     marginTop: 15,

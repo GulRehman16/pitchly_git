@@ -30,7 +30,7 @@ const Talent = ({feture, navigation}) => {
       boxTitle: 'Talent Name',
       boxDetail:
         ' Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diamnonumy eirmod tempor...',
-
+ 
       singleImg: Images.Pictures.talent,
       checksingle: 'false',
 

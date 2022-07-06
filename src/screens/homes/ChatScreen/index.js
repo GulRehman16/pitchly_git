@@ -408,16 +408,7 @@ const ChatScreen = props => {
                               {message?.text}{' '}
                             </Text>
                           </View>
-                          {/* <View
-                          style={{
-                            // backgroundColor: 'green',
-                            alignSelf: 'center',
-                            width: 3.6,
-                            height: 18,
-                            marginLeft: 5,
-                            marginRight: 5,
-                            justifyContent: 'space-between',
-                          }}></View> */}
+                    
                         </TouchableOpacity>
 
                         <View

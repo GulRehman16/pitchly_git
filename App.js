@@ -10,7 +10,8 @@ import Profile from './src/screens/homes/profile';
 import Picview from './src/screens/homes/picView';
 import StorieView from './src/screens/homes/storieview';
 import {Provider} from 'react-redux';
-import store from './Redux/store';
+import {store, persistor} from './Redux/store';
+import {PersistGate} from 'redux-persist/integration/react';
 
 const App = props => {
   // return <Profile />
@@ -19,7 +20,9 @@ const App = props => {
 
   return (
     <Provider store={store}>
-      <MyStack {...props} />
+      <PersistGate loading={null} persistor={persistor}>
+        <MyStack {...props} />
+      </PersistGate>
     </Provider>
   );
 
