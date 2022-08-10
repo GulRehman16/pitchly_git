@@ -4,8 +4,6 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { Images } from '../../constants';
 import LinearGradient from 'react-native-linear-gradient';
 
-
-
 const TabBar = props => {
   const { state } = props;
   const tabs = [

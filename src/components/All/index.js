@@ -12,7 +12,6 @@ import {Images, Themes} from '../../constants';
 import LinearGradient from 'react-native-linear-gradient';
 import {PostBox, SuggestFriends} from '../../components';
 import {useNavigation} from '@react-navigation/native';
-
 const AllMixed = ({props, feture, SuggestFriend}) => {
   const navigation = useNavigation();
   const statusData2 = [
@@ -121,7 +120,6 @@ const AllMixed = ({props, feture, SuggestFriend}) => {
       checksingle: false,
       checkfollow: false,
       feture: false,
-
       // Press: () => navigation.navigate('Homes', { screen: 'profile' })
       // Press: () => navigation.navigate("Homes", { screen: 'Notifications' })
     },

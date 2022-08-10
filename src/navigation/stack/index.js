@@ -376,7 +376,6 @@ export const Homes = () => {
     </Stack.Navigator>
   );
 };
-
 const MyStack = () => {
   return (
     <NavigationContainer>

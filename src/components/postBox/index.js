@@ -44,7 +44,7 @@ const PostBox = ({
   ImgPress1,
   star,
 }) => {
-  const [Grid, setGrid] = useState(checksingle);
+  const [Grid, setGrid] = useState();
   console.log('Grid', Grid);
 
   const navigation = useNavigation();
@@ -85,7 +85,6 @@ const PostBox = ({
         <View style={{alignSelf: 'flex-end', marginTop: -35, marginRight: 5}}>
           <Tip tooltipdata3={true} content1={true} />
         </View>
-
         <View style={{width: '100%', marginTop: 20}}>
           <Text style={{fontSize: 14, fontWeight: 'bold', color: 'black'}}>
             {boxTitle}
@@ -108,7 +107,6 @@ const PostBox = ({
             </Text>
           </View>
         </View>
-
         <View
           style={{
             width: '100%',
@@ -270,11 +268,13 @@ const PostBox = ({
           )}
         </View>
         <View
+        
           style={{
             height: 25,
             width: '100%',
             flexDirection: 'row',
             alignItems: 'center',
+            bottom: -15,
           }}>
           <Text
             style={{
